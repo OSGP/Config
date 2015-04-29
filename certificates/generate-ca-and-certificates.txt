@@ -1,0 +1,201 @@
+
+- create the cakey.pem:
+
+run the bat script create_cakey.pem, enter the pass phrase when prompted (remember the pass phrase as this password is needed whenever a certificate request needs to be signed!)
+
+the pass phrase chosen: 1234
+
+D:\OSPG\OSGP\config\certificates>create_cakey.bat
+########################################################################
+# Create CA Key: osgp-ca\keys\cakey.pem
+########################################################################
+Loading 'screen' into random state - done
+Generating RSA private key, 4096 bit long modulus
+........................++
+.....................................................................................................++
+e is 65537 (0x10001)
+Enter pass phrase for osgp-ca\keys\cakey.pem:
+Verifying - Enter pass phrase for osgp-ca\keys\cakey.pem:
+
+
+
+
+
+
+
+- create the cacert.cer (using cakey.pem):
+
+run the bat script create_cacert.bat, enter the pass phrase (1234) and answer the questions
+
+D:\OSPG\OSGP\config\certificates>create_cacert.bat
+########################################################################
+# Create CA Key: osgp-ca\certs\cacert.cer
+########################################################################
+Enter pass phrase for osgp-ca\keys\cakey.pem:
+Loading 'screen' into random state - done
+You are about to be asked to enter information that will be incorporated
+into your certificate request.
+What you are about to enter is what is called a Distinguished Name or a DN.
+There are quite a few fields but you can leave some blank
+For some fields there will be a default value,
+If you enter '.', the field will be left blank.
+-----
+Country Name (2 letter code) []:NL
+State or Province Name (full name) []:Gelderland
+Locality Name (eg, city) []:Arnhem
+Organization Name (eg, company) []:OSGP
+Organizational Unit Name (eg, section) []:OSGP
+Common Name (eg, your websites domain name) []:OSGP
+Email Address []:address@OSGP.com
+
+
+
+
+
+- create an empty file called database.txt and a file called serial.txt with the contents of '01'
+
+- create a server certificate for 'localhost' as CN
+
+run the script create_server_cert.bat using arguments 'localhost 1234 1234'
+
+D:\OSPG\OSGP\config\certificates>create_server_cert.bat localhost 1234 1234
+########################################################################
+# Create certificate request: osgp-ca\requests\localhost.req.pem
+########################################################################
+Loading 'screen' into random state - done
+Generating a 2048 bit RSA private key
+..........................................................................................+++
+....+++
+writing new private key to 'osgp-ca\private\localhost.key.pem'
+-----
+########################################################################
+# Sign certificate request: osgp-ca\certs\localhost.cert.pem
+########################################################################
+Using configuration from osgp-ca.cfg
+Loading 'screen' into random state - done
+Check that the request matches the signature
+Signature ok
+The Subject's Distinguished Name is as follows
+commonName            :PRINTABLE:'localhost'
+Certificate is to be certified until Apr 27 16:24:33 2018 GMT (1095 days)
+
+Write out database with 1 new entries
+Data Base Updated
+########################################################################
+# Create PKCS12 file: osgp-ca\certs\localhost.pfx
+########################################################################
+Loading 'screen' into random state - done
+
+
+
+
+
+
+
+- create a client certificate for 'test-org' as CN
+
+run the script create_client_cert.bat using argument 'test-org 1234 1234'
+
+D:\OSPG\OSGP\config\certificates>create_client_cert.bat test-org 1234 1234
+########################################################################
+# Create certificate request: osgp-ca\requests\test-org.req.pem
+########################################################################
+Loading 'screen' into random state - done
+Generating a 2048 bit RSA private key
+.....+++
+.....+++
+writing new private key to 'osgp-ca\private\test-org.key.pem'
+-----
+########################################################################
+# Sign certificate request: osgp-ca\certs\test-org.cert.pem
+########################################################################
+Using configuration from osgp-ca.cfg
+Loading 'screen' into random state - done
+Check that the request matches the signature
+Signature ok
+The Subject's Distinguished Name is as follows
+commonName            :PRINTABLE:'test-org'
+Certificate is to be certified until Apr 27 17:03:51 2018 GMT (1095 days)
+
+Write out database with 1 new entries
+Data Base Updated
+########################################################################
+# Create PKCS12 file: osgp-ca\certs\test-org.pfx
+########################################################################
+Loading 'screen' into random state - done
+
+
+
+
+
+
+
+
+- create the java keystore
+
+D:\OSPG\OSGP\config\certificates>"c:\Program Files\Java\jdk1.7.0_55\bin\keytool.exe" -importcert -trustcacerts -file osg
+p-ca\certs\localhost.cert.pem -keystore trust.jks -storepass 123456 -noprompt -alias localhost
+Certificate was added to keystore
+
+D:\OSPG\OSGP\config\certificates>"c:\Program Files\Java\jdk1.7.0_55\bin\keytool.exe" -importcert -trustcacerts -file osg
+p-ca\certs\cacert.cer -keystore trust.jks -storepass 123456 -noprompt -alias osgp-ca
+Certificate was added to keystore
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+- generate ecdsa key pairs for platform and device simulator
+
+# generate private key
+D:\OSPG\OSGP\config\certificates\OpenSSL-Win32_1.0.1h_Light\bin>openssl ecparam -genkey -name prime256v1 -out oslp_test_ecdsa_private.pem
+WARNING: can't open config file: /usr/local/ssl/openssl.cnf
+Loading 'screen' into random state - done
+
+# generate public key
+D:\OSPG\OSGP\config\certificates\OpenSSL-Win32_1.0.1h_Light\bin>openssl ec -in oslp_test_ecdsa_private.pem -out oslp_test_ecdsa_public.pem -pubout
+WARNING: can't open config file: /usr/local/ssl/openssl.cnf
+read EC key
+writing EC key
+
+# convert private key from pem to der
+D:\OSPG\OSGP\config\certificates\OpenSSL-Win32_1.0.1h_Light\bin>openssl pkcs8 -topk8 -in oslp_test_ecdsa_private.pem -out oslp_test_ecdsa_private.der -outform der -nocrypt
+WARNING: can't open config file: /usr/local/ssl/openssl.cnf
+
+# convert public key from pem to der
+D:\OSPG\OSGP\config\certificates\OpenSSL-Win32_1.0.1h_Light\bin>openssl ec -in oslp_test_ecdsa_public.pem -out oslp_test_ecdsa_public.der -outform der -pubin -pubout
+WARNING: can't open config file: /usr/local/ssl/openssl.cnf
+read EC key
+writing EC key
+
+# generate private key
+D:\OSPG\OSGP\config\certificates\OpenSSL-Win32_1.0.1h_Light\bin>openssl ecparam -genkey -name prime256v1 -out oslp_sim_ecdsa_private.pem
+WARNING: can't open config file: /usr/local/ssl/openssl.cnf
+Loading 'screen' into random state - done
+
+# generate public key
+D:\OSPG\OSGP\config\certificates\OpenSSL-Win32_1.0.1h_Light\bin>openssl ec -in oslp_sim_ecdsa_private.pem -out oslp_sim_ecdsa_public.pem -pubout
+WARNING: can't open config file: /usr/local/ssl/openssl.cnf
+read EC key
+writing EC key
+
+# convert private key from pem to der
+D:\OSPG\OSGP\config\certificates\OpenSSL-Win32_1.0.1h_Light\bin>openssl pkcs8 -topk8 -in oslp_sim_ecdsa_private.pem -out oslp_sim_ecdsa_private.der -outform der -nocrypt
+WARNING: can't open config file: /usr/local/ssl/openssl.cnf
+
+# convert public key from pem to der
+D:\OSPG\OSGP\config\certificates\OpenSSL-Win32_1.0.1h_Light\bin>openssl ec -in oslp_sim_ecdsa_public.pem -out oslp_sim_ecdsa_public.der -outform der -pubin -pubout
+WARNING: can't open config file: /usr/local/ssl/openssl.cnf
+read EC key
+writing EC key

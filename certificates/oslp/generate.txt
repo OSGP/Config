@@ -1,0 +1,19 @@
+prime256v1: X9.62/SECG curve over a 256 bit prime field
+
+
+# Generate key pair for platform
+
+openssl ecparam -genkey -name prime256v1 -out oslp_test_ecdsa_private.pem
+openssl ec -in oslp_test_ecdsa_private.pem -out oslp_test_ecdsa_public.pem -pubout
+
+openssl pkcs8 -topk8 -in oslp_test_ecdsa_private.pem -out oslp_test_ecdsa_private.der -outform der -nocrypt
+openssl ec -in oslp_test_ecdsa_public.pem -out oslp_test_ecdsa_public.der -outform der -pubin -pubout
+
+
+# Generate key pair for device simulator
+
+openssl ecparam -genkey -name prime256v1 -out oslp_sim_ecdsa_private.pem
+openssl ec -in oslp_sim_ecdsa_private.pem -out oslp_sim_ecdsa_public.pem -pubout
+
+openssl pkcs8 -topk8 -in oslp_sim_ecdsa_private.pem -out oslp_sim_ecdsa_private.der -outform der -nocrypt
+openssl ec -in oslp_sim_ecdsa_public.pem -out oslp_sim_ecdsa_public.der -outform der -pubin -pubout

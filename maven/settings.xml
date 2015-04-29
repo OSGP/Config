@@ -1,0 +1,13 @@
+<settings>
+  <profiles>
+    <profile>
+      <id>compiler</id>
+        <properties>
+          <JAVA_1_7_HOME>/usr/lib/jvm/java-1.7.0-openjdk-amd64</JAVA_1_7_HOME>
+        </properties>
+    </profile>
+  </profiles>
+  <activeProfiles>
+	<activeProfile>compiler</activeProfile>
+  </activeProfiles>
+</settings>
