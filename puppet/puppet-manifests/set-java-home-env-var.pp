@@ -9,7 +9,7 @@ node 'dev-box' {
 	}
 
 	exec { 'source .bashrc':
-		command => '/bin/sh -c "source /home/dev/.bashrc"'
+		command => '/bin/sh -c "source /home/dev/.bashrc"',
 		returns => [0],
 	}
 
