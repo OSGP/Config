@@ -6,6 +6,11 @@ node 'dev-box' {
 	package { 'vim':
 		ensure => installed,
 	}
+	
+	# The same goes for htop.
+	package { 'htop':
+		ensure => installed,
+	}
 
 	# Tomcat7 is used as application server.
 	exec { 'wget tomcat7':

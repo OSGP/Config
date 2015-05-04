@@ -46,6 +46,7 @@ sudo puppet apply $NOOP ./puppet-manifests/create-source-code-folder.pp
 sudo puppet apply $NOOP ./puppet-manifests/clone-repositories.pp
 sudo puppet apply $NOOP ./puppet-manifests/repositories-checkout-development-branch.pp
 sudo puppet apply $NOOP ./puppet-manifests/repositories-init-submodules.pp
+sudo puppet apply $NOOP ./puppet-manifests/chown-source-folders.pp
 
 echo "##############################################################"
 echo "## Creating config and loggin folders                       ##"

@@ -14,15 +14,17 @@ To set up a development environment using puppet scripts, follow these steps:
 ### Manual steps
 After the needed software has downloaded and installed and the configuration has been made, continue with these manual steps:
 
-- open eclipse and import the projects like so: File -> Import -> Existing Maven Projects, browse to folder /home/dev/Sources and start with Shared, then Platform and then Protocol-Adapter-OSLP
+- open eclipse (the executable can be found in the folder /home/dev/Download/eclipse*/eclipse) and import the projects like so: File -> Import -> Existing Maven Projects, browse to folder /home/dev/Sources and start with Shared, then Platform and then Protocol-Adapter-OSLP
 - show the 'Debug' and 'Git' perspectives
 - in the 'Debug' perspective, go to the 'Servers' view and add a new Apache Tomcat7 server, Tomcat7 is available in the folder /home/dev/Downloads/apache-tomcat-7.0.61
 - after adding the server, double click on the Tomcat server in the 'Servers' view and set the following configuration: under 'Timeouts' set 'Start' to 600 and 'Stop' to 300
-- then click on 'Open launch configuration', click on the 'Arguments' tab and add the following to the 'VM arguments': -Xms512m -Xmx2048m -Xss512k -XX:MaxPermSize=1024m -XX:+CMSClassUnloadingEnabled -XX:+UseConcMarkSweepGC -Dcom.sun.management.jmxremote=true
+- then click on 'Open launch configuration', click on the 'Arguments' tab and add the following at the end of the 'VM arguments' string: -Xms512m -Xmx2048m -Xss512k -XX:MaxPermSize=1024m -XX:+CMSClassUnloadingEnabled -XX:+UseConcMarkSweepGC -Dcom.sun.management.jmxremote=true
+- create a symlink to the Maven setting file using this command: sudo ln -s /home/dev/Sources/Config/maven/settings.xml /home/dev/.m2
+- setup the Tomcat7 context.xml in the eclipse Servers folder, by copying the entries in /home/dev/Sources/Config/tomcat/context.xml to map configuration file names to file paths.
 - continue with adding the project to the Tomcat server by right clicking on the Tomcat server and choosing 'Add and Remove', and clicking on the 'Add All' button
 - at this point, eclipse's auto-build should have built the projects, and the Tomcat server has been setup
 
-- continue with starting Apache ActiveMQ: open a terminal and go to the folder /home/dev/Downloads/apache-activemq-5.11.1/bin/linux-x86-64 and then use the command: sudo ./activemq console
+- continue with starting Apache ActiveMQ (the executable can be found in the folder /home/dev/Downloads/apache-activemq-*/bin/linux-x86-64): by opening a terminal and use the command: sudo ./activemq console to start ActiveMQ as a terminal process (this way, ActiveMQ doesn't detach from the terminal and starts running as a daemon)
 - with ActiveMQ running, the Tomcat7 server can be started
 
 - open pgAdminIII and configure a connection: choose the 'Add a connection to a server.' and fill out the fields using Host localhost, Port 5432, Username osp_admin and Password 1234
