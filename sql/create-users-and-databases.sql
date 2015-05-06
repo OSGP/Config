@@ -47,9 +47,12 @@ CREATE DATABASE osp_logging
 -- Create the readonly users
 
 CREATE USER osgp_read_only_ws_user WITH PASSWORD '1234' NOSUPERUSER;
-GRANT SELECT ON ALL SEQUENCES IN SCHEMA public TO osgp_read_only_ws_user;
-GRANT SELECT ON ALL TABLES IN SCHEMA public TO osgp_read_only_ws_user;
-
 
 CREATE USER osgp_core_db_api_user PASSWORD '1234' NOSUPERUSER;
-GRANT SELECT ON public.device TO osgp_core_db_api_user;
+
+
+
+-- Insert the test org
+
+INSERT INTO organisation(id, creation_time, modification_time, version, function_group, name, organisation_identification, enabled, domains, prefix)
+    VALUES (nextval('organisation_id_seq'),'2013-01-01 00:00:00','2013-01-01 00:00:00',0,0,'test-org','test-org', TRUE, 'COMMON;PUBLIC_LIGHTING;TARIFF_SWITCHING;', 'TSO');
