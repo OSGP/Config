@@ -8,7 +8,7 @@ node 'dev-box' {
 	}
 
 	exec { 'Protocol-Adapter-OSLP repo':
-		command => '/bin/sh -c "cd /home/dev/Sources/Protocol-Adapter-OSLP; /usr/bin/git update --init --recursive"',
+		command => '/bin/sh -c "cd /home/dev/Sources/Protocol-Adapter-OSLP; /usr/bin/git submodule update --init --recursive"',
 		returns => [0,1,128],
 	}
 
