@@ -28,7 +28,7 @@ After the needed software has downloaded and installed and the configuration has
 - with ActiveMQ running, the Tomcat7 server can be started
 
 - open pgAdminIII and configure a connection: choose the 'Add a connection to a server.' and fill out the fields using Host localhost, Port 5432, Username osp_admin and Password 1234
-- run the script (/home/dev/Sources/config/scripts/sql/create-test-org.sql) to insert 'test-org' organization
+- run the script (/home/dev/Sources/Config/sql/create-test-org.sql) to insert 'test-org' organization
 
 ### SoapUI setup
 In order to use the webservice, SoapUI can be used.
@@ -51,6 +51,7 @@ In order to use the webservice, SoapUI can be used.
 - in the interface properties for a request, choose test-org.pfx as SSL Keystore (NOTE THAT THIS HAS TO BE DONE FOR EACH REQUEST)
 
 - choose the UpdateKey request from the admin SOAP Project using this example:
+```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.alliander.com/schemas/osgp/common/2014/10" xmlns:ns1="http://www.alliander.com/schemas/osgp/admin/devicemanagement/2014/10">
    <soapenv:Header>
       <ns:ApplicationName>APPLICATION_NAME</ns:ApplicationName>
@@ -63,8 +64,9 @@ In order to use the webservice, SoapUI can be used.
       </ns1:UpdateKeyRequest>
    </soapenv:Body>
 </soapenv:Envelope>
-
+```
 - continue with the FindAllDevices request from the public-lighting SOAP Project using this example:
+```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.alliander.com/schemas/osgp/common/2014/10" xmlns:ns1="http://www.alliander.com/schemas/osgp/publiclighting/adhocmanagement/2014/10">
    <soapenv:Header>
       <ns:ApplicationName>APPLICATION_NAME</ns:ApplicationName>
@@ -77,8 +79,10 @@ In order to use the webservice, SoapUI can be used.
       </ns1:FindAllDevicesRequest>
    </soapenv:Body>
 </soapenv:Envelope>
+```
 
 - the response should contain SSLD_000-00-01:
+```xml
 <SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
    <SOAP-ENV:Header/>
    <SOAP-ENV:Body>
@@ -96,6 +100,7 @@ In order to use the webservice, SoapUI can be used.
       </ns2:FindAllDevicesResponse>
    </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
+```
 
 - in order to use SSLD_000-00-01, open the OSLP device simulator: https://localhost/web-device-simulator/devices
 - click on 'Add Device' and fill out the fields like so: 'Device identification' SSLD_000-00-01, 'IP address' 127.0.0.1 and 'Device type' SSLD, then click on 'Create Device'
@@ -104,6 +109,7 @@ In order to use the webservice, SoapUI can be used.
 - then click on the 'Confirm device registration', the message should read: 'Device with identification SSLD_000-00-01 was confirmed to be registered.'
 
 - using SoapUI again, issue a SetLight request using the public-lighting SOAP Project:
+```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.alliander.com/schemas/osgp/common/2014/10" xmlns:ns1="http://www.alliander.com/schemas/osgp/publiclighting/adhocmanagement/2014/10">
    <soapenv:Header>
       <ns:ApplicationName>APPLICATION_NAME</ns:ApplicationName>
@@ -124,7 +130,8 @@ In order to use the webservice, SoapUI can be used.
       </ns1:SetLightRequest>
    </soapenv:Body>
 </soapenv:Envelope>
-- in the home screen of the OSLP device simulator, the lightbuld should light up
+```
+- in the home screen of the OSLP device simulator, the lightbuld should light up for SSLD_000-00-01
 
 ### Contributing
 Tell us what you think, add some code or change something.
