@@ -28,7 +28,7 @@ After the needed software has downloaded and installed and the configuration has
 - with ActiveMQ running, the Tomcat7 server can be started
 
 - open pgAdminIII and configure a connection: choose the 'Add a connection to a server.' and fill out the fields using Host localhost, Port 5432, Username osp_admin and Password 1234
-- run the script (/home/dev/Sources/Config/sql/create-test-org.sql) to insert 'test-org' organization
+- run the script (/home/dev/Sources/Config/sql/create-test-org.sql) to insert 'test-org' organization into the organisation table of the osgp_core database
 
 ### SoapUI setup
 In order to use the webservice, SoapUI can be used.
@@ -131,7 +131,7 @@ In order to use the webservice, SoapUI can be used.
    </soapenv:Body>
 </soapenv:Envelope>
 ```
-- in the home screen of the OSLP device simulator, the lightbuld should light up for SSLD_000-00-01
+- in the home screen of the OSLP device simulator, the lightbulb should light up for SSLD_000-00-01
 
 ### Contributing
 Tell us what you think, add some code or change something.
