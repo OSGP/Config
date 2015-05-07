@@ -50,7 +50,7 @@ In order to use the webservice, SoapUI can be used.
 
 - in the interface properties for a request, choose test-org.pfx as SSL Keystore (NOTE THAT THIS HAS TO BE DONE FOR EACH REQUEST)
 
-- choose the UpdateKey request from the admin SOAP Project using this example:
+- a SSLD needs to be added, together with a public key. The UpdateKey function of the admin webservice offers that functionality. Choose the UpdateKey request from the admin SOAP Project using this example:
 ```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.alliander.com/schemas/osgp/common/2014/10" xmlns:ns1="http://www.alliander.com/schemas/osgp/admin/devicemanagement/2014/10">
    <soapenv:Header>
@@ -60,12 +60,13 @@ In order to use the webservice, SoapUI can be used.
    </soapenv:Header>
    <soapenv:Body>
       <ns1:UpdateKeyRequest>
-         <ns1:DeviceIdentification>SSLD_000-00-01</ns1:DeviceIdentification>         <ns1:PublicKey>MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEFhUImXFJdqmputquVAc2CPdnn9Ju00M3m/Ice7wABNN+oAYKQbw/OceqvZmFF1+r4nO/vCm/f1JO5nEorE2jNQ==</ns1:PublicKey>
+         <ns1:DeviceIdentification>SSLD_000-00-01</ns1:DeviceIdentification>
+         <ns1:PublicKey>MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEFhUImXFJdqmputquVAc2CPdnn9Ju00M3m/Ice7wABNN+oAYKQbw/OceqvZmFF1+r4nO/vCm/f1JO5nEorE2jNQ==</ns1:PublicKey>
       </ns1:UpdateKeyRequest>
    </soapenv:Body>
 </soapenv:Envelope>
 ```
-- continue with the FindAllDevices request from the public-lighting SOAP Project using this example:
+- after the SSLD has been added, let's see if the FunctionFindAllDevices shows the SSLD. Continue with the FindAllDevices request from the public-lighting SOAP Project using this example:
 ```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.alliander.com/schemas/osgp/common/2014/10" xmlns:ns1="http://www.alliander.com/schemas/osgp/publiclighting/adhocmanagement/2014/10">
    <soapenv:Header>
@@ -102,13 +103,13 @@ In order to use the webservice, SoapUI can be used.
 </SOAP-ENV:Envelope>
 ```
 
-- in order to use SSLD_000-00-01, open the OSLP device simulator: https://localhost/web-device-simulator/devices
+- in order to be able to use SSLD_000-00-01, the device needs to be created in the device simulator. Open the OSLP device simulator: https://localhost/web-device-simulator/devices
 - click on 'Add Device' and fill out the fields like so: 'Device identification' SSLD_000-00-01, 'IP address' 127.0.0.1 and 'Device type' SSLD, then click on 'Create Device'
 - then, click on the newly created device, and click the 'Register device' button
 - wait a little while until the message 'Device with identification SSLD_000-00-01 was registered at 20150507112143.' appears
 - then click on the 'Confirm device registration', the message should read: 'Device with identification SSLD_000-00-01 was confirmed to be registered.'
 
-- using SoapUI again, issue a SetLight request using the public-lighting SOAP Project:
+- now the device is known in the platform, and the device simulator has been set up, the device can be used. Let's try to switch on the light. Using SoapUI again, issue a SetLight request using the public-lighting SOAP Project:
 ```xml
 <soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.alliander.com/schemas/osgp/common/2014/10" xmlns:ns1="http://www.alliander.com/schemas/osgp/publiclighting/adhocmanagement/2014/10">
    <soapenv:Header>
