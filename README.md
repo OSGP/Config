@@ -42,11 +42,11 @@ In order to use the webservice, SoapUI can be used.
 
 - create a new SOAP Project and call it admin
 - in the project view goto 'WS-Security Configurations' and open the tab 'Keystores' and add the test-org.pfx file there
-- right click the admin project and choose 'Add WSDL' using url https://localhost/osgp-adapter-ws-admin/wsdl/Admin/DeviceManagement.wsld
+- right click the admin project and choose 'Add WSDL' using url https://localhost/osgp-adapter-ws-admin/wsdl/Admin/DeviceManagement.wsdl
 
 - create a new SOAP Project and call it public-lighting
 - in the project view goto 'WS-Security Configurations' and open the tab 'Keystores' and add the test-org.pfx file there
-- right click the public-lighting project and choose 'Add WSDL' using url https://localhost/osgp-adapter-ws-publiclighting/wsdl/PublicLighting/PublicLightingAdHocManagement.wsld
+- right click the public-lighting project and choose 'Add WSDL' using url https://localhost/osgp-adapter-ws-publiclighting/wsdl/PublicLighting/PublicLightingAdHocManagement.wsdl
 
 - in the interface properties for a request, choose test-org.pfx as SSL Keystore (NOTE THAT THIS HAS TO BE DONE FOR EACH REQUEST)
 
