@@ -20,7 +20,7 @@ After the needed software has downloaded and installed and the configuration has
 - after adding the server, double click on the Tomcat server in the 'Servers' view and set the following configuration: under 'Timeouts' set 'Start' to 600 and 'Stop' to 300
 - then click on 'Open launch configuration', click on the 'Arguments' tab and add the following at the end of the 'VM arguments' string: -Xms512m -Xmx2048m -Xss512k -XX:MaxPermSize=1024m -XX:+CMSClassUnloadingEnabled -XX:+UseConcMarkSweepGC -Dcom.sun.management.jmxremote=true
 - create a symlink to the Maven setting file using this command: sudo ln -s /home/dev/Sources/Config/maven/settings.xml /home/dev/.m2
-- setup the Tomcat7 context.xml in the eclipse Servers folder, by copying the entries in /home/dev/Sources/Config/tomcat/context.xml to map configuration file names to file paths.
+- setup the Tomcat7 context.xml in the eclipse Servers folder, by copying the entries in /home/dev/Sources/Config/tomcat/context.xml to map configuration file names to file paths
 - continue with adding the project to the Tomcat server by right clicking on the Tomcat server and choosing 'Add and Remove', and clicking on the 'Add All' button
 - at this point, eclipse's auto-build should have built the projects, and the Tomcat server has been setup
 
@@ -28,8 +28,9 @@ After the needed software has downloaded and installed and the configuration has
 - with ActiveMQ running, the Tomcat7 server can be started
 
 - open pgAdminIII and configure a connection: choose the 'Add a connection to a server.' and fill out the fields using Host localhost, Port 5432, Username osp_admin and Password 1234
+- run the script (/home/dev/Sources/config/scripts/sql/create-test-org.sql) to insert 'test-org' organization
 
-- make sure to set your GitHub user name and e-mail address using these commands: git config --global user.name "Your Name" and git config --global user.email "me@github.com"
+- before doing any commits and/ or pull requests, make sure to set your GitHub user name and e-mail address using these commands: git config --global user.name "Your Name" and git config --global user.email "me@github.com"
 
 ### Excluded
 The repo Integration-Test containing a FitNesse test suite, is not included in this development environment.
