@@ -30,7 +30,107 @@ After the needed software has downloaded and installed and the configuration has
 - open pgAdminIII and configure a connection: choose the 'Add a connection to a server.' and fill out the fields using Host localhost, Port 5432, Username osp_admin and Password 1234
 - run the script (/home/dev/Sources/config/scripts/sql/create-test-org.sql) to insert 'test-org' organization
 
-- before doing any commits and/ or pull requests, make sure to set your GitHub user name and e-mail address using these commands: git config --global user.name "Your Name" and git config --global user.email "me@github.com"
+### SoapUI setup
+In order to use the webservice, SoapUI can be used.
+
+- download SoapUI from http://sourceforge.net/projects/soapui
+- make the SoapUI-x64-*.sh script executable and start it
+- follow the steps of the installer
+- start SoapUI
+- goto File -> Preferences -> SSL Settings and browse for the KeyStore to /home/dev/Sources/Config/certificates/osgp-ca/certs/test-org.pfx and fill out the password (the password is 1234)
+- go to WSDL Settings and check 'generate example values in new requests' and 'generate comments with type information in new requests'
+
+- create a new SOAP Project and call it admin
+- in the project view goto 'WS-Security Configurations' and open the tab 'Keystores' and add the test-org.pfx file there
+- right click the admin project and choose 'Add WSDL' using url https://localhost/osgp-adapter-ws-admin/wsdl/Admin/DeviceManagement.wsld
+
+- create a new SOAP Project and call it public-lighting
+- in the project view goto 'WS-Security Configurations' and open the tab 'Keystores' and add the test-org.pfx file there
+- right click the public-lighting project and choose 'Add WSDL' using url https://localhost/osgp-adapter-ws-publiclighting/wsdl/PublicLighting/PublicLightingAdHocManagement.wsld
+
+- in the interface properties for a request, choose test-org.pfx as SSL Keystore (NOTE THAT THIS HAS TO BE DONE FOR EACH REQUEST)
+
+- choose the UpdateKey request from the admin SOAP Project using this example:
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.alliander.com/schemas/osgp/common/2014/10" xmlns:ns1="http://www.alliander.com/schemas/osgp/admin/devicemanagement/2014/10">
+   <soapenv:Header>
+      <ns:ApplicationName>APPLICATION_NAME</ns:ApplicationName>
+      <ns:UserName>USER_NAME</ns:UserName>
+      <ns:OrganisationIdentification>test-org</ns:OrganisationIdentification>
+   </soapenv:Header>
+   <soapenv:Body>
+      <ns1:UpdateKeyRequest>
+         <ns1:DeviceIdentification>SSLD_000-00-01</ns1:DeviceIdentification>         <ns1:PublicKey>MFkwEwYHKoZIzj0CAQYIKoZIzj0DAQcDQgAEFhUImXFJdqmputquVAc2CPdnn9Ju00M3m/Ice7wABNN+oAYKQbw/OceqvZmFF1+r4nO/vCm/f1JO5nEorE2jNQ==</ns1:PublicKey>
+      </ns1:UpdateKeyRequest>
+   </soapenv:Body>
+</soapenv:Envelope>
+
+- continue with the FindAllDevices request from the public-lighting SOAP Project using this example:
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.alliander.com/schemas/osgp/common/2014/10" xmlns:ns1="http://www.alliander.com/schemas/osgp/publiclighting/adhocmanagement/2014/10">
+   <soapenv:Header>
+      <ns:ApplicationName>APPLICATION_NAME</ns:ApplicationName>
+      <ns:UserName>USER_NAME</ns:UserName>
+      <ns:OrganisationIdentification>test-org</ns:OrganisationIdentification>
+   </soapenv:Header>
+   <soapenv:Body>
+      <ns1:FindAllDevicesRequest>
+         <ns1:Page>0</ns1:Page>
+      </ns1:FindAllDevicesRequest>
+   </soapenv:Body>
+</soapenv:Envelope>
+
+- the response should contain SSLD_000-00-01:
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+   <SOAP-ENV:Header/>
+   <SOAP-ENV:Body>
+      <ns2:FindAllDevicesResponse xmlns:ns2="http://www.alliander.com/schemas/osgp/publiclighting/adhocmanagement/2014/10" xmlns:ns3="http://www.alliander.com/schemas/osgp/common/2014/10">
+         <ns2:DevicePage>
+            <ns2:TotalPages>1</ns2:TotalPages>
+            <ns2:Devices>
+               <ns2:DeviceIdentification>SSLD_000-00-01</ns2:DeviceIdentification>
+               <ns2:DeviceType>SSLD</ns2:DeviceType>
+               <ns2:Activated>false</ns2:Activated>
+               <ns2:HasSchedule>false</ns2:HasSchedule>
+               <ns2:PublicKeyPresent>true</ns2:PublicKeyPresent>
+            </ns2:Devices>
+         </ns2:DevicePage>
+      </ns2:FindAllDevicesResponse>
+   </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+
+- in order to use SSLD_000-00-01, open the OSLP device simulator: https://localhost/web-device-simulator/devices
+- click on 'Add Device' and fill out the fields like so: 'Device identification' SSLD_000-00-01, 'IP address' 127.0.0.1 and 'Device type' SSLD, then click on 'Create Device'
+- then, click on the newly created device, and click the 'Register device' button
+- wait a little while until the message 'Device with identification SSLD_000-00-01 was registered at 20150507112143.' appears
+- then click on the 'Confirm device registration', the message should read: 'Device with identification SSLD_000-00-01 was confirmed to be registered.'
+
+- using SoapUI again, issue a SetLight request using the public-lighting SOAP Project:
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.alliander.com/schemas/osgp/common/2014/10" xmlns:ns1="http://www.alliander.com/schemas/osgp/publiclighting/adhocmanagement/2014/10">
+   <soapenv:Header>
+      <ns:ApplicationName>APPLICATION_NAME</ns:ApplicationName>
+      <ns:UserName>USER_NAME</ns:UserName>
+      <ns:OrganisationIdentification>test-org</ns:OrganisationIdentification>
+   </soapenv:Header>
+   <soapenv:Body>
+      <ns1:SetLightRequest>
+         <ns1:DeviceIdentification>SSLD_000-00-01</ns1:DeviceIdentification>
+         <!--1 to 6 repetitions:-->
+         <ns1:LightValue>
+            <!--Optional:-->
+            <ns1:Index>0</ns1:Index>
+            <ns1:On>1</ns1:On>
+            <!--Optional:-->
+            <ns1:DimValue>100</ns1:DimValue>
+         </ns1:LightValue>
+      </ns1:SetLightRequest>
+   </soapenv:Body>
+</soapenv:Envelope>
+- in the home screen of the OSLP device simulator, the lightbuld should light up
+
+### Contributing
+Tell us what you think, add some code or change something.
+
+- if you have any feedback, issues or want to change something, we would love to hear from you. Create an issue on GitHub, or send us a pull request!
+- before doing any commits and pull requests, make sure to set your GitHub user name and e-mail address using these commands: git config --global user.name "Your Name" and git config --global user.email "me@github.com"
 
 ### Excluded
 The repo Integration-Test containing a FitNesse test suite, is not included in this development environment.
