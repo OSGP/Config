@@ -15,11 +15,6 @@ if [ $1 ] ;
 fi
 
 echo "##############################################################"
-echo "## Running apt-get update                                   ##"
-echo "##############################################################"
-sudo puppet apply $NOOP ./puppet-manifests/run-apt-get-update.pp
-
-echo "##############################################################"
 echo "## Installing JDK                                           ##"
 echo "##############################################################"
 sudo puppet apply $NOOP ./puppet-manifests/install-java.pp

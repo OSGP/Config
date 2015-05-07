@@ -18,8 +18,8 @@ node 'dev-box' {
 	}
 
 	# DOESN'T WORK
-	exec { 'create logback tables':
-		command => '/bin/sh -c "/usr/bin/psql -p 5432 -d osp_logging -U osp_admin -f /home/dev/Sources/Config/sql/create-logback-tables.sql"',
-	}
+	#exec { 'create logback tables':
+	#	command => '/bin/sh -c "/usr/bin/psql -p 5432 -d osp_logging -U osp_admin -f /home/dev/Sources/Config/sql/create-logback-tables.sql"',
+	#}
 
 }

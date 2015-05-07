@@ -1,7 +1,4 @@
-
-
-class gitlab::setup inherits gitlab {
-  user { 'dev' : 
+user { 'dev' : 
     name        => 'dev',
     ensure      => present, 
     shell       => '/bin/bash',
@@ -10,7 +7,4 @@ class gitlab::setup inherits gitlab {
     system      => true,                      #Makes sure user has uid less than 500
     managehome  => true,
     comment     => 'The "dev" user',
-
-
-  }#end user
-}
+} #end user
