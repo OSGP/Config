@@ -63,3 +63,12 @@ echo "##############################################################"
 echo "## Init DB                                                  ##"
 echo "##############################################################"
 sudo puppet apply $NOOP ./puppet-manifests/init-db.pp
+
+echo "##############################################################"
+echo "## Cleanup                                                  ##"
+echo "##############################################################"
+sudo puppet apply $NOOP ./puppet-manifests/cleanup.pp
+
+echo ""
+echo "DONE"
+echo ""
