@@ -2,7 +2,7 @@ user { 'dev' :
     name        => 'dev',
     ensure      => present, 
     shell       => '/bin/bash',
-    password   => '*',
+    password   => 'dev',
     home        => '/home/dev/',
     system      => true,                      #Makes sure user has uid less than 500
     managehome  => true,

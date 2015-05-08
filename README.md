@@ -6,7 +6,7 @@ To set up a development environment using puppet scripts, follow these steps:
 
 - get an [Ubuntu 14.04.2 LTS live cd](http://www.ubuntu.com/download/desktop)
 - install a virtual machine or laptop with Ubuntu, use 'dev-box' as computername
-- create a user called 'dev' (if this is not the case, the puppet scripts will create a user called 'dev')
+- create a user called 'dev'
 - download the contents of the 'puppet' folder within this repo (make sure to keep the folder structure as is) and place the files and folders somewhere, Documents folder for example
 - start by running the shell script 'install-puppet.sh', this will download and install puppet for Ubuntu
 - then continue by running the shell script 'run-puppet.sh', this will use puppet to execute the puppet manifests which will install java, eclipse, maven, etc. (when running the script as 'dev' user, comment the line 'sudo puppet apply $NOOP ./puppet-manifests/add-dev-user.pp')

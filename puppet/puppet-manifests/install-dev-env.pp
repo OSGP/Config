@@ -64,6 +64,7 @@ node 'dev-box' {
 	exec { 'wget eclipse':
 		command => '/usr/bin/wget -q -O /home/dev/Downloads/eclipse-jee-luna-SR2-linux-gtk-x86_64.tar.gz http://ftp.acc.umu.se/mirror/eclipse.org/technology/epp/downloads/release/luna/SR2/eclipse-jee-luna-SR2-linux-gtk-x86_64.tar.gz',
 		before => Exec['unpack eclipse'],
+		timeout => 1800,		
 		returns => [0, 4],
 	}
 

@@ -19,10 +19,10 @@ echo "## Installing JDK                                           ##"
 echo "##############################################################"
 sudo puppet apply $NOOP ./puppet-manifests/install-java.pp
 
-echo "##############################################################"
-echo "## Adding 'dev' user                                        ##"
-echo "##############################################################"
-sudo puppet apply $NOOP ./puppet-manifests/add-dev-user.pp
+#echo "##############################################################"
+#echo "## Adding 'dev' user                                        ##"
+#echo "##############################################################"
+#sudo puppet apply $NOOP ./puppet-manifests/add-dev-user.pp
 
 echo "##############################################################"
 echo "## Installing Dev. Env.                                     ##"
