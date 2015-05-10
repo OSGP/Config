@@ -2,26 +2,26 @@
 Configuration for OSGP components and development environment.
 
 ## Setup development environment
-To set up a development environment using puppet scripts, follow these steps:
+To set up a development environment using Ubuntu and have puppet install everything you need, follow these steps:
 
 - get an [Ubuntu 14.04.2 LTS live cd](http://www.ubuntu.com/download/desktop)
 - install a virtual machine or laptop with Ubuntu, use 'dev-box' as computername
 - create a user called 'dev'
 - download the contents of the 'puppet' folder within this repo (make sure to keep the folder structure as is) and place the files and folders somewhere, Documents folder for example
 - start by running the shell script 'install-puppet.sh', this will download and install puppet for Ubuntu
-- then continue by running the shell script 'run-puppet.sh', this will use puppet to execute the puppet manifests which will install java, eclipse, maven, etc. (when running the script as 'dev' user, comment the line 'sudo puppet apply $NOOP ./puppet-manifests/add-dev-user.pp')
+- then continue by running the shell script 'run-puppet.sh', this will use puppet to execute the puppet manifests which will install java, eclipse, maven, etc.
 
 ### Manual steps
-After the needed software has downloaded and installed and the configuration has been made, continue with these manual steps:
+After the needed software has downloaded and installed and the necessary configuration has been made, continue with these manual steps:
 
-- open eclipse (the executable can be found in the folder /home/dev/Download/eclipse*/eclipse) and import the projects like so: File -> Import -> Existing Maven Projects, browse to folder /home/dev/Sources and start with Shared, then Platform and then Protocol-Adapter-OSLP
+- open eclipse (the executable can be found in the folder /home/dev/Downloads/eclipse*/eclipse) and import the projects: File -> Import -> Existing Maven Projects, browse to folder /home/dev/Sources and start with the  Shared project, then the Platform project and then the Protocol-Adapter-OSLP project
 - show the 'Debug' and 'Git' perspectives
 - in the 'Debug' perspective, go to the 'Servers' view and add a new Apache Tomcat7 server, Tomcat7 is available in the folder /home/dev/Downloads/apache-tomcat-7.0.61
 - after adding the server, double click on the Tomcat server in the 'Servers' view and set the following configuration: under 'Timeouts' set 'Start' to 600 and 'Stop' to 300
 - then click on 'Open launch configuration', click on the 'Arguments' tab and add the following at the end of the 'VM arguments' string: -Xms512m -Xmx2048m -Xss512k -XX:MaxPermSize=1024m -XX:+CMSClassUnloadingEnabled -XX:+UseConcMarkSweepGC -Dcom.sun.management.jmxremote=true
 - create a symlink to the Maven setting file using this command: sudo ln -s /home/dev/Sources/Config/maven/settings.xml /home/dev/.m2
 - setup the Tomcat7 context.xml in the eclipse Servers folder, by copying the entries in /home/dev/Sources/Config/tomcat/context.xml to map configuration file names to file paths
-- continue with adding the project to the Tomcat server by right clicking on the Tomcat server and choosing 'Add and Remove', and clicking on the 'Add All' button
+- continue by adding the Maven Projects to the Tomcat server by right clicking on the Tomcat server and choosing 'Add and Remove', followed by clicking on the 'Add =All' button
 - at this point, eclipse's auto-build should have built the projects, and the Tomcat server has been setup
 
 - continue with starting Apache ActiveMQ (the executable can be found in the folder /home/dev/Downloads/apache-activemq-*/bin/linux-x86-64): by opening a terminal and use the command: sudo ./activemq console to start ActiveMQ as a terminal process (this way, ActiveMQ doesn't detach from the terminal and starts running as a daemon)
