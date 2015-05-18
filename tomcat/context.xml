@@ -45,6 +45,7 @@
     <Environment name="osp/osgpAdapterDomainCore/config" value="/etc/osp/osgp-adapter-domain-core.properties" type="java.lang.String" override="false" />    
     <Environment name="osp/osgpAdapterDomainPublicLighting/config" value="/etc/osp/osgp-adapter-domain-publiclighting.properties" type="java.lang.String" override="false" />    
     <Environment name="osp/osgpAdapterDomainTariffSwitching/config" value="/etc/osp/osgp-adapter-domain-tariffswitching.properties" type="java.lang.String" override="false" />    
+    <Environment name="osp/osgpAdapterDomainSmartMetering/config" value="/etc/osp/osgp-adapter-domain-smartmetering.properties" type="java.lang.String" override="false" />	
     
     <Environment name="osp/osgpCore/config" value="/etc/osp/osgp-core.properties" type="java.lang.String" override="false" />    
     <Environment name="osp/osgpAdapterWsPublicLightingVersioning/config" value="/etc/osp/osgp-adapter-ws-public-lighting-versioning.properties" type="java.lang.String" override="false" />
@@ -65,6 +66,7 @@
     <Environment name="osp/osgpAdapterDomainCore/log-config" value="/etc/osp/osgp-adapter-domain-core-logback.xml" type="java.lang.String" override="false" />
     <Environment name="osp/osgpAdapterDomainPublicLighting/log-config" value="/etc/osp/osgp-adapter-domain-publiclighting-logback.xml" type="java.lang.String" override="false" />
     <Environment name="osp/osgpAdapterDomainTariffSwitching/log-config" value="/etc/osp/osgp-adapter-domain-tariffswitching-logback.xml" type="java.lang.String" override="false" />
+    <Environment name="osp/osgpAdapterDomainSmartMetering/log-config" value="/etc/osp/osgp-adapter-domain-smartmetering-logback.xml" type="java.lang.String" override="false" />
         
 	<Environment name="osp/osgpCore/log-config" value="/etc/osp/osgp-core-logback.xml" type="java.lang.String" override="false" />
     
