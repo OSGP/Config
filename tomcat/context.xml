@@ -37,7 +37,9 @@
 	<Environment name="osp/osgpAdapterWsCore/config" value="/etc/osp/osgp-adapter-ws-core.properties" type="java.lang.String" override="false" />
     <Environment name="osp/osgpAdapterWsPublicLighting/config" value="/etc/osp/osgp-adapter-ws-public-lighting.properties" type="java.lang.String" override="false" />
 	<Environment name="osp/osgpAdapterWsSharedDb/config" value="/etc/osp/osgp-adapter-ws-shared-db.properties" type="java.lang.String" override="false" />
-    <Environment name="osp/osgpAdapterWsTariffSwitching/config" value="/etc/osp/osgp-adapter-ws-tariff-switching.properties" type="java.lang.String" override="false" />    
+    <Environment name="osp/osgpAdapterWsTariffSwitching/config" value="/etc/osp/osgp-adapter-ws-tariff-switching.properties" type="java.lang.String" override="false" />
+    <Environment name="osp/osgpAdapterWsSmartMetering/config" value="/etc/osp/osgp-adapter-ws-smart-metering.properties" type="java.lang.String" override="false" />    
+	
         
 	<Environment name="osp/webServiceLogging/config" value="/etc/osp/web-service-logging.properties" type="java.lang.String" override="false" />
 	
@@ -59,6 +61,7 @@
 	<Environment name="osp/osgpAdapterWsCore/log-config" value="/etc/osp/osgp-adapter-ws-core-logback.xml" type="java.lang.String" override="false" />
     <Environment name="osp/osgpAdapterWsPublicLighting/log-config" value="/etc/osp/osgp-adapter-ws-public-lighting-logback.xml" type="java.lang.String" override="false" />
 	<Environment name="osp/osgpAdapterWsTariffSwitching/log-config" value="/etc/osp/osgp-adapter-ws-tariff-switching-logback.xml" type="java.lang.String" override="false" />
+    <Environment name="osp/osgpAdapterWsSmartMetering/log-config" value="/etc/osp/osgp-adapter-ws-smart-metering-logback.xml" type="java.lang.String" override="false" />
     
 	<Environment name="osp/webServiceLogging/log-config" value="/etc/osp/web-service-logging-logback.xml" type="java.lang.String" override="false" />	
 	
