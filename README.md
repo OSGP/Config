@@ -3,9 +3,9 @@ Configuration for OSGP components and development environment.
 
 ## Minimal hardware requirements
 
-- Core i5 / i7 2.5GHz (or more powerfull)
+- Core i5 / i7 ~2.5GHz
 - 8 GB of RAM
-- About 25 GB of disk space (preferably more)
+- 10 GB of disk space
 
 ## Setup development environment
 To set up a development environment using Ubuntu and have puppet install everything you need, follow these steps:
