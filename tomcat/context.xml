@@ -52,7 +52,7 @@
 	<Environment name="osp/webDeviceSimulator/config" value="/etc/osp/web-device-simulator.properties" type="java.lang.String" override="false" />
 	
 	<Environment name="osp/osgpLogging/config" value="/etc/osp/osgp-logging.properties" type="java.lang.String" override="false" />
-	<Environment name="osp/osgpDomainLogging/config" value="/etc/osp/osgp-domain-logging.properties" type="java.lang.String" override="false" />#F31414
+	<Environment name="osp/osgpDomainLogging/config" value="/etc/osp/osgp-domain-logging.properties" type="java.lang.String" override="false" />
 
     <!-- Logging config files -->    
     <Environment name="osp/osgpAdapterWsAdmin/log-config" value="/etc/osp/osgp-adapter-ws-admin-logback.xml" type="java.lang.String" override="false" />
