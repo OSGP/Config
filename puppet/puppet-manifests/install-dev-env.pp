@@ -30,7 +30,7 @@ node 'dev-box' {
 
 	# A JDBC is needed by Tomcat7 to connect to PostgreSQL.
 	exec { 'wget postgresql jdbc':
-		command => '/usr/bin/wget -q -P /home/dev/Downloads/apache-tomcat-7.0.62/lib - https://jdbc.postgresql.org/download/postgresql-9.3-1103.jdbc3.jar',
+		command => '/usr/bin/wget -q -P /home/dev/Downloads/apache-tomcat-7.0.62/lib - https://jdbc.postgresql.org/download/postgresql-9.4-1202.jdbc41.jar',
 		returns => [0, 4],
 	}
 
