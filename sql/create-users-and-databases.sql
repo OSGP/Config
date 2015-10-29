@@ -4,8 +4,6 @@ CREATE ROLE osp_admin LOGIN
   PASSWORD '1234'
   SUPERUSER INHERIT CREATEDB CREATEROLE REPLICATION;
 
-
-
 -- Create the databases
 
 CREATE DATABASE osgp_adapter_protocol_oslp
@@ -14,20 +12,11 @@ CREATE DATABASE osgp_adapter_protocol_oslp
        TABLESPACE = pg_default
        CONNECTION LIMIT = -1;
 
-
 CREATE DATABASE osgp_core
   WITH OWNER = osp_admin
        ENCODING = 'UTF8'
        TABLESPACE = pg_default
        CONNECTION LIMIT = -1;
-
-
-CREATE DATABASE osgp_ws_logging
-  WITH OWNER = osp_admin
-       ENCODING = 'UTF8'
-       TABLESPACE = pg_default
-       CONNECTION LIMIT = -1;
-
 
 CREATE DATABASE osp_devicesimulator_web
   WITH OWNER = osp_admin
@@ -36,16 +25,14 @@ CREATE DATABASE osp_devicesimulator_web
        CONNECTION LIMIT = -1;
 
 
-CREATE DATABASE osp_logging
+CREATE DATABASE osgp_logging
   WITH OWNER = osp_admin
        ENCODING = 'UTF8'
        TABLESPACE = pg_default
        CONNECTION LIMIT = -1;
 	   
-	   
-
 -- Create the readonly users
 
 CREATE USER osgp_read_only_ws_user WITH PASSWORD '1234' NOSUPERUSER;
 
-CREATE USER osgp_core_db_api_user PASSWORD '1234' NOSUPERUSER;
+CREATE USER osgp_core_db_api_user WITH PASSWORD '1234' NOSUPERUSER;

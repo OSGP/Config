@@ -11,7 +11,6 @@
 		</connectionSource>
 	</appender>
 -->    
-    
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
             <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level (%file:%line\) %logger{36} - %msg%n</pattern>
@@ -19,11 +18,11 @@
     </appender>
 
     <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-        <file>/var/log/osp/logs/osgp-adapter-ws-public-lighting.log</file>
+            <file>/var/log/osp/logs/osgp-logging.log</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
             <!-- daily rollover -->
-            <fileNamePattern>/var/log/osp/logs/osgp-adapter-ws-public-lighting.log.%d{yyyy-MM-dd}.log</fileNamePattern>
-
+            <fileNamePattern>/var/log/osp/logs/osgp-logging.%d{yyyy-MM-dd}.log</fileNamePattern>
+ 
             <!-- keep X days' worth of history -->
             <maxHistory>10</maxHistory>
         </rollingPolicy>
@@ -36,9 +35,6 @@
     <root level="INFO" additivity="false">
         <appender-ref ref="CONSOLE"/>
         <appender-ref ref="FILE"/>
-<!--
-		<appender-ref ref="DB"/>
--->
     </root>
 
 </configuration>

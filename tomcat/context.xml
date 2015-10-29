@@ -37,38 +37,45 @@
 	<Environment name="osp/osgpAdapterWsCore/config" value="/etc/osp/osgp-adapter-ws-core.properties" type="java.lang.String" override="false" />
     <Environment name="osp/osgpAdapterWsPublicLighting/config" value="/etc/osp/osgp-adapter-ws-public-lighting.properties" type="java.lang.String" override="false" />
 	<Environment name="osp/osgpAdapterWsSharedDb/config" value="/etc/osp/osgp-adapter-ws-shared-db.properties" type="java.lang.String" override="false" />
-    <Environment name="osp/osgpAdapterWsTariffSwitching/config" value="/etc/osp/osgp-adapter-ws-tariff-switching.properties" type="java.lang.String" override="false" />    
-        
-	<Environment name="osp/webServiceLogging/config" value="/etc/osp/web-service-logging.properties" type="java.lang.String" override="false" />
+    <Environment name="osp/osgpAdapterWsTariffSwitching/config" value="/etc/osp/osgp-adapter-ws-tariff-switching.properties" type="java.lang.String" override="false" />
+    <Environment name="osp/osgpAdapterWsSmartMetering/config" value="/etc/osp/osgp-adapter-ws-smart-metering.properties" type="java.lang.String" override="false" />    
 	
+        	
 	<Environment name="osp/osgpAdapterDomainAdmin/config" value="/etc/osp/osgp-adapter-domain-admin.properties" type="java.lang.String" override="false" />    
     <Environment name="osp/osgpAdapterDomainCore/config" value="/etc/osp/osgp-adapter-domain-core.properties" type="java.lang.String" override="false" />    
     <Environment name="osp/osgpAdapterDomainPublicLighting/config" value="/etc/osp/osgp-adapter-domain-publiclighting.properties" type="java.lang.String" override="false" />    
     <Environment name="osp/osgpAdapterDomainTariffSwitching/config" value="/etc/osp/osgp-adapter-domain-tariffswitching.properties" type="java.lang.String" override="false" />    
+    <Environment name="osp/osgpAdapterDomainSmartMetering/config" value="/etc/osp/osgp-adapter-domain-smartmetering.properties" type="java.lang.String" override="false" />	
     
     <Environment name="osp/osgpCore/config" value="/etc/osp/osgp-core.properties" type="java.lang.String" override="false" />    
     <Environment name="osp/osgpAdapterWsPublicLightingVersioning/config" value="/etc/osp/osgp-adapter-ws-public-lighting-versioning.properties" type="java.lang.String" override="false" />
     <Environment name="osp/osgpCoreDbApi/config" value="/etc/osp/osgp-core-db-api.properties" type="java.lang.String" override="false" />
     
 	<Environment name="osp/osgpAdapterProtocolOslp/config" value="/etc/osp/osgp-adapter-protocol-oslp.properties" type="java.lang.String" override="false" />
+	<Environment name="osp/signingServer/config" value="/etc/osp/signing-server.properties" type="java.lang.String" override="false" />
 	<Environment name="osp/webDeviceSimulator/config" value="/etc/osp/web-device-simulator.properties" type="java.lang.String" override="false" />
+	
+	<Environment name="osp/osgpLogging/config" value="/etc/osp/osgp-logging.properties" type="java.lang.String" override="false" />
+	<Environment name="osp/osgpDomainLogging/config" value="/etc/osp/osgp-domain-logging.properties" type="java.lang.String" override="false" />
 
     <!-- Logging config files -->    
     <Environment name="osp/osgpAdapterWsAdmin/log-config" value="/etc/osp/osgp-adapter-ws-admin-logback.xml" type="java.lang.String" override="false" />
 	<Environment name="osp/osgpAdapterWsCore/log-config" value="/etc/osp/osgp-adapter-ws-core-logback.xml" type="java.lang.String" override="false" />
     <Environment name="osp/osgpAdapterWsPublicLighting/log-config" value="/etc/osp/osgp-adapter-ws-public-lighting-logback.xml" type="java.lang.String" override="false" />
 	<Environment name="osp/osgpAdapterWsTariffSwitching/log-config" value="/etc/osp/osgp-adapter-ws-tariff-switching-logback.xml" type="java.lang.String" override="false" />
-    
-	<Environment name="osp/webServiceLogging/log-config" value="/etc/osp/web-service-logging-logback.xml" type="java.lang.String" override="false" />	
-	
+    <Environment name="osp/osgpAdapterWsSmartMetering/log-config" value="/etc/osp/osgp-adapter-ws-smart-metering-logback.xml" type="java.lang.String" override="false" />
+    	
 	<Environment name="osp/osgpAdapterDomainAdmin/log-config" value="/etc/osp/osgp-adapter-domain-admin-logback.xml" type="java.lang.String" override="false" />
     <Environment name="osp/osgpAdapterDomainCore/log-config" value="/etc/osp/osgp-adapter-domain-core-logback.xml" type="java.lang.String" override="false" />
     <Environment name="osp/osgpAdapterDomainPublicLighting/log-config" value="/etc/osp/osgp-adapter-domain-publiclighting-logback.xml" type="java.lang.String" override="false" />
     <Environment name="osp/osgpAdapterDomainTariffSwitching/log-config" value="/etc/osp/osgp-adapter-domain-tariffswitching-logback.xml" type="java.lang.String" override="false" />
+    <Environment name="osp/osgpAdapterDomainSmartMetering/log-config" value="/etc/osp/osgp-adapter-domain-smartmetering-logback.xml" type="java.lang.String" override="false" />
         
 	<Environment name="osp/osgpCore/log-config" value="/etc/osp/osgp-core-logback.xml" type="java.lang.String" override="false" />
-    
-	<Environment name="osp/osgpAdapterProtocolOslp/log-config" value="/etc/osp/osgp-adapter-protocol-oslp-logback.xml" type="java.lang.String" override="false" />
-	<Environment name="osp/webDeviceSimulator/log-config" value="/etc/osp/web-device-simulator-logback.xml" type="java.lang.String" override="false" />
+    <Environment name="osp/osgpLogging/log-config" value="/etc/osp/osgp-logging-logback.xml" type="java.lang.String" override="false" />
 
+	<Environment name="osp/osgpAdapterProtocolOslp/log-config" value="/etc/osp/osgp-adapter-protocol-oslp-logback.xml" type="java.lang.String" override="false" />
+	<Environment name="osp/signingServer/log-config" value="/etc/osp/signing-server-logback.xml" type="java.lang.String" override="false" />
+	<Environment name="osp/webDeviceSimulator/log-config" value="/etc/osp/web-device-simulator-logback.xml" type="java.lang.String" override="false" />
+	
 </Context>

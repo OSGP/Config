@@ -2,13 +2,8 @@
 
 node 'dev-box' {
 
-	exec { 'creating osp folder':
-		command => '/bin/mkdir /var/log/osp',
-		before => Exec['chown logs folder','chmod logs folder','creating logs folder'],
-	}
-
 	exec { 'creating logs folder':
-		command => '/bin/mkdir /var/log/osp/logs',
+		command => '/bin/mkdir -p /var/log/osp/logs',
 		before => Exec['chown logs folder','chmod logs folder'],	
 	}
 
