@@ -13,6 +13,7 @@
       <directory>.</directory>
       <excludes>
         <exclude>assembly-plugin-config.xml</exclude>
+        <exclude>pom.xml</exclude>
         <exclude>target/</exclude>
       </excludes>
     </fileSet>
