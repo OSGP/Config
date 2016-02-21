@@ -14,7 +14,7 @@ node 'dev-box' {
 
 	# Tomcat7 is used as application server.
 	exec { 'wget tomcat7':
-		command => '/usr/bin/wget -q -P /home/dev/Downloads - http://apache.hippo.nl/tomcat/tomcat-7/v7.0.62/bin/apache-tomcat-7.0.62.tar.gz',
+		command => '/usr/bin/wget -q -P /home/dev/Downloads - https://archive.apache.org/dist/tomcat/tomcat-7/v7.0.62/bin/apache-tomcat-7.0.62.tar.gz',
 		before => Exec['wget postgresql jdbc','unpack tomcat7','change permissions of tomcat7 conf files'],	
 		returns => [0, 4],
 	}
@@ -46,7 +46,7 @@ node 'dev-box' {
 
 	# ActiveMQ is used as message broker.
 	exec { 'wget activemq':
-		command => '/usr/bin/wget -q -P /home/dev/Downloads - http://ftp.tudelft.nl/apache/activemq/5.11.1/apache-activemq-5.11.1-bin.tar.gz',
+		command => '/usr/bin/wget -q -P /home/dev/Downloads - https://archive.apache.org/dist/activemq/5.11.1/apache-activemq-5.11.1-bin.tar.gz',
 		before => Exec['unpack activemq'],	
 		returns => [0, 4],
 	}
