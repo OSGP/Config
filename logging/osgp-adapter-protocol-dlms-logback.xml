@@ -19,10 +19,10 @@
   </appender>
 
   <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
-    <file>/var/log/osp/logs/osgp-adapter-domain-tariffswitching.log</file>
+    <file>/var/log/osp/logs/osgp-adapter-protocol-dlms.log</file>
     <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
       <!-- daily rollover -->
-      <fileNamePattern>/var/log/osp/logs/osgp-adapter-domain-tariffswitching.log.%d{yyyy-MM-dd}.log</fileNamePattern>
+      <fileNamePattern>/var/log/osp/logs/osgp-adapter-protocol-dlms.log.%d{yyyy-MM-dd}.log</fileNamePattern>
 
       <!-- keep X days' worth of history -->
       <maxHistory>10</maxHistory>
@@ -32,6 +32,14 @@
       <pattern>%d{HH:mm:ss.SSS}  %-4relative [%thread] %-5level %logger{35} - %msg%n</pattern>
     </encoder>
   </appender>
+
+  <logger name="org.springframework.ws.server.MessageTracing" level="TRACE" additivity="false">
+    <appender-ref ref="CONSOLE" />
+  </logger>
+
+  <logger name="org.springframework.ws.client.MessageTracing" level="TRACE" additivity="false">
+    <appender-ref ref="CONSOLE" />
+  </logger>
 
   <root level="INFO" additivity="false">
     <appender-ref ref="CONSOLE"/>
