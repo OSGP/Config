@@ -50,6 +50,7 @@
     <Environment name="osp/osgpAdapterProtocolOslp/config" value="/etc/osp/osgp-adapter-protocol-oslp.properties" type="java.lang.String" override="false" />
     <Environment name="osp/osgpAdapterProtocolOslpElster/config" value="/etc/osp/osgp-adapter-protocol-oslp-elster.properties" type="java.lang.String" override="false" />
     <Environment name="osp/osgpAdapterProtocolDlms/config" value="/etc/osp/osgp-adapter-protocol-dlms.properties" type="java.lang.String" override="false" />
+    <Environment name="osp/webDeviceSimulator/config" value="/etc/osp/web-device-simulator.properties" type="java.lang.String" override="false" />
 
     <Environment name="osp/osgpCore/config" value="/etc/osp/osgp-core.properties" type="java.lang.String" override="false" />
     <Environment name="osp/osgpLogging/config" value="/etc/osp/osgp-logging.properties" type="java.lang.String" override="false" />
@@ -70,11 +71,12 @@
     <Environment name="osp/osgpAdapterDomainPublicLighting/log-config" value="/etc/osp/osgp-adapter-domain-publiclighting-logback.xml" type="java.lang.String" override="false" />
     <Environment name="osp/osgpAdapterDomainTariffSwitching/log-config" value="/etc/osp/osgp-adapter-domain-tariffswitching-logback.xml" type="java.lang.String" override="false" />
     <Environment name="osp/osgpAdapterDomainSmartMetering/log-config" value="/etc/osp/osgp-adapter-domain-smartmetering-logback.xml" type="java.lang.String" override="false" />
-    
+
     <Environment name="osp/signingServer/log-config" value="/etc/osp/signing-server-logback.xml" type="java.lang.String" override="false" />
     <Environment name="osp/osgpAdapterProtocolOslp/log-config" value="/etc/osp/osgp-adapter-protocol-oslp-logback.xml" type="java.lang.String" override="false" />
     <Environment name="osp/osgpAdapterProtocolOslpElster/log-config" value="/etc/osp/osgp-adapter-protocol-oslp-elster-logback.xml" type="java.lang.String" override="false" />
     <Environment name="osp/osgpAdapterProtocolDlms/log-config" value="/etc/osp/osgp-adapter-protocol-dlms-logback.xml" type="java.lang.String" override="false" />
+    <Environment name="osp/webDeviceSimulator/log-config" value="/etc/osp/web-device-simulator-logback.xml" type="java.lang.String" override="false" />
 
     <Environment name="osp/osgpCore/log-config" value="/etc/osp/osgp-core-logback.xml" type="java.lang.String" override="false" />
     <Environment name="osp/osgpLogging/log-config" value="/etc/osp/osgp-logging-logback.xml" type="java.lang.String" override="false" />
