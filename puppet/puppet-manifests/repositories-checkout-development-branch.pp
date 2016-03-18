@@ -22,4 +22,9 @@ node 'dev-box' {
 		returns => [0,128],
 	}
 
+	exec { 'Protocol-Adapter-DLMS repo':
+		command => '/bin/sh -c "cd /home/dev/Sources/Protocol-Adapter-DLMS; /usr/bin/git checkout development"',
+		returns => [0,128],
+	}
+
 }

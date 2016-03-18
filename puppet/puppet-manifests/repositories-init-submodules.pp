@@ -12,4 +12,9 @@ node 'dev-box' {
 		returns => [0,1,128],
 	}
 
+	exec { 'Protocol-Adapter-DLMS repo':
+		command => '/bin/sh -c "cd /home/dev/Sources/Protocol-Adapter-DLMS; /usr/bin/git submodule update --init --recursive"',
+		returns => [0,1,128],
+	}
+
 }
