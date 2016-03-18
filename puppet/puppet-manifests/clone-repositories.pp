@@ -18,4 +18,8 @@ node 'dev-box' {
 		command => '/usr/bin/git clone https://github.com/OSGP/Protocol-Adapter-OSLP.git /home/dev/Sources/Protocol-Adapter-OSLP',
 	}
 
+	exec { 'cloning Protocol-Adapter-DLMS repo':
+		command => '/usr/bin/git clone https://github.com/OSGP/Protocol-Adapter-DLMS.git /home/dev/Sources/Protocol-Adapter-DLMS',
+	}
+
 }
