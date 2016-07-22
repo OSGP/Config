@@ -13,7 +13,7 @@ echo "running apt-get update";
 sudo apt-get update
 
 echo "installing puppet";
-sudo apt-get install puppet
+sudo apt-get install -y puppet
 
 echo "running puppet --version";
 echo $(puppet --version)
