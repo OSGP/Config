@@ -4,7 +4,7 @@ node 'dev-box' {
 
 	# Creates the uses and databases.
 	exec { 'create users and databases':
-		command => '/bin/sh -c "sudo -u postgres /usr/bin/psql -p 5432 -f /home/dev/Sources/Config/sql/create-users-and-databases.sql"',
+		command => '/bin/sh -c "sudo -u postgres /usr/bin/psql -p 5432 -f /home/vagrant/Sources/Config/sql/create-users-and-databases.sql"',
 		before => Exec['backup pg_hba.conf','change pg_hba.conf','reload config'],
 	}
 	
