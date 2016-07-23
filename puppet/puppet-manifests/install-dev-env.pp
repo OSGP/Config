@@ -72,6 +72,18 @@ node 'dev-box' {
 		command => '/bin/tar xzf /home/dev/Downloads/eclipse-jee-luna-SR2-linux-gtk-x86_64.tar.gz -C /home/dev/Downloads',
 	}
 
+	# Soap-UI
+	exec { 'wget soap-ui':
+		command => '/usr/bin/wget -q -O /home/dev/Downloads/SoapUI-5.2.1-linux-bin.tar.gz http://cdn01.downloads.smartbear.com/soapui/5.2.1/SoapUI-5.2.1-linux-bin.tar.gz',
+		before => Exec['unpack soap-ui'],
+		timeout => 1800,		
+		returns => [0, 4],
+	}
+
+	exec { 'unpack soap-ui':
+		command => '/bin/tar xzf /home/dev/Downloads/SoapUI-5.2.1-linux-bin.tar.gz -C /home/dev/Downloads',
+	}
+
 	# Maven is used as dependency management and build tool.
 	package { 'maven':
 		ensure => installed,
