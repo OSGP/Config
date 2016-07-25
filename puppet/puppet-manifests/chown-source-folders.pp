@@ -3,7 +3,7 @@
 node 'dev-box' {
 
 	exec { 'chown /home/vagrant/Sources':
-		command => '/bin/chown -R dev.dev /home/vagrant/Sources/*',
+		command => '/bin/chown -R vagrant.vagrant /home/vagrant/Sources/*',
 	}
 
 }
