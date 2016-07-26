@@ -20,17 +20,17 @@ node 'dev-box' {
 	}
 
 	exec { 'unpack tomcat7':
-		command => '/bin/tar xzf /home/dev/Downloads/apache-tomcat-7.0.62.tar.gz -C /home/dev/Downloads',
+		command => '/bin/tar xzf /home/dev/Downloads/apache-tomcat-7.0.62.tar.gz -C /home/dev/Tools',
 		before => Exec['wget postgresql jdbc','change permissions of tomcat7 conf files'],
 	}
 
 	exec { 'change permissions of tomcat7 conf files':
-		command => '/bin/chmod 644 /home/dev/Downloads/apache-tomcat-7.0.62/conf/*',
+		command => '/bin/chmod 644 /home/dev/Tools/apache-tomcat-7.0.62/conf/*',
 	}
 
 	# A JDBC is needed by Tomcat7 to connect to PostgreSQL.
 	exec { 'wget postgresql jdbc':
-		command => '/usr/bin/wget -q -P /home/dev/Downloads/apache-tomcat-7.0.62/lib - https://jdbc.postgresql.org/download/postgresql-9.4.1208.jre7.jar',
+		command => '/usr/bin/wget -q -P /home/dev/Tools/apache-tomcat-7.0.62/lib - https://jdbc.postgresql.org/download/postgresql-9.4.1208.jre7.jar',
 		returns => [0, 4],
 	}
 
@@ -52,7 +52,7 @@ node 'dev-box' {
 	}
 
 	exec { 'unpack activemq':
-		command => '/bin/tar xzf /home/dev/Downloads/apache-activemq-5.11.1-bin.tar.gz -C /home/dev/Downloads',
+		command => '/bin/tar xzf /home/dev/Downloads/apache-activemq-5.11.1-bin.tar.gz -C /home/dev/Tools',
 	}
 
 	# Git.
@@ -69,7 +69,7 @@ node 'dev-box' {
 	}
 
 	exec { 'unpack eclipse':
-		command => '/bin/tar xzf /home/dev/Downloads/eclipse-jee-luna-SR2-linux-gtk-x86_64.tar.gz -C /home/dev/Downloads',
+		command => '/bin/tar xzf /home/dev/Downloads/eclipse-jee-luna-SR2-linux-gtk-x86_64.tar.gz -C /home/dev/Tools',
 	}
 
 	# Soap-UI
@@ -81,7 +81,7 @@ node 'dev-box' {
 	}
 
 	exec { 'unpack soap-ui':
-		command => '/bin/tar xzf /home/dev/Downloads/SoapUI-5.2.1-linux-bin.tar.gz -C /home/dev/Downloads',
+		command => '/bin/tar xzf /home/dev/Downloads/SoapUI-5.2.1-linux-bin.tar.gz -C /home/dev/Tools',
 	}
 
 	# Maven is used as dependency management and build tool.

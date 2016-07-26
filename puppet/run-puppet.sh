@@ -27,6 +27,7 @@ sudo puppet apply $NOOP ./puppet-manifests/add-dev-user.pp
 echo "##############################################################"
 echo "## Installing Dev. Env.                                     ##"
 echo "##############################################################"
+sudo puppet apply $NOOP ./puppet-manifests/create-tools-folder.pp
 sudo puppet apply $NOOP ./puppet-manifests/install-dev-env.pp
 
 echo "##############################################################"

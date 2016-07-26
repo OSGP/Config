@@ -1,0 +1,28 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+	config.vm.box = "box-cutter/ubuntu1404-desktop"
+
+	config.vm.provider "virtualbox" do |vb|
+		vb.gui = true
+		vb.memory = "4096"
+	end
+  
+	config.vm.define :osgp_oss do |osgp_oss_config|
+		osgp_oss_config.vm.hostname="dev-box"
+	end
+  
+    config.vm.provision "shell", inline: <<-SHELL
+		# Clone config repo for user Vagrant
+		apt install -y git
+		su vagrant -c "mkdir ~/repos";
+		su vagrant -c "git clone -b "development" https://github.com/OSGP/Config.git ~/repos/Config"
+
+		# Install puppet
+		su vagrant -c "/home/vagrant/repos/Config/puppet/install-puppet.sh"
+
+		# Trigger puppet installation
+		su vagrant -c "cd /home/vagrant/repos/Config/puppet/;/home/vagrant/repos/Config/puppet/run-puppet.sh"
+	SHELL
+end

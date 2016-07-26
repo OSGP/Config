@@ -50,3 +50,8 @@ sudo ln -s /home/dev/Sources/Config/certificates/trust.jks /etc/ssl/certs
 sudo ln -s /home/dev/Sources/Config/apache-httpd/vhost.conf /etc/apache2/sites-enabled
 sudo unlink /etc/apache2/sites-enabled/000-default.conf
 sudo service apache2 restart
+
+# Create symlink to Maven settings
+sudo mkdir /home/dev/.m2
+sudo ln -s /home/dev/Sources/Config/maven/settings.xml /home/dev/.m2
+sudo chown -R dev:dev /home/dev/.m2
