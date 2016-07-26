@@ -2,8 +2,8 @@
 
 node 'dev-box' {
 
-	exec { 'chown /home/vagrant/Sources':
-		command => '/bin/chown -R vagrant.vagrant /home/vagrant/Sources/*',
+	exec { 'chown /home/dev/Sources':
+		command => '/bin/chown -R dev:dev /home/dev/Sources/*',
 	}
 
 }
