@@ -18,4 +18,7 @@ sudo apt-get install -y puppet
 echo "running puppet --version";
 echo $(puppet --version)
 
+echo "removing templatedir setting from puppet.conf";
+sudo sed -i '/^templatedir/d' /etc/puppet/puppet.conf
+
 exit 0;
