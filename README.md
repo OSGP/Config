@@ -1,5 +1,5 @@
 # Config
-The set up a development environment take a look at the [Installation Manual](http://documentation.opensmartgridplatform.org/Userguide/Installation/Installationguide.html)
+To set up a development environment take a look at the [Installation Manual](http://documentation.opensmartgridplatform.org/Userguide/Installation/Installationguide.html)
 
 
 ## What does this repo contain?
