@@ -10,5 +10,9 @@ node 'dev-box' {
 		command => '/bin/cp -f /home/vagrant/repos/Config/vagrant/OSGP-solar.png /usr/share/backgrounds/warty-final-ubuntu.png',
 	}
 	
+	exec { 'add desktop shortcuts':
+		command => '/bin/sh /home/vagrant/repos/Config/scripts/create_desktop_shortcuts.sh',
+	}
+	
 
 }
