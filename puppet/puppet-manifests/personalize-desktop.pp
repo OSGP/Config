@@ -8,7 +8,7 @@ node 'dev-box' {
 	
 	exec { 'add osgp wallpaper':
 		user	=> 'dev',
-		command => '/usr/bin/gsettings set org.gnome.desktop.background picture-uri file:///home/vagrant/repos/Config/vagrant/OSGP-solar.jpg',
+		command => '/bin/cp -f /home/vagrant/repos/Config/vagrant/OSGP-solar.png /usr/share/backgrounds/warty-final-ubuntu.png',
 	}
 	
 
