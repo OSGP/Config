@@ -19,6 +19,12 @@ node 'dev-box' {
 	exec { 'chmod create_desktop_shortcuts.sh':
 		user => 'dev',
 		command => '/bin/chmod u+rwx /home/vagrant/repos/Config/scripts/create_desktop_shortcuts.sh',
+		before => Exec['chown scripts to dev user'],
+	}
+	
+	exec { 'chown scripts to dev user':
+		user => 'vagrant',
+		command => '/bin/chown dev:dev /home/vagrant/repos/Config/scripts/*',
 	}
 	
 
