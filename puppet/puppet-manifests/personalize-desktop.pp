@@ -11,7 +11,7 @@ node 'dev-box' {
 	}
 	
 	exec { 'git cache':
-		command => '/usr/bin/git config --global credential.helper "cache --timeout=3600"',
+		command => '/usr/bin/git config credential.helper "cache --timeout=3600"',
 	}
 	
 	exec { 'add desktop shortcuts':
