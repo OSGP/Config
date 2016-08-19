@@ -15,11 +15,11 @@ node 'dev-box' {
 	}
 
 	exec { 'cloning Protocol-Adapter-OSLP repo':
-		command => '/usr/bin/git clone https://github.com/OSGP/Protocol-Adapter-OSLP.git /home/dev/OSGP/Sources/Protocol-Adapter-OSLP',
+		command => '/usr/bin/git clone https://github.com/OSGP/Protocol-Adapter-OSLP.git /home/dev/Sources/OSGP/Protocol-Adapter-OSLP',
 	}
 
 	exec { 'cloning Protocol-Adapter-DLMS repo':
-		command => '/usr/bin/git clone https://github.com/OSGP/Protocol-Adapter-DLMS.git /home/dev/OSGP/Sources/Protocol-Adapter-DLMS',
+		command => '/usr/bin/git clone https://github.com/OSGP/Protocol-Adapter-DLMS.git /home/dev/Sources/OSGP/Protocol-Adapter-DLMS',
 	}
 
 }
