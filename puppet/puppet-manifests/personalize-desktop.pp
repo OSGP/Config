@@ -17,15 +17,15 @@ node 'dev-box' {
 	}
 	
 	exec { 'chmod create_desktop_shortcuts.sh':
-		command => '/bin/chmod dev u+rwx /home/vagrant/repos/Config/scripts/create_desktop_shortcuts.sh',
+		command => '/bin/chmod a+rwx /home/vagrant/repos/Config/scripts/create_desktop_shortcuts.sh',
 	}
 	
 	exec { 'chmod create_application_shortcut.sh':
-		command => '/bin/chmod dev u+rwx /home/vagrant/repos/Config/scripts/create_application_shortcut.sh',
+		command => '/bin/chmod a+rwx /home/vagrant/repos/Config/scripts/create_application_shortcut.sh',
 	}
 	
 	exec { 'chmod create_weblink_shortcut.sh':
-		command => '/bin/chmod dev u+rwx /home/vagrant/repos/Config/scripts/create_weblink_shortcut.sh',
+		command => '/bin/chmod a+rwx /home/vagrant/repos/Config/scripts/create_weblink_shortcut.sh',
 	}
 
 }
