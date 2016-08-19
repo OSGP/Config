@@ -10,6 +10,10 @@ node 'dev-box' {
 		command => '/bin/cp -f /home/vagrant/repos/Config/vagrant/OSGP-solar.png /usr/share/backgrounds/warty-final-ubuntu.png',
 	}
 	
+	exec { 'git cache':
+		command => '/usr/bin/git config --global credential.helper "cache --timeout=3600"',
+	}
+	
 	exec { 'add desktop shortcuts':
 		user => 'dev',
 		command => '/bin/sh /home/vagrant/repos/Config/scripts/create_desktop_shortcuts.sh',
