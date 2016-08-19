@@ -11,11 +11,13 @@ node 'dev-box' {
 	}
 	
 	exec { 'add desktop shortcuts':
+		user => 'dev',
 		command => '/bin/sh /home/vagrant/repos/Config/scripts/create_desktop_shortcuts.sh',
 		before => Exec['chmod create_desktop_shortcuts.sh'],
 	}
 	
 	exec { 'chmod create_desktop_shortcuts.sh':
+		user => 'dev',
 		command => '/bin/chmod u+rwx /home/vagrant/repos/Config/scripts/create_desktop_shortcuts.sh',
 	}
 	
