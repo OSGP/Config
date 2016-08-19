@@ -5,10 +5,6 @@ if [ ! -d "/home/dev/Desktop" ]; then
   mkdir /home/dev/Desktop
 fi
 
-echo "### Make helper scripts executable"
-chmod u+rwx /home/vagrant/repos/Config/scripts/create_application_shortcut.sh
-chmod u+rwx /home/vagrant/repos/Config/scripts/create_weblink_shortcut.sh
-
 echo "### Create shortcuts"
 /home/vagrant/repos/Config/scripts/create_application_shortcut.sh eclipse false /home/dev/Tools/eclipse/icon.xpm Eclipse /home/dev/Tools/eclipse/eclipse
 

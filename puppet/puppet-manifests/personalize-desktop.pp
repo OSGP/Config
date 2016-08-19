@@ -13,19 +13,19 @@ node 'dev-box' {
 	exec { 'add desktop shortcuts':
 		user => 'dev',
 		command => '/bin/sh /home/vagrant/repos/Config/scripts/create_desktop_shortcuts.sh',
-		before => Exec['chmod create_desktop_shortcuts.sh'],
+		require => Exec['chmod create_desktop_shortcuts.sh','chmod create_application_shortcut.sh','chmod create_weblink_shortcut.sh'],
 	}
 	
 	exec { 'chmod create_desktop_shortcuts.sh':
-		user => 'dev',
-		command => '/bin/chmod u+rwx /home/vagrant/repos/Config/scripts/create_desktop_shortcuts.sh',
-		before => Exec['chown scripts to dev user'],
+		command => '/bin/chmod dev u+rwx /home/vagrant/repos/Config/scripts/create_desktop_shortcuts.sh',
 	}
 	
-	exec { 'chown scripts to dev user':
-		user => 'vagrant',
-		command => '/bin/chown dev:dev /home/vagrant/repos/Config/scripts/*',
+	exec { 'chmod create_application_shortcut.sh':
+		command => '/bin/chmod dev u+rwx /home/vagrant/repos/Config/scripts/create_application_shortcut.sh',
 	}
 	
+	exec { 'chmod create_weblink_shortcut.sh':
+		command => '/bin/chmod dev u+rwx /home/vagrant/repos/Config/scripts/create_weblink_shortcut.sh',
+	}
 
 }
