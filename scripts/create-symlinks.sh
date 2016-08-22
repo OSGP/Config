@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Create symlinks to app config files.
-dir="/home/dev/Source/Config/apps"
+dir="/home/dev/Sources/Config/apps"
 target="/etc/osp"
 for f in "$dir"/*; do
   sudo ln -s "$f" "$target"
@@ -43,15 +43,15 @@ sudo ln -s /home/dev/Sources/Config/certificates/osgp-ca/private/test-org.key.pe
 
 
 # Create symlink to keystore.
-sudo ln -s /home/dev/Sources/OSGP/Config/certificates/trust.jks /etc/ssl/certs
+sudo ln -s /home/dev/Sources/Config/certificates/trust.jks /etc/ssl/certs
 
 
 # Create symlink to apache vhost and remove the link to the 000-default.conf vhost.
-sudo ln -s /home/dev/Sources/OSGP/Config/apache-httpd/vhost.conf /etc/apache2/sites-enabled
+sudo ln -s /home/dev/Sources/Config/apache-httpd/vhost.conf /etc/apache2/sites-enabled
 sudo unlink /etc/apache2/sites-enabled/000-default.conf
 sudo service apache2 restart
 
 # Create symlink to Maven settings
 sudo mkdir /home/dev/.m2
-sudo ln -s /home/dev/Sources/OSGP/Config/maven/settings.xml /home/dev/.m2
+sudo ln -s /home/dev/Sources/Config/maven/settings.xml /home/dev/.m2
 sudo chown -R dev:dev /home/dev/.m2

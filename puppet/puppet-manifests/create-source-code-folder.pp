@@ -3,7 +3,7 @@
 node 'dev-box' {
 
 	exec { 'creating source code folder':
-		command => '/bin/mkdir -p /home/dev/Sources',
+		command => '/bin/mkdir /home/dev/Sources',
 		before => Exec['chown source code folder'],	
 	}
 
