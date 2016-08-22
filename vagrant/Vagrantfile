@@ -9,7 +9,7 @@ Vagrant.configure("2") do |config|
 		vb.memory = "4096"
 	end
   
-	config.vm.define :osgp_oss do |osgp_oss_config|
+	config.vm.define :osgp_development do |osgp_oss_config|
 		osgp_oss_config.vm.hostname="dev-box"
 	end
   
