@@ -26,5 +26,10 @@ node 'dev-box' {
 		command => '/bin/sh -c "cd /home/dev/Sources/Protocol-Adapter-DLMS; /usr/bin/git checkout development"',
 		returns => [0,128],
 	}
+	
+	exec { 'Documentation repo':
+		command => '/bin/sh -c "cd /home/dev/Sources/Documentation; /usr/bin/git checkout development"',
+		returns => [0,128],
+	}
 
 }

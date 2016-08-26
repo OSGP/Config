@@ -66,6 +66,11 @@ echo "##############################################################"
 sudo puppet apply $NOOP ./puppet-manifests/init-db.pp
 
 echo "##############################################################"
+echo "## Personalize desktop                                      ##"
+echo "##############################################################"
+sudo puppet apply $NOOP ./puppet-manifests/personalize-desktop.pp
+
+echo "##############################################################"
 echo "## Cleanup                                                  ##"
 echo "##############################################################"
 sudo puppet apply $NOOP ./puppet-manifests/cleanup.pp
