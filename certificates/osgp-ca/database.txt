@@ -1,4 +1,3 @@
 V	180427162433Z		01	unknown	/CN=localhost
 V	180427170351Z		02	unknown	/CN=test-org
-V	190811075920Z		04	unknown	/CN=Infostroom
-V	190830062635Z		06	unknown	/CN=Test Organisation
+V	190901073400Z		07	unknown	/CN=unknown-organization
