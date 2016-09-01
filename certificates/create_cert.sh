@@ -9,7 +9,7 @@ COMMON_NAME=$2
 CA_PASS=$3
 PKCS12_PASS=$4
 
-OPENSSL_CONF=osgp-ca.cfg
+export OPENSSL_CONF=osgp-ca.cfg
 
 echo ########################################################################
 echo # Create certificate request: $REQUESTS/$COMMON_NAME.req.pem

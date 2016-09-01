@@ -14,13 +14,13 @@ node 'dev-box' {
 
 	# Tomcat7 is used as application server.
 	exec { 'wget tomcat7':
-		command => '/usr/bin/wget -q -P /home/dev/Downloads - https://archive.apache.org/dist/tomcat/tomcat-7/v7.0.62/bin/apache-tomcat-7.0.62.tar.gz',
+		command => '/usr/bin/wget -q -P /home/dev/Downloads/osgp - https://archive.apache.org/dist/tomcat/tomcat-7/v7.0.62/bin/apache-tomcat-7.0.62.tar.gz',
 		before => Exec['wget postgresql jdbc','unpack tomcat7','change permissions of tomcat7 conf files'],	
 		returns => [0, 4],
 	}
 
 	exec { 'unpack tomcat7':
-		command => '/bin/tar xzf /home/dev/Downloads/apache-tomcat-7.0.62.tar.gz -C /home/dev/Tools',
+		command => '/bin/tar xzf /home/dev/Downloads/osgp/apache-tomcat-7.0.62.tar.gz -C /home/dev/Tools',
 		before => Exec['wget postgresql jdbc','change permissions of tomcat7 conf files'],
 	}
 
@@ -39,6 +39,19 @@ node 'dev-box' {
 		ensure => installed,
 	}
 
+	service { 'postgresql':
+		ensure => 'running',
+		enable => true,
+		require => Package['postgresql-9.3'],
+	}
+
+	exec { 'Increase connections postgres':
+		command => '/bin/sed -i \'s/max_connections = 100 /max_connections = 1000 /\' /etc/postgresql/9.3/main/postgresql.conf',
+		returns => [0, 4],
+		require => Package['postgresql-9.3'],
+		notify => Service['postgresql'],
+	}
+
 	# GUI tool for PostgreSQL.
 	package { 'pgadmin3':
 		ensure => installed,
@@ -46,13 +59,13 @@ node 'dev-box' {
 
 	# ActiveMQ is used as message broker.
 	exec { 'wget activemq':
-		command => '/usr/bin/wget -q -P /home/dev/Downloads - https://archive.apache.org/dist/activemq/5.11.1/apache-activemq-5.11.1-bin.tar.gz',
+		command => '/usr/bin/wget -q -P /home/dev/Downloads/osgp - https://archive.apache.org/dist/activemq/5.11.1/apache-activemq-5.11.1-bin.tar.gz',
 		before => Exec['unpack activemq'],	
 		returns => [0, 4],
 	}
 
 	exec { 'unpack activemq':
-		command => '/bin/tar xzf /home/dev/Downloads/apache-activemq-5.11.1-bin.tar.gz -C /home/dev/Tools',
+		command => '/bin/tar xzf /home/dev/Downloads/osgp/apache-activemq-5.11.1-bin.tar.gz -C /home/dev/Tools',
 	}
 
 	# Git.
@@ -62,26 +75,26 @@ node 'dev-box' {
 
 	# Eclipse EE for Webdevelopers, Luna.
 	exec { 'wget eclipse':
-		command => '/usr/bin/wget -q -O /home/dev/Downloads/eclipse-jee-luna-SR2-linux-gtk-x86_64.tar.gz http://ftp.acc.umu.se/mirror/eclipse.org/technology/epp/downloads/release/luna/SR2/eclipse-jee-luna-SR2-linux-gtk-x86_64.tar.gz',
+		command => '/usr/bin/wget -q -O /home/dev/Downloads/osgp/eclipse-jee-luna-SR2-linux-gtk-x86_64.tar.gz http://ftp.acc.umu.se/mirror/eclipse.org/technology/epp/downloads/release/luna/SR2/eclipse-jee-luna-SR2-linux-gtk-x86_64.tar.gz',
 		before => Exec['unpack eclipse'],
 		timeout => 1800,		
 		returns => [0, 4],
 	}
 
 	exec { 'unpack eclipse':
-		command => '/bin/tar xzf /home/dev/Downloads/eclipse-jee-luna-SR2-linux-gtk-x86_64.tar.gz -C /home/dev/Tools',
+		command => '/bin/tar xzf /home/dev/Downloads/osgp/eclipse-jee-luna-SR2-linux-gtk-x86_64.tar.gz -C /home/dev/Tools',
 	}
 
 	# Soap-UI
 	exec { 'wget soap-ui':
-		command => '/usr/bin/wget -q -O /home/dev/Downloads/SoapUI-5.2.1-linux-bin.tar.gz http://cdn01.downloads.smartbear.com/soapui/5.2.1/SoapUI-5.2.1-linux-bin.tar.gz',
+		command => '/usr/bin/wget -q -O /home/dev/Downloads/osgp/SoapUI-5.2.1-linux-bin.tar.gz http://cdn01.downloads.smartbear.com/soapui/5.2.1/SoapUI-5.2.1-linux-bin.tar.gz',
 		before => Exec['unpack soap-ui'],
 		timeout => 1800,		
 		returns => [0, 4],
 	}
 
 	exec { 'unpack soap-ui':
-		command => '/bin/tar xzf /home/dev/Downloads/SoapUI-5.2.1-linux-bin.tar.gz -C /home/dev/Tools',
+		command => '/bin/tar xzf /home/dev/Downloads/osgp/SoapUI-5.2.1-linux-bin.tar.gz -C /home/dev/Tools',
 	}
 
 	# Maven is used as dependency management and build tool.
@@ -91,35 +104,35 @@ node 'dev-box' {
 
 	# Google Protocol Buffers is used to compile OSLP.
 	exec { 'wget protobuf-compiler':
-		command => '/usr/bin/wget -q -P /home/dev/Downloads - http://launchpadlibrarian.net/153399587/protobuf-compiler_2.4.1-3ubuntu2_amd64.deb',
+		command => '/usr/bin/wget -q -P /home/dev/Downloads/osgp - http://launchpadlibrarian.net/153399587/protobuf-compiler_2.4.1-3ubuntu2_amd64.deb',
 		before => Exec['dpkg -i protobuf-compiler'],
 		returns => [0, 4],
 	}
 
 	exec { 'wget libprotoc7':
-		command => '/usr/bin/wget -q -P /home/dev/Downloads - http://launchpadlibrarian.net/153399584/libprotoc7_2.4.1-3ubuntu2_amd64.deb',
+		command => '/usr/bin/wget -q -P /home/dev/Downloads/osgp - http://launchpadlibrarian.net/153399584/libprotoc7_2.4.1-3ubuntu2_amd64.deb',
 		before => Exec['dpkg -i libprotoc7'],
 		returns => [0, 4],
 	}
 
 	exec { 'wget libprotobuf7':
-		command => '/usr/bin/wget -q -P /home/dev/Downloads - http://launchpadlibrarian.net/153399581/libprotobuf7_2.4.1-3ubuntu2_amd64.deb',
+		command => '/usr/bin/wget -q -P /home/dev/Downloads/osgp - http://launchpadlibrarian.net/153399581/libprotobuf7_2.4.1-3ubuntu2_amd64.deb',
 		before => Exec['dpkg -i protobuf-compiler'],
 		returns => [0, 4],
 	}
 
 	exec { 'dpkg -i libprotobuf7':
-		command => '/usr/bin/dpkg -i /home/dev/Downloads/libprotobuf7_2.4.1-3ubuntu2_amd64.deb',
+		command => '/usr/bin/dpkg -i /home/dev/Downloads/osgp/libprotobuf7_2.4.1-3ubuntu2_amd64.deb',
 		require => Exec['wget libprotobuf7'],
 	}
 
 	exec { 'dpkg -i libprotoc7':
-		command => '/usr/bin/dpkg -i /home/dev/Downloads/libprotoc7_2.4.1-3ubuntu2_amd64.deb',
+		command => '/usr/bin/dpkg -i /home/dev/Downloads/osgp/libprotoc7_2.4.1-3ubuntu2_amd64.deb',
 		require => Exec['wget libprotoc7','dpkg -i libprotobuf7'],
 	}
 
 	exec { 'dpkg -i protobuf-compiler':
-		command => '/usr/bin/dpkg -i /home/dev/Downloads/protobuf-compiler_2.4.1-3ubuntu2_amd64.deb',
+		command => '/usr/bin/dpkg -i /home/dev/Downloads/osgp/protobuf-compiler_2.4.1-3ubuntu2_amd64.deb',
 		require => Exec['wget protobuf-compiler','dpkg -i libprotobuf7','dpkg -i libprotoc7'],
 	}
 
