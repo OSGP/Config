@@ -22,6 +22,14 @@ node 'dev-box' {
 		command => '/usr/bin/git clone https://github.com/OSGP/Protocol-Adapter-DLMS.git /home/dev/Sources/Protocol-Adapter-DLMS',
 	}
 	
+	exec { 'cloning Protocol-Adapter-IEC61850 repo':
+		command => '/usr/bin/git clone https://github.com/OSGP/Protocol-Adapter-IEC61850.git /home/dev/Sources/Protocol-Adapter-IEC61850',
+	}
+
+	exec { 'cloning Tests repo':
+		command => '/usr/bin/git clone https://github.com/OSGP/Integration-Tests.git /home/dev/Sources/Integration-Tests',
+	}
+
 	exec { 'cloning Documentation repo':
 		command => '/usr/bin/git clone https://github.com/OSGP/Documentation.git /home/dev/Sources/Documentation',
 	}
