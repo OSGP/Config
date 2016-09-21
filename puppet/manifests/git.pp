@@ -13,6 +13,11 @@ node 'dev-box' {
 		command => '/usr/bin/apt-get install -y git',
 		require => Exec['Update']
 	}
+
+	exec { 'Configure git':
+		command => '/usr/bin/git config --global core.editor vim',
+		require => Exec['Install git']
+	}
 }
 
 

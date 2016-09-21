@@ -23,6 +23,7 @@ echo "##############################################################"
 echo "## Installing activemq                                      ##"
 echo "##############################################################"
 sudo puppet apply $NOOP ./manifests/activemq.pp
+sudo puppet apply $NOOP ./manifests/activemq-development.pp
 
 echo "##############################################################"
 echo "## Installing git                                           ##"

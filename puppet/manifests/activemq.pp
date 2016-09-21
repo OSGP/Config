@@ -46,6 +46,11 @@ node 'dev-box' {
 		require => File['Move activemq']
 	}
 
+        exec { 'Configure activemq':
+		command => "/bin/sed -i 's|<broker xmlns=\"http://activemq.apache.org/schema/core\" brokerName=\"localhost\" dataDirectory=\"\${activemq.data}\">|<broker xmlns=\"http://activemq.apache.org/schema/core\" brokerName=\"localhost\" dataDirectory=\"\${activemq.data}\" schedulerSupport=\"true\">|g' /opt/apache-activemq-5.11.1/conf/activemq.xml",
+		require => File['Move activemq']
+        }
+
 	exec { 'Enable auto start for activemq':
 		command => "/usr/sbin/update-rc.d -f activemq defaults",
 		require => [Exec['Set user for activemq'], File['Create activemq start link'] ]
