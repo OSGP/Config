@@ -20,6 +20,16 @@ echo "##############################################################"
 sudo puppet apply $NOOP ./manifests/install-java.pp
 
 echo "##############################################################"
+echo "## Installing activemq                                      ##"
+echo "##############################################################"
+sudo puppet apply $NOOP ./manifests/activemq.pp
+
+echo "##############################################################"
+echo "## Installing git                                           ##"
+echo "##############################################################"
+sudo puppet apply $NOOP ./manifests/git.pp
+
+echo "##############################################################"
 echo "## Adding 'dev' user                                        ##"
 echo "##############################################################"
 sudo puppet apply $NOOP ./manifests/add-dev-user.pp
