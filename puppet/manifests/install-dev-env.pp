@@ -57,22 +57,6 @@ node 'dev-box' {
 		ensure => installed,
 	}
 
-	# ActiveMQ is used as message broker.
-	exec { 'wget activemq':
-		command => '/usr/bin/wget -q -P /home/dev/Downloads/osgp - https://archive.apache.org/dist/activemq/5.11.1/apache-activemq-5.11.1-bin.tar.gz',
-		before => Exec['unpack activemq'],	
-		returns => [0, 4],
-	}
-
-	exec { 'unpack activemq':
-		command => '/bin/tar xzf /home/dev/Downloads/osgp/apache-activemq-5.11.1-bin.tar.gz -C /home/dev/Tools',
-	}
-
-	# Git.
-	package { 'git':
-		ensure => installed,
-	}
-
 	# Eclipse EE for Webdevelopers, Luna.
 	exec { 'wget eclipse':
 		command => '/usr/bin/wget -q -O /home/dev/Downloads/osgp/eclipse-jee-luna-SR2-linux-gtk-x86_64.tar.gz http://ftp.acc.umu.se/mirror/eclipse.org/technology/epp/downloads/release/luna/SR2/eclipse-jee-luna-SR2-linux-gtk-x86_64.tar.gz',
