@@ -1,16 +1,17 @@
-include apt
-include git
+node 'dev-box' {
 
-class git::git() {
-
-	apt::ppa { 'ppa:git-core/ppa': }
-
-	apt::update { 'apt-update':
-		require => Package['ppa:git-core/ppa']
+	exec { 'Add git repository':
+		command => '/usr/bin/apt-add-repository ppa:git-core/ppa'
 	}
 
-	package { 'git': 
-		require => Package['apt-update']
+	exec { 'Update':
+		command => '/usr/bin/apt-get update',
+		require => Exec['Add git repository']
+	}
+
+	exec { 'Install git':
+		command => '/usr/bin/apt-get install -y git',
+		require => Exec['Update']
 	}
 }
 
