@@ -23,6 +23,12 @@ CREATE DATABASE osgp_adapter_ws_smartmetering
        ENCODING = 'UTF8'
        TABLESPACE = pg_default
        CONNECTION LIMIT = -1;
+       
+CREATE DATABASE osgp_adapter_ws_microgrids
+  WITH OWNER = osp_admin
+       ENCODING = 'UTF8'
+       TABLESPACE = pg_default
+       CONNECTION LIMIT = -1;       
 
 CREATE DATABASE osgp_core
   WITH OWNER = osp_admin
