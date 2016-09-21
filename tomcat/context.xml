@@ -86,4 +86,7 @@
     <Environment name="osp/osgpCore/log-config" value="/etc/osp/osgp-core-logback.xml" type="java.lang.String" override="false" />
     <Environment name="osp/osgpLogging/log-config" value="/etc/osp/osgp-logging-logback.xml" type="java.lang.String" override="false" />
 
+    <!-- Automatic tests projects -->
+    <Environment name="osgp/cucumber/platform" value="/etc/osp/cucumber-platform.properties" type="java.lang.String" override="false" />
+    <Environment name="osgp/cucumber/webapps" value="/etc/osp/cucumber-webapps.properties" type="java.lang.String" override="false" />
 </Context>
