@@ -94,8 +94,4 @@
 
     <Environment name="osp/osgpAdapterProtocolDlms/log-config" value="/etc/osp/osgp-adapter-protocol-dlms-logback.xml" type="java.lang.String" override="false" />
 
-    <!-- Automatic tests projects -->
-    <Environment name="osgp/cucumber/platform" value="/etc/osp/cucumber-platform.properties" type="java.lang.String" override="false" />
-    <Environment name="osgp/cucumber/platform/dlms" value="/etc/osp/cucumber-platform-dlms.properties" type="java.lang.String" override="false" />
-    <Environment name="osgp/cucumber/webapps" value="/etc/osp/cucumber-webapps.properties" type="java.lang.String" override="false" />
 </Context>
