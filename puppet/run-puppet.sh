@@ -20,17 +20,6 @@ echo "##############################################################"
 sudo puppet apply $NOOP ./manifests/install-java.pp
 
 echo "##############################################################"
-echo "## Installing activemq                                      ##"
-echo "##############################################################"
-sudo puppet apply $NOOP ./manifests/activemq.pp
-sudo puppet apply $NOOP ./manifests/activemq-development.pp
-
-echo "##############################################################"
-echo "## Installing git                                           ##"
-echo "##############################################################"
-sudo puppet apply $NOOP ./manifests/git.pp
-
-echo "##############################################################"
 echo "## Adding 'dev' user                                        ##"
 echo "##############################################################"
 sudo puppet apply $NOOP ./manifests/add-dev-user.pp
@@ -40,6 +29,17 @@ echo "## Installing Dev. Env.                                     ##"
 echo "##############################################################"
 sudo puppet apply $NOOP ./manifests/create-tools-folder.pp
 sudo puppet apply $NOOP ./manifests/install-dev-env.pp
+
+echo "##############################################################"
+echo "## Installing activemq                                      ##"
+echo "##############################################################"
+sudo puppet apply $NOOP ./manifests/activemq.pp
+sudo puppet apply $NOOP ./manifests/activemq-development.pp
+
+echo "##############################################################"
+echo "## Installing git                                           ##"
+echo "##############################################################"
+sudo puppet apply $NOOP ./manifests/git.pp
 
 echo "##############################################################"
 echo "## Holding packages                                         ##"
