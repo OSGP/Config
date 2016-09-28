@@ -15,6 +15,11 @@ if [ $1 ] ;
 fi
 
 echo "##############################################################"
+echo "## Installing modules                                       ##"
+echo "##############################################################"
+sudo puppet apply $NOOP ./manifests/modules.pp
+
+echo "##############################################################"
 echo "## Installing JDK                                           ##"
 echo "##############################################################"
 sudo puppet apply $NOOP ./manifests/install-java.pp
@@ -31,10 +36,35 @@ sudo puppet apply $NOOP ./manifests/create-tools-folder.pp
 sudo puppet apply $NOOP ./manifests/install-dev-env.pp
 
 echo "##############################################################"
+echo "## Installing apache2                                       ##"
+echo "##############################################################"
+sudo puppet apply $NOOP ./manifests/apache2.pp
+
+echo "##############################################################"
+echo "## Installing postgress                                     ##"
+echo "##############################################################"
+sudo puppet apply $NOOP ./manifests/postgress.pp
+
+echo "##############################################################"
+echo "## Installing tomcat7                                       ##"
+echo "##############################################################"
+sudo puppet apply $NOOP ./manifests/tomcat7.pp
+
+echo "##############################################################"
 echo "## Installing activemq                                      ##"
 echo "##############################################################"
 sudo puppet apply $NOOP ./manifests/activemq.pp
 sudo puppet apply $NOOP ./manifests/activemq-development.pp
+
+echo "##############################################################"
+echo "## Installing eclipse                                       ##"
+echo "##############################################################"
+sudo puppet apply $NOOP ./manifests/eclipse.pp
+
+echo "##############################################################"
+echo "## Installing soapui                                        ##"
+echo "##############################################################"
+sudo puppet apply $NOOP ./manifests/soapui.pp
 
 echo "##############################################################"
 echo "## Installing git                                           ##"
