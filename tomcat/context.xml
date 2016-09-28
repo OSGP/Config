@@ -67,7 +67,7 @@
 
     <Environment name="osp/osgpCoreDbApiIec61850/config" value="/etc/osp/osgp-core-db-api-iec61850.properties" type="java.lang.String" override="false" />
 
-    <!-- Logging config files -->    
+    <!-- Logging config files -->
     <Environment name="osp/osgpAdapterWsCore/log-config" value="/etc/osp/osgp-adapter-ws-core-logback.xml" type="java.lang.String" override="false" />
     <Environment name="osp/osgpAdapterWsTariffSwitching/log-config" value="/etc/osp/osgp-adapter-ws-tariff-switching-logback.xml" type="java.lang.String" override="false" />
     <Environment name="osp/osgpAdapterWsPublicLighting/log-config" value="/etc/osp/osgp-adapter-ws-public-lighting-logback.xml" type="java.lang.String" override="false" />
