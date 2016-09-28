@@ -43,7 +43,7 @@ sudo puppet apply $NOOP ./manifests/apache2.pp
 echo "##############################################################"
 echo "## Installing postgress                                     ##"
 echo "##############################################################"
-sudo puppet apply $NOOP ./manifests/postgress.pp
+sudo puppet apply $NOOP ./manifests/postgres.pp
 
 echo "##############################################################"
 echo "## Installing tomcat7                                       ##"
