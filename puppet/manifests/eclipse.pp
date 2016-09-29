@@ -19,5 +19,34 @@ node 'dev-box' {
 		require => Exec['unpack eclipse']
 	}
 
+	exec { 'Update eclipse.ini':
+		command => 'echo -startup \
+plugins/org.eclipse.equinox.launcher_1.3.0.v20140415-2008.jar \
+--launcher.library \
+plugins/org.eclipse.equinox.launcher.gtk.linux.x86_64_1.1.200.v20150204-1316 \
+-product \
+org.eclipse.epp.package.jee.product \
+--launcher.defaultAction \
+openFile \
+-showsplash \
+org.eclipse.platform \
+--launcher.XXMaxPermSize \
+2G \
+--launcher.defaultAction \
+openFile \
+--launcher.appendVmargs \
+-vmargs \
+-Dosgi.requiredJavaVersion=1.7 \
+-XX:MaxPermSize=1G \
+-Xms2G \
+-Xmx2G \
+-server \
+-XX:+UseParallelGC \
+-Xmn1G \
+-Xss1G \
+>> /home/dev/Tools/eclipse/eclipse.ini',
+		require => Exec['unpack eclipse']
+	}
+
 }
 
