@@ -15,20 +15,20 @@ node 'dev-box' {
 	}
 
 	exec { 'Download activemq 5.11.1':
-		command => '/usr/bin/wget -q http://archive.apache.org/dist/activemq/5.11.1/apache-activemq-5.11.1-bin.tar.gz -O /home/vagrant/Downloads/apache-activemq-5.11.1-bin.tar.gz',
-		creates => '/home/vagrant/Downloads/apache-activemq-5.11.1-bin.tar.gz',
+		command => '/usr/bin/wget -q http://archive.apache.org/dist/activemq/5.11.1/apache-activemq-5.11.1-bin.tar.gz -O /home/dev/Downloads/apache-activemq-5.11.1-bin.tar.gz',
+		creates => '/home/dev/Downloads/apache-activemq-5.11.1-bin.tar.gz',
 	}
 
 	exec { 'Unpack activemq 5.11.1':
-		command => '/bin/tar -xzvf /home/vagrant/Downloads/apache-activemq-5.11.1-bin.tar.gz -C /home/vagrant/Downloads/',
-		creates => '/home/vagrant/Downloads/apache-activemq-5.11.1',
+		command => '/bin/tar -xzvf /home/dev/Downloads/apache-activemq-5.11.1-bin.tar.gz -C /home/dev/Downloads/',
+		creates => '/home/dev/Downloads/apache-activemq-5.11.1',
 		require => Exec['Download activemq 5.11.1']
 	}
 
 	file { 'Move activemq':
 		ensure => 'directory',
 		path => '/opt/apache-activemq-5.11.1',
-		source => '/home/vagrant/Downloads/apache-activemq-5.11.1',
+		source => '/home/dev/Downloads/apache-activemq-5.11.1',
 		recurse => true,
 		require => Exec['Unpack activemq 5.11.1']
 	}
