@@ -19,11 +19,16 @@ node 'dev-box' {
 		require => Exec['unpack eclipse']
 	}
 
-#	file { 'Update eclipse.ini':
-#		path => '/home/dev/Tools/eclipse/eclipse.ini',
-#		content => template('/home/dev/Sources/OSGP/Config/puppet/manifests/eclipse.ini.tpl'),
-#		require => Exec['unpack eclipse']
-#	}
+	exec { 'install cucumber-eclipse plugin':
+		command => '/home/dev/Tools/eclipse/eclipse -application org.eclipse.equinox.p2.director -nosplash -repository https://otto.takari.io/content/sites/m2e.extras/m2eclipse-mavenarchiver/0.17.2/N/LATEST/ -installIUs org.sonatype.m2e.mavenarchiver.feature.feature.group',
+		require => Exec['unpack eclipse']
+	}
+
+	file { 'Update eclipse.ini':
+		path => '/home/dev/Tools/eclipse/eclipse.ini',
+		content => template('/home/dev/Sources/OSGP/Config/puppet/manifests/eclipse.ini.tpl'),
+		require => Exec['unpack eclipse']
+	}
 
 }
 
