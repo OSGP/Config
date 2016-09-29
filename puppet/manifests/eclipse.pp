@@ -15,7 +15,7 @@ node 'dev-box' {
 	}
 
 	exec { 'install cucumber-eclipse plugin':
-		command => '/home/dev/Tools/eclipse/eclipse -application org.eclipse.equinox.p2.director -repository http://cucumber.github.io/cucumber-eclipse/update-site -installIUs cucumber.eclipse.feature.feature.group',
+		command => '/home/dev/Tools/eclipse/eclipse -application org.eclipse.equinox.p2.director -nosplash -repository http://cucumber.github.io/cucumber-eclipse/update-site -installIUs cucumber.eclipse.feature.feature.group',
 		require => Exec['unpack eclipse']
 	}
 
