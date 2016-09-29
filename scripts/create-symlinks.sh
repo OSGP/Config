@@ -23,6 +23,8 @@ sudo ln -sf /home/dev/Sources/OSGP/Config/certificates/oslp/oslp_sim_ecdsa_publi
 sudo ln -sf /home/dev/Sources/OSGP/Config/certificates/oslp/oslp_test_ecdsa_private.der /etc/ssl/certs
 sudo ln -sf /home/dev/Sources/OSGP/Config/certificates/oslp/oslp_test_ecdsa_public.der /etc/ssl/certs
 
+# Create symlinks to secret.aes.
+sudo ln -sf /home/dev/Sources/OSGP/Config/certificates/oslp/secret.aes /etc/ssl/certs
 
 # Create symlink to CA certificate.
 sudo ln -sf /home/dev/Sources/OSGP/Config/certificates/osgp-ca/certs/cacert.cer /etc/ssl/certs
