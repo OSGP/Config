@@ -32,6 +32,7 @@ sudo puppet apply $NOOP ./manifests/add-dev-user.pp
 echo "##############################################################"
 echo "## Installing Dev. Env.                                     ##"
 echo "##############################################################"
+sudo puppet apply $NOOP ./manifests/create-download-folder.pp
 sudo puppet apply $NOOP ./manifests/create-tools-folder.pp
 sudo puppet apply $NOOP ./manifests/install-dev-env.pp
 
@@ -81,7 +82,7 @@ echo "## Cloning GitHub repositories                              ##"
 echo "##############################################################"
 sudo puppet apply $NOOP ./manifests/create-source-code-folder.pp
 sudo puppet apply $NOOP ./manifests/clone-repositories.pp
-#sudo puppet apply $NOOP ./manifests/repositories-checkout-development-branch.pp
+sudo puppet apply $NOOP ./manifests/repositories-checkout-development-branch.pp
 sudo puppet apply $NOOP ./manifests/repositories-init-submodules.pp
 sudo puppet apply $NOOP ./manifests/chown-source-folders.pp
 
