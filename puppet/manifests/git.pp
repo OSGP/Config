@@ -15,7 +15,7 @@ node 'dev-box' {
 	}
 
 	exec { 'Configure git':
-		command => '/usr/bin/git config --global core.editor vim',
+		command => '/usr/bin/git config --file /home/dev/.gitconfig core.editor vim',
 		require => Exec['Install git']
 	}
 }

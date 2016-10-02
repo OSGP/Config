@@ -3,7 +3,7 @@
 node 'dev-box' {
 
 	exec { 'add osgp wallpaper':
-		command => '/bin/cp -f /home/dev/Sources/OSGP/Config/dev/OSGP-solar.png /usr/share/backgrounds/warty-final-ubuntu.png',
+		command => '/bin/cp -f /home/dev/Sources/OSGP/Config/vagrant/OSGP-solar.png /usr/share/backgrounds/warty-final-ubuntu.png',
 	}
 	
 	exec { 'git cache':
