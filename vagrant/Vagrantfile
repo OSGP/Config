@@ -5,24 +5,28 @@ Vagrant.configure("2") do |config|
 	config.vm.box = "box-cutter/ubuntu1404-desktop"
 
 	config.vm.provider "virtualbox" do |vb|
+		vb.name = "OSGP Development"
 		vb.gui = true
 		vb.memory = "4096"
+
+		# Disable 3d acceleration because some programs crash on it.
+		vb.customize ["modifyvm", :id, "--accelerate3d", "off"]
 	end
   
 	config.vm.define :osgp_development do |osgp_oss_config|
 		osgp_oss_config.vm.hostname="dev-box"
 	end
   
-    config.vm.provision "shell", inline: <<-SHELL
+	config.vm.provision "shell", inline: <<-SHELL
 		# Clone config repo for user Vagrant
 		apt install -y git
-		su vagrant -c "mkdir ~/repos";
-		su vagrant -c "git clone -b "development" https://github.com/OSGP/Config.git ~/repos/Config"
+		su vagrant -c "mkdir ~/repos/OSGP";
+		su vagrant -c "git clone -b "development" https://github.com/OSGP/Config.git ~/repos/OSGP/Config"
 
 		# Install puppet
-		su vagrant -c "/home/vagrant/repos/Config/puppet/install-puppet.sh"
+		su vagrant -c "/home/vagrant/repos/OSGP/Config/puppet/install-puppet.sh"
 
 		# Trigger puppet installation
-		su vagrant -c "cd /home/vagrant/repos/Config/puppet/;/home/vagrant/repos/Config/puppet/run-puppet.sh"
+		su vagrant -c "cd /home/vagrant/repos/OSGP/Config/puppet/;/home/vagrant/repos/OSGP/Config/puppet/run-puppet.sh"
 	SHELL
 end

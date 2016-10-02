@@ -56,12 +56,16 @@
     <Environment name="osp/osgpAdapterProtocolOslp/config" value="/etc/osp/osgp-adapter-protocol-oslp.properties" type="java.lang.String" override="false" />
     <Environment name="osp/osgpAdapterProtocolOslpElster/config" value="/etc/osp/osgp-adapter-protocol-oslp-elster.properties" type="java.lang.String" override="false" />
     <Environment name="osp/osgpCoreDbApi/config" value="/etc/osp/osgp-core-db-api.properties" type="java.lang.String" override="false" />
+    <Environment name="osp/osgpAdapterProtocolDlms/config" value="/etc/osp/osgp-adapter-protocol-dlms.properties" type="java.lang.String" override="false" />
+    <Environment name="osp/osgpAdapterProtocolIec61850/config" value="/etc/osp/osgp-adapter-protocol-iec61850.properties" type="java.lang.String" override="false" />
     <Environment name="osp/webDeviceSimulator/config" value="/etc/osp/web-device-simulator.properties" type="java.lang.String" override="false" />
 
     <Environment name="osp/osgpCoreDbApiIec61850/config" value="/etc/osp/osgp-core-db-api-iec61850.properties" type="java.lang.String" override="false" />
     <Environment name="osp/osgpAdapterProtocolIec61850/config" value="/etc/osp/osgp-adapter-protocol-iec61850.properties" type="java.lang.String" override="false" />
 
-    <Environment name="osp/osgpAdapterProtocolDlms/config" value="/etc/osp/osgp-adapter-protocol-dlms.properties" type="java.lang.String" override="false" />
+    <Environment name="osp/osgpJasper/config" value="/etc/osp/osgp-jasper.properties" type="java.lang.String" override="false" />
+
+    <Environment name="osp/osgpCoreDbApiIec61850/config" value="/etc/osp/osgp-core-db-api-iec61850.properties" type="java.lang.String" override="false" />
 
     <!-- Logging config files -->
     <Environment name="osp/osgpAdapterWsCore/log-config" value="/etc/osp/osgp-adapter-ws-core-logback.xml" type="java.lang.String" override="false" />
