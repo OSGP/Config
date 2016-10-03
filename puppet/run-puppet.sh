@@ -37,6 +37,20 @@ sudo puppet apply $NOOP ./manifests/create-tools-folder.pp
 sudo puppet apply $NOOP ./manifests/install-dev-env.pp
 
 echo "##############################################################"
+echo "## Installing git                                           ##"
+echo "##############################################################"
+sudo puppet apply $NOOP ./manifests/git.pp
+
+echo "##############################################################"
+echo "## Cloning GitHub repositories                              ##"
+echo "##############################################################"
+sudo puppet apply $NOOP ./manifests/create-source-code-folder.pp
+sudo puppet apply $NOOP ./manifests/clone-repositories.pp
+sudo puppet apply $NOOP ./manifests/repositories-checkout-development-branch.pp
+sudo puppet apply $NOOP ./manifests/repositories-init-submodules.pp
+sudo puppet apply $NOOP ./manifests/chown-source-folders.pp
+
+echo "##############################################################"
 echo "## Installing apache2                                       ##"
 echo "##############################################################"
 sudo puppet apply $NOOP ./manifests/apache2.pp
@@ -68,23 +82,9 @@ echo "##############################################################"
 sudo puppet apply $NOOP ./manifests/soapui.pp
 
 echo "##############################################################"
-echo "## Installing git                                           ##"
-echo "##############################################################"
-sudo puppet apply $NOOP ./manifests/git.pp
-
-echo "##############################################################"
 echo "## Holding packages                                         ##"
 echo "##############################################################"
 sudo puppet apply $NOOP ./manifests/hold-protobuf-packages.pp
-
-echo "##############################################################"
-echo "## Cloning GitHub repositories                              ##"
-echo "##############################################################"
-sudo puppet apply $NOOP ./manifests/create-source-code-folder.pp
-sudo puppet apply $NOOP ./manifests/clone-repositories.pp
-sudo puppet apply $NOOP ./manifests/repositories-checkout-development-branch.pp
-sudo puppet apply $NOOP ./manifests/repositories-init-submodules.pp
-sudo puppet apply $NOOP ./manifests/chown-source-folders.pp
 
 echo "##############################################################"
 echo "## Creating config and loggin folders                       ##"
