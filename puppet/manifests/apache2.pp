@@ -17,6 +17,6 @@ node 'dev-box' {
 	}
 	
 	exec { 'disable deflate':
-		command => '/usr/sbin/a2dismod deflate'
+		command => '/usr/sbin/a2dismod -f deflate'
         }
 }
