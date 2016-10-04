@@ -2,8 +2,14 @@
 
 node 'dev-box' {
 
-	exec { 'add osgp wallpaper':
+	exec { 'add osgp wallpaper for Ubuntu':
 		command => '/bin/cp -f /home/dev/Sources/OSGP/Config/vagrant/OSGP-solar.png /usr/share/backgrounds/warty-final-ubuntu.png',
+		onlyif => '/usr/bin/test -f /usr/share/backgrounds/warty-final-ubuntu.png'
+	}
+
+	exec { 'add osgp wallpaper for Mate':
+		command => '/bin/cp -f /home/dev/Sources/OSGP/Config/vagrant/OSGP-solar.png /usr/share/backgrounds/ubuntu-mate-common/Ubuntu-Mate-Cold.jpg',
+		onlyif => '/usr/bin/test -f /usr/share/backgrounds/ubuntu-mate-common/Ubuntu-Mate-Cold.jpg'
 	}
 	
 	exec { 'git cache':
