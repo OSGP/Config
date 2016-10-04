@@ -11,3 +11,8 @@ user { 'dev' :
     comment     		=> 'The "dev" user',
 	groups				=> ['sudo']
 } #end user
+
+exec { 'make dev user default':
+	command =>  '/bin/sed -i "s/vagrant/dev/g" /etc/lightdm/lightdm.conf',
+	require => User['dev']
+}
