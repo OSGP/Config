@@ -1,18 +1,24 @@
 user { 'dev' : 
-    name        		=> 'dev',
-    ensure      		=> present, 
-    shell       			=> '/bin/bash',
+	name        		=> 'dev',
+	ensure      		=> present, 
+	shell       		=> '/bin/bash',
 	# Password is dev, hashed using openssl passwd -1
-    password   		=> '$1$2x3KeDs1$k60vGVK1n5gSMpCPGElTK1',
-    home        		=> '/home/dev/',
+	password   		=> '$1$2x3KeDs1$k60vGVK1n5gSMpCPGElTK1',
+	home        		=> '/home/dev/',
 	# Makes sure user has uid more than 500, ensure it can login via GUI
-    system      		=> false,                 
-    managehome  	=> true,
-    comment     		=> 'The "dev" user',
-	groups				=> ['sudo']
-} #end user
+	system      		=> false,                 
+	managehome  		=> true,
+	comment     		=> 'The "dev" user',
+	groups			=> ['sudo']
+}
+
+file { '/etc/lightdm/lightdm.conf':
+	ensure => present,
+	content => "[SeatDefaults]\nautologin-user=vagrant",
+	before => Exec['make dev user default']
+}
 
 exec { 'make dev user default':
-	command =>  '/bin/sed -i "s/vagrant/dev/g" /etc/lightdm/lightdm.conf',
-	require => User['dev']
+	command => '/bin/sed -i "s/vagrant/dev/g" /etc/lightdm/lightdm.conf',
+	require => [File['/etc/lightdm/lightdm.conf'], User['dev']]
 }
