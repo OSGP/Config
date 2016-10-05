@@ -22,6 +22,7 @@ node 'dev-box' {
 
 	# Apply the change to pg_hba.conf by reloading the configuration for PostgreSQL.
 	exec { 'reload config':
-		command => '/usr/bin/service postgresql reload',
+		command => 'service postgresql reload',
+		path => ['/usr/bin', '/usr/sbin', '/bin']
 	}
 }
