@@ -12,10 +12,6 @@ node 'dev-box' {
 		onlyif => '/usr/bin/test -f /usr/share/backgrounds/ubuntu-mate-common/Ubuntu-Mate-Cold.jpg'
 	}
 	
-	exec { 'git cache':
-		command => '/usr/bin/git config credential.helper "cache --timeout=86400"',
-	}
-	
 	exec { 'add desktop shortcuts':
 		user => 'dev',
 		command => '/bin/sh /home/dev/Sources/OSGP/Config/scripts/create_desktop_shortcuts.sh',

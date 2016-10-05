@@ -18,6 +18,12 @@ node 'dev-box' {
 		command => '/usr/bin/git config --file /home/dev/.gitconfig core.editor vim',
 		require => Exec['Install git']
 	}
+
+	exec { 'git cache':
+		command => "/usr/bin/git config --file /home/dev/.gitconfig credential.helper 'cache --timeout=86400'",
+		require => Exec['Install git']
+	}
+
 }
 
 
