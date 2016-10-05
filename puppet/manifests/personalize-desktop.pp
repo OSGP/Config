@@ -12,6 +12,11 @@ node 'dev-box' {
 		onlyif => '/usr/bin/test -f /usr/share/backgrounds/ubuntu-mate-common/Ubuntu-Mate-Cold.jpg'
 	}
 	
+	exec { 'add begin osgp wallpaper for Mate':
+		command => '/bin/cp -f /home/dev/Sources/OSGP/Config/vagrant/OSGP-solar.png /usr/share/backgrounds/ubuntu-mate-common/Ubuntu-Mate-Cold-lightdm.jpg',
+		onlyif => '/usr/bin/test -f /usr/share/backgrounds/ubuntu-mate-common/Ubuntu-Mate-Cold-lightdm.jpg'
+	}
+	
 	exec { 'git cache':
 		command => '/usr/bin/git config credential.helper "cache --timeout=86400"',
 	}
