@@ -8,25 +8,25 @@ CREATE ROLE osp_admin LOGIN
 
 CREATE DATABASE osgp_adapter_protocol_oslp
   WITH OWNER = osp_admin
-       ENCODING = 'UTF8'
+       ENCODING = 'UTF-8'
        TABLESPACE = pg_default
        CONNECTION LIMIT = -1;
 
 CREATE DATABASE osgp_adapter_protocol_dlms
   WITH OWNER = osp_admin
-       ENCODING = 'UTF8'
+       ENCODING = 'UTF-8'
        TABLESPACE = pg_default
        CONNECTION LIMIT = -1;
 
 CREATE DATABASE osgp_adapter_ws_smartmetering
   WITH OWNER = osp_admin
-       ENCODING = 'UTF8'
+       ENCODING = 'UTF-8'
        TABLESPACE = pg_default
        CONNECTION LIMIT = -1;
        
 CREATE DATABASE osgp_adapter_ws_microgrids
   WITH OWNER = osp_admin
-       ENCODING = 'UTF8'
+       ENCODING = 'UTF-8'
        TABLESPACE = pg_default
        CONNECTION LIMIT = -1;       
 
@@ -38,13 +38,13 @@ CREATE DATABASE osgp_core
 
 CREATE DATABASE osp_devicesimulator_web
   WITH OWNER = osp_admin
-       ENCODING = 'UTF8'
+       ENCODING = 'UTF-8'
        TABLESPACE = pg_default
        CONNECTION LIMIT = -1;
 
 CREATE DATABASE osgp_logging
   WITH OWNER = osp_admin
-       ENCODING = 'UTF8'
+       ENCODING = 'UTF-8'
        TABLESPACE = pg_default
        CONNECTION LIMIT = -1;
 
