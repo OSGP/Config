@@ -15,9 +15,14 @@ if [ $1 ] ;
 fi
 
 echo "##############################################################"
-echo "## Installing modules                                       ##"
+echo "## Installing puppet modules                                ##"
 echo "##############################################################"
 sudo puppet apply $NOOP ./manifests/modules.pp
+
+echo "##############################################################"
+echo "## Update system                                            ##"
+echo "##############################################################"
+sudo puppet apply $NOOP ./manifests/update.pp
 
 echo "##############################################################"
 echo "## Installing JDK                                           ##"
@@ -35,6 +40,11 @@ echo "##############################################################"
 sudo puppet apply $NOOP ./manifests/create-download-folder.pp
 sudo puppet apply $NOOP ./manifests/create-tools-folder.pp
 sudo puppet apply $NOOP ./manifests/install-dev-env.pp
+
+echo "##############################################################"
+echo "## Installing GEDIT                                         ##"
+echo "##############################################################"
+sudo puppet apply $NOOP ./manifests/gedit.pp
 
 echo "##############################################################"
 echo "## Installing git                                           ##"
