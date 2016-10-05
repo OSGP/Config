@@ -13,7 +13,7 @@ node 'dev-box' {
 
 	exec { 'Update': 
 		command => '/usr/bin/apt update',
-		require => Exec['Add git repository for mate']
+		require => Exec['Remove original xenial mate file']
 	}
 
 	#exec { 'Dist-Update': 
