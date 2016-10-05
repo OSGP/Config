@@ -16,10 +16,10 @@ node 'dev-box' {
 		require => Exec['Add git repository for mate']
 	}
 
-	exec { 'Dist-Update': 
-		command => '/usr/bin/apt dist-upgrade',
-		require => Exec['Update']
-	}
+	#exec { 'Dist-Update': 
+	#	command => '/usr/bin/apt -y dist-upgrade',
+	#	require => Exec['Update']
+	#}
 }
 
 
