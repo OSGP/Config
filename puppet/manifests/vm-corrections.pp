@@ -17,9 +17,9 @@ node 'dev-box' {
 	}
 
         file_line { 'Keyboard Mapping':
-	  path  => '/etc/default/keyboard',
-	  line  => 'XKBLAYOUT="us"',
-	  match => '^XKBLAYOUT="ch"',
+                path  => '/etc/default/keyboard',
+                line  => 'XKBLAYOUT="us"',
+                match => '^XKBLAYOUT="ch"',
 	}
 }
 
