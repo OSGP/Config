@@ -132,6 +132,11 @@ echo "## Cleanup                                                  ##"
 echo "##############################################################"
 sudo puppet apply $NOOP ./manifests/cleanup.pp
 
+echo "##############################################################"
+echo "## Restart VM in order to apply various settings            ##"
+echo "##############################################################"
+sudo puppet apply $NOOP ./manifests/restart-vm.pp
+
 echo ""
 echo "DONE"
 echo ""
