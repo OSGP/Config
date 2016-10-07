@@ -22,3 +22,10 @@ exec { 'make dev user default':
 	command => '/bin/sed -i "s/vagrant/dev/g" /etc/lightdm/lightdm.conf',
 	require => [File['/etc/lightdm/lightdm.conf'], User['dev']]
 }
+
+exec { 'Set correct keyboard': 
+	command => '/bin/echo setxkbmap us >> /home/dev/.profile',
+	require => User['dev']
+}
+
+
