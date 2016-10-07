@@ -11,6 +11,10 @@ Vagrant.configure("2") do |config|
 
 		# Disable 3d acceleration because some programs crash on it.
 		vb.customize ["modifyvm", :id, "--accelerate3d", "off"]
+
+                # Enabling copy/paste to/from VM         
+                vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
+                vb.customize ["modifyvm", :id, "--draganddrop", "bidirectional"]
 	end
   
 	config.vm.define :osgp_development do |osgp_oss_config|
