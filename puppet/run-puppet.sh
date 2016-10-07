@@ -22,7 +22,7 @@ sudo puppet apply $NOOP ./manifests/modules.pp
 echo "##############################################################"
 echo "## Update system                                            ##"
 echo "##############################################################"
-sudo puppet apply $NOOP ./manifests/update.pp
+sudo puppet apply $NOOP ./manifests/vm-corrections.pp
 
 echo "##############################################################"
 echo "## Installing JDK                                           ##"
