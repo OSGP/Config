@@ -12,6 +12,12 @@ node 'dev-box' {
 		path    => ['/bin', '/usr/bin']
 	}
 
+	exec { 'Installing module puppetlabs-stdlib':
+		command => "puppet module install puppetlabs-stdlib",
+		unless  => "puppet module list | grep puppetlabs-stdlib",
+		path    => ['/bin', '/usr/bin']
+	}
+
 	exec { 'Installing module puppetlabs-activemq':
 		command => "puppet module install puppetlabs-activemq",
 		unless  => "puppet module list | grep puppetlabs-activemq",

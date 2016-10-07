@@ -16,10 +16,11 @@ node 'dev-box' {
 		require => Exec['Remove original xenial mate file']
 	}
 
-	#exec { 'Dist-Update': 
-	#	command => '/usr/bin/apt -y dist-upgrade',
-	#	require => Exec['Update']
-	#}
+        file_line { 'Keyboard Mapping':
+	  path  => '/etc/default/keyboard',
+	  line  => 'XKBLAYOUT="us"',
+	  match => '^XKBLAYOUT="ch"',
+	}
 }
 
 

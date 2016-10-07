@@ -3,6 +3,7 @@
 
 Vagrant.configure("2") do |config|
 	config.vm.box = "cxtlabs/vagrant-ubuntu-16.04-mate"
+
 	
 	config.vm.provider "virtualbox" do |vb|
 		vb.name = "OSGP Development"
