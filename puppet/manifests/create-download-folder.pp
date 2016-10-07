@@ -8,6 +8,6 @@ node 'dev-box' {
 	}
 
 	exec { 'chown osgp download folder':
-		command => '/bin/chown -R dev:dev /home/dev/Downloads/osgp',
+		command => '/bin/chown -R dev:dev /home/dev/Downloads',
 	}
 }

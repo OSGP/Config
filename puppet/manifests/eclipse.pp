@@ -4,14 +4,14 @@ node 'dev-box' {
 
 	# Eclipse EE for Webdevelopers, Luna.
 	exec { 'wget eclipse':
-		command => '/usr/bin/wget -q -O /home/dev/Downloads/osgp/eclipse-jee-mars-2-linux-gtk-x86_64.tar.gz http://ftp.acc.umu.se/mirror/eclipse.org/technology/epp/downloads/release/mars/2/eclipse-jee-mars-2-linux-gtk-x86_64.tar.gz',
+		command => '/usr/bin/wget -q -O /home/dev/Downloads/osgp/eclipse.tar.gz http://ftp.acc.umu.se/mirror/eclipse.org/technology/epp/downloads/release/neon/1/eclipse-jee-neon-1-linux-gtk-x86_64.tar.gz',
 		onlyif => '/usr/bin/test ! -d /home/dev/Tools/eclipse',
 		timeout => 1800,		
 		returns => [0, 4],
 	}
 
 	exec { 'unpack eclipse':
-		command => '/bin/tar xzf /home/dev/Downloads/osgp/eclipse-jee-mars-2-linux-gtk-x86_64.tar.gz -C /home/dev/Tools',
+		command => '/bin/tar xzf /home/dev/Downloads/osgp/eclipse.tar.gz -C /home/dev/Tools',
 		onlyif => '/usr/bin/test ! -d /home/dev/Tools/eclipse',
 		require => Exec['wget eclipse'], 
 	}
@@ -38,12 +38,6 @@ node 'dev-box' {
 
 	exec { 'install sonarlint plugin':
 		command => '/home/dev/Tools/eclipse/eclipse -application org.eclipse.equinox.p2.director -nosplash -repository http://www.sonarlint.org/eclipse -installIUs org.sonarlint.eclipse.feature.feature.group',
-		require => Exec['unpack eclipse']
-	}
-
-	file { 'Update eclipse.ini':
-		path => '/home/dev/Tools/eclipse/eclipse.ini',
-		content => template('/home/dev/Sources/OSGP/Config/puppet/manifests/eclipse.ini.tpl'),
 		require => Exec['unpack eclipse']
 	}
 
