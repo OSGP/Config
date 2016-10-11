@@ -3,11 +3,11 @@
 
 Vagrant.configure("2") do |config|
 	config.vm.box = "cxtlabs/vagrant-ubuntu-16.04-mate"
-
 	
 	config.vm.provider "virtualbox" do |vb|
 		vb.name = "OSGP Development"
 		vb.gui = true
+		vb.cpus = "1"
 		vb.memory = "4096"
 
 		# Disable 3d acceleration because some programs crash on it.
@@ -37,9 +37,9 @@ Vagrant.configure("2") do |config|
 	
 	# Provision some user specific settings/configuration/packages
 	user_config_file=".user-dev-box.sh"
-    if File.file?(File.join(Dir.home, user_config_file))
-        config.vm.provision "shell", path: File.join(Dir.home, user_config_file)
-    end
+	if File.file?(File.join(Dir.home, user_config_file))
+		config.vm.provision "shell", path: File.join(Dir.home, user_config_file)
+	end
 
 end
 
