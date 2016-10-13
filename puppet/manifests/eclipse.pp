@@ -41,5 +41,15 @@ node 'dev-box' {
 		require => Exec['unpack eclipse']
 	}
 
+	exec { 'install M2E Connector for jaxws-maven-plugin plugin':
+		command => '/home/dev/Tools/eclipse/eclipse -application org.eclipse.equinox.p2.director -nosplash -repository http://coderplus.com/m2e-update-sites/jaxws-maven-plugin/ -installIUs com.coderplus.m2e.jaxwscore',
+		require => Exec['unpack eclipse']
+	}
+
+	exec { 'install m2e connector for build-helper-maven-plugin plugin':
+		command => '/home/dev/Tools/eclipse/eclipse -application org.eclipse.equinox.p2.director -nosplash -repository https://repository.sonatype.org/content/repositories/forge-sites/m2e-extras/0.15.0/N/0.15.0.201206251206/ -installIUs org.sonatype.m2e.buildhelper',
+		require => Exec['unpack eclipse']
+	}
+
 }
 
