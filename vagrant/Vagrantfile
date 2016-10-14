@@ -13,9 +13,12 @@ Vagrant.configure("2") do |config|
 		# Disable 3d acceleration because some programs crash on it.
 		vb.customize ["modifyvm", :id, "--accelerate3d", "off"]
 
-                # Enabling copy/paste to/from VM         
-                vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
-                vb.customize ["modifyvm", :id, "--draganddrop", "bidirectional"]
+		# Enabling copy/paste to/from VM         
+        vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
+        vb.customize ["modifyvm", :id, "--draganddrop", "bidirectional"]
+
+		# Add cdrom
+        vb.customize ["storageattach", :id, "--storagectl", "IDE Controller", "--port", "0", "--device", "0", "--type", "dvddrive", "--medium", "emptydrive"]
 	end
   
 	config.vm.define :osgp_development do |osgp_oss_config|
@@ -25,7 +28,7 @@ Vagrant.configure("2") do |config|
 	config.vm.provision "shell", inline: <<-SHELL
 		# Clone config repo for user Vagrant
 		apt install -y git
-		su vagrant -c "mkdir ~/repos/OSGP";
+		su vagrant -c "mkdir -p ~/repos/OSGP";
 		su vagrant -c "git clone -b "development" https://github.com/OSGP/Config.git ~/repos/OSGP/Config"
 
 		# Install puppet
