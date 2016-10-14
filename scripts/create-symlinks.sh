@@ -57,3 +57,5 @@ sudo service apache2 restart
 sudo mkdir -p /home/dev/.m2
 sudo ln -sf /home/dev/Sources/OSGP/Config/maven/settings.xml /home/dev/.m2
 sudo chown -R dev:dev /home/dev/.m2
+
+ln -sf /home/dev/Sources/OSGP/Config/scripts/build_osgp_sources.sh /home/dev/Sources/OSGP/b.sh
