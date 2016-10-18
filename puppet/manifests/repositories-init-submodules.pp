@@ -21,4 +21,10 @@ node 'dev-box' {
 		command => '/bin/sh -c "cd /home/dev/Sources/OSGP/Protocol-Adapter-IEC61850; /usr/bin/git submodule update --init --recursive"',
 		returns => [0,1,128],
 	}
+
+        exec { 'Integration-Tests repo':
+                command => '/bin/sh -c "cd /home/dev/Sources/OSGP/Integration-Tests; /usr/bin/git submodule update --init --recursive"',
+                returns => [0,1,128],
+        }
+
 }
