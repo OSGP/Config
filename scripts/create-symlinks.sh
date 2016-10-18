@@ -50,9 +50,12 @@ sudo ln -sf /home/dev/Sources/OSGP/Config/certificates/trust.jks /etc/ssl/certs
 
 # Create symlink to apache vhost and remove the link to the 000-default.conf vhost.
 sudo ln -sf /home/dev/Sources/OSGP/Config/apache-httpd/vhost.conf /etc/apache2/sites-enabled
+sudo rm -f /etc/apache2/sites-enabled/000-default.conf
 sudo service apache2 restart
 
 # Create symlink to Maven settings
 sudo mkdir -p /home/dev/.m2
 sudo ln -sf /home/dev/Sources/OSGP/Config/maven/settings.xml /home/dev/.m2
 sudo chown -R dev:dev /home/dev/.m2
+
+sudo ln -sf /home/dev/Sources/OSGP/Config/scripts/build_osgp_sources.sh /home/dev/Sources/OSGP/b.sh
