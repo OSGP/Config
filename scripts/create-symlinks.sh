@@ -1,19 +1,56 @@
 #!/bin/bash
 
-# Create symlinks to app config files.
-dir="/home/dev/Sources/OSGP/Config/apps"
-target="/etc/osp"
-for f in "$dir"/*; do
-  sudo ln -sf "$f" "$target"
-  echo "$f"
-done
-
-# Create symlinks to logback config files.
-dir="/home/dev/Sources/OSGP/Config/logging"
-for f in "$dir"/*; do
-  sudo ln -sf "$f" "$target"
-  echo "$f"
-done
+# Create links for all property files and logback configuration files
+SOURCEDIR=/home/dev/Sources/OSGP
+TARGETDIR=/etc/osp/
+sudo ln -sf $SOURCEDIR/Integration-Tests/cucumber-tests-platform/src/test/resources/cucumber-platform.properties $TARGETDIR
+sudo ln -sf $SOURCEDIR/Integration-Tests/cucumber-tests-platform-dlms/src/test/resources/cucumber-platform-dlms.properties $TARGETDIR
+sudo ln -sf $SOURCEDIR/Platform/osgp-adapter-domain-admin/src/main/resources/osgp-adapter-domain-admin.properties $TARGETDIR
+sudo ln -sf $SOURCEDIR/Platform/osgp-adapter-domain-admin/src/main/resources/osgp-adapter-domain-admin-logback.xml $TARGETDIR
+sudo ln -sf $SOURCEDIR/Platform/osgp-adapter-domain-core/src/main/resources/osgp-adapter-domain-core.properties $TARGETDIR
+sudo ln -sf $SOURCEDIR/Platform/osgp-adapter-domain-core/src/main/resources/osgp-adapter-domain-core-logback.xml $TARGETDIR
+sudo ln -sf $SOURCEDIR/Platform/osgp-adapter-domain-microgrids/src/main/resources/osgp-adapter-domain-microgrids.properties $TARGETDIR
+sudo ln -sf $SOURCEDIR/Platform/osgp-adapter-domain-microgrids/src/main/resources/osgp-adapter-domain-microgrids-logback.xml $TARGETDIR
+sudo ln -sf $SOURCEDIR/Platform/osgp-adapter-domain-publiclighting/src/main/resources/osgp-adapter-domain-publiclighting.properties $TARGETDIR
+sudo ln -sf $SOURCEDIR/Platform/osgp-adapter-domain-publiclighting/src/main/resources/osgp-adapter-domain-publiclighting-logback.xml $TARGETDIR
+sudo ln -sf $SOURCEDIR/Platform/osgp-adapter-domain-smartmetering/src/main/resources/osgp-adapter-domain-smartmetering.properties $TARGETDIR
+sudo ln -sf $SOURCEDIR/Platform/osgp-adapter-domain-smartmetering/src/main/resources/osgp-adapter-domain-smartmetering-logback.xml $TARGETDIR
+sudo ln -sf $SOURCEDIR/Platform/osgp-adapter-domain-tariffswitching/src/main/resources/osgp-adapter-domain-tariffswitching.properties $TARGETDIR
+sudo ln -sf $SOURCEDIR/Platform/osgp-adapter-domain-tariffswitching/src/main/resources/osgp-adapter-domain-tariffswitching-logback.xml $TARGETDIR
+sudo ln -sf $SOURCEDIR/Protocol-Adapter-DLMS/osgp-protocol-adapter-dlms/src/main/resources/osgp-adapter-protocol-dlms.properties $TARGETDIR
+sudo ln -sf $SOURCEDIR/Protocol-Adapter-DLMS/osgp-protocol-adapter-dlms/src/main/resources/osgp-adapter-protocol-dlms-logback.xml $TARGETDIR
+sudo ln -sf $SOURCEDIR/Protocol-Adapter-IEC61850/osgp-protocol-adapter-iec61850/src/main/resources/osgp-adapter-protocol-iec61850.properties $TARGETDIR
+sudo ln -sf $SOURCEDIR/Protocol-Adapter-IEC61850/osgp-protocol-adapter-iec61850/src/main/resources/osgp-adapter-protocol-iec61850-logback.xml $TARGETDIR
+sudo ln -sf $SOURCEDIR/Protocol-Adapter-OSLP/osgp-adapter-protocol-oslp/src/main/resources/osgp-adapter-protocol-oslp.properties $TARGETDIR
+sudo ln -sf $SOURCEDIR/Protocol-Adapter-OSLP/osgp-adapter-protocol-oslp/src/main/resources/osgp-adapter-protocol-oslp-logback.xml $TARGETDIR
+sudo ln -sf $SOURCEDIR/Protocol-Adapter-OSLP/osgp-adapter-protocol-oslp-elster/src/main/resources/osgp-adapter-protocol-oslp-elster.properties $TARGETDIR
+sudo ln -sf $SOURCEDIR/Protocol-Adapter-OSLP/osgp-adapter-protocol-oslp-elster/src/main/resources/osgp-adapter-protocol-oslp-elster-logback.xml $TARGETDIR
+sudo ln -sf $SOURCEDIR/Platform/osgp-adapter-ws-admin/src/main/resources/osgp-adapter-ws-admin.properties $TARGETDIR
+sudo ln -sf $SOURCEDIR/Platform/osgp-adapter-ws-admin/src/main/resources/osgp-adapter-ws-admin-logback.xml $TARGETDIR
+sudo ln -sf $SOURCEDIR/Platform/osgp-adapter-ws-core/src/main/resources/osgp-adapter-ws-core.properties $TARGETDIR
+sudo ln -sf $SOURCEDIR/Platform/osgp-adapter-ws-core/src/main/resources/osgp-adapter-ws-core-logback.xml $TARGETDIR
+sudo ln -sf $SOURCEDIR/Platform/osgp-adapter-ws-microgrids/src/main/resources/osgp-adapter-ws-microgrids.properties $TARGETDIR
+sudo ln -sf $SOURCEDIR/Platform/osgp-adapter-ws-microgrids/src/main/resources/osgp-adapter-ws-microgrids-logback.xml $TARGETDIR
+sudo ln -sf $SOURCEDIR/Platform/osgp-adapter-ws-publiclighting/src/main/resources/osgp-adapter-ws-publiclighting.properties $TARGETDIR
+sudo ln -sf $SOURCEDIR/Platform/osgp-adapter-ws-publiclighting/src/main/resources/osgp-adapter-ws-publiclighting-logback.xml $TARGETDIR
+sudo ln -sf $SOURCEDIR/Platform/osgp-adapter-ws-smartmetering/src/main/resources/osgp-adapter-ws-smartmetering.properties $TARGETDIR
+sudo ln -sf $SOURCEDIR/Platform/osgp-adapter-ws-smartmetering/src/main/resources/osgp-adapter-ws-smartmetering-logback.xml $TARGETDIR
+sudo ln -sf $SOURCEDIR/Platform/osgp-adapter-ws-tariffswitching/src/main/resources/osgp-adapter-ws-tariffswitching.properties $TARGETDIR
+sudo ln -sf $SOURCEDIR/Platform/osgp-adapter-ws-tariffswitching/src/main/resources/osgp-adapter-ws-tariffswitching-logback.xml $TARGETDIR
+sudo ln -sf $SOURCEDIR/Platform/osgp-core/src/main/resources/osgp-core.properties $TARGETDIR
+sudo ln -sf $SOURCEDIR/Platform/osgp-core/src/main/resources/osgp-core-logback.xml $TARGETDIR
+sudo ln -sf $SOURCEDIR/Platform/osgp-logging/src/main/resources/osgp-logging.properties $TARGETDIR
+sudo ln -sf $SOURCEDIR/Platform/osgp-logging/src/main/resources/osgp-logging-logback.xml $TARGETDIR
+sudo ln -sf $SOURCEDIR/Protocol-Adapter-OSLP/signing-server/src/main/resources/signing-server.properties $TARGETDIR
+sudo ln -sf $SOURCEDIR/Protocol-Adapter-OSLP/signing-server/src/main/resources/signing-server-logback.xml $TARGETDIR
+sudo ln -sf $SOURCEDIR/Protocol-Adapter-OSLP/web-device-simulator/src/main/resources/web-device-simulator.properties $TARGETDIR
+sudo ln -sf $SOURCEDIR/Protocol-Adapter-OSLP/web-device-simulator/src/main/resources/web-device-simulator-logback.xml $TARGETDIR
+sudo ln -sf $SOURCEDIR/Protocol-Adapter-OSLP/osgp-core-db-api/src/main/resources/osgp-core-db-api.properties $TARGETDIR
+sudo ln -sf $SOURCEDIR/Protocol-Adapter-IEC61850/osgp-core-db-api-iec61850/src/main/resources/osgp-core-db-api-iec61850.properties $TARGETDIR
+sudo ln -sf $SOURCEDIR/Protocol-Adapter-DLMS/osgp-jasper-interface/src/main/resources/jasper-interface.properties $TARGETDIR
+sudo ln -sf $SOURCEDIR/Platform/osgp-domain-logging/src/main/resources/osgp-domain-logging.properties $TARGETDIR
+sudo bash -c "echo \"# Global cucumber properties\" > $TARGETDIR/global.cucumber.properties"
+sudo bash -c "echo \"# Global properties\" > $TARGETDIR/global.properties"
 
 # Create symlinks to device simulator ECDSA keypair.
 sudo ln -sf /home/dev/Sources/OSGP/Config/certificates/oslp/oslp_sim_ecdsa_private.der /etc/ssl/certs
