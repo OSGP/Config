@@ -1,5 +1,8 @@
 #!/bin/bash
 
+sudo mkdir -p /etc/osp
+sudo chown -R dev:dev /etc/osp
+
 # Create symlinks to app config files.
 dir="/home/dev/Sources/OSGP/Config/apps"
 target="/etc/osp"
@@ -36,17 +39,14 @@ sudo ln -sf /home/dev/Sources/OSGP/Config/certificates/osgp-ca/certs/localhost.c
 sudo ln -sf /home/dev/Sources/OSGP/Config/certificates/osgp-ca/certs/test-org.cert.pem /etc/ssl/certs
 sudo ln -sf /home/dev/Sources/OSGP/Config/certificates/osgp-ca/certs/test-org.pfx /etc/ssl/certs
 
-
 # Create symlink to server private key.
 sudo ln -sf /home/dev/Sources/OSGP/Config/certificates/osgp-ca/private/localhost.key.pem /etc/ssl/private
 
 # Create symlink to organization private key.
 sudo ln -sf /home/dev/Sources/OSGP/Config/certificates/osgp-ca/private/test-org.key.pem /etc/ssl/private
 
-
 # Create symlink to keystore.
 sudo ln -sf /home/dev/Sources/OSGP/Config/certificates/trust.jks /etc/ssl/certs
-
 
 # Create symlink to apache vhost and remove the link to the 000-default.conf vhost.
 sudo ln -sf /home/dev/Sources/OSGP/Config/apache-httpd/vhost.conf /etc/apache2/sites-enabled
