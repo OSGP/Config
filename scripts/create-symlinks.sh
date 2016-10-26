@@ -1,13 +1,16 @@
 #!/bin/bash
 
 # Create links for all property files and logback configuration files
-sudo mkdir -p /etc/osp
+sudo mkdir -p /etc/osp/test
 sudo chown -R dev:dev /etc/osp
 
 SOURCEDIR=/home/dev/Sources/OSGP
 TARGETDIR=/etc/osp/
-sudo ln -sf $SOURCEDIR/Integration-Tests/cucumber-tests-platform/src/test/resources/cucumber-platform.properties $TARGETDIR
-sudo ln -sf $SOURCEDIR/Integration-Tests/cucumber-tests-platform-dlms/src/test/resources/cucumber-platform-dlms.properties $TARGETDIR
+sudo bash -c "echo \"# Global cucumber properties\" > $TARGETDIR/test/global-cucumber.properties"
+sudo ln -sf $SOURCEDIR/Integration-Tests/cucumber-tests-platform/src/test/resources/cucumber-platform.properties $TARGETDIR/test/
+sudo ln -sf $SOURCEDIR/Integration-Tests/cucumber-tests-platform-dlms/src/test/resources/cucumber-platform-dlms.properties $TARGETDIR/test/
+
+sudo bash -c "echo \"# Global properties\" > $TARGETDIR/global.properties"
 sudo ln -sf $SOURCEDIR/Platform/osgp-adapter-domain-admin/src/main/resources/osgp-adapter-domain-admin.properties $TARGETDIR
 sudo ln -sf $SOURCEDIR/Platform/osgp-adapter-domain-admin/src/main/resources/osgp-adapter-domain-admin-logback.xml $TARGETDIR
 sudo ln -sf $SOURCEDIR/Platform/osgp-adapter-domain-core/src/main/resources/osgp-adapter-domain-core.properties $TARGETDIR
@@ -52,8 +55,6 @@ sudo ln -sf $SOURCEDIR/Protocol-Adapter-OSLP/osgp-core-db-api/src/main/resources
 sudo ln -sf $SOURCEDIR/Protocol-Adapter-IEC61850/osgp-core-db-api-iec61850/src/main/resources/osgp-core-db-api-iec61850.properties $TARGETDIR
 sudo ln -sf $SOURCEDIR/Protocol-Adapter-DLMS/osgp-jasper-interface/src/main/resources/jasper-interface.properties $TARGETDIR
 sudo ln -sf $SOURCEDIR/Platform/osgp-domain-logging/src/main/resources/osgp-domain-logging.properties $TARGETDIR
-sudo bash -c "echo \"# Global cucumber properties\" > $TARGETDIR/global.cucumber.properties"
-sudo bash -c "echo \"# Global properties\" > $TARGETDIR/global.properties"
 
 # Create symlinks to device simulator ECDSA keypair.
 sudo ln -sf /home/dev/Sources/OSGP/Config/certificates/oslp/oslp_sim_ecdsa_private.der /etc/ssl/certs
