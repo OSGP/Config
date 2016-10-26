@@ -1,5 +1,6 @@
 #!/bin/bash
 
+<<<<<<< HEAD
 # Create links for all property files and logback configuration files
 SOURCEDIR=/home/dev/Sources/OSGP
 TARGETDIR=/etc/osp/
@@ -51,6 +52,25 @@ sudo ln -sf $SOURCEDIR/Protocol-Adapter-DLMS/osgp-jasper-interface/src/main/reso
 sudo ln -sf $SOURCEDIR/Platform/osgp-domain-logging/src/main/resources/osgp-domain-logging.properties $TARGETDIR
 sudo bash -c "echo \"# Global cucumber properties\" > $TARGETDIR/global.cucumber.properties"
 sudo bash -c "echo \"# Global properties\" > $TARGETDIR/global.properties"
+=======
+sudo mkdir -p /etc/osp
+sudo chown -R dev:dev /etc/osp
+
+# Create symlinks to app config files.
+dir="/home/dev/Sources/OSGP/Config/apps"
+target="/etc/osp"
+for f in "$dir"/*; do
+  sudo ln -sf "$f" "$target"
+  echo "$f"
+done
+
+# Create symlinks to logback config files.
+dir="/home/dev/Sources/OSGP/Config/logging"
+for f in "$dir"/*; do
+  sudo ln -sf "$f" "$target"
+  echo "$f"
+done
+>>>>>>> development
 
 # Create symlinks to device simulator ECDSA keypair.
 sudo ln -sf /home/dev/Sources/OSGP/Config/certificates/oslp/oslp_sim_ecdsa_private.der /etc/ssl/certs
@@ -73,17 +93,14 @@ sudo ln -sf /home/dev/Sources/OSGP/Config/certificates/osgp-ca/certs/localhost.c
 sudo ln -sf /home/dev/Sources/OSGP/Config/certificates/osgp-ca/certs/test-org.cert.pem /etc/ssl/certs
 sudo ln -sf /home/dev/Sources/OSGP/Config/certificates/osgp-ca/certs/test-org.pfx /etc/ssl/certs
 
-
 # Create symlink to server private key.
 sudo ln -sf /home/dev/Sources/OSGP/Config/certificates/osgp-ca/private/localhost.key.pem /etc/ssl/private
 
 # Create symlink to organization private key.
 sudo ln -sf /home/dev/Sources/OSGP/Config/certificates/osgp-ca/private/test-org.key.pem /etc/ssl/private
 
-
 # Create symlink to keystore.
 sudo ln -sf /home/dev/Sources/OSGP/Config/certificates/trust.jks /etc/ssl/certs
-
 
 # Create symlink to apache vhost and remove the link to the 000-default.conf vhost.
 sudo ln -sf /home/dev/Sources/OSGP/Config/apache-httpd/vhost.conf /etc/apache2/sites-enabled
