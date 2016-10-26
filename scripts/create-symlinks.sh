@@ -1,7 +1,9 @@
 #!/bin/bash
 
-<<<<<<< HEAD
 # Create links for all property files and logback configuration files
+sudo mkdir -p /etc/osp
+sudo chown -R dev:dev /etc/osp
+
 SOURCEDIR=/home/dev/Sources/OSGP
 TARGETDIR=/etc/osp/
 sudo ln -sf $SOURCEDIR/Integration-Tests/cucumber-tests-platform/src/test/resources/cucumber-platform.properties $TARGETDIR
@@ -52,25 +54,6 @@ sudo ln -sf $SOURCEDIR/Protocol-Adapter-DLMS/osgp-jasper-interface/src/main/reso
 sudo ln -sf $SOURCEDIR/Platform/osgp-domain-logging/src/main/resources/osgp-domain-logging.properties $TARGETDIR
 sudo bash -c "echo \"# Global cucumber properties\" > $TARGETDIR/global.cucumber.properties"
 sudo bash -c "echo \"# Global properties\" > $TARGETDIR/global.properties"
-=======
-sudo mkdir -p /etc/osp
-sudo chown -R dev:dev /etc/osp
-
-# Create symlinks to app config files.
-dir="/home/dev/Sources/OSGP/Config/apps"
-target="/etc/osp"
-for f in "$dir"/*; do
-  sudo ln -sf "$f" "$target"
-  echo "$f"
-done
-
-# Create symlinks to logback config files.
-dir="/home/dev/Sources/OSGP/Config/logging"
-for f in "$dir"/*; do
-  sudo ln -sf "$f" "$target"
-  echo "$f"
-done
->>>>>>> development
 
 # Create symlinks to device simulator ECDSA keypair.
 sudo ln -sf /home/dev/Sources/OSGP/Config/certificates/oslp/oslp_sim_ecdsa_private.der /etc/ssl/certs
