@@ -41,5 +41,10 @@ node 'dev-box' {
 		command => '/usr/bin/git clone https://github.com/OSGP/Documentation.git /home/dev/Sources/OSGP/Documentation',
 		creates => '/home/dev/Sources/OSGP/Documentation'
 	}
+	
+		exec { 'cloning PublicLightingDemoApp repo':
+		command => '/usr/bin/git clone https://github.com/OSGP/PublicLightingDemoApp.git /home/dev/Sources/OSGP/PublicLightingDemoApp',
+		creates => '/home/dev/Sources/OSGP/PublicLightingDemoApp'
+	}
 
 }
