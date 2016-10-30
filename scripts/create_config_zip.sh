@@ -1,6 +1,7 @@
 #!/bin/bash
 
-# Create links for all property files and logback configuration files
+# Create a zip file for deployment of the configuration files.
+# Note: This is a temporary file, which will be removed when the deployment process of the application is updated.
 
 SOURCEDIR=/home/dev/Sources/OSGP
 TARGETDIR=tmp
