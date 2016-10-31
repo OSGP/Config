@@ -82,8 +82,8 @@
 
     <Environment name="osgp/DomainLogging/config" value="/etc/osp/osgp-domain-logging.properties" type="java.lang.String" override="false" />
 
-    <Environment name="osgp/signingServer/config" value="/etc/osp/signing-server.properties" type="java.lang.String" override="false" />
-    <Environment name="osgp/signingServer/log-config" value="/etc/osp/signing-server-logback.xml" type="java.lang.String" override="false" />
+    <Environment name="osgp/SigningServer/config" value="/etc/osp/signing-server.properties" type="java.lang.String" override="false" />
+    <Environment name="osgp/SigningServer/log-config" value="/etc/osp/signing-server-logback.xml" type="java.lang.String" override="false" />
 
     <Environment name="osgp/AdapterProtocolDlms/config" value="/etc/osp/osgp-adapter-protocol-dlms.properties" type="java.lang.String" override="false" />
     <Environment name="osgp/AdapterProtocolDlms/log-config" value="/etc/osp/osgp-adapter-protocol-dlms-logback.xml" type="java.lang.String" override="false" />
