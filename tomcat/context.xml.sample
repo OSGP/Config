@@ -33,30 +33,22 @@
     -->
 
     <!-- App config files -->    
-    <!--   Global.properties -->
     <Environment name="osgp/Global/config" value="/etc/osp/global.properties" type="java.lang.String" override="false" />
 
-    <!--   osgp-adapter-domain-admin -->
     <Environment name="osgp/AdapterDomainAdmin/config" value="/etc/osp/osgp-adapter-domain-admin.properties" type="java.lang.String" override="false" />
     <Environment name="osgp/AdapterDomainAdmin/log-config" value="/etc/osp/osgp-adapter-domain-admin-logback.xml" type="java.lang.String" override="false" />
-	<!--   osgp-adapter-domain-core -->    
     <Environment name="osgp/AdapterDomainCore/config" value="/etc/osp/osgp-adapter-domain-core.properties" type="java.lang.String" override="false" />
     <Environment name="osgp/AdapterDomainCore/log-config" value="/etc/osp/osgp-adapter-domain-core-logback.xml" type="java.lang.String" override="false" />
-	<!--   osgp-adapter-domain-migrogrids -->
     <Environment name="osgp/AdapterDomainMicrogrids/config" value="/etc/osp/osgp-adapter-domain-microgrids.properties" type="java.lang.String" override="false" />
     <Environment name="osgp/AdapterDomainMicrogrids/log-config" value="/etc/osp/osgp-adapter-domain-microgrids-logback.xml" type="java.lang.String" override="false" />
-	<!--   osgp-adapter-domain-publiclighting -->
     <Environment name="osgp/AdapterDomainPublicLighting/config" value="/etc/osp/osgp-adapter-domain-publiclighting.properties" type="java.lang.String" override="false" />
     <Environment name="osgp/AdapterDomainPublicLighting/log-config" value="/etc/osp/osgp-adapter-domain-publiclighting-logback.xml" type="java.lang.String" override="false" />
-	<!--   osgp-adapter-domain-tariffswitching -->
     <Environment name="osgp/AdapterDomainTariffSwitching/config" value="/etc/osp/osgp-adapter-domain-tariffswitching.properties" type="java.lang.String" override="false" />
     <Environment name="osgp/AdapterDomainTariffSwitching/log-config" value="/etc/osp/osgp-adapter-domain-tariffswitching-logback.xml" type="java.lang.String" override="false" />
-	<!--   osgp-adapter-domain-smartmetering -->
     <Environment name="osgp/AdapterDomainSmartMetering/config" value="/etc/osp/osgp-adapter-domain-smartmetering.properties" type="java.lang.String" override="false" />
     <Environment name="osgp/AdapterDomainSmartMetering/log-config" value="/etc/osp/osgp-adapter-domain-smartmetering-logback.xml" type="java.lang.String" override="false" />
 
-    <!--   jasper-interface -->
-	<Environment name="osgp/JasperInterface/config" value="/etc/osp/jasper-interface.properties" type="java.lang.String" override="false" />
+    <Environment name="osgp/JasperInterface/config" value="/etc/osp/jasper-interface.properties" type="java.lang.String" override="false" />
     
     <Environment name="osgp/AdapterWsAdmin/config" value="/etc/osp/osgp-adapter-ws-admin.properties" type="java.lang.String" override="false" />
     <Environment name="osgp/AdapterWsAdmin/log-config" value="/etc/osp/osgp-adapter-ws-admin-logback.xml" type="java.lang.String" override="false" />
@@ -97,5 +89,5 @@
     <Environment name="osgp/AdapterProtocolIec61850/config" value="/etc/osp/osgp-adapter-protocol-iec61850.properties" type="java.lang.String" override="false" />
     <Environment name="osgp/AdapterProtocolIec61850/log-config" value="/etc/osp/osgp-adapter-protocol-iec61850-logback.xml" type="java.lang.String" override="false" />
 
-    <Environment name="osgp/webDeviceSimulator/config" value="/etc/osp/web-device-simulator.properties" type="java.lang.String" override="false" />
+    <Environment name="osgp/WebDeviceSimulator/config" value="/etc/osp/web-device-simulator.properties" type="java.lang.String" override="false" />
 </Context>
