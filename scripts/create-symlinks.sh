@@ -1,6 +1,6 @@
 #!/bin/bash
 
-SOURCEDIR=/home/dev/Sources/OSGP
+SOURCEDIR=$HOME/Sources/OSGP
 TARGETDIR=/etc/osp/
 
 # Create configuration directories and standard files.
@@ -71,43 +71,43 @@ cp -f $SOURCEDIR/Protocol-Adapter-DLMS/osgp-jasper-interface/src/main/resources/
 cp -f $SOURCEDIR/Platform/osgp-domain-logging/src/main/resources/osgp-domain-logging.properties $TARGETDIR/samples/osgp-domain-logging.properties.sample
 
 # Create symlinks to device simulator ECDSA keypair.
-sudo ln -sf /home/dev/Sources/OSGP/Config/certificates/oslp/oslp_sim_ecdsa_private.der /etc/ssl/certs
-sudo ln -sf /home/dev/Sources/OSGP/Config/certificates/oslp/oslp_sim_ecdsa_public.der /etc/ssl/certs
+sudo ln -sf $HOME/Sources/OSGP/Config/certificates/oslp/oslp_sim_ecdsa_private.der /etc/ssl/certs
+sudo ln -sf $HOME/Sources/OSGP/Config/certificates/oslp/oslp_sim_ecdsa_public.der /etc/ssl/certs
 
 # Create symlinks to platform ECDSA keypair.
-sudo ln -sf /home/dev/Sources/OSGP/Config/certificates/oslp/oslp_test_ecdsa_private.der /etc/ssl/certs
-sudo ln -sf /home/dev/Sources/OSGP/Config/certificates/oslp/oslp_test_ecdsa_public.der /etc/ssl/certs
+sudo ln -sf $HOME/Sources/OSGP/Config/certificates/oslp/oslp_test_ecdsa_private.der /etc/ssl/certs
+sudo ln -sf $HOME/Sources/OSGP/Config/certificates/oslp/oslp_test_ecdsa_public.der /etc/ssl/certs
 
 # Create symlinks to secret.aes.
-sudo ln -sf /home/dev/Sources/OSGP/Config/certificates/oslp/secret.aes /etc/ssl/certs
+sudo ln -sf $HOME/Sources/OSGP/Config/certificates/oslp/secret.aes /etc/ssl/certs
 
 # Create symlink to CA certificate.
-sudo ln -sf /home/dev/Sources/OSGP/Config/certificates/osgp-ca/certs/cacert.cer /etc/ssl/certs
+sudo ln -sf $HOME/Sources/OSGP/Config/certificates/osgp-ca/certs/cacert.cer /etc/ssl/certs
 
 # Create symlink to server certificate.
-sudo ln -sf /home/dev/Sources/OSGP/Config/certificates/osgp-ca/certs/localhost.cert.pem /etc/ssl/certs
+sudo ln -sf $HOME/Sources/OSGP/Config/certificates/osgp-ca/certs/localhost.cert.pem /etc/ssl/certs
 
 # Create symlink to organization certificate and personal information exchange.
-sudo ln -sf /home/dev/Sources/OSGP/Config/certificates/osgp-ca/certs/test-org.cert.pem /etc/ssl/certs
-sudo ln -sf /home/dev/Sources/OSGP/Config/certificates/osgp-ca/certs/test-org.pfx /etc/ssl/certs
+sudo ln -sf $HOME/Sources/OSGP/Config/certificates/osgp-ca/certs/test-org.cert.pem /etc/ssl/certs
+sudo ln -sf $HOME/Sources/OSGP/Config/certificates/osgp-ca/certs/test-org.pfx /etc/ssl/certs
 
 # Create symlink to server private key.
-sudo ln -sf /home/dev/Sources/OSGP/Config/certificates/osgp-ca/private/localhost.key.pem /etc/ssl/private
+sudo ln -sf $HOME/Sources/OSGP/Config/certificates/osgp-ca/private/localhost.key.pem /etc/ssl/private
 
 # Create symlink to organization private key.
-sudo ln -sf /home/dev/Sources/OSGP/Config/certificates/osgp-ca/private/test-org.key.pem /etc/ssl/private
+sudo ln -sf $HOME/Sources/OSGP/Config/certificates/osgp-ca/private/test-org.key.pem /etc/ssl/private
 
 # Create symlink to keystore.
-sudo ln -sf /home/dev/Sources/OSGP/Config/certificates/trust.jks /etc/ssl/certs
+sudo ln -sf $HOME/Sources/OSGP/Config/certificates/trust.jks /etc/ssl/certs
 
 # Create symlink to apache vhost and remove the link to the 000-default.conf vhost.
-sudo ln -sf /home/dev/Sources/OSGP/Config/apache-httpd/vhost.conf /etc/apache2/sites-enabled
+sudo ln -sf $HOME/Sources/OSGP/Config/apache-httpd/vhost.conf /etc/apache2/sites-enabled
 sudo rm -f /etc/apache2/sites-enabled/000-default.conf
 sudo service apache2 restart
 
 # Create symlink to Maven settings
-sudo mkdir -p /home/dev/.m2
-sudo ln -sf /home/dev/Sources/OSGP/Config/maven/settings.xml /home/dev/.m2
-sudo chown -R dev:dev /home/dev/.m2
+sudo mkdir -p $HOME/.m2
+sudo ln -sf $HOME/Sources/OSGP/Config/maven/settings.xml $HOME/.m2
+sudo chown -R dev:dev $HOME/.m2
 
-sudo ln -sf /home/dev/Sources/OSGP/Config/scripts/build_osgp_sources.sh /home/dev/Sources/OSGP/b.sh
+sudo ln -sf $HOME/Sources/OSGP/Config/scripts/build_osgp_sources.sh $HOME/Sources/OSGP/b.sh
