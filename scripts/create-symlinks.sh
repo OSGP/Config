@@ -1,15 +1,20 @@
 #!/bin/bash
 
 SOURCEDIR=$HOME/Sources/OSGP
-TARGETDIR=/etc/osp/
+TARGETDIR=/etc/osp
+
+echo "Setting up OSGP development environment ..."
 
 # Create configuration directories and standard files.
+echo "- creating $TARGETDIR ..."
 sudo mkdir -p $TARGETDIR
 sudo chown -R dev:dev $TARGETDIR
 
 # Remove old links
+echo "- removing links from $TARGETDIR ..."
 find $TARGETDIR -type l -exec rm {} \;
 
+echo "- creating samples $TARGETDIR directory and $TARGETDIR/samples/Readme.md with directions about the sample files ..."
 mkdir -p $TARGETDIR/samples
 echo "OSGP Samples directory" > $TARGETDIR/samples/Readme.md
 echo "" >> $TARGETDIR/samples/Readme.md
@@ -17,14 +22,17 @@ echo "This directory contains samples files how you could configure OSGP. These 
 echo "- *.properties.sample: Example property files for the given module." >> $TARGETDIR/samples/Readme.md
 echo "- *-logback.xml.sample: Example logback files for the given module." >> $TARGETDIR/samples/Readme.md
 
+echo "- creating $TARGETDIR/test directory for automatic tests configuration ..."
 mkdir -p $TARGETDIR/test
 [ ! -f $TARGETDIR/global.properties ] && echo "# Global properties" > $TARGETDIR/global.properties
 [ ! -f $TARGETDIR/test/global-cucumber.properties ] && echo "# Global cucumber properties" > $TARGETDIR/test/global-cucumber.properties 
 
 # Now create all configuration sample files.
+echo "- copying automatic tests configuration files to $TARGETDIR/test directory ..."
 cp -f $SOURCEDIR/Integration-Tests/cucumber-tests-platform/src/test/resources/cucumber-platform.properties $TARGETDIR/test/
 cp -f $SOURCEDIR/Integration-Tests/cucumber-tests-platform-dlms/src/test/resources/cucumber-platform-dlms.properties $TARGETDIR/test/
 
+echo "- copying OSGP configuration files to $TARGETDIR/samples directory and extending them with .sample ..."
 cp -f $SOURCEDIR/Platform/osgp-adapter-domain-admin/src/main/resources/osgp-adapter-domain-admin.properties $TARGETDIR/samples/osgp-adapter-domain-admin.properties.sample
 cp -f $SOURCEDIR/Platform/osgp-adapter-domain-admin/src/main/resources/logback.xml $TARGETDIR/samples/osgp-adapter-domain-admin-logback.xml.sample
 cp -f $SOURCEDIR/Platform/osgp-adapter-domain-core/src/main/resources/osgp-adapter-domain-core.properties $TARGETDIR/samples/osgp-adapter-domain-core.properties.sample
@@ -70,44 +78,47 @@ cp -f $SOURCEDIR/Protocol-Adapter-IEC61850/osgp-core-db-api-iec61850/src/main/re
 cp -f $SOURCEDIR/Protocol-Adapter-DLMS/osgp-jasper-interface/src/main/resources/jasper-interface.properties $TARGETDIR/samples/jasper-interface.properties.sample
 cp -f $SOURCEDIR/Platform/osgp-domain-logging/src/main/resources/osgp-domain-logging.properties $TARGETDIR/samples/osgp-domain-logging.properties.sample
 
-# Create symlinks to device simulator ECDSA keypair.
+echo "- creating symlinks to device simulator ECDSA keypair ..."
 sudo ln -sf $HOME/Sources/OSGP/Config/certificates/oslp/oslp_sim_ecdsa_private.der /etc/ssl/certs
 sudo ln -sf $HOME/Sources/OSGP/Config/certificates/oslp/oslp_sim_ecdsa_public.der /etc/ssl/certs
 
-# Create symlinks to platform ECDSA keypair.
+echo "- create symlinks to platform ECDSA keypair ..."
 sudo ln -sf $HOME/Sources/OSGP/Config/certificates/oslp/oslp_test_ecdsa_private.der /etc/ssl/certs
 sudo ln -sf $HOME/Sources/OSGP/Config/certificates/oslp/oslp_test_ecdsa_public.der /etc/ssl/certs
 
-# Create symlinks to secret.aes.
+echo "- create symlinks to secret.aes ..."
 sudo ln -sf $HOME/Sources/OSGP/Config/certificates/oslp/secret.aes /etc/ssl/certs
 
-# Create symlink to CA certificate.
+echo "- create symlink to CA certificate ..."
 sudo ln -sf $HOME/Sources/OSGP/Config/certificates/osgp-ca/certs/cacert.cer /etc/ssl/certs
 
-# Create symlink to server certificate.
+echo "- create symlink to server certificate ..."
 sudo ln -sf $HOME/Sources/OSGP/Config/certificates/osgp-ca/certs/localhost.cert.pem /etc/ssl/certs
 
-# Create symlink to organization certificate and personal information exchange.
+echo "- create symlink to organization certificate and personal information exchange ..."
 sudo ln -sf $HOME/Sources/OSGP/Config/certificates/osgp-ca/certs/test-org.cert.pem /etc/ssl/certs
 sudo ln -sf $HOME/Sources/OSGP/Config/certificates/osgp-ca/certs/test-org.pfx /etc/ssl/certs
 
-# Create symlink to server private key.
+echo "- create symlink to server private key ..."
 sudo ln -sf $HOME/Sources/OSGP/Config/certificates/osgp-ca/private/localhost.key.pem /etc/ssl/private
 
-# Create symlink to organization private key.
+echo "- create symlink to organization private key ..."
 sudo ln -sf $HOME/Sources/OSGP/Config/certificates/osgp-ca/private/test-org.key.pem /etc/ssl/private
 
-# Create symlink to keystore.
+echo "- create symlink to keystore ..."
 sudo ln -sf $HOME/Sources/OSGP/Config/certificates/trust.jks /etc/ssl/certs
 
-# Create symlink to apache vhost and remove the link to the 000-default.conf vhost.
+echo "- create symlink to apache vhost and remove the link to the 000-default.conf vhost ..."
 sudo ln -sf $HOME/Sources/OSGP/Config/apache-httpd/vhost.conf /etc/apache2/sites-enabled
 sudo rm -f /etc/apache2/sites-enabled/000-default.conf
 sudo service apache2 restart
 
-# Create symlink to Maven settings
+echo "- create symlink to Maven settings ..."
 sudo mkdir -p $HOME/.m2
 sudo ln -sf $HOME/Sources/OSGP/Config/maven/settings.xml $HOME/.m2
 sudo chown -R dev:dev $HOME/.m2
 
+echo "- create symlink to build script ..."
 sudo ln -sf $HOME/Sources/OSGP/Config/scripts/build_osgp_sources.sh $HOME/Sources/OSGP/b.sh
+
+echo "Done setting up OSGP development environment."
