@@ -49,6 +49,7 @@
     <Environment name="osp/osgpAdapterDomainMicrogrids/config" value="/etc/osp/osgp-adapter-domain-microgrids.properties" type="java.lang.String" override="false" />
 
     <Environment name="osp/osgpCore/config" value="/etc/osp/osgp-core.properties" type="java.lang.String" override="false" />
+    <Environment name="osp/auditLogging/config" value="/etc/osp/audit-logging.properties" type="java.lang.String" override="false" />    
     <Environment name="osp/osgpLogging/config" value="/etc/osp/osgp-logging.properties" type="java.lang.String" override="false" />    
     <Environment name="osp/osgpDomainLogging/config" value="/etc/osp/osgp-domain-logging.properties" type="java.lang.String" override="false" />
 
@@ -84,6 +85,7 @@
 
     <Environment name="osp/osgpCore/log-config" value="/etc/osp/osgp-core-logback.xml" type="java.lang.String" override="false" />
     <Environment name="osp/osgpLogging/log-config" value="/etc/osp/osgp-logging-logback.xml" type="java.lang.String" override="false" />
+    <Environment name="osp/auditLogging/log-config" value="/etc/osp/audit-logging-logback.xml" type="java.lang.String" override="false" />
 
     <Environment name="osp/signingServer/log-config" value="/etc/osp/signing-server-logback.xml" type="java.lang.String" override="false" />
     <Environment name="osp/osgpAdapterProtocolOslp/log-config" value="/etc/osp/osgp-adapter-protocol-oslp-logback.xml" type="java.lang.String" override="false" />
