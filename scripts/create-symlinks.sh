@@ -113,12 +113,6 @@ sudo ln -sf $HOME/Sources/OSGP/Config/apache-httpd/vhost.conf /etc/apache2/sites
 sudo rm -f /etc/apache2/sites-enabled/000-default.conf
 sudo service apache2 restart
 
-echo "- create symlink to Maven settings ..."
-sudo mkdir -p $HOME/.m2
-sudo ln -sf $HOME/Sources/OSGP/Config/maven/settings.xml $HOME/.m2
-sudo chown -R dev:dev $HOME/.m2
-
-echo "- create symlink to build script ..."
-sudo ln -sf $HOME/Sources/OSGP/Config/scripts/build_osgp_sources.sh $HOME/Sources/OSGP/b.sh
-
+# Create sym-link to build script. 
+ln -sf $HOME/Sources/OSGP/Config/scripts/build_osgp_sources.sh $HOME/Sources/OSGP/b.sh
 echo "Done setting up OSGP development environment."
