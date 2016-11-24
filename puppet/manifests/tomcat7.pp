@@ -7,7 +7,7 @@ node 'dev-box' {
 
 	# Tomcat7 is used as application server.
 	exec { 'wget tomcat7':
-		command => "/usr/bin/wget -q -P ${homedir}/Downloads/osgp - http://mirror.olnevhost.net/pub/apache/tomcat/tomcat-7/v${version}/bin/apache-tomcat-${version}.tar.gz",
+		command => "/usr/bin/wget -q -P ${homedir}/Downloads/osgp - http://archive.apache.org/dist/tomcat/tomcat-7/v${version}/bin/apache-tomcat-${version}.tar.gz",
 		creates => "${homedir}/Downloads/osgp/apache-tomcat-${version}.tar.gz",
 		before => Exec['wget postgresql jdbc','unpack tomcat7'],	
 		returns => [0, 4]

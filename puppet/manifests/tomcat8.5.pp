@@ -6,7 +6,7 @@ node 'dev-box' {
 
 	# Tomcat7 is used as application server.
 	exec { 'wget tomcat 8.5':
-		command => "/usr/bin/wget -q -P /home/dev/Downloads/osgp - http://apache.mirrors.spacedump.net/tomcat/tomcat-8/v$version/bin/apache-tomcat-$version.tar.gz",
+		command => "/usr/bin/wget -q -P /home/dev/Downloads/osgp - http://archive.apache.org/dist/tomcat/tomcat-8/v$version/bin/apache-tomcat-$version.tar.gz",
 		before => Exec['wget postgresql jdbc','unpack tomcat','change permissions of tomcat conf files'],	
 		returns => [0, 4],
 	}
