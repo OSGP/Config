@@ -115,4 +115,13 @@ sudo service apache2 restart
 
 # Create sym-link to build script. 
 ln -sf $HOME/Sources/OSGP/Config/scripts/build_osgp_sources.sh $HOME/Sources/OSGP/b.sh
+
+echo "- create scripts dir in $HOME ..."
+mkdir -p $HOME/scripts
+
+ln -sf $HOME/Sources/OSGP/Config/scripts/create_backup_osgp_dbs.sh $HOME/scripts/create_backup_osgp_dbs.sh
+ln -sf $HOME/Sources/OSGP/Config/scripts/restore_backup_osgp_dbs.sh $HOME/scripts/restore_backup_osgp_dbs.sh
+
+! grep -q "$HOME/scripts" $HOME/.profile && echo "PATH=\"$HOME/scripts:\$PATH\"" >> $HOME/.profile
+
 echo "Done setting up OSGP development environment."
