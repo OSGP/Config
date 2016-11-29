@@ -35,5 +35,11 @@ node 'dev-box' {
 		unless  => "puppet module list | grep mjanser-eclipse",
 		path    => ['/bin', '/usr/bin']
 	}
+
+        exec { 'Installing module apt':
+                command => "puppet module install puppetlabs-apt",
+                unless  => "puppet module list | grep puppetlabs-apt",
+                path    => ['/bin', '/usr/bin']
+        }
 }
 
