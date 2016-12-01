@@ -90,4 +90,5 @@
     <Environment name="osgp/AdapterProtocolIec61850/log-config" value="/etc/osp/osgp-adapter-protocol-iec61850-logback.xml" type="java.lang.String" override="false" />
 
     <Environment name="osgp/WebDeviceSimulator/config" value="/etc/osp/web-device-simulator.properties" type="java.lang.String" override="false" />
+    <Environment name="osgp/WebDeviceSimulator/log-config" value="/etc/osp/web-device-simulator-logback.xml" type="java.lang.String" override="false" />
 </Context>
