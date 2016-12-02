@@ -9,7 +9,7 @@ user { 'dev' :
 	system      		=> false,                 
 	managehome  		=> true,
 	comment     		=> 'The "dev" user',
-	groups			=> ['sudo']
+	groups			=> ['sudo', 'vboxsf']
 }
 
 file { '/etc/lightdm/lightdm.conf':

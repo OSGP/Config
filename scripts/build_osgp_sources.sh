@@ -24,6 +24,8 @@ git submodule update --remote
 mvn clean install -DskipTests
 cd ../Integration-Tests
 git pull
-git submodule update --remote
+git submodule update --remote --init
+mvn clean install -DskipTests
+cd cucumber-tests-platform
 mvn clean install -DskipTests
 
