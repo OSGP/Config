@@ -30,8 +30,5 @@ restore osgp_adapter_ws_smartmetering
 restore osgp_core
 restore osgp_logging
 restore osp_devicesimulator_web
-restore osp_net_management_web
-restore osp_owner_web
-restore osp_user_management_web
 
 echo "Done."
