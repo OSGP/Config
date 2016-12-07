@@ -29,8 +29,8 @@ mkdir -p $TARGETDIR/test
 
 # Now create all configuration sample files.
 echo "- copying automatic tests configuration files to $TARGETDIR/test directory ..."
-cp -f $SOURCEDIR/Integration-Tests/cucumber-tests-platform/src/test/resources/cucumber-platform.properties $TARGETDIR/test/
-cp -f $SOURCEDIR/Integration-Tests/cucumber-tests-platform-dlms/src/test/resources/cucumber-platform-dlms.properties $TARGETDIR/test/
+cp -f $SOURCEDIR/Integration-Tests/cucumber-tests-platform/src/test/resources/cucumber-platform.properties $TARGETDIR/samples/test/cucumber-platform.properties.sample
+cp -f $SOURCEDIR/Integration-Tests/cucumber-tests-platform-dlms/src/test/resources/cucumber-platform-dlms.properties $TARGETDIR/samples/test/cucumber-platform-dlms.properties.sample
 
 echo "- copying OSGP configuration files to $TARGETDIR/samples directory and extending them with .sample ..."
 cp -f $SOURCEDIR/Platform/osgp-adapter-domain-admin/src/main/resources/osgp-adapter-domain-admin.properties $TARGETDIR/samples/osgp-adapter-domain-admin.properties.sample
