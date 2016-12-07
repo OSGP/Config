@@ -15,7 +15,7 @@ echo "- removing links from $TARGETDIR ..."
 find $TARGETDIR -type l -exec rm {} \;
 
 echo "- creating samples $TARGETDIR directory and $TARGETDIR/samples/Readme.md with directions about the sample files ..."
-mkdir -p $TARGETDIR/samples
+mkdir -p $TARGETDIR/samples/test
 echo "OSGP Samples directory" > $TARGETDIR/samples/Readme.md
 echo "" >> $TARGETDIR/samples/Readme.md
 echo "This directory contains samples files how you could configure OSGP. These files will not be used. Use them by copying them to $TARGETDIR and remove the .sample extension." >> $TARGETDIR/samples/Readme.md
