@@ -102,6 +102,9 @@ sudo ln -sf $HOME/Sources/OSGP/Config/certificates/osgp-ca/certs/test-org.pfx /e
 sudo ln -sf $HOME/Sources/OSGP/Config/certificates/osgp-ca/certs/Infostroom.cert.pem /etc/ssl/certs
 sudo ln -sf $HOME/Sources/OSGP/Config/certificates/osgp-ca/certs/Infostroom.pfx /etc/ssl/certs
 
+sudo ln -sf $HOME/Sources/OSGP/Config/certificates/osgp-ca/certs/LianderNetManagement.cert.pem /etc/ssl/certs
+sudo ln -sf $HOME/Sources/OSGP/Config/certificates/osgp-ca/certs/LianderNetManagement.pfx /etc/ssl/certs
+
 echo "- create symlink to server private key ..."
 sudo ln -sf $HOME/Sources/OSGP/Config/certificates/osgp-ca/private/localhost.key.pem /etc/ssl/private
 
