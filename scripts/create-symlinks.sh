@@ -29,8 +29,8 @@ mkdir -p $TARGETDIR/test
 
 # Now create all configuration sample files.
 echo "- copying automatic tests configuration files to $TARGETDIR/test directory ..."
-cp -f $SOURCEDIR/Integration-Tests/cucumber-tests-platform/src/test/resources/cucumber-platform.properties $TARGETDIR/test/
-cp -f $SOURCEDIR/Integration-Tests/cucumber-tests-platform-dlms/src/test/resources/cucumber-platform-dlms.properties $TARGETDIR/test/
+[ ! -f $TARGETDIR/test/cucumber-platform.properties ] && cp $SOURCEDIR/Integration-Tests/cucumber-tests-platform/src/test/resources/cucumber-platform.properties $TARGETDIR/test/
+[ ! -f $TARGETDIR/test/cucumber-platform-dlms.properties ] && cp $SOURCEDIR/Integration-Tests/cucumber-tests-platform-dlms/src/test/resources/cucumber-platform-dlms.properties $TARGETDIR/test/
 
 echo "- copying OSGP configuration files to $TARGETDIR/samples directory and extending them with .sample ..."
 cp -f $SOURCEDIR/Platform/osgp-adapter-domain-admin/src/main/resources/osgp-adapter-domain-admin.properties $TARGETDIR/samples/osgp-adapter-domain-admin.properties.sample
@@ -98,6 +98,9 @@ sudo ln -sf $HOME/Sources/OSGP/Config/certificates/osgp-ca/certs/localhost.cert.
 echo "- create symlink to organization certificate and personal information exchange ..."
 sudo ln -sf $HOME/Sources/OSGP/Config/certificates/osgp-ca/certs/test-org.cert.pem /etc/ssl/certs
 sudo ln -sf $HOME/Sources/OSGP/Config/certificates/osgp-ca/certs/test-org.pfx /etc/ssl/certs
+
+sudo ln -sf $HOME/Sources/OSGP/Config/certificates/osgp-ca/certs/Infostroom.cert.pem /etc/ssl/certs
+sudo ln -sf $HOME/Sources/OSGP/Config/certificates/osgp-ca/certs/Infostroom.pfx /etc/ssl/certs
 
 echo "- create symlink to server private key ..."
 sudo ln -sf $HOME/Sources/OSGP/Config/certificates/osgp-ca/private/localhost.key.pem /etc/ssl/private
