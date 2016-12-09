@@ -92,21 +92,8 @@ sudo ln -sf $HOME/Sources/OSGP/Config/certificates/osgp-ca/certs/cacert.cer /etc
 echo "- create symlink to server certificate ..."
 sudo ln -sf $HOME/Sources/OSGP/Config/certificates/osgp-ca/certs/localhost.cert.pem /etc/ssl/certs
 
-echo "- create symlink to organization certificate and personal information exchange ..."
-sudo ln -sf $HOME/Sources/OSGP/Config/certificates/osgp-ca/certs/test-org.cert.pem /etc/ssl/certs
-sudo ln -sf $HOME/Sources/OSGP/Config/certificates/osgp-ca/certs/test-org.pfx /etc/ssl/certs
-
-sudo ln -sf $HOME/Sources/OSGP/Config/certificates/osgp-ca/certs/Infostroom.cert.pem /etc/ssl/certs
-sudo ln -sf $HOME/Sources/OSGP/Config/certificates/osgp-ca/certs/Infostroom.pfx /etc/ssl/certs
-
-sudo ln -sf $HOME/Sources/OSGP/Config/certificates/osgp-ca/certs/LianderNetManagement.cert.pem /etc/ssl/certs
-sudo ln -sf $HOME/Sources/OSGP/Config/certificates/osgp-ca/certs/LianderNetManagement.pfx /etc/ssl/certs
-
 echo "- create symlink to server private key ..."
 sudo ln -sf $HOME/Sources/OSGP/Config/certificates/osgp-ca/private/localhost.key.pem /etc/ssl/private
-
-echo "- create symlink to organization private key ..."
-sudo ln -sf $HOME/Sources/OSGP/Config/certificates/osgp-ca/private/test-org.key.pem /etc/ssl/private
 
 echo "- create symlink to keystore ..."
 sudo ln -sf $HOME/Sources/OSGP/Config/certificates/trust.jks /etc/ssl/certs
