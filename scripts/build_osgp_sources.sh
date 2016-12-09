@@ -2,6 +2,8 @@
 
 cd Config
 git pull
+cd ../Documentation
+git pull
 cd ../Shared
 git pull
 git submodule update --remote
@@ -26,6 +28,8 @@ cd ../Integration-Tests
 git pull
 git submodule update --remote --init
 mvn clean install -DskipTests
-cd cucumber-tests-platform
+cd ../PublicLightingDemoApp
+git pull
+git submodule update --remote --init
 mvn clean install -DskipTests
 
