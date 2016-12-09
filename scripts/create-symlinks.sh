@@ -112,7 +112,9 @@ mkdir -p $HOME/scripts
 ln -sf $HOME/Sources/OSGP/Config/scripts/create_backup_osgp_dbs.sh $HOME/scripts/create_backup_osgp_dbs.sh
 ln -sf $HOME/Sources/OSGP/Config/scripts/restore_backup_osgp_dbs.sh $HOME/scripts/restore_backup_osgp_dbs.sh
 
+# Add scripts path to the path so that the development scripts can be found (introduced for database backup scripts
 ! grep -q "$HOME/scripts" $HOME/.bashrc && echo "PATH=\"$HOME/scripts:\$PATH\"" >> $HOME/.bashrc
+# Adds cm2 alias so that you can easily clean your maven repository before building (e.g. `cm2 && mvn install`).
 ! grep -q "alias cm2='rm -rf ~/.m2/repository/org/osgp && rm -rf ~/.m2/repository/com/alliander'" $HOME/.bashrc && echo "alias cm2='rm -rf ~/.m2/repository/org/osgp && rm -rf ~/.m2/repository/com/alliander'" >> $HOME/.bashrc
 
 echo "Done setting up OSGP development environment."
