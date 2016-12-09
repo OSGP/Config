@@ -10,10 +10,6 @@ echo "- creating $TARGETDIR ..."
 sudo mkdir -p $TARGETDIR
 sudo chown -R dev:dev $TARGETDIR
 
-# Remove old links
-echo "- removing links from $TARGETDIR ..."
-find $TARGETDIR -type l -exec rm {} \;
-
 echo "- creating samples $TARGETDIR directory and $TARGETDIR/samples/Readme.md with directions about the sample files ..."
 mkdir -p $TARGETDIR/samples
 echo "OSGP Samples directory" > $TARGETDIR/samples/Readme.md
@@ -28,9 +24,10 @@ mkdir -p $TARGETDIR/test
 [ ! -f $TARGETDIR/test/global-cucumber.properties ] && echo "# Global cucumber properties" > $TARGETDIR/test/global-cucumber.properties 
 
 # Now create all configuration sample files.
+mkdir -p $TARGETDIR/samples/test
 echo "- copying automatic tests configuration files to $TARGETDIR/test directory ..."
-cp -f $SOURCEDIR/Integration-Tests/cucumber-tests-platform/src/test/resources/cucumber-platform.properties $TARGETDIR/test/
-cp -f $SOURCEDIR/Integration-Tests/cucumber-tests-platform-dlms/src/test/resources/cucumber-platform-dlms.properties $TARGETDIR/test/
+cp $SOURCEDIR/Integration-Tests/cucumber-tests-platform/src/test/resources/cucumber-platform.properties $TARGETDIR/samples/test/
+cp $SOURCEDIR/Integration-Tests/cucumber-tests-platform-dlms/src/test/resources/cucumber-platform-dlms.properties $TARGETDIR/samples/test/
 
 echo "- copying OSGP configuration files to $TARGETDIR/samples directory and extending them with .sample ..."
 cp -f $SOURCEDIR/Platform/osgp-adapter-domain-admin/src/main/resources/osgp-adapter-domain-admin.properties $TARGETDIR/samples/osgp-adapter-domain-admin.properties.sample
@@ -95,15 +92,8 @@ sudo ln -sf $HOME/Sources/OSGP/Config/certificates/osgp-ca/certs/cacert.cer /etc
 echo "- create symlink to server certificate ..."
 sudo ln -sf $HOME/Sources/OSGP/Config/certificates/osgp-ca/certs/localhost.cert.pem /etc/ssl/certs
 
-echo "- create symlink to organization certificate and personal information exchange ..."
-sudo ln -sf $HOME/Sources/OSGP/Config/certificates/osgp-ca/certs/test-org.cert.pem /etc/ssl/certs
-sudo ln -sf $HOME/Sources/OSGP/Config/certificates/osgp-ca/certs/test-org.pfx /etc/ssl/certs
-
 echo "- create symlink to server private key ..."
 sudo ln -sf $HOME/Sources/OSGP/Config/certificates/osgp-ca/private/localhost.key.pem /etc/ssl/private
-
-echo "- create symlink to organization private key ..."
-sudo ln -sf $HOME/Sources/OSGP/Config/certificates/osgp-ca/private/test-org.key.pem /etc/ssl/private
 
 echo "- create symlink to keystore ..."
 sudo ln -sf $HOME/Sources/OSGP/Config/certificates/trust.jks /etc/ssl/certs
@@ -122,6 +112,9 @@ mkdir -p $HOME/scripts
 ln -sf $HOME/Sources/OSGP/Config/scripts/create_backup_osgp_dbs.sh $HOME/scripts/create_backup_osgp_dbs.sh
 ln -sf $HOME/Sources/OSGP/Config/scripts/restore_backup_osgp_dbs.sh $HOME/scripts/restore_backup_osgp_dbs.sh
 
-! grep -q "$HOME/scripts" $HOME/.profile && echo "PATH=\"$HOME/scripts:\$PATH\"" >> $HOME/.profile
+# Add scripts path to the path so that the development scripts can be found (introduced for database backup scripts
+! grep -q "$HOME/scripts" $HOME/.bashrc && echo "PATH=\"$HOME/scripts:\$PATH\"" >> $HOME/.bashrc
+# Adds cm2 alias so that you can easily clean your maven repository before building (e.g. `cm2 && mvn install`).
+! grep -q "alias cm2='rm -rf ~/.m2/repository/org/osgp && rm -rf ~/.m2/repository/com/alliander'" $HOME/.bashrc && echo "alias cm2='rm -rf ~/.m2/repository/org/osgp && rm -rf ~/.m2/repository/com/alliander'" >> $HOME/.bashrc
 
 echo "Done setting up OSGP development environment."
