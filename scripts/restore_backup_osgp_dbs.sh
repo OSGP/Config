@@ -25,6 +25,7 @@ echo "Restoring OSGP databases from $BACKUP_DIR/$1 ..."
 
 restore osgp_adapter_protocol_dlms
 restore osgp_adapter_protocol_oslp
+restore osgp_adapter_protocol_iec61850
 restore osgp_adapter_ws_microgrids
 restore osgp_adapter_ws_smartmetering
 restore osgp_core
