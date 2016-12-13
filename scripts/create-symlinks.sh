@@ -89,6 +89,9 @@ sudo ln -sf $HOME/Sources/OSGP/Config/certificates/oslp/secret.aes /etc/ssl/cert
 echo "- create symlink to CA certificate ..."
 sudo ln -sf $HOME/Sources/OSGP/Config/certificates/osgp-ca/certs/cacert.cer /etc/ssl/certs
 
+echo "- create symlink to LianderNetManagement.pfx ..."
+sudo ln -sf $HOME/Sources/OSGP/Config/certificates/osgp-ca/certs/LianderNetManagement.pfx /etc/ssl/certs
+
 echo "- create symlink to server certificate ..."
 sudo ln -sf $HOME/Sources/OSGP/Config/certificates/osgp-ca/certs/localhost.cert.pem /etc/ssl/certs
 
