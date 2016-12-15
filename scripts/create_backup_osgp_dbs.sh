@@ -14,6 +14,7 @@ echo "Creating backup of osgp databases in ${BACKUP_DIR} ..."
 
 pg_dump -h $HOST -p $PORT -d osgp_adapter_protocol_dlms -U $USER -F t > $BACKUP_DIR/osgp_adapter_protocol_dlms.tar
 pg_dump -h $HOST -p $PORT -d osgp_adapter_protocol_oslp -U $USER -F t > $BACKUP_DIR/osgp_adapter_protocol_oslp.tar
+pg_dump -h $HOST -p $PORT -d osgp_adapter_protocol_iec61850 -U $USER -F t > $BACKUP_DIR/osgp_adapter_protocol_iec61850.tar
 pg_dump -h $HOST -p $PORT -d osgp_adapter_ws_microgrids -U $USER -F t > $BACKUP_DIR/osgp_adapter_ws_microgrids.tar
 pg_dump -h $HOST -p $PORT -d osgp_adapter_ws_smartmetering -U $USER -F t > $BACKUP_DIR/osgp_adapter_ws_smartmetering.tar
 pg_dump -h $HOST -p $PORT -d osgp_core -U $USER -F t > $BACKUP_DIR/osgp_core.tar
