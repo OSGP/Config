@@ -51,5 +51,9 @@ node 'dev-box' {
 		require => Exec['unpack eclipse']
 	}
 
+        exec { 'install Ansi Console plugin':
+		command => '/home/dev/Tools/eclipse/eclipse -application org.eclipse.equinox.p2.director -nosplash -repository http://www.mihai-nita.net/eclipse -installIUs net.mihai-nita.ansicon.feature.group',
+		require => Exec['unpack eclipse']
+	}
 }
 
