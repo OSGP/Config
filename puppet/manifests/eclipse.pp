@@ -4,7 +4,7 @@ node 'dev-box' {
 
 	# Eclipse EE for Webdevelopers, Luna.
 	exec { 'wget eclipse':
-		command => '/usr/bin/wget -q -O /home/dev/Downloads/osgp/eclipse.tar.gz http://ftp.acc.umu.se/mirror/eclipse.org/technology/epp/downloads/release/neon/1/eclipse-jee-neon-1-linux-gtk-x86_64.tar.gz',
+		command => '/usr/bin/wget -q -O /home/dev/Downloads/osgp/eclipse.tar.gz http://ftp.acc.umu.se/mirror/eclipse.org/technology/epp/downloads/release/neon/2/eclipse-jee-neon-2-linux-gtk-x86_64.tar.gz',
 		onlyif => '/usr/bin/test ! -d /home/dev/Tools/eclipse',
 		timeout => 1800,		
 		returns => [0, 4],
@@ -36,10 +36,10 @@ node 'dev-box' {
 		require => Exec['unpack eclipse']
 	}
 
-	exec { 'install sonarlint plugin':
-		command => '/home/dev/Tools/eclipse/eclipse -application org.eclipse.equinox.p2.director -nosplash -repository http://www.sonarlint.org/eclipse -installIUs org.sonarlint.eclipse.feature.feature.group',
-		require => Exec['unpack eclipse']
-	}
+#	exec { 'install sonarlint plugin':
+#		command => '/home/dev/Tools/eclipse/eclipse -application org.eclipse.equinox.p2.director -nosplash -repository http://www.sonarlint.org/eclipse -installIUs org.sonarlint.eclipse.feature.feature.group',
+#		require => Exec['unpack eclipse']
+#	}
 
 	exec { 'install M2E Connector for jaxws-maven-plugin plugin':
 		command => '/home/dev/Tools/eclipse/eclipse -application org.eclipse.equinox.p2.director -nosplash -repository http://coderplus.com/m2e-update-sites/jaxws-maven-plugin/ -installIUs com.coderplus.m2e.jaxwscore',
