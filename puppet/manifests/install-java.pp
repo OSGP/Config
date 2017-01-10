@@ -7,7 +7,7 @@ node 'dev-box' {
 		ensure => installed,
 	}
 
-	# If installing a 16.04 system, we need to make sure that openjdk 7 is installed. 
+	# If installing a 16.04 system, we need to make sure that openjdk 7 is installed. On that version default java 8 is installed. 
 	exec { 'Add repository for openjdk 7':
 		command => '/usr/bin/apt-add-repository ppa:openjdk-r/ppa',
 		onlyif => '/usr/bin/test ! -d /usr/lib/jvm/java-7-openjdk-amd64'
