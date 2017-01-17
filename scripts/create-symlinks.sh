@@ -23,6 +23,10 @@ mkdir -p $TARGETDIR/test
 [ ! -f $TARGETDIR/global.properties ] && echo "# Global properties" > $TARGETDIR/global.properties
 [ ! -f $TARGETDIR/test/global-cucumber.properties ] && echo "# Global cucumber properties" > $TARGETDIR/test/global-cucumber.properties 
 
+echo "- setting security provider to SunPKCS11-NSS ..."
+[ $(/bin/grep -c signing.server.security.provider\=SunPKCS11-NSS $TARGETDIR/global.properties) -eq 0 ] && echo "signing.server.security.provider=SunPKCS11-NSS" >> $TARGETDIR/global.properties
+[ $(/bin/grep -c oslp.security.provider\=SunPKCS11-NSS $TARGETDIR/global.properties) -eq 0 ] && echo "oslp.security.provider=SunPKCS11-NSS" >> $TARGETDIR/global.properties
+
 # Now create all configuration sample files.
 mkdir -p $TARGETDIR/samples/test
 echo "- copying automatic tests configuration files to $TARGETDIR/test directory ..."
