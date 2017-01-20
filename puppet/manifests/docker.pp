@@ -26,4 +26,11 @@ node 'dev-box' {
         package { 'docker-engine':
                 ensure => installed
         }
+
+	# Add user to docker group to allow connectivity
+	exec {"nrpe nagios membership":
+		unless => "/usr/bin/getent group docker|/usr/bin/cut -d: -f4|/bin/grep -q dev",
+		command => "/usr/sbin/usermod -a -G docker dev",
+    		require => Package['docker-engine'],
+  	}
 }
