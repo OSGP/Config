@@ -1,5 +1,11 @@
 #!/bin/bash
 
+if [ ! $HOME ]
+then
+    echo "HOME dir was not set, setting to /home/dev"
+    HOME=/home/dev
+fi
+
 SOURCEDIR=$HOME/Sources/OSGP
 TARGETDIR=/etc/osp
 
