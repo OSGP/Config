@@ -1,8 +1,17 @@
 #!/bin/bash
 
-SOURCEDIR=$HOME/Sources/OSGP
+BASE=$HOME
+
+# If no HOME directory was set, use a BASE directory that is /home/dev
+if [ ! $BASE ]
+then
+    BASE=/home/dev
+fi
+
+SOURCEDIR=$BASE/Sources/OSGP
 TARGETDIR=/etc/osp
 
+echo "BASE is $BASE, SOURCEDIR=$SOURCEDIR"
 echo "Setting up OSGP development environment ..."
 
 # Create configuration directories and standard files.
@@ -81,48 +90,48 @@ cp -f $SOURCEDIR/Protocol-Adapter-DLMS/osgp-jasper-interface/src/main/resources/
 cp -f $SOURCEDIR/Platform/osgp-domain-logging/src/main/resources/osgp-domain-logging.properties $TARGETDIR/samples/osgp-domain-logging.properties.sample
 
 echo "- creating symlinks to device simulator ECDSA keypair ..."
-sudo ln -sf $HOME/Sources/OSGP/Config/certificates/oslp/oslp_sim_ecdsa_private.der /etc/ssl/certs
-sudo ln -sf $HOME/Sources/OSGP/Config/certificates/oslp/oslp_sim_ecdsa_public.der /etc/ssl/certs
+sudo ln -sf $BASE/Sources/OSGP/Config/certificates/oslp/oslp_sim_ecdsa_private.der /etc/ssl/certs
+sudo ln -sf $BASE/Sources/OSGP/Config/certificates/oslp/oslp_sim_ecdsa_public.der /etc/ssl/certs
 
 echo "- create symlinks to platform ECDSA keypair ..."
-sudo ln -sf $HOME/Sources/OSGP/Config/certificates/oslp/oslp_test_ecdsa_private.der /etc/ssl/certs
-sudo ln -sf $HOME/Sources/OSGP/Config/certificates/oslp/oslp_test_ecdsa_public.der /etc/ssl/certs
+sudo ln -sf $BASE/Sources/OSGP/Config/certificates/oslp/oslp_test_ecdsa_private.der /etc/ssl/certs
+sudo ln -sf $BASE/Sources/OSGP/Config/certificates/oslp/oslp_test_ecdsa_public.der /etc/ssl/certs
 
 echo "- create symlinks to secret.aes ..."
-sudo ln -sf $HOME/Sources/OSGP/Config/certificates/oslp/secret.aes /etc/ssl/certs
+sudo ln -sf $BASE/Sources/OSGP/Config/certificates/oslp/secret.aes /etc/ssl/certs
 
 echo "- create symlink to CA certificate ..."
-sudo ln -sf $HOME/Sources/OSGP/Config/certificates/osgp-ca/certs/cacert.cer /etc/ssl/certs
+sudo ln -sf $BASE/Sources/OSGP/Config/certificates/osgp-ca/certs/cacert.cer /etc/ssl/certs
 
 echo "- create symlink to LianderNetManagement.pfx ..."
-sudo ln -sf $HOME/Sources/OSGP/Config/certificates/osgp-ca/certs/LianderNetManagement.pfx /etc/ssl/certs
+sudo ln -sf $BASE/Sources/OSGP/Config/certificates/osgp-ca/certs/LianderNetManagement.pfx /etc/ssl/certs
 
 echo "- create symlink to server certificate ..."
-sudo ln -sf $HOME/Sources/OSGP/Config/certificates/osgp-ca/certs/localhost.cert.pem /etc/ssl/certs
+sudo ln -sf $BASE/Sources/OSGP/Config/certificates/osgp-ca/certs/localhost.cert.pem /etc/ssl/certs
 
 echo "- create symlink to server private key ..."
-sudo ln -sf $HOME/Sources/OSGP/Config/certificates/osgp-ca/private/localhost.key.pem /etc/ssl/private
+sudo ln -sf $BASE/Sources/OSGP/Config/certificates/osgp-ca/private/localhost.key.pem /etc/ssl/private
 
 echo "- create symlink to keystore ..."
-sudo ln -sf $HOME/Sources/OSGP/Config/certificates/trust.jks /etc/ssl/certs
+sudo ln -sf $BASE/Sources/OSGP/Config/certificates/trust.jks /etc/ssl/certs
 
 echo "- create symlink to apache vhost and remove the link to the 000-default.conf vhost ..."
-sudo ln -sf $HOME/Sources/OSGP/Config/apache-httpd/vhost.conf /etc/apache2/sites-enabled
+sudo ln -sf $BASE/Sources/OSGP/Config/apache-httpd/vhost.conf /etc/apache2/sites-enabled
 sudo rm -f /etc/apache2/sites-enabled/000-default.conf
 sudo service apache2 restart
 
 # Create sym-link to build script. 
-ln -sf $HOME/Sources/OSGP/Config/scripts/build_osgp_sources.sh $HOME/Sources/OSGP/b.sh
+ln -sf $BASE/Sources/OSGP/Config/scripts/build_osgp_sources.sh $BASE/Sources/OSGP/b.sh
 
-echo "- create scripts dir in $HOME ..."
-mkdir -p $HOME/scripts
+echo "- create scripts dir in $BASE ..."
+mkdir -p $BASE/scripts
 
-ln -sf $HOME/Sources/OSGP/Config/scripts/create_backup_osgp_dbs.sh $HOME/scripts/create_backup_osgp_dbs.sh
-ln -sf $HOME/Sources/OSGP/Config/scripts/restore_backup_osgp_dbs.sh $HOME/scripts/restore_backup_osgp_dbs.sh
+ln -sf $BASE/Sources/OSGP/Config/scripts/create_backup_osgp_dbs.sh $BASE/scripts/create_backup_osgp_dbs.sh
+ln -sf $BASE/Sources/OSGP/Config/scripts/restore_backup_osgp_dbs.sh $BASE/scripts/restore_backup_osgp_dbs.sh
 
 # Add scripts path to the path so that the development scripts can be found (introduced for database backup scripts
-! grep -q "$HOME/scripts" $HOME/.bashrc && echo "PATH=\"$HOME/scripts:\$PATH\"" >> $HOME/.bashrc
+! grep -q "$BASE/scripts" $BASE/.bashrc && echo "PATH=\"$BASE/scripts:\$PATH\"" >> $BASE/.bashrc
 # Adds cm2 alias so that you can easily clean your maven repository before building (e.g. `cm2 && mvn install`).
-! grep -q "alias cm2='rm -rf ~/.m2/repository/org/osgp && rm -rf ~/.m2/repository/com/alliander'" $HOME/.bashrc && echo "alias cm2='rm -rf ~/.m2/repository/org/osgp && rm -rf ~/.m2/repository/com/alliander'" >> $HOME/.bashrc
+! grep -q "alias cm2='rm -rf ~/.m2/repository/org/osgp && rm -rf ~/.m2/repository/com/alliander'" $BASE/.bashrc && echo "alias cm2='rm -rf ~/.m2/repository/org/osgp && rm -rf ~/.m2/repository/com/alliander'" >> $BASE/.bashrc
 
 echo "Done setting up OSGP development environment."
