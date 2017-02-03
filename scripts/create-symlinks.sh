@@ -128,6 +128,7 @@ ln -sf $BASE/Sources/OSGP/Config/scripts/build_osgp_sources.sh $BASE/Sources/OSG
 
 echo "- create scripts dir in $BASE ..."
 mkdir -p $BASE/scripts
+sudo chown -R dev:dev $BASE/scripts
 
 ln -sf $BASE/Sources/OSGP/Config/scripts/create_backup_osgp_dbs.sh $BASE/scripts/create_backup_osgp_dbs.sh
 ln -sf $BASE/Sources/OSGP/Config/scripts/restore_backup_osgp_dbs.sh $BASE/scripts/restore_backup_osgp_dbs.sh
