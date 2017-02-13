@@ -1,2 +1,8 @@
+# Eclipse stuff
+.project
+.settings
+
+# Temporary files
 *~
 .*.swp
+*.log

@@ -7,21 +7,13 @@ node 'dev-box' {
 		ensure => installed,
 	}
 
-	# If installing a 16.04 system, we need to make sure that openjdk 7 is installed. 
-	exec { 'Add repository for openjdk 7':
-		command => '/usr/bin/apt-add-repository ppa:openjdk-r/ppa',
-		onlyif => '/usr/bin/test ! -d /usr/lib/jvm/java-7-openjdk-amd64'
-	}
-
-	exec { 'Update':
-		command => '/usr/bin/apt-get update',
-		onlyif => '/usr/bin/test ! -d /usr/lib/jvm/java-7-openjdk-amd64',
-		require => Exec['Add repository for openjdk 7']
-	}
-
-	exec { 'Install openjdk 7':
-		command => '/usr/bin/apt-get install -y openjdk-7-jdk',
-		onlyif => '/usr/bin/test ! -d /usr/lib/jvm/java-7-openjdk-amd64',
-		require => Exec['Update']
-	}
+        exec { 'Fix NSS library dir':
+                command => '/bin/sed -i "s/@NSS_LIBDIR@/\/usr\/lib64/g" /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/security/nss.cfg',
+                onlyif => '/usr/bin/test -f /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/security/nss.cfg',
+        }
+	
+        exec { 'Add NSS library to java.security':
+                command => '/bin/sed -i "/SunPCSC/a security.provider.10=sun.security.pkcs11.SunPKCS11 \$\{java.home\}\/lib\/security\/nss.cfg" /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/security/java.security',
+                onlyif => '/usr/bin/test $(/bin/grep -c security.provider.10 /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/security/java.security) -eq 0',
+        }
 }
