@@ -97,8 +97,10 @@ echo "- create symlinks to platform ECDSA keypair ..."
 sudo ln -sf $BASE/Sources/OSGP/Config/certificates/oslp/oslp_test_ecdsa_private.der /etc/ssl/certs
 sudo ln -sf $BASE/Sources/OSGP/Config/certificates/oslp/oslp_test_ecdsa_public.der /etc/ssl/certs
 
-echo "- create symlinks to secret.aes ..."
-sudo ln -sf $BASE/Sources/OSGP/Config/certificates/oslp/secret.aes /etc/ssl/certs
+echo "- create symlinks to AES and RSA DLMS keys  ..."
+sudo ln -sf $BASE/Sources/OSGP/Config/keys/dlms/secret.aes /etc/ssl/certs
+sudo ln -sf $BASE/Sources/OSGP/Config/keys/dlms/dlms_device_keys_private /etc/ssl/certs
+sudo ln -sf $BASE/Sources/OSGP/Config/keys/dlms/dlms_device_keys_public /etc/ssl/certs
 
 echo "- create symlink to CA certificate ..."
 sudo ln -sf $BASE/Sources/OSGP/Config/certificates/osgp-ca/certs/cacert.cer /etc/ssl/certs
