@@ -1,0 +1,876 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="2.8" jmeter="2.13 r1665067">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="Test Plan" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Dry Run" enabled="false">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="commonRampup" elementType="Argument">
+            <stringProp name="Argument.name">commonRampup</stringProp>
+            <stringProp name="Argument.value">1</stringProp>
+            <stringProp name="Argument.desc">Dry run; just one second.</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="apiThreads" elementType="Argument">
+            <stringProp name="Argument.name">apiThreads</stringProp>
+            <stringProp name="Argument.value">1</stringProp>
+            <stringProp name="Argument.desc">Dry run; just one.</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="apiLoopCount" elementType="Argument">
+            <stringProp name="Argument.name">apiLoopCount</stringProp>
+            <stringProp name="Argument.value">1</stringProp>
+            <stringProp name="Argument.desc">Dry run; just one.</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Test Run @ 100*25" enabled="false">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="commonRampup" elementType="Argument">
+            <stringProp name="Argument.name">commonRampup</stringProp>
+            <stringProp name="Argument.value">120</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="apiThreads" elementType="Argument">
+            <stringProp name="Argument.name">apiThreads</stringProp>
+            <stringProp name="Argument.value">100</stringProp>
+            <stringProp name="Argument.desc">.</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="apiLoopCount" elementType="Argument">
+            <stringProp name="Argument.name">apiLoopCount</stringProp>
+            <stringProp name="Argument.value">25</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Test Run @ 250*25" enabled="false">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="commonRampup" elementType="Argument">
+            <stringProp name="Argument.name">commonRampup</stringProp>
+            <stringProp name="Argument.value">300</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="apiThreads" elementType="Argument">
+            <stringProp name="Argument.name">apiThreads</stringProp>
+            <stringProp name="Argument.value">250</stringProp>
+            <stringProp name="Argument.desc">.</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="apiLoopCount" elementType="Argument">
+            <stringProp name="Argument.name">apiLoopCount</stringProp>
+            <stringProp name="Argument.value">25</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Test Run @ 10k*1 (5min)" enabled="false">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="commonRampup" elementType="Argument">
+            <stringProp name="Argument.name">commonRampup</stringProp>
+            <stringProp name="Argument.value">300</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="apiThreads" elementType="Argument">
+            <stringProp name="Argument.name">apiThreads</stringProp>
+            <stringProp name="Argument.value">10000</stringProp>
+            <stringProp name="Argument.desc">.</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="apiLoopCount" elementType="Argument">
+            <stringProp name="Argument.name">apiLoopCount</stringProp>
+            <stringProp name="Argument.value">1</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Test Run @ 10k*1 (10min)" enabled="false">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="commonRampup" elementType="Argument">
+            <stringProp name="Argument.name">commonRampup</stringProp>
+            <stringProp name="Argument.value">600</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="apiThreads" elementType="Argument">
+            <stringProp name="Argument.name">apiThreads</stringProp>
+            <stringProp name="Argument.value">10000</stringProp>
+            <stringProp name="Argument.desc">.</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="apiLoopCount" elementType="Argument">
+            <stringProp name="Argument.name">apiLoopCount</stringProp>
+            <stringProp name="Argument.value">1</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Test Run @ 15k*1 (10min)" enabled="false">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="commonRampup" elementType="Argument">
+            <stringProp name="Argument.name">commonRampup</stringProp>
+            <stringProp name="Argument.value">600</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="apiThreads" elementType="Argument">
+            <stringProp name="Argument.name">apiThreads</stringProp>
+            <stringProp name="Argument.value">15000</stringProp>
+            <stringProp name="Argument.desc">.</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="apiLoopCount" elementType="Argument">
+            <stringProp name="Argument.name">apiLoopCount</stringProp>
+            <stringProp name="Argument.value">1</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Test Run @ 30k*1 (10min)" enabled="false">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="commonRampup" elementType="Argument">
+            <stringProp name="Argument.name">commonRampup</stringProp>
+            <stringProp name="Argument.value">600</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="apiThreads" elementType="Argument">
+            <stringProp name="Argument.name">apiThreads</stringProp>
+            <stringProp name="Argument.value">30000</stringProp>
+            <stringProp name="Argument.desc">.</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="apiLoopCount" elementType="Argument">
+            <stringProp name="Argument.name">apiLoopCount</stringProp>
+            <stringProp name="Argument.value">1</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Test Run @ 2500*25" enabled="false">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="commonRampup" elementType="Argument">
+            <stringProp name="Argument.name">commonRampup</stringProp>
+            <stringProp name="Argument.value">600</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="apiThreads" elementType="Argument">
+            <stringProp name="Argument.name">apiThreads</stringProp>
+            <stringProp name="Argument.value">2500</stringProp>
+            <stringProp name="Argument.desc">.</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="apiLoopCount" elementType="Argument">
+            <stringProp name="Argument.name">apiLoopCount</stringProp>
+            <stringProp name="Argument.value">25</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Test Run (cmd-line configuration)" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="apiThreads" elementType="Argument">
+            <stringProp name="Argument.name">apiThreads</stringProp>
+            <stringProp name="Argument.value">${__P(Threads, 10)}</stringProp>
+            <stringProp name="Argument.desc">.</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="apiRampUp" elementType="Argument">
+            <stringProp name="Argument.name">apiRampUp</stringProp>
+            <stringProp name="Argument.value">${__P(RampUp, 30)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="apiDuration" elementType="Argument">
+            <stringProp name="Argument.name">apiDuration</stringProp>
+            <stringProp name="Argument.value">${__javaScript(${__P(Duration,5)}*60)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="apiThroughput" elementType="Argument">
+            <stringProp name="Argument.name">apiThroughput</stringProp>
+            <stringProp name="Argument.value">${__javaScript(${__P(Throughput,10.0)}*60)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="apiCounterStart" elementType="Argument">
+            <stringProp name="Argument.name">apiCounterStart</stringProp>
+            <stringProp name="Argument.value">${__P(CounterStart, 1)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="apiCounterIncrement" elementType="Argument">
+            <stringProp name="Argument.name">apiCounterIncrement</stringProp>
+            <stringProp name="Argument.value">${__P(CounterIncrement, 1)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
+      <SetupThreadGroup guiclass="SetupThreadGroupGui" testclass="SetupThreadGroup" testname="PreStart Logging" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <stringProp name="LoopController.loops">1</stringProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1440675361000</longProp>
+        <longProp name="ThreadGroup.end_time">1440675361000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </SetupThreadGroup>
+      <hashTree>
+        <BeanShellSampler guiclass="BeanShellSamplerGui" testclass="BeanShellSampler" testname="Logger - Calculated Variables" enabled="true">
+          <stringProp name="BeanShellSampler.query">log.info(&quot;== CALCULATED COMMAND LINE ARGUMENTS ==&quot;);
+log.info(&quot;apiDuration: &quot; + ${apiDuration});
+log.info(&quot;apiThroughput: &quot; + ${apiThroughput});</stringProp>
+          <stringProp name="BeanShellSampler.filename"></stringProp>
+          <stringProp name="BeanShellSampler.parameters"></stringProp>
+          <boolProp name="BeanShellSampler.resetInterpreter">false</boolProp>
+        </BeanShellSampler>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="API" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <intProp name="LoopController.loops">-1</intProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">${apiThreads}</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">${apiRampUp}</stringProp>
+        <longProp name="ThreadGroup.start_time">1440673167000</longProp>
+        <longProp name="ThreadGroup.end_time">1438864149000</longProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
+        <stringProp name="ThreadGroup.duration">${apiDuration}</stringProp>
+        <stringProp name="ThreadGroup.delay">0</stringProp>
+        <boolProp name="ThreadGroup.delayedStart">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <CounterConfig guiclass="CounterConfigGui" testclass="CounterConfig" testname="SSLD Counter" enabled="true">
+          <stringProp name="CounterConfig.start">${apiCounterStart}</stringProp>
+          <stringProp name="CounterConfig.end">36000</stringProp>
+          <stringProp name="CounterConfig.incr">${apiCounterIncrement}</stringProp>
+          <stringProp name="CounterConfig.name">ssldCounter</stringProp>
+          <stringProp name="CounterConfig.format"></stringProp>
+          <boolProp name="CounterConfig.per_user">false</boolProp>
+        </CounterConfig>
+        <hashTree/>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Functional Variables" enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="transitionType" elementType="Argument">
+              <stringProp name="Argument.name">transitionType</stringProp>
+              <stringProp name="Argument.value">NIGHT_DAY</stringProp>
+              <stringProp name="Argument.desc">NIGHT_DAY (lights off) of DAY_NIGHT (lights on)</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="organisationId" elementType="Argument">
+              <stringProp name="Argument.name">organisationId</stringProp>
+              <stringProp name="Argument.value">LianderNetManagement</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="correlationUid" elementType="Argument">
+              <stringProp name="Argument.name">correlationUid</stringProp>
+              <stringProp name="Argument.value"></stringProp>
+              <stringProp name="Argument.desc">Empty; reference for use in script</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="pollResult" elementType="Argument">
+              <stringProp name="Argument.name">pollResult</stringProp>
+              <stringProp name="Argument.value"></stringProp>
+              <stringProp name="Argument.desc">Empty; reference for use in script</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </Arguments>
+        <hashTree/>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Short-delay Timers" enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="firstPollTimer" elementType="Argument">
+              <stringProp name="Argument.name">firstPollTimer</stringProp>
+              <stringProp name="Argument.value">5000</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="secondPollTimer" elementType="Argument">
+              <stringProp name="Argument.name">secondPollTimer</stringProp>
+              <stringProp name="Argument.value">5000</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="thirdPollTimer" elementType="Argument">
+              <stringProp name="Argument.name">thirdPollTimer</stringProp>
+              <stringProp name="Argument.value">5000</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="finalPollTimer" elementType="Argument">
+              <stringProp name="Argument.name">finalPollTimer</stringProp>
+              <stringProp name="Argument.value">60000</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+          <stringProp name="TestPlan.comments">All in ms.</stringProp>
+        </Arguments>
+        <hashTree/>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="Normal-delay Timers" enabled="false">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="firstPollTimer" elementType="Argument">
+              <stringProp name="Argument.name">firstPollTimer</stringProp>
+              <stringProp name="Argument.value">60000</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="secondPollTimer" elementType="Argument">
+              <stringProp name="Argument.name">secondPollTimer</stringProp>
+              <stringProp name="Argument.value">60000</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="thirdPollTimer" elementType="Argument">
+              <stringProp name="Argument.name">thirdPollTimer</stringProp>
+              <stringProp name="Argument.value">60000</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="finalPollTimer" elementType="Argument">
+              <stringProp name="Argument.name">finalPollTimer</stringProp>
+              <stringProp name="Argument.value">60000</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+          <stringProp name="TestPlan.comments">All in ms.</stringProp>
+        </Arguments>
+        <hashTree/>
+        <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="frontend-elb-1425953057.eu-west-1.elb.amazonaws.com:443" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">frontend-elb-1425953057.eu-west-1.elb.amazonaws.com</stringProp>
+          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/osgp-adapter-ws-publiclighting/publiclighting/adHocManagementService/</stringProp>
+          <stringProp name="HTTPSampler.concurrentPool">4</stringProp>
+        </ConfigTestElement>
+        <hashTree/>
+        <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="osgp-acc.cloudapp.net:443" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">osgp-acc.cloudapp.net</stringProp>
+          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/osgp-adapter-ws-publiclighting/publiclighting/adHocManagementService/</stringProp>
+          <stringProp name="HTTPSampler.concurrentPool">4</stringProp>
+        </ConfigTestElement>
+        <hashTree/>
+        <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="osgp-tst.cloudapp.net:443" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">osgp-tst.cloudapp.net</stringProp>
+          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/osgp-adapter-ws-publiclighting/publiclighting/adHocManagementService/</stringProp>
+          <stringProp name="HTTPSampler.concurrentPool">4</stringProp>
+        </ConfigTestElement>
+        <hashTree/>
+        <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="test01.all.flexovl.sss.aws.osg-platform.com:443" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">test01.all.flexovl.sss.aws.osg-platform.com</stringProp>
+          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">https://test01.all.flexovl.sss.aws.osg-platform.com:443/osgp-adapter-ws-publiclighting/publiclighting/adHocManagementService/</stringProp>
+          <stringProp name="TestPlan.comments">test01 environment</stringProp>
+          <stringProp name="HTTPSampler.concurrentPool">4</stringProp>
+        </ConfigTestElement>
+        <hashTree/>
+        <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="ref01.frontend.flexovl.sss.aws.osg-platform.com:443" enabled="false">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">ref01.frontend.flexovl.sss.aws.osg-platform.com</stringProp>
+          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/osgp-adapter-ws-publiclighting/publiclighting/adHocManagementService/</stringProp>
+          <stringProp name="HTTPSampler.concurrentPool">4</stringProp>
+        </ConfigTestElement>
+        <hashTree/>
+        <ConfigTestElement guiclass="HttpDefaultsGui" testclass="ConfigTestElement" testname="enexis-poc.osgp.cloud:443" enabled="true">
+          <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+            <collectionProp name="Arguments.arguments"/>
+          </elementProp>
+          <stringProp name="HTTPSampler.domain">enexis-poc.osgp.cloud</stringProp>
+          <stringProp name="HTTPSampler.port">443</stringProp>
+          <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+          <stringProp name="HTTPSampler.response_timeout"></stringProp>
+          <stringProp name="HTTPSampler.protocol">https</stringProp>
+          <stringProp name="HTTPSampler.contentEncoding">UTF-8</stringProp>
+          <stringProp name="HTTPSampler.path">/osgp-adapter-ws-publiclighting/publiclighting/adHocManagementService/</stringProp>
+          <stringProp name="TestPlan.comments">Loadbalancer AWS</stringProp>
+          <stringProp name="HTTPSampler.concurrentPool">4</stringProp>
+        </ConfigTestElement>
+        <hashTree/>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP Header Manager" enabled="true">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Accept</stringProp>
+              <stringProp name="Header.value">text/xml</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Content-Type</stringProp>
+              <stringProp name="Header.value">text/xml</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+        <ConstantThroughputTimer guiclass="TestBeanGUI" testclass="ConstantThroughputTimer" testname="Constant Throughput Timer" enabled="true">
+          <intProp name="calcMode">3</intProp>
+          <stringProp name="throughput">${apiThroughput}</stringProp>
+        </ConstantThroughputTimer>
+        <hashTree/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="001.SetTransition" enabled="true"/>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="001-1.SetTransition" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:ns=&quot;http://www.alliander.com/schemas/osgp/common/2014/10&quot; xmlns:ns1=&quot;http://www.alliander.com/schemas/osgp/publiclighting/adhocmanagement/2014/10&quot;&gt;&#xd;
+   &lt;soapenv:Header&gt;&#xd;
+      &lt;ns:ApplicationName&gt;?&lt;/ns:ApplicationName&gt;&#xd;
+      &lt;ns:UserName&gt;?&lt;/ns:UserName&gt;&#xd;
+      &lt;ns:OrganisationIdentification&gt;${organisationId}&lt;/ns:OrganisationIdentification&gt;&#xd;
+   &lt;/soapenv:Header&gt;&#xd;
+   &lt;soapenv:Body&gt;&#xd;
+      &lt;ns1:SetTransitionRequest&gt;&#xd;
+         &lt;ns1:DeviceIdentification&gt;N1-${ssldCounter}&lt;/ns1:DeviceIdentification&gt;&#xd;
+         &lt;ns1:TransitionType&gt;${transitionType}&lt;/ns1:TransitionType&gt;&#xd;
+      &lt;/ns1:SetTransitionRequest&gt;&#xd;
+   &lt;/soapenv:Body&gt;&#xd;
+&lt;/soapenv:Envelope&gt;</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path"></stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">false</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <boolProp name="HTTPSampler.monitor">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="correlationUid extractor" enabled="true">
+              <stringProp name="XPathExtractor.default"></stringProp>
+              <stringProp name="XPathExtractor.refname">correlationUid</stringProp>
+              <stringProp name="XPathExtractor.xpathQuery">//AsyncResponse/CorrelationUid</stringProp>
+              <boolProp name="XPathExtractor.validate">false</boolProp>
+              <boolProp name="XPathExtractor.tolerant">false</boolProp>
+              <boolProp name="XPathExtractor.namespace">false</boolProp>
+            </XPathExtractor>
+            <hashTree/>
+            <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="BSH: Set ResponseMessage" enabled="true">
+              <stringProp name="BeanShellAssertion.query">SampleResult.setResponseMessage(&quot;${correlationUid}&quot;);
+</stringProp>
+              <stringProp name="BeanShellAssertion.filename"></stringProp>
+              <stringProp name="BeanShellAssertion.parameters"></stringProp>
+              <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+            </BeanShellAssertion>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="002.FirstPoll" enabled="true"/>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="002-1.FirstPoll" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:ns=&quot;http://www.alliander.com/schemas/osgp/common/2014/10&quot; xmlns:ns1=&quot;http://www.alliander.com/schemas/osgp/publiclighting/adhocmanagement/2014/10&quot;&gt;&#xd;
+   &lt;soapenv:Header&gt;&#xd;
+      &lt;ns:ApplicationName&gt;?&lt;/ns:ApplicationName&gt;&#xd;
+      &lt;ns:UserName&gt;?&lt;/ns:UserName&gt;&#xd;
+      &lt;ns:OrganisationIdentification&gt;${organisationId}&lt;/ns:OrganisationIdentification&gt;&#xd;
+   &lt;/soapenv:Header&gt;&#xd;
+   &lt;soapenv:Body&gt;&#xd;
+      &lt;ns1:SetTransitionAsyncRequest&gt;&#xd;
+         &lt;ns1:AsyncRequest&gt;&#xd;
+            &lt;ns:CorrelationUid&gt;${correlationUid}&lt;/ns:CorrelationUid&gt;&#xd;
+            &lt;ns:DeviceId&gt;N1-${ssldCounter}&lt;/ns:DeviceId&gt;&#xd;
+         &lt;/ns1:AsyncRequest&gt;&#xd;
+      &lt;/ns1:SetTransitionAsyncRequest&gt;&#xd;
+   &lt;/soapenv:Body&gt;&#xd;
+&lt;/soapenv:Envelope&gt;</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain"></stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="HTTPSampler.protocol"></stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path"></stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">false</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <boolProp name="HTTPSampler.monitor">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="pollResult extractor" enabled="true">
+              <stringProp name="XPathExtractor.default"></stringProp>
+              <stringProp name="XPathExtractor.refname">pollResult</stringProp>
+              <stringProp name="XPathExtractor.xpathQuery">//SetTransitionResponse/Result</stringProp>
+              <boolProp name="XPathExtractor.validate">false</boolProp>
+              <boolProp name="XPathExtractor.tolerant">false</boolProp>
+              <boolProp name="XPathExtractor.namespace">false</boolProp>
+            </XPathExtractor>
+            <hashTree/>
+            <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="BSH: Set ResponseMessage" enabled="true">
+              <stringProp name="BeanShellAssertion.query">SampleResult.setResponseMessage(&quot;${correlationUid},&quot; + SampleResult.getResponseMessage() + &quot; (Result: ${pollResult})&quot;);
+</stringProp>
+              <stringProp name="BeanShellAssertion.filename"></stringProp>
+              <stringProp name="BeanShellAssertion.parameters"></stringProp>
+              <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+            </BeanShellAssertion>
+            <hashTree/>
+          </hashTree>
+          <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Variable-based timer" enabled="true">
+            <stringProp name="ConstantTimer.delay">${firstPollTimer}</stringProp>
+          </ConstantTimer>
+          <hashTree/>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="003.SecondPoll" enabled="true"/>
+        <hashTree>
+          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If NOT DONE" enabled="true">
+            <stringProp name="IfController.condition">&quot;${pollResult}&quot; == &quot;NOT FOUND&quot;</stringProp>
+            <boolProp name="IfController.evaluateAll">false</boolProp>
+          </IfController>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="003-1.SecondPoll" enabled="true">
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:ns=&quot;http://www.alliander.com/schemas/osgp/common/2014/10&quot; xmlns:ns1=&quot;http://www.alliander.com/schemas/osgp/publiclighting/adhocmanagement/2014/10&quot;&gt;&#xd;
+   &lt;soapenv:Header&gt;&#xd;
+      &lt;ns:ApplicationName&gt;?&lt;/ns:ApplicationName&gt;&#xd;
+      &lt;ns:UserName&gt;?&lt;/ns:UserName&gt;&#xd;
+      &lt;ns:OrganisationIdentification&gt;${organisationId}&lt;/ns:OrganisationIdentification&gt;&#xd;
+   &lt;/soapenv:Header&gt;&#xd;
+   &lt;soapenv:Body&gt;&#xd;
+      &lt;ns1:SetTransitionAsyncRequest&gt;&#xd;
+         &lt;ns1:AsyncRequest&gt;&#xd;
+            &lt;ns:CorrelationUid&gt;${correlationUid}&lt;/ns:CorrelationUid&gt;&#xd;
+            &lt;ns:DeviceId&gt;N1-${ssldCounter}&lt;/ns:DeviceId&gt;&#xd;
+         &lt;/ns1:AsyncRequest&gt;&#xd;
+      &lt;/ns1:SetTransitionAsyncRequest&gt;&#xd;
+   &lt;/soapenv:Body&gt;&#xd;
+&lt;/soapenv:Envelope&gt;</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain"></stringProp>
+              <stringProp name="HTTPSampler.port"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              <stringProp name="HTTPSampler.protocol"></stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path"></stringProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <boolProp name="HTTPSampler.monitor">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="pollResult extractor" enabled="true">
+                <stringProp name="XPathExtractor.default"></stringProp>
+                <stringProp name="XPathExtractor.refname">pollResult</stringProp>
+                <stringProp name="XPathExtractor.xpathQuery">//SetTransitionResponse/Result</stringProp>
+                <boolProp name="XPathExtractor.validate">false</boolProp>
+                <boolProp name="XPathExtractor.tolerant">false</boolProp>
+                <boolProp name="XPathExtractor.namespace">false</boolProp>
+              </XPathExtractor>
+              <hashTree/>
+              <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="BSH: Set ResponseMessage" enabled="true">
+                <stringProp name="BeanShellAssertion.query">SampleResult.setResponseMessage(&quot;${correlationUid},&quot; + SampleResult.getResponseMessage() + &quot; (Result: ${pollResult})&quot;);
+</stringProp>
+                <stringProp name="BeanShellAssertion.filename"></stringProp>
+                <stringProp name="BeanShellAssertion.parameters"></stringProp>
+                <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+              </BeanShellAssertion>
+              <hashTree/>
+            </hashTree>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Variable-based timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">${secondPollTimer}</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="004.ThirdPoll" enabled="true"/>
+        <hashTree>
+          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If NOT DONE" enabled="true">
+            <stringProp name="IfController.condition">&quot;${pollResult}&quot; == &quot;NOT FOUND&quot;</stringProp>
+            <boolProp name="IfController.evaluateAll">false</boolProp>
+          </IfController>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="004-1.ThirdPoll" enabled="true">
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:ns=&quot;http://www.alliander.com/schemas/osgp/common/2014/10&quot; xmlns:ns1=&quot;http://www.alliander.com/schemas/osgp/publiclighting/adhocmanagement/2014/10&quot;&gt;&#xd;
+   &lt;soapenv:Header&gt;&#xd;
+      &lt;ns:ApplicationName&gt;?&lt;/ns:ApplicationName&gt;&#xd;
+      &lt;ns:UserName&gt;?&lt;/ns:UserName&gt;&#xd;
+      &lt;ns:OrganisationIdentification&gt;${organisationId}&lt;/ns:OrganisationIdentification&gt;&#xd;
+   &lt;/soapenv:Header&gt;&#xd;
+   &lt;soapenv:Body&gt;&#xd;
+      &lt;ns1:SetTransitionAsyncRequest&gt;&#xd;
+         &lt;ns1:AsyncRequest&gt;&#xd;
+            &lt;ns:CorrelationUid&gt;${correlationUid}&lt;/ns:CorrelationUid&gt;&#xd;
+            &lt;ns:DeviceId&gt;N1-${ssldCounter}&lt;/ns:DeviceId&gt;&#xd;
+         &lt;/ns1:AsyncRequest&gt;&#xd;
+      &lt;/ns1:SetTransitionAsyncRequest&gt;&#xd;
+   &lt;/soapenv:Body&gt;&#xd;
+&lt;/soapenv:Envelope&gt;</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain"></stringProp>
+              <stringProp name="HTTPSampler.port"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              <stringProp name="HTTPSampler.protocol"></stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path"></stringProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">false</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <boolProp name="HTTPSampler.monitor">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="pollResult extractor" enabled="true">
+                <stringProp name="XPathExtractor.default"></stringProp>
+                <stringProp name="XPathExtractor.refname">pollResult</stringProp>
+                <stringProp name="XPathExtractor.xpathQuery">//SetTransitionResponse/Result</stringProp>
+                <boolProp name="XPathExtractor.validate">false</boolProp>
+                <boolProp name="XPathExtractor.tolerant">false</boolProp>
+                <boolProp name="XPathExtractor.namespace">false</boolProp>
+              </XPathExtractor>
+              <hashTree/>
+              <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="BSH: Set ResponseMessage" enabled="true">
+                <stringProp name="BeanShellAssertion.query">SampleResult.setResponseMessage(&quot;${correlationUid},&quot; + SampleResult.getResponseMessage() + &quot; (Result: ${pollResult})&quot;);
+</stringProp>
+                <stringProp name="BeanShellAssertion.filename"></stringProp>
+                <stringProp name="BeanShellAssertion.parameters"></stringProp>
+                <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+              </BeanShellAssertion>
+              <hashTree/>
+            </hashTree>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Variable-based timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">${thirdPollTimer}</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="005.FinalPoll" enabled="true"/>
+        <hashTree>
+          <IfController guiclass="IfControllerPanel" testclass="IfController" testname="If NOT DONE" enabled="true">
+            <stringProp name="IfController.condition">&quot;${pollResult}&quot; == &quot;NOT FOUND&quot;</stringProp>
+            <boolProp name="IfController.evaluateAll">false</boolProp>
+          </IfController>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="005-1.FinalPoll" enabled="true">
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">&lt;soapenv:Envelope xmlns:soapenv=&quot;http://schemas.xmlsoap.org/soap/envelope/&quot; xmlns:ns=&quot;http://www.alliander.com/schemas/osgp/common/2014/10&quot; xmlns:ns1=&quot;http://www.alliander.com/schemas/osgp/publiclighting/adhocmanagement/2014/10&quot;&gt;&#xd;
+   &lt;soapenv:Header&gt;&#xd;
+      &lt;ns:ApplicationName&gt;?&lt;/ns:ApplicationName&gt;&#xd;
+      &lt;ns:UserName&gt;?&lt;/ns:UserName&gt;&#xd;
+      &lt;ns:OrganisationIdentification&gt;${organisationId}&lt;/ns:OrganisationIdentification&gt;&#xd;
+   &lt;/soapenv:Header&gt;&#xd;
+   &lt;soapenv:Body&gt;&#xd;
+      &lt;ns1:SetTransitionAsyncRequest&gt;&#xd;
+         &lt;ns1:AsyncRequest&gt;&#xd;
+            &lt;ns:CorrelationUid&gt;${correlationUid}&lt;/ns:CorrelationUid&gt;&#xd;
+            &lt;ns:DeviceId&gt;N1-${ssldCounter}&lt;/ns:DeviceId&gt;&#xd;
+         &lt;/ns1:AsyncRequest&gt;&#xd;
+      &lt;/ns1:SetTransitionAsyncRequest&gt;&#xd;
+   &lt;/soapenv:Body&gt;&#xd;
+&lt;/soapenv:Envelope&gt;</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain"></stringProp>
+              <stringProp name="HTTPSampler.port"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              <stringProp name="HTTPSampler.protocol"></stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path"></stringProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">false</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <boolProp name="HTTPSampler.monitor">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            </HTTPSamplerProxy>
+            <hashTree>
+              <XPathExtractor guiclass="XPathExtractorGui" testclass="XPathExtractor" testname="pollResult extractor" enabled="true">
+                <stringProp name="XPathExtractor.default"></stringProp>
+                <stringProp name="XPathExtractor.refname">pollResult</stringProp>
+                <stringProp name="XPathExtractor.xpathQuery">//SetTransitionResponse/Result</stringProp>
+                <boolProp name="XPathExtractor.validate">false</boolProp>
+                <boolProp name="XPathExtractor.tolerant">false</boolProp>
+                <boolProp name="XPathExtractor.namespace">false</boolProp>
+              </XPathExtractor>
+              <hashTree/>
+              <XPathAssertion guiclass="XPathAssertionGui" testclass="XPathAssertion" testname="Result = OK assertion" enabled="true">
+                <boolProp name="XPath.negate">false</boolProp>
+                <stringProp name="XPath.xpath">/Envelope/Body/SetTransitionResponse[Result=&quot;OK&quot;]</stringProp>
+                <boolProp name="XPath.validate">false</boolProp>
+                <boolProp name="XPath.whitespace">false</boolProp>
+                <boolProp name="XPath.tolerant">false</boolProp>
+                <boolProp name="XPath.namespace">false</boolProp>
+              </XPathAssertion>
+              <hashTree/>
+              <BeanShellAssertion guiclass="BeanShellAssertionGui" testclass="BeanShellAssertion" testname="BSH: Set ResponseMessage" enabled="true">
+                <stringProp name="BeanShellAssertion.query">SampleResult.setResponseMessage(&quot;${correlationUid},&quot; + SampleResult.getResponseMessage() + &quot; (Result: ${pollResult})&quot;);
+</stringProp>
+                <stringProp name="BeanShellAssertion.filename"></stringProp>
+                <stringProp name="BeanShellAssertion.parameters"></stringProp>
+                <boolProp name="BeanShellAssertion.resetInterpreter">false</boolProp>
+              </BeanShellAssertion>
+              <hashTree/>
+            </hashTree>
+            <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Variable-based timer" enabled="true">
+              <stringProp name="ConstantTimer.delay">${finalPollTimer}</stringProp>
+            </ConstantTimer>
+            <hashTree/>
+          </hashTree>
+        </hashTree>
+      </hashTree>
+      <ResultCollector guiclass="SimpleDataWriter" testclass="ResultCollector" testname="File Output" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>false</assertions>
+            <subresults>false</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename">${__time(yMMdd-HHmmss)}_output.csv</stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>false</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>false</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <threadCounts>true</threadCounts>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
