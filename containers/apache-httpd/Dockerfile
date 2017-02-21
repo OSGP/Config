@@ -21,8 +21,20 @@ RUN sed -i 's@#LoadModule socache_shmcb_module modules/mod_socache_shmcb.so@Load
 RUN sed -i 's@#LoadModule proxy_module modules/mod_proxy.so@LoadModule proxy_module modules/mod_proxy.so@' /usr/local/apache2/conf/httpd.conf
 RUN sed -i 's@#LoadModule proxy_ajp_module modules/mod_proxy_ajp.so@LoadModule proxy_ajp_module modules/mod_proxy_ajp.so@' /usr/local/apache2/conf/httpd.conf
 
+RUN sed -i -e "\$a# MPM Event configuration." /usr/local/apache2/conf/httpd.conf
+RUN sed -i -e "\$a<IfModule mpm_event_module>" /usr/local/apache2/conf/httpd.conf
+RUN sed -i -e "\$a        StartServers            10" /usr/local/apache2/conf/httpd.conf
+RUN sed -i -e "\$a        MinSpareThreads       2000" /usr/local/apache2/conf/httpd.conf
+RUN sed -i -e "\$a        MaxSpareThreads       7500" /usr/local/apache2/conf/httpd.conf
+RUN sed -i -e "\$a        ThreadLimit          10000" /usr/local/apache2/conf/httpd.conf
+RUN sed -i -e "\$a        ThreadsPerChild       1000" /usr/local/apache2/conf/httpd.conf
+RUN sed -i -e "\$a        MaxRequestWorkers    10000" /usr/local/apache2/conf/httpd.conf
+RUN sed -i -e "\$a        MaxConnectionsPerChild   0" /usr/local/apache2/conf/httpd.conf
+RUN sed -i -e "\$a</IfModule>" /usr/local/apache2/conf/httpd.conf
+
 # Copy vhost to configuration folder.
 COPY vhost.conf /usr/local/apache2/conf/vhost.conf
 
 # Include vhost in httpd.conf
+RUN sed -i -e "\$a# OSGP Vhost." /usr/local/apache2/conf/httpd.conf
 RUN sed -i -e "\$aInclude /usr/local/apache2/conf/vhost.conf" /usr/local/apache2/conf/httpd.conf
