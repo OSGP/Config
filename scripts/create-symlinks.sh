@@ -127,6 +127,8 @@ sudo service apache2 restart
 
 # Create sym-link to build script. 
 ln -sf $BASE/Sources/OSGP/Config/scripts/build_osgp_sources.sh $BASE/Sources/OSGP/b.sh
+# Create sym-link to get development and update submodules.
+ln -sf $BASE/Sources/OSGP/Config/scripts/pull_development_and_update_submodules.sh $BASE/Sources/OSGP/f.sh
 
 echo "- create scripts dir in $BASE ..."
 mkdir -p $BASE/scripts
