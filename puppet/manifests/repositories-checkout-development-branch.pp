@@ -42,4 +42,9 @@ node 'dev-box' {
 		returns => [0,128],
 	}
 
+	exec { 'PublicLightingDemoApp repo':
+		command => '/bin/sh -c "cd /home/dev/Sources/OSGP/PublicLightingDemoApp; /usr/bin/git checkout development"',
+		returns => [0,128],
+	}
+
 }

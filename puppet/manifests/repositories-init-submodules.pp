@@ -27,4 +27,9 @@ node 'dev-box' {
                 returns => [0,1,128],
         }
 
+	exec { 'PublicLightingDemoApp repo':
+		command => '/bin/sh -c "cd /home/dev/Sources/OSGP/PublicLightingDemoApp; /usr/bin/git submodule update --init --recursive"',
+		returns => [0,1,128],
+	}
+
 }
