@@ -8,7 +8,7 @@ Vagrant.configure("2") do |config|
 		vb.name = "OSGP Development"
 		vb.gui = true
 		vb.cpus = "1"
-		vb.memory = "4096"
+		vb.memory = "5120"
 
 		# Disable 3d acceleration because some programs crash on it.
 		vb.customize ["modifyvm", :id, "--accelerate3d", "off"]
