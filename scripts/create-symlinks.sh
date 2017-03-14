@@ -36,6 +36,10 @@ echo "- setting security provider to SunPKCS11-NSS ..."
 [ $(/bin/grep -c signing.server.security.provider\=SunPKCS11-NSS $TARGETDIR/global.properties) -eq 0 ] && echo "signing.server.security.provider=SunPKCS11-NSS" >> $TARGETDIR/global.properties
 [ $(/bin/grep -c oslp.security.provider\=SunPKCS11-NSS $TARGETDIR/global.properties) -eq 0 ] && echo "oslp.security.provider=SunPKCS11-NSS" >> $TARGETDIR/global.properties
 
+echo "- adding different port for oslp mock servers ..."
+[ $(/bin/grep -c oslp.port.server\=12123 $TARGETDIR/test/global-cucumber.properties) -eq 0 ] && echo "oslp.port.server=12123" >> $TARGETDIR/test/global-cucumber.properties
+[ $(/bin/grep -c oslp.elster.port.server\=12124 $TARGETDIR/test/global-cucumber.properties) -eq 0 ] && echo "oslp.elster.port.server=12124" >> $TARGETDIR/test/global-cucumber.properties
+
 # Now create all configuration sample files.
 mkdir -p $TARGETDIR/samples/test
 echo "- copying automatic tests configuration files to $TARGETDIR/test directory ..."
