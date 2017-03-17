@@ -91,6 +91,8 @@ echo "## Installing intellij                                      ##"
 echo "##############################################################"
 sudo puppet apply $NOOP ./manifests/intellij.pp
 
+sudo puppet apply $NOOP ./manifests/terraform.pp
+
 echo "##############################################################"
 echo "## Installing soapui                                        ##"
 echo "##############################################################"
