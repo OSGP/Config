@@ -87,6 +87,11 @@ echo "##############################################################"
 sudo puppet apply $NOOP ./manifests/eclipse.pp
 
 echo "##############################################################"
+echo "## Installing intellij                                      ##"
+echo "##############################################################"
+sudo puppet apply $NOOP ./manifests/intellij.pp
+
+echo "##############################################################"
 echo "## Installing soapui                                        ##"
 echo "##############################################################"
 sudo puppet apply $NOOP ./manifests/soapui.pp
