@@ -30,16 +30,22 @@ node 'dev-box' {
 		path    => ['/bin', '/usr/bin']
 	}
 
-        exec { 'Installing module mjanser-eclipse':
+	exec { 'Installing module mjanser-eclipse':
 		command => "puppet module install mjanser-eclipse",
 		unless  => "puppet module list | grep mjanser-eclipse",
 		path    => ['/bin', '/usr/bin']
 	}
 
-        exec { 'Installing module apt':
-                command => "puppet module install puppetlabs-apt",
-                unless  => "puppet module list | grep puppetlabs-apt",
-                path    => ['/bin', '/usr/bin']
-        }
+	exec { 'Installing module apt':
+		command => "puppet module install puppetlabs-apt",
+		unless  => "puppet module list | grep puppetlabs-apt",
+		path    => ['/bin', '/usr/bin']
+	}
+        
+	exec { 'Installing module python':
+		command => "puppet module install stankevich-python",
+		unless  => "puppet module list | grep stankevich-python",
+		path    => ['/bin', '/usr/bin']
+	}
 }
 
