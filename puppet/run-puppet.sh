@@ -86,11 +86,6 @@ echo "## Installing eclipse                                       ##"
 echo "##############################################################"
 sudo puppet apply $NOOP ./manifests/eclipse.pp
 
-echo "##############################################################"
-echo "## Installing intellij                                      ##"
-echo "##############################################################"
-sudo puppet apply $NOOP ./manifests/intellij.pp
-
 sudo puppet apply $NOOP ./manifests/terraform.pp
 sudo puppet apply $NOOP ./manifests/python.pp
 sudo puppet apply $NOOP ./manifests/awsudo.pp
@@ -135,6 +130,11 @@ echo "##############################################################"
 echo "## Personalize desktop                                      ##"
 echo "##############################################################"
 sudo puppet apply $NOOP ./manifests/personalize-desktop.pp
+
+echo "##############################################################"
+echo "## Installing intellij                                      ##"
+echo "##############################################################"
+sudo puppet apply $NOOP ./manifests/intellij.pp
 
 echo "##############################################################"
 echo "## Cleanup                                                  ##"
