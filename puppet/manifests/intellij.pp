@@ -36,6 +36,8 @@ node 'dev-box' {
                 path => "${homedir}/Desktop/intellij.desktop",
                 ensure => present,
                 mode => 744,
+                owner => "dev",
+                group => "dev",
                 content => '[Desktop Entry]
 Type=Application
 Terminal=false

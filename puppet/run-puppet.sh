@@ -88,7 +88,7 @@ sudo puppet apply $NOOP ./manifests/eclipse.pp
 
 sudo puppet apply $NOOP ./manifests/terraform.pp
 sudo puppet apply $NOOP ./manifests/python.pp
-sudo puppet apply $NOOP ./manifests/awsudo.pp
+sudo puppet apply $NOOP ./manifests/aws.pp
 
 echo "##############################################################"
 echo "## Installing soapui                                        ##"
@@ -120,6 +120,7 @@ echo "##############################################################"
 echo "## Create symlinks                                          ##"
 echo "##############################################################"
 sudo puppet apply $NOOP ./manifests/create-symlinks.pp
+sudo puppet apply $NOOP ./manifests/configure-osgp.pp
 
 echo "##############################################################"
 echo "## Init DB                                                  ##"
