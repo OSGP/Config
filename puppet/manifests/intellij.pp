@@ -35,7 +35,7 @@ node 'dev-box' {
         file { 'Create destop link':
                 path => "${homedir}/Desktop/intellij.desktop",
                 ensure => present,
-                mode => 755,
+                mode => 744,
                 content => '[Desktop Entry]
 Type=Application
 Terminal=false
