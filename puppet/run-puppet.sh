@@ -91,6 +91,7 @@ echo "## Installing intellij                                      ##"
 echo "##############################################################"
 sudo puppet apply $NOOP ./manifests/intellij.pp
 
+sudo puppet apply $NOOP ./manifests/terraform.pp
 sudo puppet apply $NOOP ./manifests/python.pp
 sudo puppet apply $NOOP ./manifests/awsudo.pp
 
