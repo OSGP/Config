@@ -26,7 +26,7 @@ node 'dev-box' {
 		require => Exec["Extract ${product}"]
 	}
 
-        exec { "Add ${product} to path in ${homedir}.profile":
+        exec { "Add ${product} to path in ${homedir}/.profile":
                 command => "/bin/sed -i 's/:\$PATH/:\\/home\\/dev\\/Tools\\/${product}:\$PATH/g' ${homedir}/.profile",
 		unless => "/bin/grep PATH= ${homedir}/.profile | /bin/grep ${product}", 
 		require => File["Create ${product} link"], 
