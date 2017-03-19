@@ -58,7 +58,6 @@ sudo puppet apply $NOOP ./manifests/create-source-code-folder.pp
 sudo puppet apply $NOOP ./manifests/clone-repositories.pp
 sudo puppet apply $NOOP ./manifests/repositories-checkout-development-branch.pp
 sudo puppet apply $NOOP ./manifests/repositories-init-submodules.pp
-sudo puppet apply $NOOP ./manifests/chown-source-folders.pp
 
 echo "##############################################################"
 echo "## Installing apache2                                       ##"
@@ -143,6 +142,8 @@ echo "##############################################################"
 echo "## Cleanup                                                  ##"
 echo "##############################################################"
 sudo puppet apply $NOOP ./manifests/cleanup.pp
+
+sudo puppet apply $NOOP ./manifests/fix_owner.pp
 
 echo "##############################################################"
 echo "## Restart VM in order to apply various settings            ##"
