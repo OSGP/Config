@@ -74,7 +74,7 @@ echo "##############################################################"
 echo "## Installing tomcat                                        ##"
 echo "##############################################################"
 sudo puppet apply $NOOP ./manifests/tomcat7.pp
-sudo puppet apply $NOOP ./manifests/tomcat8.pp
+sudo puppet apply $NOOP ./manifests/tomcat8.5.pp
 
 echo "##############################################################"
 echo "## Installing activemq                                      ##"
