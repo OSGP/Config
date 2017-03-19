@@ -71,8 +71,9 @@ echo "##############################################################"
 sudo puppet apply $NOOP ./manifests/postgresql.pp
 
 echo "##############################################################"
-echo "## Installing tomcat7                                       ##"
+echo "## Installing tomcat                                        ##"
 echo "##############################################################"
+sudo puppet apply $NOOP ./manifests/tomcat8.pp
 sudo puppet apply $NOOP ./manifests/tomcat7.pp
 
 echo "##############################################################"
@@ -85,6 +86,7 @@ echo "##############################################################"
 echo "## Installing eclipse                                       ##"
 echo "##############################################################"
 sudo puppet apply $NOOP ./manifests/eclipse.pp
+sudo puppet apply $NOOP ./manifests/configure-eclipse.pp
 
 sudo puppet apply $NOOP ./manifests/terraform.pp
 sudo puppet apply $NOOP ./manifests/python.pp
