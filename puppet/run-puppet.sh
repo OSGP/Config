@@ -73,8 +73,8 @@ sudo puppet apply $NOOP ./manifests/postgresql.pp
 echo "##############################################################"
 echo "## Installing tomcat                                        ##"
 echo "##############################################################"
-sudo puppet apply $NOOP ./manifests/tomcat8.pp
 sudo puppet apply $NOOP ./manifests/tomcat7.pp
+sudo puppet apply $NOOP ./manifests/tomcat8.pp
 
 echo "##############################################################"
 echo "## Installing activemq                                      ##"

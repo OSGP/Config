@@ -3,7 +3,7 @@
 node 'dev-box' {
 
 	$homedir = '/home/dev'
-	$version = '8.5.11'
+	$version = '8.5.12'
 
 	# Tomcat7 is used as application server.
 	exec { 'wget tomcat 8.5':
@@ -23,6 +23,12 @@ node 'dev-box' {
 
 	file { 'create tomcat link in tools':
 		path => "${homedir}/Tools/tomcat",
+		ensure => link,
+		target => "${homedir}/Tools/apache-tomcat-$version"
+	}
+
+	file { 'create tomcat8 link in tools':
+		path => "${homedir}/Tools/tomcat8",
 		ensure => link,
 		target => "${homedir}/Tools/apache-tomcat-$version"
 	}
