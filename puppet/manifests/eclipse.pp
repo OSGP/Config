@@ -3,7 +3,7 @@
 node 'dev-box' {
 
         $major="neon"
-        $version="2"
+        $version="3"
 
 	# Eclipse EE for Webdevelopers, Luna.
 	exec { 'wget eclipse':
