@@ -4,7 +4,7 @@ node 'dev-box' {
 
         $homedir="/home/dev"
         $product="Terraform"
-        $version="0.9.0"
+        $version="0.9.1"
 
 	exec { "Download ${product}":
 		command => "/usr/bin/wget -q -O ${homedir}/Downloads/osgp/${product}-${version}.zip https://releases.hashicorp.com/terraform/${version}/terraform_${version}_linux_amd64.zip",
