@@ -3,7 +3,7 @@
 node 'dev-box' {
 
         $homedir="/home/dev"
-        $version="2016.3.5"
+        $version="2017.1"
 
         # IntellIJ
 	exec { 'Download IntellIJ':
