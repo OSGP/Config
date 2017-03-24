@@ -4,7 +4,7 @@ node 'dev-box' {
 
 	# Will install the default JDK. On 16.04 this will install java-8-openjdk. On 14.04 this will install java-7-openjdk
 	package { 'default-jdk':
-		ensure => installed,
+		ensure => 'installed',
 	}
 
         exec { 'Fix NSS library dir':

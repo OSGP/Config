@@ -97,14 +97,19 @@ echo "- create symlinks to platform ECDSA keypair ..."
 sudo ln -sf $BASE/Sources/OSGP/Config/certificates/oslp/oslp_test_ecdsa_private.der /etc/ssl/certs
 sudo ln -sf $BASE/Sources/OSGP/Config/certificates/oslp/oslp_test_ecdsa_public.der /etc/ssl/certs
 
-echo "- create symlinks to secret.aes ..."
-sudo ln -sf $BASE/Sources/OSGP/Config/certificates/oslp/secret.aes /etc/ssl/certs
+echo "- create symlinks to AES and RSA DLMS keys  ..."
+sudo ln -sf $BASE/Sources/OSGP/Config/keys/dlms/secret.aes /etc/ssl/certs
+sudo ln -sf $BASE/Sources/OSGP/Config/keys/dlms/dlms_device_keys_private /etc/ssl/certs
+sudo ln -sf $BASE/Sources/OSGP/Config/keys/dlms/dlms_device_keys_public /etc/ssl/certs
 
 echo "- create symlink to CA certificate ..."
 sudo ln -sf $BASE/Sources/OSGP/Config/certificates/osgp-ca/certs/cacert.cer /etc/ssl/certs
 
 echo "- create symlink to LianderNetManagement.pfx ..."
 sudo ln -sf $BASE/Sources/OSGP/Config/certificates/osgp-ca/certs/LianderNetManagement.pfx /etc/ssl/certs
+
+echo "- create symlink to test-org.pfx ..."
+sudo ln -sf $BASE/Sources/OSGP/Config/certificates/osgp-ca/certs/test-org.pfx /etc/ssl/certs
 
 echo "- create symlink to server certificate ..."
 sudo ln -sf $BASE/Sources/OSGP/Config/certificates/osgp-ca/certs/localhost.cert.pem /etc/ssl/certs
@@ -122,9 +127,12 @@ sudo service apache2 restart
 
 # Create sym-link to build script. 
 ln -sf $BASE/Sources/OSGP/Config/scripts/build_osgp_sources.sh $BASE/Sources/OSGP/b.sh
+# Create sym-link to get development and update submodules.
+ln -sf $BASE/Sources/OSGP/Config/scripts/pull_development_and_update_submodules.sh $BASE/Sources/OSGP/f.sh
 
 echo "- create scripts dir in $BASE ..."
 mkdir -p $BASE/scripts
+sudo chown -R dev:dev $BASE/scripts
 
 ln -sf $BASE/Sources/OSGP/Config/scripts/create_backup_osgp_dbs.sh $BASE/scripts/create_backup_osgp_dbs.sh
 ln -sf $BASE/Sources/OSGP/Config/scripts/restore_backup_osgp_dbs.sh $BASE/scripts/restore_backup_osgp_dbs.sh
