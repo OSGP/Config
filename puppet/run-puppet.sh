@@ -139,6 +139,11 @@ echo "##############################################################"
 sudo puppet apply $NOOP ./manifests/intellij.pp
 
 echo "##############################################################"
+echo "## Installing ansible                                      ##"
+echo "##############################################################"
+sudo puppet apply $NOOP ./manifests/ansible.pp
+
+echo "##############################################################"
 echo "## Cleanup                                                  ##"
 echo "##############################################################"
 sudo puppet apply $NOOP ./manifests/cleanup.pp
