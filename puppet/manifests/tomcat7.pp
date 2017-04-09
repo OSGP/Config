@@ -3,7 +3,7 @@
 node 'dev-box' {
 
 	$homedir = "/home/dev"
-	$version = "7.0.72"
+	$version = "7.0.76"
 
 	# Tomcat7 is used as application server.
 	exec { 'wget tomcat7':
@@ -20,6 +20,13 @@ node 'dev-box' {
 
 	file { 'create tomcat link':
 		path => "${homedir}/Tools/tomcat",
+		ensure => link,
+		target => "${homedir}/Tools/apache-tomcat-${version}",
+		require => Exec['unpack tomcat7']
+	}
+
+	file { 'create tomcat7 link':
+		path => "${homedir}/Tools/tomcat7",
 		ensure => link,
 		target => "${homedir}/Tools/apache-tomcat-${version}",
 		require => Exec['unpack tomcat7']

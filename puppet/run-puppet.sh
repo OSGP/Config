@@ -58,7 +58,6 @@ sudo puppet apply $NOOP ./manifests/create-source-code-folder.pp
 sudo puppet apply $NOOP ./manifests/clone-repositories.pp
 sudo puppet apply $NOOP ./manifests/repositories-checkout-development-branch.pp
 sudo puppet apply $NOOP ./manifests/repositories-init-submodules.pp
-sudo puppet apply $NOOP ./manifests/chown-source-folders.pp
 
 echo "##############################################################"
 echo "## Installing apache2                                       ##"
@@ -71,9 +70,10 @@ echo "##############################################################"
 sudo puppet apply $NOOP ./manifests/postgresql.pp
 
 echo "##############################################################"
-echo "## Installing tomcat7                                       ##"
+echo "## Installing tomcat                                        ##"
 echo "##############################################################"
 sudo puppet apply $NOOP ./manifests/tomcat7.pp
+sudo puppet apply $NOOP ./manifests/tomcat8.5.pp
 
 echo "##############################################################"
 echo "## Installing activemq                                      ##"
@@ -85,6 +85,11 @@ echo "##############################################################"
 echo "## Installing eclipse                                       ##"
 echo "##############################################################"
 sudo puppet apply $NOOP ./manifests/eclipse.pp
+sudo puppet apply $NOOP ./manifests/configure-eclipse.pp
+
+sudo puppet apply $NOOP ./manifests/terraform.pp
+sudo puppet apply $NOOP ./manifests/python.pp
+sudo puppet apply $NOOP ./manifests/aws.pp
 
 echo "##############################################################"
 echo "## Installing soapui                                        ##"
@@ -116,6 +121,7 @@ echo "##############################################################"
 echo "## Create symlinks                                          ##"
 echo "##############################################################"
 sudo puppet apply $NOOP ./manifests/create-symlinks.pp
+sudo puppet apply $NOOP ./manifests/configure-osgp.pp
 
 echo "##############################################################"
 echo "## Init DB                                                  ##"
@@ -128,9 +134,16 @@ echo "##############################################################"
 sudo puppet apply $NOOP ./manifests/personalize-desktop.pp
 
 echo "##############################################################"
+echo "## Installing intellij                                      ##"
+echo "##############################################################"
+sudo puppet apply $NOOP ./manifests/intellij.pp
+
+echo "##############################################################"
 echo "## Cleanup                                                  ##"
 echo "##############################################################"
 sudo puppet apply $NOOP ./manifests/cleanup.pp
+
+sudo puppet apply $NOOP ./manifests/fix_owner.pp
 
 echo "##############################################################"
 echo "## Restart VM in order to apply various settings            ##"
