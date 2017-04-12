@@ -31,6 +31,7 @@ echo "- creating $TARGETDIR/test directory for automatic tests configuration ...
 mkdir -p $TARGETDIR/test
 [ ! -f $TARGETDIR/global.properties ] && echo "# Global properties" > $TARGETDIR/global.properties
 [ ! -f $TARGETDIR/test/global-cucumber.properties ] && echo "# Global cucumber properties" > $TARGETDIR/test/global-cucumber.properties 
+[ ! -f $TARGETDIR/test/logback.xml ] && cp -f $BASE/Sources/OSGP/Integration-Tests/cucumber-tests-platform/src/main/resources/logback.xml /etc/osp/test/logback.xml && sed -i 's/INFO/DEBUG/g; s/ERROR/DEBUG/g' /etc/osp/test/logback.xml 
 
 echo "- setting security provider to SunPKCS11-NSS ..."
 [ $(/bin/grep -c signing.server.security.provider\=SunPKCS11-NSS $TARGETDIR/global.properties) -eq 0 ] && echo "signing.server.security.provider=SunPKCS11-NSS" >> $TARGETDIR/global.properties
