@@ -16,7 +16,7 @@ node 'dev-box' {
 		command => '/usr/sbin/a2enmod proxy proxy_ajp',
 	}
 	
-	exec { 'disable deflate':
-		command => '/usr/sbin/a2dismod -f deflate'
+	exec { 'enable deflate':
+		command => '/usr/sbin/a2enmod -f deflate'
         }
 }

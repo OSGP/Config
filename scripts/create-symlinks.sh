@@ -146,4 +146,6 @@ ln -sf $BASE/Sources/OSGP/Config/scripts/restore_backup_osgp_dbs.sh $BASE/script
 # Adds cm2 alias so that you can easily clean your maven repository before building (e.g. `cm2 && mvn install`).
 ! grep -q "alias cm2='rm -rf ~/.m2/repository/org/osgp && rm -rf ~/.m2/repository/com/alliander'" $BASE/.bashrc && echo "alias cm2='rm -rf ~/.m2/repository/org/osgp && rm -rf ~/.m2/repository/com/alliander'" >> $BASE/.bashrc
 
+sudo chown -R dev:dev $TARGETDIR
+
 echo "Done setting up OSGP development environment."

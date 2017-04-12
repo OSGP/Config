@@ -14,7 +14,6 @@ node 'dev-box' {
 
         exec { 'Install ansible-lint':
 		command => '/usr/bin/pip install ansible-lint',
-		user => 'dev',
 		require => Exec['/usr/bin/pip install --upgrade pip'] 
         }
 
