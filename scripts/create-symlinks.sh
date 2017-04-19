@@ -116,6 +116,9 @@ sudo ln -sf $BASE/Sources/OSGP/Config/certificates/osgp-ca/certs/LianderNetManag
 echo "- create symlink to test-org.pfx ..."
 sudo ln -sf $BASE/Sources/OSGP/Config/certificates/osgp-ca/certs/test-org.pfx /etc/ssl/certs
 
+echo "- create symlink to OSGP.pfx ..."
+sudo ln -sf $BASE/Sources/OSGP/Config/certificates/osgp-ca/certs/OSGP.pfx /etc/ssl/certs
+
 echo "- create symlink to server certificate ..."
 sudo ln -sf $BASE/Sources/OSGP/Config/certificates/osgp-ca/certs/localhost.cert.pem /etc/ssl/certs
 
