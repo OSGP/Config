@@ -27,6 +27,7 @@ restore osgp_adapter_protocol_dlms
 restore osgp_adapter_protocol_oslp
 restore osgp_adapter_protocol_iec61850
 restore osgp_adapter_ws_microgrids
+restore osgp_adapter_ws_distributionautomation
 restore osgp_adapter_ws_smartmetering
 restore osgp_core
 restore osgp_logging
