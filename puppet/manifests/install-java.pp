@@ -14,10 +14,14 @@ node 'dev-box' {
 		require => Package['default-jdk']
 	}
 
-	exec { 'Fix NSS library dir':
-		command => '/bin/sed -i "s/@NSS_LIBDIR@/\/usr\/lib64/g" /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/security/nss.cfg',
-		onlyif => '/usr/bin/test -f /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/security/nss.cfg',
-		require => Exec['Add NSS library to java.security'],
-	}
+	#exec { 'Fix NSS library dir':
+	#	command => '/bin/sed -i "s/@NSS_LIBDIR@/\/usr\/lib64/g" /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/security/nss.cfg',
+	#	onlyif => '/usr/bin/test -f /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/security/nss.cfg',
+	#	require => Exec['Add NSS library to java.security'],
+	#}
+        file_line { 'NSS library dir':
+               path => '/usr/lib/jvm/java-8-openjdk-amd64/jre/lib/security/nss.cfg',
+               line => 'nssLibraryDirectory = /usr/lib/x86_64-linux-gnu'
+        }
 
 }

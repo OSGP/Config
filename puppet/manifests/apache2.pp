@@ -5,7 +5,7 @@ node 'dev-box' {
 	# Apache HTTPD is used as webserver with SSL and AJP.
 	package { 'apache2':
 		ensure => installed,
-		before => Exec['enable mod_ssl','enable proxy_ajp', 'disable deflate'],
+		before => Exec['enable mod_ssl','enable proxy_ajp', 'enable deflate'],
 	}
 
 	exec { 'enable mod_ssl':
@@ -16,7 +16,7 @@ node 'dev-box' {
 		command => '/usr/sbin/a2enmod proxy proxy_ajp',
 	}
 	
-	exec { 'disable deflate':
-		command => '/usr/sbin/a2dismod -f deflate'
+	exec { 'enable deflate':
+		command => '/usr/sbin/a2enmod -f deflate'
         }
 }

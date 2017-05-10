@@ -31,6 +31,7 @@ echo "- creating $TARGETDIR/test directory for automatic tests configuration ...
 mkdir -p $TARGETDIR/test
 [ ! -f $TARGETDIR/global.properties ] && echo "# Global properties" > $TARGETDIR/global.properties
 [ ! -f $TARGETDIR/test/global-cucumber.properties ] && echo "# Global cucumber properties" > $TARGETDIR/test/global-cucumber.properties 
+[ ! -f $TARGETDIR/test/logback.xml ] && cp -f $BASE/Sources/OSGP/Integration-Tests/cucumber-tests-platform/src/main/resources/logback.xml /etc/osp/test/logback.xml && sed -i 's/org.apache.http.wire\" level=\"ERROR/org.apache.http.wire\" level=\"DEBUG/g; s/cucumber.runtime.java.spring\" level=\"ERROR/cucumber.runtime.java.spring\" level=\"DEBUG/g' /etc/osp/test/logback.xml 
 
 echo "- setting security provider to SunPKCS11-NSS ..."
 [ $(/bin/grep -c signing.server.security.provider\=SunPKCS11-NSS $TARGETDIR/global.properties) -eq 0 ] && echo "signing.server.security.provider=SunPKCS11-NSS" >> $TARGETDIR/global.properties
@@ -145,5 +146,7 @@ ln -sf $BASE/Sources/OSGP/Config/scripts/restore_backup_osgp_dbs.sh $BASE/script
 ! grep -q "$BASE/scripts" $BASE/.bashrc && echo "PATH=\"$BASE/scripts:\$PATH\"" >> $BASE/.bashrc
 # Adds cm2 alias so that you can easily clean your maven repository before building (e.g. `cm2 && mvn install`).
 ! grep -q "alias cm2='rm -rf ~/.m2/repository/org/osgp && rm -rf ~/.m2/repository/com/alliander'" $BASE/.bashrc && echo "alias cm2='rm -rf ~/.m2/repository/org/osgp && rm -rf ~/.m2/repository/com/alliander'" >> $BASE/.bashrc
+
+sudo chown -R dev:dev $TARGETDIR
 
 echo "Done setting up OSGP development environment."

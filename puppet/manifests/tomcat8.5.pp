@@ -3,7 +3,7 @@
 node 'dev-box' {
 
 	$homedir = '/home/dev'
-	$version = '8.5.12'
+	$version = '8.5.13'
 
 	# Tomcat7 is used as application server.
 	exec { 'wget tomcat 8.5':
