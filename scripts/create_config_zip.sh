@@ -19,6 +19,8 @@ cp $SOURCEDIR/Platform/osgp-adapter-domain-core/src/main/resources/osgp-adapter-
 cp $SOURCEDIR/Platform/osgp-adapter-domain-core/src/main/resources/logback.xml $TARGETDIR/osgp-adapter-domain-core-logback.xml
 cp $SOURCEDIR/Platform/osgp-adapter-domain-microgrids/src/main/resources/osgp-adapter-domain-microgrids.properties $TARGETDIR
 cp $SOURCEDIR/Platform/osgp-adapter-domain-microgrids/src/main/resources/logback.xml $TARGETDIR/osgp-adapter-domain-microgrids-logback.xml
+cp $SOURCEDIR/Platform/osgp-adapter-domain-distributionautomation/src/main/resources/osgp-adapter-domain-distributionautomation.properties $TARGETDIR
+cp $SOURCEDIR/Platform/osgp-adapter-domain-distributionautomation/src/main/resources/logback.xml $TARGETDIR/osgp-adapter-domain-distributionautomation-logback.xml
 cp $SOURCEDIR/Platform/osgp-adapter-domain-publiclighting/src/main/resources/osgp-adapter-domain-publiclighting.properties $TARGETDIR
 cp $SOURCEDIR/Platform/osgp-adapter-domain-publiclighting/src/main/resources/logback.xml $TARGETDIR/osgp-adapter-domain-publiclighting-logback.xml
 cp $SOURCEDIR/Platform/osgp-adapter-domain-smartmetering/src/main/resources/osgp-adapter-domain-smartmetering.properties $TARGETDIR
@@ -39,6 +41,8 @@ cp $SOURCEDIR/Platform/osgp-adapter-ws-core/src/main/resources/osgp-adapter-ws-c
 cp $SOURCEDIR/Platform/osgp-adapter-ws-core/src/main/resources/logback.xml $TARGETDIR/osgp-adapter-ws-core-logback.xml
 cp $SOURCEDIR/Platform/osgp-adapter-ws-microgrids/src/main/resources/osgp-adapter-ws-microgrids.properties $TARGETDIR
 cp $SOURCEDIR/Platform/osgp-adapter-ws-microgrids/src/main/resources/logback.xml $TARGETDIR/osgp-adapter-ws-microgrids-logback.xml
+cp $SOURCEDIR/Platform/osgp-adapter-ws-distributionautomation/src/main/resources/osgp-adapter-ws-distributionautomation.properties $TARGETDIR
+cp $SOURCEDIR/Platform/osgp-adapter-ws-distributionautomation/src/main/resources/logback.xml $TARGETDIR/osgp-adapter-ws-distributionautomation-logback.xml
 cp $SOURCEDIR/Platform/osgp-adapter-ws-publiclighting/src/main/resources/osgp-adapter-ws-publiclighting.properties $TARGETDIR
 cp $SOURCEDIR/Platform/osgp-adapter-ws-publiclighting/src/main/resources/logback.xml $TARGETDIR/osgp-adapter-ws-publiclighting-logback.xml
 cp $SOURCEDIR/Platform/osgp-adapter-ws-smartmetering/src/main/resources/osgp-adapter-ws-smartmetering.properties $TARGETDIR
