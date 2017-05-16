@@ -54,6 +54,8 @@ cp -f $SOURCEDIR/Platform/osgp-adapter-domain-core/src/main/resources/osgp-adapt
 cp -f $SOURCEDIR/Platform/osgp-adapter-domain-core/src/main/resources/logback.xml $TARGETDIR/samples/osgp-adapter-domain-core-logback.xml.sample
 cp -f $SOURCEDIR/Platform/osgp-adapter-domain-microgrids/src/main/resources/osgp-adapter-domain-microgrids.properties $TARGETDIR/samples/osgp-adapter-domain-microgrids.properties.sample
 cp -f $SOURCEDIR/Platform/osgp-adapter-domain-microgrids/src/main/resources/logback.xml $TARGETDIR/samples/osgp-adapter-domain-microgrids-logback.xml.sample
+cp -f $SOURCEDIR/Platform/osgp-adapter-domain-distributionautomation/src/main/resources/osgp-adapter-domain-distributionautomation.properties $TARGETDIR/samples/osgp-adapter-domain-distributionautomation.properties.sample
+cp -f $SOURCEDIR/Platform/osgp-adapter-domain-distributionautomation/src/main/resources/logback.xml $TARGETDIR/samples/osgp-adapter-domain-distributionautomation-logback.xml.sample
 cp -f $SOURCEDIR/Platform/osgp-adapter-domain-publiclighting/src/main/resources/osgp-adapter-domain-publiclighting.properties $TARGETDIR/samples/osgp-adapter-domain-publiclighting.properties.sample
 cp -f $SOURCEDIR/Platform/osgp-adapter-domain-publiclighting/src/main/resources/logback.xml $TARGETDIR/samples/osgp-adapter-domain-publiclighting-logback.xml.sample
 cp -f $SOURCEDIR/Platform/osgp-adapter-domain-smartmetering/src/main/resources/osgp-adapter-domain-smartmetering.properties $TARGETDIR/samples/osgp-adapter-domain-smartmetering.properties.sample
@@ -75,6 +77,8 @@ cp -f $SOURCEDIR/Platform/osgp-adapter-ws-core/src/main/resources/logback.xml $T
 cp -f $SOURCEDIR/Platform/osgp-adapter-ws-shared-db/src/main/resources/osgp-adapter-ws-shared-db.properties $TARGETDIR/samples/osgp-adapter-ws-shared-db.properties.sample
 cp -f $SOURCEDIR/Platform/osgp-adapter-ws-microgrids/src/main/resources/osgp-adapter-ws-microgrids.properties $TARGETDIR/samples/osgp-adapter-ws-microgrids.properties.sample
 cp -f $SOURCEDIR/Platform/osgp-adapter-ws-microgrids/src/main/resources/logback.xml $TARGETDIR/samples/osgp-adapter-ws-microgrids-logback.xml.sample
+cp -f $SOURCEDIR/Platform/osgp-adapter-ws-distributionautomation/src/main/resources/osgp-adapter-ws-distributionautomation.properties $TARGETDIR/samples/osgp-adapter-ws-distributionautomation.properties.sample
+cp -f $SOURCEDIR/Platform/osgp-adapter-ws-distributionautomation/src/main/resources/logback.xml $TARGETDIR/samples/osgp-adapter-ws-distributionautomation-logback.xml.sample
 cp -f $SOURCEDIR/Platform/osgp-adapter-ws-publiclighting/src/main/resources/osgp-adapter-ws-publiclighting.properties $TARGETDIR/samples/osgp-adapter-ws-publiclighting.properties.sample
 cp -f $SOURCEDIR/Platform/osgp-adapter-ws-publiclighting/src/main/resources/logback.xml $TARGETDIR/samples/osgp-adapter-ws-publiclighting-logback.xml.sample
 cp -f $SOURCEDIR/Platform/osgp-adapter-ws-smartmetering/src/main/resources/osgp-adapter-ws-smartmetering.properties $TARGETDIR/samples/osgp-adapter-ws-smartmetering.properties.sample
@@ -115,6 +119,9 @@ sudo ln -sf $BASE/Sources/OSGP/Config/certificates/osgp-ca/certs/LianderNetManag
 
 echo "- create symlink to test-org.pfx ..."
 sudo ln -sf $BASE/Sources/OSGP/Config/certificates/osgp-ca/certs/test-org.pfx /etc/ssl/certs
+
+echo "- create symlink to OSGP.pfx ..."
+sudo ln -sf $BASE/Sources/OSGP/Config/certificates/osgp-ca/certs/OSGP.pfx /etc/ssl/certs
 
 echo "- create symlink to server certificate ..."
 sudo ln -sf $BASE/Sources/OSGP/Config/certificates/osgp-ca/certs/localhost.cert.pem /etc/ssl/certs
