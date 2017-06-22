@@ -97,11 +97,6 @@ echo "##############################################################"
 sudo puppet apply $NOOP ./manifests/soapui.pp
 
 echo "##############################################################"
-echo "## Installing fitnesse                                      ##"
-echo "##############################################################"
-sudo puppet apply $NOOP ./manifests/fitnesse.pp
-
-echo "##############################################################"
 echo "## Holding packages                                         ##"
 echo "##############################################################"
 sudo puppet apply $NOOP ./manifests/hold-protobuf-packages.pp
