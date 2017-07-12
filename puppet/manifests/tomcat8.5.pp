@@ -5,7 +5,7 @@ node 'dev-box' {
 	$homedir = '/home/dev'
 	$version = '8.5.16'
 
-	# Tomcat7 is used as application server.
+	# Tomcat8 is used as application server.
 	exec { 'wget tomcat 8.5':
 		command => "/usr/bin/wget -q -P ${homedir}/Downloads/osgp - http://archive.apache.org/dist/tomcat/tomcat-8/v$version/bin/apache-tomcat-$version.tar.gz",
 		before => Exec['wget postgresql jdbc','unpack tomcat','change permissions of tomcat conf files'],	
