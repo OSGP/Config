@@ -1,6 +1,6 @@
 node 'dev-box' {
 
-        $version = "5.14.4"
+        $version = "5.15.0"
 
 	# ActiveMQ is used as message broker.
 	exec { 'wget activemq':
