@@ -20,11 +20,12 @@
   <fileSets>
     <fileSet>
       <directory>.</directory>
-      <excludes>
-        <exclude>assembly-plugin-config.xml</exclude>
-        <exclude>pom.xml</exclude>
-        <exclude>target/</exclude>
-      </excludes>
+      <includes>
+        <include>certificates/osgp-ca/trust.jks</include>
+        <include>certificates/osgp-ca/certs/*.pfx</include>
+        <include>certificates/oslp/*.der</include>
+        <include>keys/dlms/*</include>
+      </includes>
     </fileSet>
   </fileSets>
 </assembly>
