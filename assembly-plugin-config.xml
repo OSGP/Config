@@ -22,6 +22,7 @@
       <directory>.</directory>
       <includes>
         <include>certificates/trust.jks</include>
+        <include>certificates/osgp-ca/certs/cacert.cer</include>
         <include>certificates/osgp-ca/certs/*.pfx</include>
         <include>certificates/oslp/*.der</include>
         <include>keys/dlms/*</include>
