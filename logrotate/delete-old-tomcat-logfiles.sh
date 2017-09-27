@@ -8,7 +8,7 @@ MAX_AGE_DAYS=30
 
 if [ $# -eq 0 ];then
     echo "Passing the folder containing the Tomcat log files as parameter is mandatory."
-    echo "Example: ./delete-old-tomcat-logfiles.sh /var/log/tomcat7"
+    echo "Example: ./delete-old-tomcat-logfiles.sh /var/log/tomcat"
     exit
 fi
 
