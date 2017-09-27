@@ -1,0 +1,14 @@
+# Rotates the tomcat log files
+/var/log/tomcat/catalina.out {
+  copytruncate
+  daily
+  rotate 31
+  missingok
+  nocompress
+  dateext
+  dateformat .%Y-%m-%d
+  create 0644 tomcat tomcat
+  lastaction
+    /opt/osgp/current/bin/delete-old-tomcat-logfiles.sh /var/log/tomcat
+  endscript
+}
