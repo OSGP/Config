@@ -43,5 +43,9 @@ node 'dev-box' {
 		command => '/usr/bin/pip install ansible-lint',
 		require => Exec['install-pip'] 
 	}
-}
 
+    exec { 'Install boto3':
+		command => '/usr/bin/pip install boto3',
+		require => Exec['install-pip'] 
+	}
+}
