@@ -131,7 +131,7 @@ sudo puppet apply $NOOP ./manifests/personalize-desktop.pp
 echo "##############################################################"
 echo "## Installing intellij                                      ##"
 echo "##############################################################"
-sudo puppet apply $NOOP ./manifests/intellij.pp
+# Disabled sudo puppet apply $NOOP ./manifests/intellij.pp
 
 echo "##############################################################"
 echo "## Installing ansible                                      ##"
