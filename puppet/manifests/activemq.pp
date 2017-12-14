@@ -22,10 +22,15 @@ node 'dev-box' {
 		path => '/home/dev/Tools/activemq',
 		target => "/home/dev/Tools/apache-activemq-${version}",
 		require => Exec['unpack activemq']
-        }
+	}
 
-        exec { 'Configure activemq':
+	exec { 'Configure broker definition':
 		command => "/bin/sed -i 's|<broker xmlns=\"http://activemq.apache.org/schema/core\" brokerName=\"localhost\" dataDirectory=\"\${activemq.data}\">|<broker xmlns=\"http://activemq.apache.org/schema/core\" brokerName=\"localhost\" dataDirectory=\"\${activemq.data}\" schedulerSupport=\"true\">|g' /home/dev/Tools/activemq/conf/activemq.xml",
 		require => File['create activemq link']
-        }
+	}
+
+	exec { 'Configure openwire transport connector':
+		command => "/bin/sed -s 's|tcp://0.0.0.0:61616?maximumConnections=1000\&amp;wireFormat.maxFrameSize=104857600|tcp://0.0.0.0:61616?maximumConnections=1000\&amp;wireFormat.maxFrameSize=104857600\&amp;wireFormat.maxInactivityDuration=0\&amp;transport.useInactivityMonitor=false\&amp;transport.useKeepAlive=true|g' /home/dev/Tools/activemq/conf/activemq.xml",
+		require => File['Configure broker definition']
+	}
 }
