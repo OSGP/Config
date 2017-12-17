@@ -1,6 +1,6 @@
 node 'dev-box' {
 
-        $version = "5.15.0"
+	$version = "5.15.0"
 
 	# ActiveMQ is used as message broker.
 	exec { 'wget activemq':
@@ -22,10 +22,10 @@ node 'dev-box' {
 		path => '/home/dev/Tools/activemq',
 		target => "/home/dev/Tools/apache-activemq-${version}",
 		require => Exec['unpack activemq']
-        }
+	}
 
-        exec { 'Configure activemq':
-		command => "/bin/sed -i 's|<broker xmlns=\"http://activemq.apache.org/schema/core\" brokerName=\"localhost\" dataDirectory=\"\${activemq.data}\">|<broker xmlns=\"http://activemq.apache.org/schema/core\" brokerName=\"localhost\" dataDirectory=\"\${activemq.data}\" schedulerSupport=\"true\">|g' /home/dev/Tools/activemq/conf/activemq.xml",
+	exec { 'Configure activemq':
+		command => "/bin/mv /home/dev/Tools/apache-activemq-${version}/conf/activemq.xml /home/dev/Tools/apache-activemq-${version}/conf/activemq.xml.original ; /bin/cp /home/dev/Sources/OSGP/Config/apache-activemq/activemq.xml /home/dev/Tools/apache-activemq-${version}/conf/",
 		require => File['create activemq link']
-        }
+	}
 }
