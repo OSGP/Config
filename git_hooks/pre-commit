@@ -1,0 +1,39 @@
+#!/bin/bash
+
+#
+# Ahook script to verify what is about to be committed, specifially wheter a flyway migration file matches the naming convention.
+# Called by "git commit" with no arguments.  The hook should
+# exit with non-zero status after issuing an appropriate message if
+# it wants to stop the commit.
+#
+
+if git rev-parse --verify HEAD >/dev/null 2>&1
+then
+	against=HEAD
+else
+	# Initial commit: diff against an empty tree object
+	against=4b825dc642cb6eb9a060e54bf8d69288fbee4904
+fi
+
+# Redirect output to stderr.
+exec 1>&2
+
+naming_convention="(^.*[/][V][0-9]{17}[_]{2}.*\.sql$)"
+#Get the filenames (--name-only) of all staged files from the commit (git diff --cached) that have a .sql extension
+#Ignore deleted files by using --diff-filter=d. 
+staged_sql_files=$(git diff --cached --diff-filter=d --name-only *.sql)
+
+#If -n (not null), there are .sql files staged in this commit.
+if [ -n "$staged_sql_files" ];
+then
+	#For each filename found, check if it matches the pattern. 
+	for sql_file in $staged_sql_files;
+	do 
+		if [[ ! $sql_file =~ $naming_convention ]];
+		then
+	    echo $sql_file does not match the naming convention.
+		echo The pattern to be used is \'V\'yyyyMMddHHmmssSSS\'__\'description. 
+		exit 1
+		fi
+	done
+fi
