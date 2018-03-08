@@ -2,11 +2,11 @@
 
 node 'dev-box' {
 
-	$version='5.3.0'
+	$version='5.4.0'
 
 	# Soap-UI
 	exec { 'wget soap-ui':
-		command => "/usr/bin/wget -q -O /home/dev/Downloads/osgp/SoapUI-${version}-linux-bin.tar.gz http://cdn01.downloads.smartbear.com/soapui/${version}/SoapUI-${version}-linux-bin.tar.gz",
+		command => "/usr/bin/wget -q -O /home/dev/Downloads/osgp/SoapUI-${version}-linux-bin.tar.gz http:///s3.amazonaws.com/downloads.eviware/soapuios/${version}/SoapUI-${version}-linux-bin.tar.gz",
 		onlyif => '/usr/bin/test ! -f /home/dev/Tools/SoapUI',
 		timeout => 1800,		
 		returns => [0, 4],
