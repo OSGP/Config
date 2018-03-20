@@ -12,7 +12,7 @@ node 'dev-box' {
 	}
 
 	exec { 'Update': 
-		command => '/usr/bin/apt update',
+		command => '/usr/bin/apt-get update',
 		require => Exec['Remove original xenial mate file']
 	}
 
