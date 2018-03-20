@@ -3,7 +3,7 @@
 
 Vagrant.configure("2") do |config|
 	config.vm.box = "cxtlabs/vagrant-ubuntu-16.04-mate"
-	
+
 	config.vm.provider "virtualbox" do |vb|
 		vb.name = "OSGP Development"
 		vb.gui = true
@@ -13,31 +13,31 @@ Vagrant.configure("2") do |config|
 		# Disable 3d acceleration because some programs crash on it.
 		vb.customize ["modifyvm", :id, "--accelerate3d", "off"]
 
-		# Enabling copy/paste to/from VM         
+		# Enabling copy/paste to/from VM
         vb.customize ["modifyvm", :id, "--clipboard", "bidirectional"]
         vb.customize ["modifyvm", :id, "--draganddrop", "bidirectional"]
 
 		# Add cdrom
         vb.customize ["storageattach", :id, "--storagectl", "IDE Controller", "--port", "0", "--device", "0", "--type", "dvddrive", "--medium", "emptydrive"]
 	end
-  
+
 	config.vm.define :osgp_development do |osgp_oss_config|
 		osgp_oss_config.vm.hostname="dev-box"
 	end
-  
+
 	config.vm.provision "shell", inline: <<-SHELL
 		# Clone config repo for user Vagrant
-		apt-get install -y git
+		apt-get -o DPkg::Options::=--force-confdef install -y git;
 		su vagrant -c "mkdir -p ~/repos/OSGP";
-		su vagrant -c "git clone -b "development" https://github.com/OSGP/Config.git ~/repos/OSGP/Config"
+		su vagrant -c "git clone -b "development" https://github.com/OSGP/Config.git ~/repos/OSGP/Config 2>&1";
 
 		# Install puppet
-		su vagrant -c "/home/vagrant/repos/OSGP/Config/puppet/install-puppet.sh"
-		
+		su vagrant -c "/home/vagrant/repos/OSGP/Config/puppet/install-puppet.sh";
+
 		# Trigger puppet installation
-		su vagrant -c "cd /home/vagrant/repos/OSGP/Config/puppet/;/home/vagrant/repos/OSGP/Config/puppet/run-puppet.sh"
+		su vagrant -c "cd /home/vagrant/repos/OSGP/Config/puppet/;/home/vagrant/repos/OSGP/Config/puppet/run-puppet.sh";
 	SHELL
-	
+
 	# Provision some user specific settings/configuration/packages
 	user_config_file=".user-dev-box.sh"
 	if File.file?(File.join(Dir.home, user_config_file))
@@ -45,4 +45,3 @@ Vagrant.configure("2") do |config|
 	end
 
 end
-
