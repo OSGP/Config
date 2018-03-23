@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<con:soapui-project id="318f0682-1eb9-4cb3-bb8e-79afeccc24b4" activeEnvironment="Default" name="admin" resourceRoot="" soapui-version="5.2.1" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="e47ac78e-b925-4aad-a351-32ad4bc1d273" wsaVersion="NONE" name="DeviceManagementPortSoap11" type="wsdl" bindingName="{http://www.alliander.com/definitions/osgp/admin/devicemanagement-v1.0}DeviceManagementPortSoap11" soapVersion="1_1" anonymous="optional" definition="https://localhost/osgp-adapter-ws-admin/wsdl/Admin/DeviceManagement.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="https://localhost/osgp-adapter-ws-admin/wsdl/Admin/DeviceManagement.wsdl"><con:part><con:url>https://localhost/osgp-adapter-ws-admin/wsdl/Admin/DeviceManagement.wsdl</con:url><con:content><![CDATA[<!--Platform version: 4.0.0-SNAPSHOT -->
+<con:soapui-project id="318f0682-1eb9-4cb3-bb8e-79afeccc24b4" activeEnvironment="Default" name="admin" resourceRoot="" soapui-version="5.3.0" abortOnError="false" runType="SEQUENTIAL" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="e47ac78e-b925-4aad-a351-32ad4bc1d273" wsaVersion="NONE" name="DeviceManagementPortSoap11" type="wsdl" bindingName="{http://www.alliander.com/definitions/osgp/admin/devicemanagement-v1.0}DeviceManagementPortSoap11" soapVersion="1_1" anonymous="optional" definition="https://localhost/osgp-adapter-ws-admin/wsdl/Admin/DeviceManagement.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="https://localhost/osgp-adapter-ws-admin/wsdl/Admin/DeviceManagement.wsdl"><con:part><con:url>https://localhost/osgp-adapter-ws-admin/wsdl/Admin/DeviceManagement.wsdl</con:url><con:content><![CDATA[<!--Platform version:-->
 <wsdl:definitions targetNamespace="http://www.alliander.com/definitions/osgp/admin/devicemanagement-v1.0" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:common="http://www.alliander.com/schemas/osgp/common/2014/10" xmlns:dman="http://www.alliander.com/schemas/osgp/admin/devicemanagement/2014/10" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.alliander.com/definitions/osgp/admin/devicemanagement-v1.0">
   <wsdl:types>
     <xsd:schema targetNamespace="http://www.alliander.com/definitions/osgp/admin/devicemanagement/imports" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
@@ -64,12 +64,6 @@
   </wsdl:message>
   <wsdl:message name="RemoveDeviceResponse">
     <wsdl:part element="dman:RemoveDeviceResponse" name="RemoveDeviceResponse"></wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="DeactivateDeviceRequest">
-    <wsdl:part element="dman:DeactivateDeviceRequest" name="DeactivateDeviceRequest"></wsdl:part>
-  </wsdl:message>
-  <wsdl:message name="DeactivateDeviceResponse">
-    <wsdl:part element="dman:DeactivateDeviceResponse" name="DeactivateDeviceResponse"></wsdl:part>
   </wsdl:message>
   <wsdl:message name="SetOwnerRequest">
     <wsdl:part element="dman:SetOwnerRequest" name="SetOwnerRequest"></wsdl:part>
@@ -137,10 +131,6 @@
     <wsdl:operation name="RemoveDevice">
       <wsdl:input message="tns:RemoveDeviceRequest" name="RemoveDeviceRequest"></wsdl:input>
       <wsdl:output message="tns:RemoveDeviceResponse" name="RemoveDeviceResponse"></wsdl:output>
-    </wsdl:operation>
-    <wsdl:operation name="DeactivateDevice">
-      <wsdl:input message="tns:DeactivateDeviceRequest" name="DeactivateDeviceRequest"></wsdl:input>
-      <wsdl:output message="tns:DeactivateDeviceResponse" name="DeactivateDeviceResponse"></wsdl:output>
     </wsdl:operation>
     <wsdl:operation name="SetOwner">
       <wsdl:input message="tns:SetOwnerRequest" name="SetOwnerRequest"></wsdl:input>
@@ -273,18 +263,6 @@
         <soap:body use="literal"/>
       </wsdl:output>
     </wsdl:operation>
-    <wsdl:operation name="DeactivateDevice">
-      <soap:operation soapAction=""/>
-      <wsdl:input name="DeactivateDeviceRequest">
-        <soap:header message="tns:SoapHeaders" part="OrganisationIdentification" use="literal"/>
-        <soap:header message="tns:SoapHeaders" part="UserName" use="literal"/>
-        <soap:header message="tns:SoapHeaders" part="ApplicationName" use="literal"/>
-        <soap:body use="literal"/>
-      </wsdl:input>
-      <wsdl:output name="DeactivateDeviceResponse">
-        <soap:body use="literal"/>
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="SetOwner">
       <soap:operation soapAction=""/>
       <wsdl:input name="SetOwnerRequest">
@@ -387,7 +365,6 @@
     <xsd:complexType>
       <xsd:sequence>
         <xsd:element name="OrganisationIdentification" type="common:Identification"/>
-        <xsd:element name="NewOrganisationIdentification" type="common:Identification"/>
         <xsd:element name="NewOrganisationName" type="xsd:string"/>
         <xsd:element name="NewOrganisationPlatformFunctionGroup" type="tns:PlatformFunctionGroup"/>
         <xsd:element maxOccurs="unbounded" name="NewOrganisationPlatformDomains" type="tns:PlatformDomain"/>
@@ -449,22 +426,6 @@
   <xsd:element name="FindDevicesWhichHaveNoOwnerRequest">
     <xsd:complexType>
       <xsd:sequence></xsd:sequence>
-    </xsd:complexType>
-  </xsd:element>
-  <!--deactivate device-->
-  <xsd:element name="DeactivateDeviceRequest">
-    <xsd:complexType>
-      <xsd:sequence>
-        <xsd:element name="DeviceIdentification" type="common:DeviceIdentification"/>
-      </xsd:sequence>
-    </xsd:complexType>
-  </xsd:element>
-  <xsd:element name="DeactivateDeviceResponse">
-    <xsd:complexType>
-      <xsd:sequence>
-        <xsd:element minOccurs="1" name="Result" type="common:OsgpResultType"/>
-        <xsd:element minOccurs="0" name="Description" type="xsd:string"/>
-      </xsd:sequence>
     </xsd:complexType>
   </xsd:element>
   <xsd:element name="FindDevicesWhichHaveNoOwnerResponse">
@@ -636,6 +597,7 @@
       <xsd:enumeration value="TARIFF_SCHEDULING"/>
       <xsd:enumeration value="CONFIGURATION"/>
       <xsd:enumeration value="MONITORING"/>
+      <xsd:enumeration value="METADATA_MANAGEMENT"/>
     </xsd:restriction>
   </xsd:simpleType>
   <xsd:simpleType name="PlatformDomain">
@@ -664,7 +626,8 @@
       <xsd:pattern value="[^ ]{0,40}"/>
     </xsd:restriction>
   </xsd:simpleType>
-  <!--this restriction is copied from smartmetering, hope it is not too strict for other devices-->
+  <!--this restriction is copied from smartmetering, hope it is not too 
+    strict for other devices-->
   <xsd:simpleType name="DeviceIdentification">
     <xsd:restriction base="tns:AlphaNumericType">
       <xsd:length value="17"/>
@@ -785,19 +748,7 @@
          </ns1:Organisation>
       </ns1:CreateOrganisationRequest>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.alliander.com/definitions/osgp/admin/devicemanagement-v1.0/DeviceManagementPort/CreateOrganisationRequest"/></con:call></con:operation><con:operation id="a979e5ea-0549-4bd7-9714-5653852152e2" isOneWay="false" action="" name="DeactivateDevice" bindingOperationName="DeactivateDevice" type="Request-Response" outputName="DeactivateDeviceResponse" inputName="DeactivateDeviceRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="b8e1439a-2b53-4782-8ccb-fb37848c3574" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://localhost:443/osgp-adapter-ws-admin/admin/deviceManagementService/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.alliander.com/schemas/osgp/common/2014/10" xmlns:ns1="http://www.alliander.com/schemas/osgp/admin/devicemanagement/2014/10">
-   <soapenv:Header>
-      <ns:ApplicationName>verrantque per auras</ns:ApplicationName>
-      <ns:UserName>quae divum incedo</ns:UserName>
-      <ns:OrganisationIdentification>sonoras imperio</ns:OrganisationIdentification>
-   </soapenv:Header>
-   <soapenv:Body>
-      <ns1:DeactivateDeviceRequest>
-         <!--type: DeviceIdentification-->
-         <ns1:DeviceIdentification>gero etgero etger</ns1:DeviceIdentification>
-      </ns1:DeactivateDeviceRequest>
-   </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.alliander.com/definitions/osgp/admin/devicemanagement-v1.0/DeviceManagementPort/DeactivateDeviceRequest"/></con:call></con:operation><con:operation id="5def04c0-1915-48db-96a8-77139b1ed18a" isOneWay="false" action="" name="FindDeviceAuthorisations" bindingOperationName="FindDeviceAuthorisations" type="Request-Response" outputName="FindDeviceAuthorisationsResponse" inputName="FindDeviceAuthorisationsRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="944a80eb-0e85-4418-b8b2-d25b8aae25f8" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://localhost:443/osgp-adapter-ws-admin/admin/deviceManagementService/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.alliander.com/schemas/osgp/common/2014/10" xmlns:ns1="http://www.alliander.com/schemas/osgp/admin/devicemanagement/2014/10">
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.alliander.com/definitions/osgp/admin/devicemanagement-v1.0/DeviceManagementPort/CreateOrganisationRequest"/></con:call></con:operation><con:operation id="5def04c0-1915-48db-96a8-77139b1ed18a" isOneWay="false" action="" name="FindDeviceAuthorisations" bindingOperationName="FindDeviceAuthorisations" type="Request-Response" outputName="FindDeviceAuthorisationsResponse" inputName="FindDeviceAuthorisationsRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="944a80eb-0e85-4418-b8b2-d25b8aae25f8" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://localhost:443/osgp-adapter-ws-admin/admin/deviceManagementService/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.alliander.com/schemas/osgp/common/2014/10" xmlns:ns1="http://www.alliander.com/schemas/osgp/admin/devicemanagement/2014/10">
    <soapenv:Header>
       <ns:ApplicationName>verrantque per auras</ns:ApplicationName>
       <ns:UserName>quae divum incedo</ns:UserName>
@@ -950,4 +901,4 @@
          <ns1:ProtocolInfoId>10</ns1:ProtocolInfoId>
       </ns1:UpdateKeyRequest>
    </soapenv:Body>
-</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.alliander.com/definitions/osgp/admin/devicemanagement-v1.0/DeviceManagementPort/UpdateKeyRequest"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer><con:crypto><con:source>/home/dev/Sources/OSGP/Config/certificates/osgp-ca/certs/test-org.pfx</con:source><con:password>1234</con:password><con:type>KEYSTORE</con:type></con:crypto></con:wssContainer><con:oAuth2ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.alliander.com/definitions/osgp/admin/devicemanagement-v1.0/DeviceManagementPort/UpdateKeyRequest"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer><con:crypto><con:source>/home/dev/Sources/OSGP/Config/certificates/osgp-ca/certs/test-org.pfx</con:source><con:password>1234</con:password><con:type>KEYSTORE</con:type></con:crypto></con:wssContainer><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/><con:sensitiveInformation/></con:soapui-project>
