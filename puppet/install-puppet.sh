@@ -10,11 +10,10 @@ echo "preparing puppet.deb file";
 sudo dpkg -i ~/Downloads/puppet-release-xenial.deb
 
 echo "running apt-get update";
-sudo apt-get update
+sudo DEBIAN_FRONTEND=noninteractive apt-get -o DPkg::Options::=--force-confdef update
 
 echo "installing puppet";
-sudo apt-get install -y puppet-common
-sudo apt-get install -y puppet
+sudo DEBIAN_FRONTEND=noninteractive apt-get -o DPkg::Options::=--force-confdef install -y puppet puppet-common
 
 echo "running puppet --version";
 echo $(puppet --version)
