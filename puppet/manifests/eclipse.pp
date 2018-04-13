@@ -9,14 +9,14 @@ node 'dev-box' {
 	exec { 'wget eclipse':
 		command => "/usr/bin/wget -q -O /home/dev/Downloads/osgp/eclipse-${major}-${version}.tar.gz http://ftp.acc.umu.se/mirror/eclipse.org/technology/epp/downloads/release/${major}/${version}/eclipse-jee-${major}-${version}-linux-gtk-x86_64.tar.gz",
 		creates => "/home/dev/Downloads/osgp/eclipse-${major}-${version}.tar.gz",
-		timeout => 1800,		
+		timeout => 1800,
 		returns => [0, 4],
 	}
 
 	exec { 'unpack eclipse':
 		command => "/bin/mkdir -p /home/dev/Tools/eclipse-${major}-${version} && /bin/tar xzf /home/dev/Downloads/osgp/eclipse-${major}-${version}.tar.gz -C /home/dev/Tools/eclipse-${major}-${version}",
 		onlyif => "/usr/bin/test ! -d /home/dev/Tools/eclipse-${major}-${version}",
-		require => Exec['wget eclipse'], 
+		require => Exec['wget eclipse'],
 	}
 
         exec { 'move inner eclipse dir':
@@ -58,7 +58,7 @@ node 'dev-box' {
 #	}
 
 	exec { 'install M2E Connector for jaxws-maven-plugin plugin':
-		command => '/home/dev/Tools/eclipse/eclipse -application org.eclipse.equinox.p2.director -nosplash -repository http://coderplus.com/m2e-update-sites/jaxws-maven-plugin/ -installIUs com.coderplus.m2e.jaxwscore',
+		command => '/home/dev/Tools/eclipse/eclipse -application org.eclipse.equinox.p2.director -nosplash -repository https://coderplus.github.io/m2e-connector-for-jaxws-maven-plugin/ -installIUs com.coderplus.m2e.jaxwscore',
 		require => File['create eclipse link']
 	}
 
@@ -72,4 +72,3 @@ node 'dev-box' {
 		require => File['create eclipse link']
 	}
 }
-
