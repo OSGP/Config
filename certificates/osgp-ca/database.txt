@@ -6,3 +6,5 @@ V	191207140004Z		05	unknown	/CN=LianderNetManagement
 V	191212161239Z		06	unknown	/CN=ZownStream
 V	200308134801Z		07	unknown	/CN=*.dev.osgp.cloud
 V	200411110613Z		08	unknown	/CN=OSGP
+V	210429093116Z		09	unknown	/CN=localhost
+V	210429093139Z		0A	unknown	/CN=test-org
