@@ -1,6 +1,9 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+# Vagrant version 1.8.6 or higher is required
+Vagrant.require_version ">= 1.8.6"
+
 Vagrant.configure("2") do |config|
 	config.vm.box = "cxtlabs/vagrant-ubuntu-16.04-mate"
 
