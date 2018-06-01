@@ -10,14 +10,14 @@ node 'dev-box' {
 		pip => present	
 	}
 
-	exec { '/usr/bin/pip install --upgrade pip':
+	exec { '/usr/local/bin/pip install --upgrade pip':
 		require => Class['python'] 
         }
 
         exec { 'Install awsudo':
-		command => '/usr/bin/pip install --user git+https://github.com/paperg/awsudo.git',
+		command => '/usr/local/bin/pip install --user git+https://github.com/paperg/awsudo.git',
 		user => 'dev',
-		require => Exec['/usr/bin/pip install --upgrade pip'] 
+		require => Exec['/usr/local/bin/pip install --upgrade pip'] 
         }
 
         exec { "Add awsudo to path in ${homedir}.profile":
