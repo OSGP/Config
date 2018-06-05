@@ -12,7 +12,7 @@
 
   <groupId>com.alliander.osgp</groupId>
   <artifactId>config</artifactId>
-  <version>4.27.0</version>
+  <version>4.28.0</version>
   <name>Config</name>
   <packaging>pom</packaging>
 
