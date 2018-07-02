@@ -42,7 +42,7 @@
         <destinationPolicy>
             <policyMap>
               <policyEntries>
-                <policyEntry topic=">" >
+                <policyEntry topic=">" prioritizedMessages="true" maxPageSize="50000">
                     <!-- The constantPendingMessageLimitStrategy is used to prevent
                          slow topic consumers to block producers and affect other consumers
                          by limiting the number of messages that are retained
@@ -110,7 +110,7 @@
         -->
         <transportConnectors>
             <!-- DOS protection, limit concurrent connections to 1000 and frame size to 100MB -->
-            <transportConnector name="openwire" uri="tcp://0.0.0.0:61616?maximumConnections=1000&amp;wireFormat.maxFrameSize=104857600&amp;wireFormat.maxInactivityDuration=0&amp;transport.useInactivityMonitor=false&amp;transport.useKeepAlive=true"/>
+            <transportConnector name="openwire" uri="tcp://0.0.0.0:61616?maximumConnections=1000&amp;wireFormat.maxFrameSize=104857600"/>
             <!-- <transportConnector name="amqp" uri="amqp://0.0.0.0:5672?maximumConnections=1000&amp;wireFormat.maxFrameSize=104857600"/> -->
             <!-- <transportConnector name="stomp" uri="stomp://0.0.0.0:61613?maximumConnections=1000&amp;wireFormat.maxFrameSize=104857600"/> -->
             <!-- <transportConnector name="mqtt" uri="mqtt://0.0.0.0:1883?maximumConnections=1000&amp;wireFormat.maxFrameSize=104857600"/> -->
