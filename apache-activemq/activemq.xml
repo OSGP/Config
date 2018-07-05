@@ -42,7 +42,7 @@
         <destinationPolicy>
             <policyMap>
               <policyEntries>
-                <policyEntry topic=">" prioritizedMessages="true" maxPageSize="50000">
+                <policyEntry topic=">" >
                     <!-- The constantPendingMessageLimitStrategy is used to prevent
                          slow topic consumers to block producers and affect other consumers
                          by limiting the number of messages that are retained
@@ -54,6 +54,8 @@
                   <pendingMessageLimitStrategy>
                     <constantPendingMessageLimitStrategy limit="1000"/>
                   </pendingMessageLimitStrategy>
+                </policyEntry>
+                <policyEntry queue=">" prioritizedMessages="true" maxPageSize="50000" >
                 </policyEntry>
               </policyEntries>
             </policyMap>
