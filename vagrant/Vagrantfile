@@ -27,13 +27,13 @@ Vagrant.configure("2") do |config|
 	config.vm.define :osgp_development do |osgp_oss_config|
 		osgp_oss_config.vm.hostname="dev-box"
 	end
-  config.vm.provision "file", source: "../", destination: "/home/vagrant/repos/OSGP/Config"
+
 	config.vm.provision "shell", inline: <<-SHELL
 		# Clone config repo for user Vagrant
 		apt-get -o DPkg::Options::=--force-confdef install -y git;
 		su vagrant -c "mkdir -p ~/repos/OSGP";
-		#su vagrant -c "git clone -b "development" https://github.com/OSGP/Config.git ~/repos/OSGP/Config 2>&1";
-    #su vagrant -c "git clone -b "development" https://github.com/wvh-github/Config.git ~/repos/OSGP/Config 2>&1";
+		su vagrant -c "git clone -b "development" https://github.com/OSGP/Config.git ~/repos/OSGP/Config 2>&1";
+
 		# Install puppet
 		su vagrant -c "/home/vagrant/repos/OSGP/Config/puppet/install-puppet.sh";
 
