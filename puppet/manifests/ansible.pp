@@ -34,18 +34,13 @@ node 'dev-box' {
 		require => Class['python']
 	}
 
-	exec { 'install-pip':
-		command => '/usr/bin/pip install --upgrade pip',
-		require => Package['python-lxml'] 
-    }
-
     exec { 'Install ansible-lint':
-		command => '/usr/bin/pip install ansible-lint',
-		require => Exec['install-pip'] 
+		command => '/usr/local/bin/pip install ansible-lint', #use upgraded pip for the rest!
+		require => Package['python-lxml']
 	}
 
     exec { 'Install boto3':
-		command => '/usr/bin/pip install boto3',
-		require => Exec['install-pip'] 
+		command => '/usr/local/bin/pip install boto3',
+		require => Package['python-lxml']
 	}
 }

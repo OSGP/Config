@@ -18,6 +18,9 @@ sudo DEBIAN_FRONTEND=noninteractive apt-get -o DPkg::Options::=--force-confdef i
 echo "running puppet --version";
 echo $(puppet --version)
 
+echo "Create empty hiera.yml to prevent 'Warning'"
+sudo touch /etc/puppet/hiera.yaml
+
 echo "removing templatedir setting from puppet.conf";
 sudo sed -i '/^templatedir/d' /etc/puppet/puppet.conf
 
