@@ -152,7 +152,7 @@ ln -sf $BASE/Sources/OSGP/Config/scripts/restore_backup_osgp_dbs.sh $BASE/script
 # Add scripts path to the path so that the development scripts can be found (introduced for database backup scripts
 ! grep -q "$BASE/scripts" $BASE/.bashrc && echo "PATH=\"$BASE/scripts:\$PATH\"" >> $BASE/.bashrc
 # Adds cm2 alias so that you can easily clean your maven repository before building (e.g. `cm2 && mvn install`).
-! grep -q "alias cm2='rm -rf ~/.m2/repository/org/osgp && rm -rf ~/.m2/repository/com/alliander'" $BASE/.bashrc && echo "alias cm2='rm -rf ~/.m2/repository/org/osgp && rm -rf ~/.m2/repository/com/alliander'" >> $BASE/.bashrc
+! grep -q "alias cm2='rm -rf ~/.m2/repository/org/opensmartgridplatform'" $BASE/.bashrc && echo "alias cm2='rm -rf ~/.m2/repository/org/opensmartgridplatform'" >> $BASE/.bashrc
 
 sudo chown -R dev:dev $TARGETDIR
 
