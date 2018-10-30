@@ -57,7 +57,6 @@ echo "##############################################################"
 sudo puppet apply $NOOP ./manifests/create-source-code-folder.pp
 sudo puppet apply $NOOP ./manifests/clone-repositories.pp
 sudo puppet apply $NOOP ./manifests/repositories-checkout-development-branch.pp
-sudo puppet apply $NOOP ./manifests/repositories-init-submodules.pp
 
 echo "##############################################################"
 echo "## Installing apache2                                       ##"
