@@ -86,7 +86,6 @@ echo "##############################################################"
 sudo puppet apply $NOOP ./manifests/eclipse.pp
 sudo puppet apply $NOOP ./manifests/configure-eclipse.pp
 
-sudo puppet apply $NOOP ./manifests/terraform.pp
 sudo puppet apply $NOOP ./manifests/python.pp
 sudo puppet apply $NOOP ./manifests/aws.pp
 
