@@ -57,7 +57,6 @@ echo "##############################################################"
 sudo puppet apply $NOOP ./manifests/create-source-code-folder.pp
 sudo puppet apply $NOOP ./manifests/clone-repositories.pp
 sudo puppet apply $NOOP ./manifests/repositories-checkout-development-branch.pp
-sudo puppet apply $NOOP ./manifests/repositories-init-submodules.pp
 
 echo "##############################################################"
 echo "## Installing apache2                                       ##"
@@ -87,7 +86,6 @@ echo "##############################################################"
 sudo puppet apply $NOOP ./manifests/eclipse.pp
 sudo puppet apply $NOOP ./manifests/configure-eclipse.pp
 
-sudo puppet apply $NOOP ./manifests/terraform.pp
 sudo puppet apply $NOOP ./manifests/python.pp
 sudo puppet apply $NOOP ./manifests/aws.pp
 
