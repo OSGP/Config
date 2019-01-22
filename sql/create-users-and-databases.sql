@@ -48,6 +48,12 @@ CREATE DATABASE osgp_adapter_ws_publiclighting
        TABLESPACE = pg_default
        CONNECTION LIMIT = -1;
 
+CREATE DATABASE osgp_adapter_ws_tariffswitching
+  WITH OWNER = osp_admin
+       ENCODING = 'UTF-8'
+       TABLESPACE = pg_default
+       CONNECTION LIMIT = -1;
+
 CREATE DATABASE osgp_core
   WITH OWNER = osp_admin
        ENCODING = 'UTF8'
