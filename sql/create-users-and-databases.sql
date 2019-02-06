@@ -29,18 +29,30 @@ CREATE DATABASE osgp_adapter_ws_smartmetering
        ENCODING = 'UTF-8'
        TABLESPACE = pg_default
        CONNECTION LIMIT = -1;
-       
+
 CREATE DATABASE osgp_adapter_ws_distributionautomation
   WITH OWNER = osp_admin
        ENCODING = 'UTF-8'
        TABLESPACE = pg_default
-       CONNECTION LIMIT = -1;       
+       CONNECTION LIMIT = -1;
 
 CREATE DATABASE osgp_adapter_ws_microgrids
   WITH OWNER = osp_admin
        ENCODING = 'UTF-8'
        TABLESPACE = pg_default
-       CONNECTION LIMIT = -1;       
+       CONNECTION LIMIT = -1;
+
+CREATE DATABASE osgp_adapter_ws_publiclighting
+  WITH OWNER = osp_admin
+       ENCODING = 'UTF-8'
+       TABLESPACE = pg_default
+       CONNECTION LIMIT = -1;
+
+CREATE DATABASE osgp_adapter_ws_tariffswitching
+  WITH OWNER = osp_admin
+       ENCODING = 'UTF-8'
+       TABLESPACE = pg_default
+       CONNECTION LIMIT = -1;
 
 CREATE DATABASE osgp_core
   WITH OWNER = osp_admin
@@ -67,3 +79,4 @@ CREATE USER osgp_read_only_ws_user WITH PASSWORD '1234' NOSUPERUSER;
 CREATE USER osgp_core_db_api_user WITH PASSWORD '1234' NOSUPERUSER;
 
 CREATE USER osgp_core_db_api_iec61850_user WITH PASSWORD '1234' NOSUPERUSER;
+
