@@ -28,4 +28,26 @@ node 'dev-box' {
 		command => "/bin/mv /home/dev/Tools/apache-activemq-${version}/conf/activemq.xml /home/dev/Tools/apache-activemq-${version}/conf/activemq.xml.original ; /bin/cp /home/dev/Sources/OSGP/Config/apache-activemq/activemq.xml /home/dev/Tools/apache-activemq-${version}/conf/",
 		require => File['create activemq link']
 	}
+
+	file { 'create activemq ssl folder':
+		path => '/etc/osp/activemq',
+		ensure => directory,
+		mode =>  0755,
+		require => Exec['unpack activemq']
+	}
+
+	file { 'create activemq client.ks link':
+		ensure => link,
+		path => '/etc/osp/activemq/client.ks',
+		target => '/home/dev/Tools/activemq/conf/client.ks',
+		require => File['create activemq ssl folder']
+	}
+
+	file { 'create activemq client.ts link':
+		ensure => link,
+		path => '/etc/osp/activemq/client.ts',
+		target => '/home/dev/Tools/activemq/conf/client.ts',
+		require => File['create activemq ssl folder']
+	}
+
 }

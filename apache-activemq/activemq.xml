@@ -119,10 +119,11 @@
             </systemUsage>
         </systemUsage>
 
+        <!-- Note: use client.ks, because ActiveMQ's client.ts does not contain the broker certificate-->
         <sslContext>
             <sslContext keyStore="file:${activemq.base}/conf/broker.ks"
                  keyStorePassword="password"
-                 trustStore="file:${activemq.base}/conf/broker.ts"
+                 trustStore="file:${activemq.base}/conf/client.ks"
                  trustStorePassword="password" />
         </sslContext>
 
