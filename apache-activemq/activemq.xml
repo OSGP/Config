@@ -37,7 +37,7 @@
     <!--
         The <broker> element is used to configure the ActiveMQ broker.
     -->
-    <broker xmlns="http://activemq.apache.org/schema/core" brokerName="localhost" dataDirectory="${activemq.data}" schedulerSupport="true">
+    <broker xmlns="http://activemq.apache.org/schema/core" useJmx="true" brokerName="localhost" dataDirectory="${activemq.data}" schedulerSupport="true">
 
         <destinationPolicy>
             <policyMap>
@@ -81,16 +81,31 @@
             http://activemq.apache.org/persistence.html
         -->
         <persistenceAdapter>
-            <kahaDB directory="${activemq.data}/kahadb"/>
+            <mKahaDB directory="${activemq.base}/data/kahadb">
+                <filteredPersistenceAdapters>
+                    <!-- match only ActiveMQ.DLQ -->
+                    <filteredKahaDB queue="ActiveMQ.DLQ">
+                        <persistenceAdapter>
+                            <kahaDB directory="${activemq.data}/kahadb-dlq" />
+                        </persistenceAdapter>
+                    </filteredKahaDB>
+
+                    <!-- match all queues -->
+                    <filteredKahaDB queue=">">
+                        <persistenceAdapter>
+                            <kahaDB directory="${activemq.data}/kahadb" />
+                        </persistenceAdapter>
+                    </filteredKahaDB>
+                </filteredPersistenceAdapters>
+            </mKahaDB>
         </persistenceAdapter>
 
-
-          <!--
+        <!--
             The systemUsage controls the maximum amount of space the broker will
             use before disabling caching and/or slowing down producers. For more information, see:
             http://activemq.apache.org/producer-flow-control.html
-          -->
-          <systemUsage>
+        -->
+        <systemUsage>
             <systemUsage>
                 <memoryUsage>
                     <memoryUsage percentOfJvmHeap="70" />
@@ -104,6 +119,14 @@
             </systemUsage>
         </systemUsage>
 
+        <!-- Note: use client.ks, because ActiveMQ's client.ts does not contain the broker certificate-->
+        <sslContext>
+            <sslContext keyStore="file:${activemq.base}/conf/broker.ks"
+                 keyStorePassword="password"
+                 trustStore="file:${activemq.base}/conf/client.ks"
+                 trustStorePassword="password" />
+        </sslContext>
+
         <!--
             The transport connectors expose ActiveMQ over a given protocol to
             clients and other brokers. For more information, see:
@@ -112,11 +135,11 @@
         -->
         <transportConnectors>
             <!-- DOS protection, limit concurrent connections to 1000 and frame size to 100MB -->
-            <transportConnector name="openwire" uri="tcp://0.0.0.0:61616?maximumConnections=1000&amp;wireFormat.maxFrameSize=104857600"/>
-            <!-- <transportConnector name="amqp" uri="amqp://0.0.0.0:5672?maximumConnections=1000&amp;wireFormat.maxFrameSize=104857600"/> -->
-            <!-- <transportConnector name="stomp" uri="stomp://0.0.0.0:61613?maximumConnections=1000&amp;wireFormat.maxFrameSize=104857600"/> -->
-            <!-- <transportConnector name="mqtt" uri="mqtt://0.0.0.0:1883?maximumConnections=1000&amp;wireFormat.maxFrameSize=104857600"/> -->
-            <!-- <transportConnector name="ws" uri="ws://0.0.0.0:61614?maximumConnections=1000&amp;wireFormat.maxFrameSize=104857600"/> -->
+            <!-- SSL connector for two-way SSL -->
+            <transportConnector name="openwire-ssl" uri="ssl://0.0.0.0:61617?maximumConnections=1000&amp;wireFormat.maxFrameSize=104857600&amp;needClientAuth=true"/>
+
+            <!-- TCP connector -->
+            <transportConnector name="openwire-tcp" uri="tcp://0.0.0.0:61616?maximumConnections=1000&amp;wireFormat.maxFrameSize=104857600"/> 
         </transportConnectors>
 
         <!-- destroy the spring context on shutdown to stop jetty -->
