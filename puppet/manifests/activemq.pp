@@ -29,11 +29,18 @@ node 'dev-box' {
 		require => File['create activemq link']
 	}
 
+	file { '/etc/osp':
+    ensure => 'directory',
+		mode =>  0755,
+  }
+
 	file { 'create activemq ssl folder':
 		path => '/etc/osp/activemq',
 		ensure => directory,
 		mode =>  0755,
-		require => Exec['unpack activemq']
+		require => [
+		    Exec['unpack activemq'],
+				File['/etc/osp'],]
 	}
 
 	file { 'create activemq client.ks link':
