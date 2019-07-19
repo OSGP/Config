@@ -7,7 +7,7 @@ node 'dev-box' {
         }
 
 	class { 'python':
-		pip => present
+		pip => true
 	}
 
 	exec { '/usr/bin/pip install --upgrade pip':
