@@ -34,13 +34,9 @@ node 'dev-box' {
 		require => Class['python']
 	}
 
-	exec { 'Install ansible-lint':
-		command => '/usr/bin/pip install ansible-lint', #use upgraded pip for the rest!
-		require => Package['python-lxml']
-	}
-
-	exec { 'Install boto3':
-		command => '/usr/bin/pip install boto3',
-		require => Package['python-lxml']
-	}
+	ensure_packages(['ansible-lint', 'boto3'], {
+		ensure   => present,
+		provider => 'pip',
+		require  => [ Package['python-pip'], ],
+	})
 }
