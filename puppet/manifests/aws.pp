@@ -16,15 +16,14 @@ node 'dev-box' {
 		require  => Class['python']
 	}
 
-	package { 'awsudo':
-		ensure => present,
-		provider => 'pip',
+	exec { 'awsudo':
+		command => '/usr/bin/python -m pip install awsudo',
 		require => Package['pip']
 	}
 
 	exec { "Add awsudo to path in ${homedir}.profile":
 		command => "/bin/sed -i 's/:\$PATH/:\\/home\\/dev\\/.local\\/bin:\$PATH/g' ${homedir}/.profile",
 		unless => "/bin/grep PATH= /.profile | /bin/grep .local\\/bin",
-		require => Package['awsudo'],
+		require => Exec['awsudo']
 	}
 }
