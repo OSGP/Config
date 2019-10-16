@@ -86,6 +86,9 @@ echo "##############################################################"
 sudo puppet apply $NOOP ./manifests/eclipse.pp
 sudo puppet apply $NOOP ./manifests/configure-eclipse.pp
 
+echo "##############################################################"
+echo "## Installing python/pip and AWS CLI                        ##"
+echo "##############################################################"
 sudo puppet apply $NOOP ./manifests/python.pp
 sudo puppet apply $NOOP ./manifests/aws.pp
 

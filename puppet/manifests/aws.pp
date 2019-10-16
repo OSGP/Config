@@ -2,27 +2,28 @@ node 'dev-box' {
 
 	$homedir="/home/dev"
 
-        package { 'awscli':
-                ensure => present
-        }
-
-	class { 'python':
-		pip => present
+	package { 'awscli':
+		ensure => present
 	}
 
-	exec { '/usr/bin/pip install --upgrade pip':
-		require => Class['python']
-        }
+	class { 'python':
+		pip => true
+	}
 
-        exec { 'Install awsudo':
-		command => '/usr/local/bin/pip install --user git+https://github.com/paperg/awsudo.git',
-		user => 'dev',
-		require => Exec['/usr/bin/pip install --upgrade pip']
-        }
+	package { 'pip':
+		ensure   => latest,
+		provider => 'pip',
+		require  => Class['python']
+	}
 
-        exec { "Add awsudo to path in ${homedir}.profile":
-                command => "/bin/sed -i 's/:\$PATH/:\\/home\\/dev\\/.local\\/bin:\$PATH/g' ${homedir}/.profile",
+	exec { 'awsudo':
+		command => '/usr/bin/python -m pip install awsudo',
+		require => Package['pip']
+	}
+
+	exec { "Add awsudo to path in ${homedir}.profile":
+		command => "/bin/sed -i 's/:\$PATH/:\\/home\\/dev\\/.local\\/bin:\$PATH/g' ${homedir}/.profile",
 		unless => "/bin/grep PATH= /.profile | /bin/grep .local\\/bin",
-		require => Exec['Install awsudo'],
-        }
+		require => Exec['awsudo']
+	}
 }
