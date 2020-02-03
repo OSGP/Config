@@ -107,6 +107,7 @@ echo "## Creating config and loggin folders                       ##"
 echo "##############################################################"
 sudo puppet apply $NOOP ./manifests/create-logging-folder.pp
 sudo puppet apply $NOOP ./manifests/create-config-folder.pp
+sudo puppet apply $NOOP ./manifests/create-firmware-folder.pp
 
 echo "##############################################################"
 echo "## Setting JAVA_HOME environment variable                   ##"
