@@ -14,4 +14,5 @@ create_client_cert.sh Infostroom 1234 1234
 The LianderNetManagement.pfx is created with:
 create_client_cert.sh LianderNetManagement 1234 1234
 
+smhe-client-for-pp5.pfx is retrieved from the Portal P5 team.
 
