@@ -2,12 +2,12 @@
 
 node 'dev-box' {
 
-        $major="oxygen"
+        $major="2020-03"
         $version="R"
 
 	# Eclipse EE for Webdevelopers, Luna.
 	exec { 'wget eclipse':
-		command => "/usr/bin/wget -q -O /home/dev/Downloads/osgp/eclipse-${major}-${version}.tar.gz http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/$major/$version/eclipse-jee-oxygen-R-linux-gtk-x86_64.tar.gz",
+		command => "/usr/bin/wget -q -O /home/dev/Downloads/osgp/eclipse-${major}-${version}.tar.gz http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/$major/$version/eclipse-jee-2020-03-R-incubation-linux-gtk-x86_64.tar.gz",
 		creates => "/home/dev/Downloads/osgp/eclipse-${major}-${version}.tar.gz",
 		timeout => 1800,
 		returns => [0, 4],
