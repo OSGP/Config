@@ -14,7 +14,8 @@ node 'dev-box' {
 	}
 
 	exec { 'add lombok line':
-		command => '/bin/grep -qxF "-javaagent:/home/dev/Tools/eclipse/lombok.jar" /home/dev/Tools/eclipse/eclipse.ini || /bin/echo "-javaagent:/home/dev/Tools/eclipse/lombok.jar" >> /home/dev/Tools/eclipse/eclipse.ini',
+		command =>'/bin/echo "-javaagent:/home/dev/Tools/eclipse/lombok.jar" >> /home/dev/Tools/eclipse/eclipse.ini',
+		unless => '/bin/grep -qxF /home/dev/Tools/eclipse/eclipse.ini -e "-javaagent:/home/dev/Tools/eclipse/lombok.jar"',
 		require => Exec['cp lombok'],
 	}
 	
