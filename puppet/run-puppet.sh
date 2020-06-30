@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-# Pass 'something' as argument to the script to use --noop. 
+# Pass 'something' as argument to the script to use --noop.
 #
 # ./run-puppet.sh bla --> runs the script using --noop.
 # ./run-puppet.sh     --> runs the script for real!
@@ -71,8 +71,8 @@ sudo puppet apply $NOOP ./manifests/postgresql.pp
 echo "##############################################################"
 echo "## Installing tomcat                                        ##"
 echo "##############################################################"
-sudo puppet apply $NOOP ./manifests/tomcat7.pp
 sudo puppet apply $NOOP ./manifests/tomcat8.5.pp
+sudo puppet apply $NOOP ./manifests/tomcat9.0.pp
 
 echo "##############################################################"
 echo "## Installing activemq                                      ##"
@@ -107,6 +107,7 @@ echo "## Creating config and loggin folders                       ##"
 echo "##############################################################"
 sudo puppet apply $NOOP ./manifests/create-logging-folder.pp
 sudo puppet apply $NOOP ./manifests/create-config-folder.pp
+sudo puppet apply $NOOP ./manifests/create-firmware-folder.pp
 
 echo "##############################################################"
 echo "## Setting JAVA_HOME environment variable                   ##"
@@ -138,6 +139,11 @@ echo "##############################################################"
 echo "## Installing ansible                                      ##"
 echo "##############################################################"
 sudo puppet apply $NOOP ./manifests/ansible.pp
+
+echo "##############################################################"
+echo "## Installing lombok	                                     ##"
+echo "##############################################################"
+sudo puppet apply $NOOP ./manifests/lombok.pp
 
 echo "##############################################################"
 echo "## Cleanup                                                  ##"
