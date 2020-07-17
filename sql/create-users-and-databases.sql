@@ -12,6 +12,12 @@ CREATE DATABASE osgp_adapter_protocol_oslp
        TABLESPACE = pg_default
        CONNECTION LIMIT = -1;
 
+CREATE DATABASE osgp_adapter_protocol_iec60870
+  WITH OWNER = osp_admin
+       ENCODING = 'UTF-8'
+       TABLESPACE = pg_default
+       CONNECTION LIMIT = -1;
+
 CREATE DATABASE osgp_adapter_protocol_iec61850
   WITH OWNER = osp_admin
        ENCODING = 'UTF-8'
@@ -19,6 +25,12 @@ CREATE DATABASE osgp_adapter_protocol_iec61850
        CONNECTION LIMIT = -1;
 
 CREATE DATABASE osgp_adapter_protocol_dlms
+  WITH OWNER = osp_admin
+       ENCODING = 'UTF-8'
+       TABLESPACE = pg_default
+       CONNECTION LIMIT = -1;
+
+CREATE DATABASE osgp_adapter_protocol_mqtt
   WITH OWNER = osp_admin
        ENCODING = 'UTF-8'
        TABLESPACE = pg_default
@@ -60,19 +72,13 @@ CREATE DATABASE osgp_core
        TABLESPACE = pg_default
        CONNECTION LIMIT = -1;
 
-CREATE DATABASE osp_devicesimulator_web
-  WITH OWNER = osp_admin
-       ENCODING = 'UTF-8'
-       TABLESPACE = pg_default
-       CONNECTION LIMIT = -1;
-
 CREATE DATABASE osgp_logging
   WITH OWNER = osp_admin
        ENCODING = 'UTF-8'
        TABLESPACE = pg_default
        CONNECTION LIMIT = -1;
 
-CREATE DATABASE osgp_adapter_protocol_iec60870
+CREATE DATABASE osp_devicesimulator_web
   WITH OWNER = osp_admin
        ENCODING = 'UTF-8'
        TABLESPACE = pg_default

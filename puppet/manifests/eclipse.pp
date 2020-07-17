@@ -2,12 +2,12 @@
 
 node 'dev-box' {
 
-        $major="oxygen"
+        $major="2020-03"
         $version="R"
 
-	# Eclipse EE for Webdevelopers, Luna.
+	# Eclipse EE for Webdevelopers.
 	exec { 'wget eclipse':
-		command => "/usr/bin/wget -q -O /home/dev/Downloads/osgp/eclipse-${major}-${version}.tar.gz http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/$major/$version/eclipse-jee-oxygen-R-linux-gtk-x86_64.tar.gz",
+		command => "/usr/bin/wget -q -O /home/dev/Downloads/osgp/eclipse-${major}-${version}.tar.gz - \"http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/$major/$version/eclipse-jee-$major-$version-incubation-linux-gtk-x86_64.tar.gz&r=1\"",
 		creates => "/home/dev/Downloads/osgp/eclipse-${major}-${version}.tar.gz",
 		timeout => 1800,
 		returns => [0, 4],
@@ -34,11 +34,6 @@ node 'dev-box' {
 
 	exec { 'install cucumber-eclipse plugin':
 		command => '/home/dev/Tools/eclipse/eclipse -application org.eclipse.equinox.p2.director -nosplash -repository http://cucumber.github.io/cucumber-eclipse/update-site -installIUs cucumber.eclipse.feature.feature.group',
-		require => File['create eclipse link']
-	}
-
-	exec { 'update m2eclipse-mavenarchiver':
-		command => '/home/dev/Tools/eclipse/eclipse -application org.eclipse.equinox.p2.director -nosplash -repository https://repo1.maven.org/maven2/.m2e/connectors/m2eclipse-mavenarchiver/0.17.2/N/LATEST/ -installIUs org.sonatype.m2e.mavenarchiver.feature.feature.group',
 		require => File['create eclipse link']
 	}
 

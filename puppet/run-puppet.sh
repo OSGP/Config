@@ -141,6 +141,11 @@ echo "##############################################################"
 sudo puppet apply $NOOP ./manifests/ansible.pp
 
 echo "##############################################################"
+echo "## Installing lombok	                                     ##"
+echo "##############################################################"
+sudo puppet apply $NOOP ./manifests/lombok.pp
+
+echo "##############################################################"
 echo "## Cleanup                                                  ##"
 echo "##############################################################"
 sudo puppet apply $NOOP ./manifests/cleanup.pp
