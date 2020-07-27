@@ -84,6 +84,12 @@ CREATE DATABASE osp_devicesimulator_web
        TABLESPACE = pg_default
        CONNECTION LIMIT = -1;
 
+CREATE DATABASE osgp_secret_management
+    WITH OWNER = osp_admin
+    ENCODING = 'UTF8'
+    TABLESPACE = pg_default
+     CONNECTION LIMIT = -1;
+
 -- Create the readonly users
 
 CREATE USER osgp_read_only_ws_user WITH PASSWORD '1234' NOSUPERUSER;
