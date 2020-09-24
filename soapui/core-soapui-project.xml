@@ -2778,7 +2778,6 @@
                <ns1:ModelCode>TestModel</ns1:ModelCode>
                <!--Optional:-->
                <ns1:Description>Test</ns1:Description>
-               <ns1:Metered>true</ns1:Metered>
             </ns1:DeviceModel>
          </ns1:Device>
       </ns1:AddDeviceRequest>
@@ -2956,7 +2955,6 @@
                <ns1:ModelCode>TestModel</ns1:ModelCode>
                <!--Optional:-->
                <ns1:Description>Test</ns1:Description>
-               <ns1:Metered>true</ns1:Metered>
             </ns1:DeviceModel>
          </ns1:UpdatedDevice>
       </ns1:UpdateDeviceRequest>
@@ -4703,7 +4701,6 @@
                <ns1:ModelCode>${=testCase.getPropertyValue( "ModelCode" )}</ns1:ModelCode>
                <!--Optional:-->
                <ns1:Description>${=testCase.getPropertyValue( "Description" )}</ns1:Description>
-               <ns1:Metered>${=testCase.getPropertyValue( "Metered" )}</ns1:Metered>
             </ns1:DeviceModel>
          </ns1:Device>
       </ns1:AddDeviceRequest>
@@ -4882,7 +4879,6 @@
                <ns1:ModelCode>${=testCase.getPropertyValue( "ModelCode" )}</ns1:ModelCode>
                <!--Optional:-->
                <ns1:Description>${=testCase.getPropertyValue( "Description" )}</ns1:Description>
-               <ns1:Metered>${=testCase.getPropertyValue( "Metered" )}</ns1:Metered>
             </ns1:DeviceModel>
          </ns1:UpdatedDevice>
       </ns1:UpdateDeviceRequest>
