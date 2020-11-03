@@ -3,4 +3,4 @@
 ## Installation
 
 ### Installation manual
-To set up a development environment take a look at the [Installation Manual](http://documentation.opensmartgridplatform.org/Userguide/Installation/Installationguide.html)
+To set up a development environment take a look at the [Installation Manual](https://documentation.gxf.lfenergy.org/Userguide/Installation/Installationguide.html)

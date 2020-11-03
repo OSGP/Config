@@ -1,5 +1,5 @@
 # Config
-To set up a development environment take a look at the [Installation Manual](http://documentation.opensmartgridplatform.org/Userguide/Installation/Installationguide.html)
+To set up a development environment take a look at the [Installation Manual](http://documentation.gfx.lfenergy.org/Userguide/Installation/Installationguide.html)
 
 ## What does this repo contain?
 This repo contains the following files:
@@ -16,16 +16,16 @@ This repo contains the following files:
 - puppet scripts and manifests
 - vagrant file to role out your development environment in virtualbox
 
-## Open smart grid platform information and news
+## Grid eXchange Fabric information and news
 
-High-level project information and news can be found on the open smart grid platform website: 
-* [www.opensmartgridplatform.org](http://opensmartgridplatform.org)
+High-level project information and news can be found on the Grid eXchange Fabric website:
+* [www.lfenergy.org/projects/gxf/](https://www.lfenergy.org/projects/gxf/)
 
-Open smart grid platform detailed documentation:
-* [documentation.opensmartgridplatform.org](http://documentation.opensmartgridplatform.org)
+Grid eXchange Fabric detailed documentation:
+* [documentation.gxf.lfenergy.org](https://documentation.gxf.lfenergy.org)
 
-Open smart grid platform issue tracker:
-* [Open smart grid platform Jira](https://smartsocietyservices.atlassian.net/projects/OC/issues)
+Grid eXchange Fabric issue tracker:
+* [Grid eXchange Fabric Jira](https://smartsocietyservices.atlassian.net/projects/OC/issues)
 
 Questions and discussions:
-* [Open smart grid platform Discourse](https://opensmartgridplatform.discourse.group/)
+* [Grid eXchange Fabric Discourse](https://opensmartgridplatform.discourse.group/)
