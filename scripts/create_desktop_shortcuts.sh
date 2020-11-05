@@ -14,9 +14,9 @@ echo "### Create shortcuts"
 
 /home/dev/Sources/OSGP/Config/scripts/create_weblink_shortcut.sh github "OSGP Github" "http://www.github.com/osgp/"
 
-/home/dev/Sources/OSGP/Config/scripts/create_weblink_shortcut.sh documentation "OSGP Documentation" "http://documentation.opensmartgridplatform.org/"
+/home/dev/Sources/OSGP/Config/scripts/create_weblink_shortcut.sh documentation "OSGP Documentation" "https://documentation.gxf.lfenergy.org/"
 
 /home/dev/Sources/OSGP/Config/scripts/create_weblink_shortcut.sh devicesim "OSLP Device Simulator" "https://localhost/web-device-simulator/devices"
 
-/home/dev/Sources/OSGP/Config/scripts/create_weblink_shortcut.sh osgp "Open Smart Grid Platform website" "http://www.opensmartgridplatform.org/"
+/home/dev/Sources/OSGP/Config/scripts/create_weblink_shortcut.sh osgp "Grid eXchange Fabric website" "https://www.lfenergy.org/projects/gxf/"
 
