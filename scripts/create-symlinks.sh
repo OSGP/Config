@@ -141,6 +141,11 @@ sudo ln -sf $SOURCEDIR/Config/keys/dlms/osgp-protocol-adapter-rsa-private.key $T
 sudo ln -sf $SOURCEDIR/Config/keys/dlms/osgp-protocol-adapter-rsa-public.key $TARGETDIR/smartmetering/keys/platform/
 sudo ln -sf $SOURCEDIR/Config/keys/dlms/osgp-secret-management-jre.key $TARGETDIR/smartmetering/keys/platform/
 
+echo "- create symlinks for kafka message signing keys ..."
+mkdir -p $TARGETDIR/kafka-message-signing/keys
+sudo ln -sf $SOURCEDIR/Config/keys/kafka/message-signature-verification-rsa-public.pem $TARGETDIR/kafka-message-signing/keys
+sudo ln -sf $SOURCEDIR/Config/keys/kafka/message-signing-rsa-private.pem $TARGETDIR/kafka-message-signing/keys
+
 echo "- create symlink to apache vhost and remove the link to the 000-default.conf vhost ..."
 sudo ln -sf $SOURCEDIR/Config/apache-httpd/vhost.conf /etc/apache2/sites-enabled
 sudo rm -f /etc/apache2/sites-enabled/000-default.conf
