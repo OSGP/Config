@@ -24,7 +24,7 @@ High-level project information and news can be found on the Grid eXchange Fabric
 Grid eXchange Fabric detailed documentation:
 * [documentation.gxf.lfenergy.org](https://documentation.gxf.lfenergy.org)
 
-Grid eXchange Fabric issue tracker (will be decommissioned soon):
+Grid eXchange Fabric issue tracker (will be decommissioned soon...):
 * [Grid eXchange Fabric Jira](https://smartsocietyservices.atlassian.net/projects/OC/issues)
 
 Questions and discussions:
