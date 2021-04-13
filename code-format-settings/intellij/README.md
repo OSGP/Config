@@ -6,9 +6,9 @@ The files in this directory are used to configure Intellij.
    ![Alt text](screenshots/1.%20install%20plugin.png)
 2. Enable the java-google-format plugin
    ![Alt text](screenshots/2.%20enable%20plugin.png)
-3. Import the Codestyle format file: [code-format/IntelliJ-GoogleJavaFormat-CodeStyle.xml](code-format/IntelliJ-GoogleJavaFormat-CodeStyle.xml)
+3. Import the Codestyle format file: [code-format/IntelliJ-GXFGoogleStyle-CodeStyle.xml](code-format/IntelliJ-GXFGoogleStyle-CodeStyle.xml)
    ![Alt text](screenshots/3.%20import%20codestyle.png)
-4. Import the inspection format file: [code-format/IntelliJ-GoogleJavaFormat-Inspection.xml](code-format/IntelliJ-GoogleJavaFormat-Inspection.xml)
+4. Import the inspection format file: [code-format/IntelliJ-GXFGoogleStyle-Inspection.xml](code-format/IntelliJ-GXFGoogleStyle-Inspection.xml)
    ![Alt text](screenshots/4.%20import%20Inspection.png)
 5. Add the copyright header: [code-templates/copyright_header.txt](code-templates/copyright_header.txt)
    ![Alt text](screenshots/5.%20add%20copyright.png)

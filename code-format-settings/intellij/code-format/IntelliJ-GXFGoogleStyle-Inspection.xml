@@ -1,5 +1,5 @@
 <profile version="1.0">
-  <option name="myName" value="IntelliJ-GoogleJavaFormat-Inspection" />
+  <option name="myName" value="IntelliJ-GXFGoogleStyle-Inspection" />
   <inspection_tool class="FieldMayBeFinal" enabled="false" level="WARNING" enabled_by_default="false" />
   <inspection_tool class="LocalCanBeFinal" enabled="true" level="WARNING" enabled_by_default="true">
     <option name="REPORT_VARIABLES" value="true" />
