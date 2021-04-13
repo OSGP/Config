@@ -2,9 +2,9 @@
 
 The files in this directory are used to configure Intellij.
 
-1. Install the java-google-format plugin
+1. Install the google-java-format plugin
    ![Alt text](screenshots/1.%20install%20plugin.png)
-2. Enable the java-google-format plugin
+2. Enable the google-java-format plugin
    ![Alt text](screenshots/2.%20enable%20plugin.png)
 3. Import the Codestyle format file: [code-format/IntelliJ-GXFGoogleStyle-CodeStyle.xml](code-format/IntelliJ-GXFGoogleStyle-CodeStyle.xml)
    ![Alt text](screenshots/3.%20import%20codestyle.png)
