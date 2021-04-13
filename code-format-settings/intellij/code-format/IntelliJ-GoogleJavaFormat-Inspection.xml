@@ -1,11 +1,12 @@
 <profile version="1.0">
-  <option name="myName" value="IntelliJ-JavaFormat-Inspection" />
+  <option name="myName" value="IntelliJ-GoogleJavaFormat-Inspection" />
   <inspection_tool class="FieldMayBeFinal" enabled="false" level="WARNING" enabled_by_default="false" />
   <inspection_tool class="LocalCanBeFinal" enabled="true" level="WARNING" enabled_by_default="true">
     <option name="REPORT_VARIABLES" value="true" />
     <option name="REPORT_PARAMETERS" value="true" />
   </inspection_tool>
   <inspection_tool class="TrivialIf" enabled="false" level="WARNING" enabled_by_default="false" />
+  <inspection_tool class="UnnecessaryEnumModifier" enabled="false" level="WARNING" enabled_by_default="false" />
   <inspection_tool class="UnnecessaryFullyQualifiedName" enabled="false" level="INFORMATION" enabled_by_default="false">
     <option name="m_ignoreJavadoc" value="false" />
     <option name="ignoreInModuleStatements" value="true" />
