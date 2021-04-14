@@ -10,7 +10,7 @@ The configuration files and instructions are based on [eclipse-java-google-style
    * under `Formatter`
      - import [JavaFormatter.xml](./code-format/JavaFormatter.xml) and keep `GXFGoogleJavaFormat` as active profile
      - select `google-java-format` as formatter implementation (if not available make sure the plugin is in the dropins folder and restart Eclipse)
-   * under `Code Templates` import [codetemplates.xml](../code-templates/codetemplates.xml) to enable the template for the Apache 2 license header
+   * under `Code Templates` import [codetemplates.xml](./code-templates/codetemplates.xml) to enable the template for the Apache 2 license header
    * under `Organize Imports`
      - remove any package or type name prefixes (Google Java Style [mandates only two groups](https://google.github.io/styleguide/javaguide.html#s3.3.3-import-ordering-and-spacing): static and other imports)
      - set number of (static) imports needed for .* as high as possible, e.g. 999999999 (this should prevent [wildcard imports](https://google.github.io/styleguide/javaguide.html#s3.3.1-wildcard-imports))
