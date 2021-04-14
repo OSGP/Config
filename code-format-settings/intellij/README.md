@@ -2,15 +2,23 @@
 
 The files in this directory are used to configure Intellij.
 
-1. Install the google-java-format plugin
-   ![Alt text](screenshots/1.%20install%20plugin.png)
+1. Install the google-java-format plugin 
+   * under `Preferences...` -> `Plugins`
+     - Import the "google-java-format" plugin
 2. Enable the google-java-format plugin
-   ![Alt text](screenshots/2.%20enable%20plugin.png)
+   * under `Preferences...` -> `Other Settings`
+     - `google-java-format Settings` -> Enable the option "Enable the google-java-format"
 3. Import the Codestyle format file: [code-format/IntelliJ-GXFGoogleStyle-CodeStyle.xml](code-format/IntelliJ-GXFGoogleStyle-CodeStyle.xml)
-   ![Alt text](screenshots/3.%20import%20codestyle.png)
-4. Import the inspection format file: [code-format/IntelliJ-GXFGoogleStyle-Inspection.xml](code-format/IntelliJ-GXFGoogleStyle-Inspection.xml)
-   ![Alt text](screenshots/4.%20import%20Inspection.png)
+   * under `Preferences...` -> `Editor` -> `Code-Style`
+     - `Scheme` -> `Import Scheme` -> IntelliJ IDEA code style XML
+     - Add the code-style file: [code-format/IntelliJ-GXFGoogleStyle-Inspection.xml](code-format/IntelliJ-GXFGoogleStyle-Inspection.xml)
+4. Import the inspection format file: [code-format/IntelliJ-GXFGoogleStyle-CodeStyle.xml](code-format/IntelliJ-GXFGoogleStyle-CodeStyle.xml)
+   * under `Preferences...` -> `Editor` -> `Inspections`
+     - `Profile` -> `Import Profile` -> Add the format file: [code-format/IntelliJ-GXFGoogleStyle-Inspection.xml](code-format/IntelliJ-GXFGoogleStyle-Inspection.xml)
+     - Add the inspection file: [code-format/IntelliJ-GXFGoogleStyle-Inspection.xml](code-format/IntelliJ-GXFGoogleStyle-Inspection.xml)
 5. Add the copyright header: [code-templates/copyright_header.txt](code-templates/copyright_header.txt)
-   ![Alt text](screenshots/5.%20add%20copyright.png)
+   * under `Preferences...` -> `Editor` -> `Copyright`  -> `Copyright Profiles`
+     - Add the copyright file:  [code-templates/copyright_header.txt](code-templates/copyright_header.txt)
 6. Set the default copyright header
-   ![Alt text](screenshots/6.%20set%20default%20copyright.png)
+   * under `Preferences...` -> `Editor` -> `Copyright`
+      - Select the default copyright
