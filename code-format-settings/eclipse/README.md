@@ -6,33 +6,36 @@ The configuration files and instructions are based on [eclipse-java-google-style
 
 1. Install the google-java-format Eclipse plugin for Google Java Format version 1.7 (you may need to [build this plugin yourself](#google-java-format-eclipse-plugin) first) by copying it into the dropins folder with your Eclipe installation
 2. Import Formatter and Clean Up configuration in the `Java > Code Style` section from Eclipse `Preferences`
-  * under `Clean Up` import [JavaCleanup.xml](./JavaCleanup.xml) and keep `GXFGoogleJavaFormat` as active profile
-  * under `Formatter`
-    - import [JavaFormatter.xml](./JavaFormatter.xml) and keep `GXFGoogleJavaFormat` as active profile
-    - select `google-java-format` as formatter implementation (if not available make sure the plugin is in the dropins folder and restart Eclipse)
-  * under `Code Templates` import [codetemplates.xml](../codetemplates/codetemplates.xml) to enable the template for the Apache 2 license header
-  * under `Organize Imports`
-    - remove any package or type name prefixes (Google Java Style [mandates only two groups](https://google.github.io/styleguide/javaguide.html#s3.3.3-import-ordering-and-spacing): static and other imports)
-    - set number of (static) imports needed for .* as high as possible, e.g. 999999999 (this should prevent [wildcard imports](https://google.github.io/styleguide/javaguide.html#s3.3.1-wildcard-imports))
+   * under `Clean Up` import [JavaCleanup.xml](./JavaCleanup.xml) and keep `GXFGoogleJavaFormat` as active profile
+   * under `Formatter`
+     - import [JavaFormatter.xml](./JavaFormatter.xml) and keep `GXFGoogleJavaFormat` as active profile
+     - select `google-java-format` as formatter implementation (if not available make sure the plugin is in the dropins folder and restart Eclipse)
+   * under `Code Templates` import [codetemplates.xml](../codetemplates/codetemplates.xml) to enable the template for the Apache 2 license header
+   * under `Organize Imports`
+     - remove any package or type name prefixes (Google Java Style [mandates only two groups](https://google.github.io/styleguide/javaguide.html#s3.3.3-import-ordering-and-spacing): static and other imports)
+     - set number of (static) imports needed for .* as high as possible, e.g. 999999999 (this should prevent [wildcard imports](https://google.github.io/styleguide/javaguide.html#s3.3.1-wildcard-imports))
 3. Configure `Save Actions` in the `Java > Editor` section from Eclipse `Preferences`
-  * Format source code
-  * Organize imports
-    - Add 'this' qualifier to unqualified field accesses (`Member Accesses`, Always)
-    - Add 'this' qualifier to unqualified method accesses (`Member Accesses`, Always)
-    - Convert control statement bodies to block (`Code Style > Control statements`)
-    - Add final modifier to method parameters (`Code Style > Variable declarations`)
-    - Add final modifier to local variables (`Code Style > Variable declarations`)
-    - Use uppercase for long literal suffix (`Code Style > Number literals`)
-    - Remove unused imports (`Unnecessary Code > Unused code`)
-    - Add missing '@Override' annotations (`Missing Code > Annotations`)
-    - Add missing '@Override' annotations to implementations of interface methods (`Missing Code > Annotations`)
-    - Add missing '@Deprecated' annotations (`Missing Code > Annotations`)
-    - Remove unnecessary casts (`Unnecessary Code > Unnecessary code`)
-    - Remove redundant semicolons (`Unnecessary Code > Unnecessary code`)
-    - Remove unnecessary '$NON-NLS$' tags (`Unnecessary Code > Unnecessary code`)
-    - Remove trailing white spaces on all lines (`Code Organizing > Formatter`)
+   * Format source code
+   * Organize imports
+     - Add 'this' qualifier to unqualified field accesses (`Member Accesses`, Always)
+     - Add 'this' qualifier to unqualified method accesses (`Member Accesses`, Always)
+     - Convert control statement bodies to block (`Code Style > Control statements`)
+     - Add final modifier to method parameters (`Code Style > Variable declarations`)
+     - Add final modifier to local variables (`Code Style > Variable declarations`)
+     - Use uppercase for long literal suffix (`Code Style > Number literals`)
+     - Remove unused imports (`Unnecessary Code > Unused code`)
+     - Add missing '@Override' annotations (`Missing Code > Annotations`)
+     - Add missing '@Override' annotations to implementations of interface methods (`Missing Code > Annotations`)
+     - Add missing '@Deprecated' annotations (`Missing Code > Annotations`)
+     - Remove unnecessary casts (`Unnecessary Code > Unnecessary code`)
+     - Remove redundant semicolons (`Unnecessary Code > Unnecessary code`)
+     - Remove unnecessary '$NON-NLS$' tags (`Unnecessary Code > Unnecessary code`)
+     - Remove trailing white spaces on all lines (`Code Organizing > Formatter`)
 4. Import [JavaScript formatter configuration](./JavaScriptFormatter.xml) in the `Web > Client-side Javascript > Formatter` section from Eclipse `Preferences`
-
+5. Configure XML formatting (initial baseline, further conventions to be added) in the `XML > XML Files > Editor` section from Eclipse `Preferences`
+   * Insert whitespace before closing empty end-tags
+   * Indent using spaces
+   * Indentation size: 2
 
 ## Google Java Format Eclipse Plugin
 
