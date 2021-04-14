@@ -17,6 +17,7 @@ The configuration files and instructions are based on [eclipse-java-google-style
 3. Configure `Save Actions` in the `Java > Editor` section from Eclipse `Preferences`
    * Format source code
    * Organize imports
+   * Additional actions
      - Add 'this' qualifier to unqualified field accesses (`Member Accesses`, Always)
      - Add 'this' qualifier to unqualified method accesses (`Member Accesses`, Always)
      - Convert control statement bodies to block (`Code Style > Control statements`)
