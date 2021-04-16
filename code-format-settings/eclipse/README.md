@@ -32,6 +32,7 @@ The configuration files and instructions are based on [eclipse-java-google-style
      - Remove redundant semicolons (`Unnecessary Code > Unnecessary code`)
      - Remove unnecessary '$NON-NLS$' tags (`Unnecessary Code > Unnecessary code`)
      - Remove trailing white spaces on all lines (`Code Organizing > Formatter`)
+     - Correct indentation - not checked (`Code Organizing > Formatter`)
 4. Import [JavaScript formatter configuration](./code-format/JavaScriptFormatter.xml) in the `Web > Client-side Javascript > Formatter` section from Eclipse `Preferences`
 5. Configure XML formatting (initial baseline, further conventions to be added) in the `XML > XML Files > Editor` section from Eclipse `Preferences`
    * Insert whitespace before closing empty end-tags
