@@ -2,7 +2,7 @@
 
 The files in this directory are used to configure Intellij.
 
-1. Install the google-java-format plugin 
+1. Install the google-java-format IntelliJ plugin for Google Java Format version 1.7 (at the moment 1.7.0.6) (you can download it from https://plugins.jetbrains.com/plugin/8527-google-java-format/versions
    * under `Preferences...` -> `Plugins`
      - Import the "google-java-format" plugin
 2. Enable the google-java-format plugin
