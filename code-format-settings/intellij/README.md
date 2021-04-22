@@ -37,6 +37,7 @@ The files in this directory are used to configure Intellij.
       - Add a serialVersionUID field for Serializable classes
       - Remove unused suppress warning annotation
       - Remove unnecessarry semicolumn
+      - File Path Inclusions:`.*\.java`
  
 ## Copyright
 7. Add the copyright header:
