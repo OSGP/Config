@@ -2,6 +2,7 @@
 
 The files in this directory are used to configure Intellij.
 
+## Code style
 1. Install the google-java-format IntelliJ plugin for Google Java Format version 1.7 (at the moment 1.7.0.6) (you can download it from https://plugins.jetbrains.com/plugin/8527-google-java-format/versions
    * under `Preferences...` -> `Plugins`
      - Import the "google-java-format" plugin
@@ -16,9 +17,32 @@ The files in this directory are used to configure Intellij.
    * under `Preferences...` -> `Editor` -> `Inspections`
      - `Profile` -> `Import Profile` 
      - Add the inspection file: [code-format/IntelliJ-GXFGoogleStyle-Inspection.xml](code-format/IntelliJ-GXFGoogleStyle-Inspection.xml)
-5. Add the copyright header:
+
+## Save actions
+5. Install the "Save Actions" plugin
+    * under `Preferences...` -> `Plugins`
+        - Import the "Save Actions" plugin
+6. Configure `Save Actions`, enable the following options
+     * under `Preferences...` -> `Other Settings`
+      - Formatting actions: Activate save actions on save
+      - Formatting actions: Activate save actions on shortcut
+      - Formatting actions: Activate save actions on batch
+      - Add final modifier to field
+      - Add final modifier to local variable or parameter
+      - Add final modifier to local variable or parameter except if it is implicit
+      - Add this to field access
+      - Add this to method access 
+      - Add missing @Override annotations
+      - Add blocks to if/while/for statements
+      - Add a serialVersionUID field for Serializable classes
+      - Remove unused suppress warning annotation
+      - Remove unnecessarry semicolumn
+ 
+## Copyright
+7. Add the copyright header:
    * under `Preferences...` -> `Editor` -> `Copyright`  -> `Copyright Profiles`
      - Add the copyright file:  [code-templates/copyright_header.txt](code-templates/copyright_header.txt)
-6. Set the default copyright header
+8. Set the default copyright header
    * under `Preferences...` -> `Editor` -> `Copyright`
       - Select the default copyright
+
