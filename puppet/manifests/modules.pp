@@ -7,8 +7,8 @@ node 'dev-box' {
 #	}
 
 	exec { 'Installing module puppetlabs-stdlib':
-		command => "puppet module install puppetlabs-stdlib --version 5.2.0 --ignore-dependencies",
-		unless  => "puppet module list | grep puppetlabs-stdlib",
+		command => "puppet module install puppetlabs-stdlib --version 5.2.0 --ignore-dependencies --force",
+		unless  => "puppet module list | grep \"puppetlabs-stdlib.*5\"",
 		path    => ['/bin', '/usr/bin']
 	}
 
