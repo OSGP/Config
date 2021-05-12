@@ -37,7 +37,6 @@ The files in this directory are used to configure Intellij.
       - Add missing @Override annotations
       - Add blocks to if/while/for statements
       - Add a serialVersionUID field for Serializable classes
-      - Remove unused suppress warning annotation
       - Remove unnecessarry semicolumn
       - File Path Inclusions:`.*\.java`
  
