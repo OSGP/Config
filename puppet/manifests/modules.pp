@@ -6,15 +6,15 @@ node 'dev-box' {
 #		ensure => present
 #	}
 
-	exec { 'Installing module puppetlabs-git':
-		command => "puppet module install puppetlabs-git",
-		unless  => "puppet module list | grep puppetlabs-git",
+	exec { 'Installing module puppetlabs-stdlib':
+		command => "puppet module install puppetlabs-stdlib --version 5.2.0 --ignore-dependencies --force",
+		unless  => "puppet module list | grep \"puppetlabs-stdlib.*5\"",
 		path    => ['/bin', '/usr/bin']
 	}
 
-	exec { 'Installing module puppetlabs-stdlib':
-		command => "puppet module install puppetlabs-stdlib",
-		unless  => "puppet module list | grep puppetlabs-stdlib",
+	exec { 'Installing module puppetlabs-git':
+		command => "puppet module install puppetlabs-git",
+		unless  => "puppet module list | grep puppetlabs-git",
 		path    => ['/bin', '/usr/bin']
 	}
 
@@ -25,7 +25,7 @@ node 'dev-box' {
 	}
 
 	exec { 'Installing module apt':
-		command => "puppet module install puppetlabs-apt",
+		command => "puppet module install puppetlabs-apt --version 2.4.0 --ignore-dependencies",
 		unless  => "puppet module list | grep puppetlabs-apt",
 		path    => ['/bin', '/usr/bin']
 	}

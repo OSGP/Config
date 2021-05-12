@@ -11,9 +11,14 @@ node 'dev-box' {
 	}
 
 	package { 'pip':
-		ensure   => latest,
+		ensure   => '20.3.4',
 		provider => 'pip',
 		require  => Class['python']
+	}
+
+	exec { 'pytest-runner':
+		command => '/usr/bin/python -m pip install pytest-runner==5.2',
+		require => Package['pip']
 	}
 
 	exec { 'awsudo':

@@ -13,3 +13,4 @@
 
 # Maven directory
 target
+vagrant/.vagrant
