@@ -8,7 +8,7 @@ fi
 echo "### Create shortcuts"
 /home/dev/Sources/OSGP/Config/scripts/create_application_shortcut.sh eclipse false /home/dev/Tools/eclipse/icon.xpm Eclipse /home/dev/Tools/eclipse/eclipse
 
-/home/dev/Sources/OSGP/Config/scripts/create_application_shortcut.sh activemq true /home/dev/Tools/activemq/webapps-demo/demo/images/activemq-logo.png ActiveMQ "/home/dev/Tools/activemq/bin/linux-x86-64/activemq console"
+/home/dev/Sources/OSGP/Config/scripts/create_application_shortcut.sh activemq true /home/dev/Tools/activemq/webapps-demo/demo/images/activemq-logo.png ActiveMQ "sudo /home/dev/Tools/activemq/bin/linux-x86-64/activemq console"
 
 /home/dev/Sources/OSGP/Config/scripts/create_application_shortcut.sh soapui false /home/dev/Tools/SoapUI/logo.png SoapUI /home/dev/Tools/SoapUI/bin/soapui.sh
 
