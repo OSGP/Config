@@ -140,6 +140,8 @@ sudo ln -sf $SOURCEDIR/Config/keys/dlms/dlms_device_keys_public $TARGETDIR/smart
 sudo ln -sf $SOURCEDIR/Config/keys/dlms/osgp-protocol-adapter-rsa-private.key $TARGETDIR/smartmetering/keys/platform/
 sudo ln -sf $SOURCEDIR/Config/keys/dlms/osgp-protocol-adapter-rsa-public.key $TARGETDIR/smartmetering/keys/platform/
 sudo ln -sf $SOURCEDIR/Config/keys/dlms/osgp-secret-management-jre.key $TARGETDIR/smartmetering/keys/platform/
+mkdir -p $TARGETDIR/smartmetering/keys/application
+sudo ln -sf $SOURCEDIR/Config/keys/application/smartmetering-rsa-public.key $TARGETDIR/smartmetering/keys/application/smartmetering-rsa-public.key
 
 echo "- create symlinks for kafka message signing keys ..."
 mkdir -p $TARGETDIR/kafka-message-signing/keys
