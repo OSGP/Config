@@ -26,6 +26,7 @@
         <include>certificates/osgp-ca/certs/*.pfx</include>
         <include>certificates/oslp/*.der</include>
         <include>keys/dlms/*</include>
+        <include>keys/application/*public.key</include>
         <include>keys/kafka/*</include>
       </includes>
     </fileSet>
