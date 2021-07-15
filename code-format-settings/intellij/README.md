@@ -24,9 +24,11 @@ The files in this directory are used to configure Intellij.
         - Import the "Save Actions" plugin
 6. Configure `Save Actions`, enable the following options
      * under `Preferences...` -> `Other Settings`
-      - Formatting actions: Activate save actions on save
-      - Formatting actions: Activate save actions on shortcut
-      - Formatting actions: Activate save actions on batch
+      - General: Activate save actions on save
+      - General: Activate save actions on shortcut
+      - General: Activate save actions on batch
+      - Formatting actions: Optimize imports
+      - Formatting actions: Reformat file
       - Add final modifier to field
       - Add final modifier to local variable or parameter
       - Add final modifier to local variable or parameter except if it is implicit
@@ -35,7 +37,6 @@ The files in this directory are used to configure Intellij.
       - Add missing @Override annotations
       - Add blocks to if/while/for statements
       - Add a serialVersionUID field for Serializable classes
-      - Remove unused suppress warning annotation
       - Remove unnecessarry semicolumn
       - File Path Inclusions:`.*\.java`
  
