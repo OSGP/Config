@@ -108,8 +108,9 @@ sudo ln -sf $SOURCEDIR/Config/certificates/oslp/oslp_test_ecdsa_public.der /etc/
 
 echo "- create symlinks to AES and RSA DLMS keys  ..."
 sudo ln -sf $SOURCEDIR/Config/keys/dlms/secret.aes /etc/ssl/certs
-sudo ln -sf $SOURCEDIR/Config/keys/dlms/dlms_device_keys_private /etc/ssl/certs
-sudo ln -sf $SOURCEDIR/Config/keys/dlms/dlms_device_keys_public /etc/ssl/certs
+# TODO: Can this be removed?
+#sudo ln -sf $SOURCEDIR/Config/keys/dlms/dlms_device_keys_private /etc/ssl/certs
+#sudo ln -sf $SOURCEDIR/Config/keys/dlms/dlms_device_keys_public /etc/ssl/certs
 
 echo "- create symlink to CA certificate ..."
 sudo ln -sf $SOURCEDIR/Config/certificates/osgp-ca/certs/cacert.cer /etc/ssl/certs
@@ -135,14 +136,19 @@ sudo ln -sf $SOURCEDIR/Config/certificates/trust.jks /etc/ssl/certs
 echo "- create symlinks for smartmetering keys ..."
 mkdir -p $TARGETDIR/smartmetering/keys/platform
 sudo ln -sf $SOURCEDIR/Config/keys/dlms/secret.aes $TARGETDIR/smartmetering/keys/platform/
-sudo ln -sf $SOURCEDIR/Config/keys/dlms/dlms_device_keys_private $TARGETDIR/smartmetering/keys/platform/
-sudo ln -sf $SOURCEDIR/Config/keys/dlms/dlms_device_keys_public $TARGETDIR/smartmetering/keys/platform/
-sudo ln -sf $SOURCEDIR/Config/keys/dlms/osgp-protocol-adapter-rsa-private.key $TARGETDIR/smartmetering/keys/platform/
-sudo ln -sf $SOURCEDIR/Config/keys/dlms/osgp-protocol-adapter-rsa-public.key $TARGETDIR/smartmetering/keys/platform/
+sudo ln -sf $SOURCEDIR/Config/keys/dlms/gxf-smartmetering-rsa-private.key $TARGETDIR/smartmetering/keys/platform/
+sudo ln -sf $SOURCEDIR/Config/keys/dlms/gxf-smartmetering-rsa-public.key $TARGETDIR/smartmetering/keys/platform/
+sudo ln -sf $SOURCEDIR/Config/keys/dlms/osgp-protocol-adapter-dlms-rsa-private.key $TARGETDIR/smartmetering/keys/platform/
+sudo ln -sf $SOURCEDIR/Config/keys/dlms/osgp-protocol-adapter-dlms-rsa-public.key $TARGETDIR/smartmetering/keys/platform/
+sudo ln -sf $SOURCEDIR/Config/keys/dlms/osgp-secret-management-rsa-private.key $TARGETDIR/smartmetering/keys/platform/
+sudo ln -sf $SOURCEDIR/Config/keys/dlms/osgp-secret-management-rsa-public.key $TARGETDIR/smartmetering/keys/platform/
 sudo ln -sf $SOURCEDIR/Config/keys/dlms/osgp-secret-management-jre.key $TARGETDIR/smartmetering/keys/platform/
 mkdir -p $TARGETDIR/smartmetering/keys/application
 sudo ln -sf $SOURCEDIR/Config/keys/application/smartmetering-rsa-public.key $TARGETDIR/smartmetering/keys/application/smartmetering-rsa-public.key
 sudo ln -sf $SOURCEDIR/Config/keys/application/smartmetering-rsa-private.key $TARGETDIR/test/smartmetering/keys/application/smartmetering-rsa-private.key
+
+# TODO: SMHE still uses this name. This key is the same as gxf-smartmetering-rsa-public.key. Remove when SMHE uses new namen.
+sudo ln -sf $SOURCEDIR/Config/keys/dlms/dlms_device_keys_public $TARGETDIR/smartmetering/keys/platform/
 
 echo "- create symlinks for kafka message signing keys ..."
 mkdir -p $TARGETDIR/kafka-message-signing/keys
