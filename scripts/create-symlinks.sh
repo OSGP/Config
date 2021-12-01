@@ -33,7 +33,7 @@ echo "- creating $TARGETDIR/test directory for automatic tests configuration ...
 mkdir -p $TARGETDIR/test
 [ ! -f $TARGETDIR/global.properties ] && echo "# Global properties" > $TARGETDIR/global.properties
 [ ! -f $TARGETDIR/test/global-cucumber.properties ] && echo "# Global cucumber properties" > $TARGETDIR/test/global-cucumber.properties 
-[ ! -f $TARGETDIR/test/logback.xml ] && cp -f $OSGPITDIR/cucumber-tests-platform/src/main/resources/logback.xml /etc/osp/test/logback.xml && sed -i 's/org.apache.http.wire\" level=\"ERROR/org.apache.http.wire\" level=\"DEBUG/g; s/cucumber.runtime.java.spring\" level=\"ERROR/cucumber.runtime.java.spring\" level=\"DEBUG/g' /etc/osp/test/logback.xml
+[ ! -f $TARGETDIR/test/logback-config.xml ] && cp -f $OSGPITDIR/cucumber-tests-platform/src/main/resources/logback-config.xml /etc/osp/test/logback-config.xml && sed -i 's/org.apache.http.wire\" level=\"ERROR/org.apache.http.wire\" level=\"DEBUG/g; s/cucumber.runtime.java.spring\" level=\"ERROR/cucumber.runtime.java.spring\" level=\"DEBUG/g' /etc/osp/test/logback-config.xml
 
 echo "- setting security provider to SunPKCS11-NSS ..."
 [ $(/bin/grep -c signing.server.security.provider\=SunPKCS11-NSS $TARGETDIR/global.properties) -eq 0 ] && echo "signing.server.security.provider=SunPKCS11-NSS" >> $TARGETDIR/global.properties
@@ -51,48 +51,48 @@ cp $OSGPITDIR/cucumber-tests-platform-smartmetering/src/test/resources/cucumber-
 
 echo "- copying OSGP configuration files to $TARGETDIR/samples directory and extending them with .sample ..."
 cp -f $OSGPDIR/platform/osgp-adapter-domain-admin/src/main/resources/osgp-adapter-domain-admin.properties $TARGETDIR/samples/osgp-adapter-domain-admin.properties.sample
-cp -f $OSGPDIR/platform/osgp-adapter-domain-admin/src/main/resources/logback.xml $TARGETDIR/samples/osgp-adapter-domain-admin-logback.xml.sample
+cp -f $OSGPDIR/platform/osgp-adapter-domain-admin/src/main/resources/logback-config.xml $TARGETDIR/samples/osgp-adapter-domain-admin-logback.xml.sample
 cp -f $OSGPDIR/platform/osgp-adapter-domain-core/src/main/resources/osgp-adapter-domain-core.properties $TARGETDIR/samples/osgp-adapter-domain-core.properties.sample
-cp -f $OSGPDIR/platform/osgp-adapter-domain-core/src/main/resources/logback.xml $TARGETDIR/samples/osgp-adapter-domain-core-logback.xml.sample
+cp -f $OSGPDIR/platform/osgp-adapter-domain-core/src/main/resources/logback-config.xml $TARGETDIR/samples/osgp-adapter-domain-core-logback.xml.sample
 cp -f $OSGPDIR/platform/osgp-adapter-domain-microgrids/src/main/resources/osgp-adapter-domain-microgrids.properties $TARGETDIR/samples/osgp-adapter-domain-microgrids.properties.sample
-cp -f $OSGPDIR/platform/osgp-adapter-domain-microgrids/src/main/resources/logback.xml $TARGETDIR/samples/osgp-adapter-domain-microgrids-logback.xml.sample
+cp -f $OSGPDIR/platform/osgp-adapter-domain-microgrids/src/main/resources/logback-config.xml $TARGETDIR/samples/osgp-adapter-domain-microgrids-logback.xml.sample
 cp -f $OSGPDIR/platform/osgp-adapter-domain-distributionautomation/src/main/resources/osgp-adapter-domain-distributionautomation.properties $TARGETDIR/samples/osgp-adapter-domain-distributionautomation.properties.sample
-cp -f $OSGPDIR/platform/osgp-adapter-domain-distributionautomation/src/main/resources/logback.xml $TARGETDIR/samples/osgp-adapter-domain-distributionautomation-logback.xml.sample
+cp -f $OSGPDIR/platform/osgp-adapter-domain-distributionautomation/src/main/resources/logback-config.xml $TARGETDIR/samples/osgp-adapter-domain-distributionautomation-logback.xml.sample
 cp -f $OSGPDIR/platform/osgp-adapter-domain-publiclighting/src/main/resources/osgp-adapter-domain-publiclighting.properties $TARGETDIR/samples/osgp-adapter-domain-publiclighting.properties.sample
-cp -f $OSGPDIR/platform/osgp-adapter-domain-publiclighting/src/main/resources/logback.xml $TARGETDIR/samples/osgp-adapter-domain-publiclighting-logback.xml.sample
+cp -f $OSGPDIR/platform/osgp-adapter-domain-publiclighting/src/main/resources/logback-config.xml $TARGETDIR/samples/osgp-adapter-domain-publiclighting-logback.xml.sample
 cp -f $OSGPDIR/platform/osgp-adapter-domain-smartmetering/src/main/resources/osgp-adapter-domain-smartmetering.properties $TARGETDIR/samples/osgp-adapter-domain-smartmetering.properties.sample
-cp -f $OSGPDIR/platform/osgp-adapter-domain-smartmetering/src/main/resources/logback.xml $TARGETDIR/samples/osgp-adapter-domain-smartmetering-logback.xml.sample
+cp -f $OSGPDIR/platform/osgp-adapter-domain-smartmetering/src/main/resources/logback-config.xml $TARGETDIR/samples/osgp-adapter-domain-smartmetering-logback.xml.sample
 cp -f $OSGPDIR/platform/osgp-adapter-domain-tariffswitching/src/main/resources/osgp-adapter-domain-tariffswitching.properties $TARGETDIR/samples/osgp-adapter-domain-tariffswitching.properties.sample
-cp -f $OSGPDIR/platform/osgp-adapter-domain-tariffswitching/src/main/resources/logback.xml $TARGETDIR/samples/osgp-adapter-domain-tariffswitching-logback.xml.sample
+cp -f $OSGPDIR/platform/osgp-adapter-domain-tariffswitching/src/main/resources/logback-config.xml $TARGETDIR/samples/osgp-adapter-domain-tariffswitching-logback.xml.sample
 cp -f $OSGPDIR/protocol-adapter-dlms/osgp-protocol-adapter-dlms/src/main/resources/osgp-adapter-protocol-dlms.properties $TARGETDIR/samples/osgp-adapter-protocol-dlms.properties.sample
-cp -f $OSGPDIR/protocol-adapter-dlms/osgp-protocol-adapter-dlms/src/main/resources/logback.xml $TARGETDIR/samples/osgp-adapter-protocol-dlms-logback.xml.sample
+cp -f $OSGPDIR/protocol-adapter-dlms/osgp-protocol-adapter-dlms/src/main/resources/logback-config.xml $TARGETDIR/samples/osgp-adapter-protocol-dlms-logback.xml.sample
 cp -f $OSGPDIR/protocol-adapter-iec61850/osgp-protocol-adapter-iec61850/src/main/resources/osgp-adapter-protocol-iec61850.properties $TARGETDIR/samples/osgp-adapter-protocol-iec61850.properties.sample
-cp -f $OSGPDIR/protocol-adapter-iec61850/osgp-protocol-adapter-iec61850/src/main/resources/logback.xml $TARGETDIR/samples/osgp-adapter-protocol-iec61850-logback.xml.sample
+cp -f $OSGPDIR/protocol-adapter-iec61850/osgp-protocol-adapter-iec61850/src/main/resources/logback-config.xml $TARGETDIR/samples/osgp-adapter-protocol-iec61850-logback.xml.sample
 cp -f $OSGPDIR/protocol-adapter-oslp/osgp-adapter-protocol-oslp-elster/src/main/resources/osgp-adapter-protocol-oslp-elster.properties $TARGETDIR/samples/osgp-adapter-protocol-oslp-elster.properties.sample
-cp -f $OSGPDIR/protocol-adapter-oslp/osgp-adapter-protocol-oslp-elster/src/main/resources/logback.xml $TARGETDIR/samples/osgp-adapter-protocol-oslp-elster-logback.xml.sample
+cp -f $OSGPDIR/protocol-adapter-oslp/osgp-adapter-protocol-oslp-elster/src/main/resources/logback-config.xml $TARGETDIR/samples/osgp-adapter-protocol-oslp-elster-logback.xml.sample
 cp -f $OSGPDIR/platform/osgp-adapter-ws-admin/src/main/resources/osgp-adapter-ws-admin.properties $TARGETDIR/samples/osgp-adapter-ws-admin.properties.sample
-cp -f $OSGPDIR/platform/osgp-adapter-ws-admin/src/main/resources/logback.xml $TARGETDIR/samples/osgp-adapter-ws-admin-logback.xml.sample
+cp -f $OSGPDIR/platform/osgp-adapter-ws-admin/src/main/resources/logback-config.xml $TARGETDIR/samples/osgp-adapter-ws-admin-logback.xml.sample
 cp -f $OSGPDIR/platform/osgp-adapter-ws-core/src/main/resources/osgp-adapter-ws-core.properties $TARGETDIR/samples/osgp-adapter-ws-core.properties.sample
-cp -f $OSGPDIR/platform/osgp-adapter-ws-core/src/main/resources/logback.xml $TARGETDIR/samples/osgp-adapter-ws-core-logback.xml.sample
+cp -f $OSGPDIR/platform/osgp-adapter-ws-core/src/main/resources/logback-config.xml $TARGETDIR/samples/osgp-adapter-ws-core-logback.xml.sample
 cp -f $OSGPDIR/platform/osgp-adapter-ws-shared-db/src/main/resources/osgp-adapter-ws-shared-db.properties $TARGETDIR/samples/osgp-adapter-ws-shared-db.properties.sample
 cp -f $OSGPDIR/platform/osgp-adapter-ws-microgrids/src/main/resources/osgp-adapter-ws-microgrids.properties $TARGETDIR/samples/osgp-adapter-ws-microgrids.properties.sample
-cp -f $OSGPDIR/platform/osgp-adapter-ws-microgrids/src/main/resources/logback.xml $TARGETDIR/samples/osgp-adapter-ws-microgrids-logback.xml.sample
+cp -f $OSGPDIR/platform/osgp-adapter-ws-microgrids/src/main/resources/logback-config.xml $TARGETDIR/samples/osgp-adapter-ws-microgrids-logback.xml.sample
 cp -f $OSGPDIR/platform/osgp-adapter-ws-distributionautomation/src/main/resources/osgp-adapter-ws-distributionautomation.properties $TARGETDIR/samples/osgp-adapter-ws-distributionautomation.properties.sample
-cp -f $OSGPDIR/platform/osgp-adapter-ws-distributionautomation/src/main/resources/logback.xml $TARGETDIR/samples/osgp-adapter-ws-distributionautomation-logback.xml.sample
+cp -f $OSGPDIR/platform/osgp-adapter-ws-distributionautomation/src/main/resources/logback-config.xml $TARGETDIR/samples/osgp-adapter-ws-distributionautomation-logback.xml.sample
 cp -f $OSGPDIR/platform/osgp-adapter-ws-publiclighting/src/main/resources/osgp-adapter-ws-publiclighting.properties $TARGETDIR/samples/osgp-adapter-ws-publiclighting.properties.sample
-cp -f $OSGPDIR/platform/osgp-adapter-ws-publiclighting/src/main/resources/logback.xml $TARGETDIR/samples/osgp-adapter-ws-publiclighting-logback.xml.sample
+cp -f $OSGPDIR/platform/osgp-adapter-ws-publiclighting/src/main/resources/logback-config.xml $TARGETDIR/samples/osgp-adapter-ws-publiclighting-logback.xml.sample
 cp -f $OSGPDIR/platform/osgp-adapter-ws-smartmetering/src/main/resources/osgp-adapter-ws-smartmetering.properties $TARGETDIR/samples/osgp-adapter-ws-smartmetering.properties.sample
-cp -f $OSGPDIR/platform/osgp-adapter-ws-smartmetering/src/main/resources/logback.xml $TARGETDIR/samples/osgp-adapter-ws-smartmetering-logback.xml.sample
+cp -f $OSGPDIR/platform/osgp-adapter-ws-smartmetering/src/main/resources/logback-config.xml $TARGETDIR/samples/osgp-adapter-ws-smartmetering-logback.xml.sample
 cp -f $OSGPDIR/platform/osgp-adapter-ws-tariffswitching/src/main/resources/osgp-adapter-ws-tariffswitching.properties $TARGETDIR/samples/osgp-adapter-ws-tariffswitching.properties.sample
-cp -f $OSGPDIR/platform/osgp-adapter-ws-tariffswitching/src/main/resources/logback.xml $TARGETDIR/samples/osgp-adapter-ws-tariffswitching-logback.xml.sample
+cp -f $OSGPDIR/platform/osgp-adapter-ws-tariffswitching/src/main/resources/logback-config.xml $TARGETDIR/samples/osgp-adapter-ws-tariffswitching-logback.xml.sample
 cp -f $OSGPDIR/platform/osgp-core/src/main/resources/osgp-core.properties $TARGETDIR/samples/osgp-core.properties.sample
-cp -f $OSGPDIR/platform/osgp-core/src/main/resources/logback.xml $TARGETDIR/samples/osgp-core-logback.xml.sample
+cp -f $OSGPDIR/platform/osgp-core/src/main/resources/logback-config.xml $TARGETDIR/samples/osgp-core-logback.xml.sample
 cp -f $OSGPDIR/platform/osgp-logging/src/main/resources/osgp-logging.properties $TARGETDIR/samples/osgp-logging.properties.sample
-cp -f $OSGPDIR/platform/osgp-logging/src/main/resources/logback.xml $TARGETDIR/samples/osgp-logging-logback.xml.sample
+cp -f $OSGPDIR/platform/osgp-logging/src/main/resources/logback-config.xml $TARGETDIR/samples/osgp-logging-logback.xml.sample
 cp -f $OSGPDIR/protocol-adapter-oslp/signing-server/src/main/resources/signing-server.properties $TARGETDIR/samples/signing-server.properties.sample
-cp -f $OSGPDIR/protocol-adapter-oslp/signing-server/src/main/resources/logback.xml $TARGETDIR/samples/signing-server-logback.xml.sample
+cp -f $OSGPDIR/protocol-adapter-oslp/signing-server/src/main/resources/logback-config.xml $TARGETDIR/samples/signing-server-logback.xml.sample
 cp -f $OSGPDIR/protocol-adapter-oslp/web-device-simulator/src/main/resources/web-device-simulator.properties $TARGETDIR/samples/web-device-simulator.properties.sample
-cp -f $OSGPDIR/protocol-adapter-oslp/web-device-simulator/src/main/resources/logback.xml $TARGETDIR/samples/web-device-simulator-logback.xml.sample
+cp -f $OSGPDIR/protocol-adapter-oslp/web-device-simulator/src/main/resources/logback-config.xml $TARGETDIR/samples/web-device-simulator-logback.xml.sample
 cp -f $OSGPDIR/protocol-adapter-oslp/osgp-core-db-api/src/main/resources/osgp-core-db-api.properties $TARGETDIR/samples/osgp-core-db-api.properties.sample
 cp -f $OSGPDIR/protocol-adapter-iec61850/osgp-core-db-api-iec61850/src/main/resources/osgp-core-db-api-iec61850.properties $TARGETDIR/samples/osgp-core-db-api-iec61850.properties.sample
 cp -f $OSGPDIR/protocol-adapter-dlms/osgp-jasper-interface/src/main/resources/jasper-interface.properties $TARGETDIR/samples/jasper-interface.properties.sample
@@ -143,6 +143,7 @@ sudo ln -sf $SOURCEDIR/Config/keys/dlms/osgp-secret-management-rsa-public.key $T
 sudo ln -sf $SOURCEDIR/Config/keys/dlms/osgp-secret-management-jre.key $TARGETDIR/smartmetering/keys/platform/
 mkdir -p $TARGETDIR/smartmetering/keys/application
 sudo ln -sf $SOURCEDIR/Config/keys/application/smartmetering-rsa-public.key $TARGETDIR/smartmetering/keys/application/smartmetering-rsa-public.key
+mkdir -p $TARGETDIR/test/smartmetering/keys/application
 sudo ln -sf $SOURCEDIR/Config/keys/application/smartmetering-rsa-private.key $TARGETDIR/test/smartmetering/keys/application/smartmetering-rsa-private.key
 
 # TODO: Remove when all components use new names
