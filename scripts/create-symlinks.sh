@@ -148,8 +148,6 @@ sudo ln -sf $SOURCEDIR/Config/keys/application/smartmetering-rsa-private.key $TA
 # TODO: Remove when all components use new names
 sudo ln -sf $SOURCEDIR/Config/keys/dlms/dlms_device_keys_private $TARGETDIR/smartmetering/keys/platform/
 sudo ln -sf $SOURCEDIR/Config/keys/dlms/dlms_device_keys_public $TARGETDIR/smartmetering/keys/platform/
-sudo ln -sf $SOURCEDIR/Config/keys/dlms/osgp-protocol-adapter-rsa-private.key $TARGETDIR/smartmetering/keys/platform/
-sudo ln -sf $SOURCEDIR/Config/keys/dlms/osgp-protocol-adapter-rsa-public.key $TARGETDIR/smartmetering/keys/platform/
 
 echo "- create symlinks for kafka message signing keys ..."
 mkdir -p $TARGETDIR/kafka-message-signing/keys
