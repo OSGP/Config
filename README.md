@@ -15,6 +15,7 @@ This repo contains the following files:
 - settings.xml file for <a href="https://maven.apache.org">Apache Maven</a>
 - puppet scripts and manifests
 - vagrant file to role out your development environment in virtualbox
+- configuration files for ActiveMQ 
 
 ## Grid eXchange Fabric information and news
 
