@@ -30,12 +30,6 @@ CREATE DATABASE osgp_adapter_protocol_dlms
        TABLESPACE = pg_default
        CONNECTION LIMIT = -1;
 
-CREATE DATABASE osgp_adapter_protocol_mqtt
-  WITH OWNER = osp_admin
-       ENCODING = 'UTF-8'
-       TABLESPACE = pg_default
-       CONNECTION LIMIT = -1;
-
 CREATE DATABASE osgp_adapter_ws_smartmetering
   WITH OWNER = osp_admin
        ENCODING = 'UTF-8'
