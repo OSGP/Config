@@ -86,11 +86,11 @@ echo "##############################################################"
 sudo puppet apply $NOOP ./manifests/eclipse.pp
 sudo puppet apply $NOOP ./manifests/configure-eclipse.pp
 
-echo "##############################################################"
-echo "## Installing python/pip and AWS CLI                        ##"
-echo "##############################################################"
-sudo puppet apply $NOOP ./manifests/python.pp
-sudo puppet apply $NOOP ./manifests/aws.pp
+# Disabled echo "##############################################################"
+# Disabled echo "## Installing python/pip and AWS CLI                        ##"
+# Disabled echo "##############################################################"
+# Disabled sudo puppet apply $NOOP ./manifests/python.pp
+# Disabled sudo puppet apply $NOOP ./manifests/aws.pp
 
 echo "##############################################################"
 echo "## Installing soapui                                        ##"
@@ -130,18 +130,18 @@ echo "## Personalize desktop                                      ##"
 echo "##############################################################"
 sudo puppet apply $NOOP ./manifests/personalize-desktop.pp
 
-echo "##############################################################"
-echo "## Installing intellij                                      ##"
-echo "##############################################################"
+# Disabled echo "##############################################################"
+# Disabled echo "## Installing intellij                                      ##"
+# Disabled echo "##############################################################"
 # Disabled sudo puppet apply $NOOP ./manifests/intellij.pp
 
-echo "##############################################################"
-echo "## Installing ansible                                      ##"
-echo "##############################################################"
-sudo puppet apply $NOOP ./manifests/ansible.pp
+# Disabled echo "##############################################################"
+# Disabled echo "## Installing ansible                                       ##"
+# Disabled echo "##############################################################"
+# Disabled sudo puppet apply $NOOP ./manifests/ansible.pp
 
 echo "##############################################################"
-echo "## Installing lombok	                                     ##"
+echo "## Installing lombok	                                  ##"
 echo "##############################################################"
 sudo puppet apply $NOOP ./manifests/lombok.pp
 
