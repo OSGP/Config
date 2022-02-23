@@ -37,15 +37,15 @@ node 'dev-box' {
 		require => File['create eclipse link']
 	}
 
-	exec { 'install checkstyle plugin':
-		command => '/home/dev/Tools/eclipse/eclipse -application org.eclipse.equinox.p2.director -nosplash -repository http://eclipse-cs.sourceforge.net/update -installIUs net.sf.eclipsecs.feature.group',
-		require => File['create eclipse link']
-	}
+#	exec { 'install checkstyle plugin':
+#		command => '/home/dev/Tools/eclipse/eclipse -application org.eclipse.equinox.p2.director -nosplash -repository http://eclipse-cs.sourceforge.net/update -installIUs net.sf.eclipsecs.feature.group',
+#		require => File['create eclipse link']
+#	}
 
-	exec { 'install findbugs plugin':
-		command => '/home/dev/Tools/eclipse/eclipse -application org.eclipse.equinox.p2.director -nosplash -repository http://findbugs.cs.umd.edu/eclipse -installIUs edu.umd.cs.findbugs.plugin.eclipse.feature.group',
-		require => File['create eclipse link']
-	}
+#	exec { 'install findbugs plugin':
+#		command => '/home/dev/Tools/eclipse/eclipse -application org.eclipse.equinox.p2.director -nosplash -repository http://findbugs.cs.umd.edu/eclipse -installIUs edu.umd.cs.findbugs.plugin.eclipse.feature.group',
+#		require => File['create eclipse link']
+#	}
 
 #	exec { 'install sonarlint plugin':
 #		command => '/home/dev/Tools/eclipse/eclipse -application org.eclipse.equinox.p2.director -nosplash -repository http://www.sonarlint.org/eclipse -installIUs org.sonarlint.eclipse.feature.feature.group',
