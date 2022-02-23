@@ -84,7 +84,7 @@ echo "##############################################################"
 echo "## Installing eclipse                                       ##"
 echo "##############################################################"
 sudo puppet apply $NOOP ./manifests/eclipse.pp
-sudo puppet apply $NOOP ./manifests/configure-eclipse.pp
+# Disabled sudo puppet apply $NOOP ./manifests/configure-eclipse.pp
 
 # Disabled echo "##############################################################"
 # Disabled echo "## Installing python/pip and AWS CLI                        ##"
