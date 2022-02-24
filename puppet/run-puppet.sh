@@ -146,7 +146,7 @@ sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/personalize-desktop.pp
 # Disabled sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/ansible.pp
 
 echo "##############################################################"
-echo "## Installing lombok	                                  ##"
+echo "## Installing lombok                                        ##"
 echo "##############################################################"
 sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/lombok.pp
 
