@@ -14,148 +14,153 @@ if [ $1 ] ;
 		NOOP=''
 fi
 
+# Choose the warning level for ruby.
+#
+# -W[level]       set warning level; 0=silence, 1=medium, 2=verbose (default)
+RUBY_WARNING_LEVEL='RUBYOPT=-W0'
+
 echo "##############################################################"
 echo "## Installing puppet modules                                ##"
 echo "##############################################################"
-sudo puppet apply $NOOP ./manifests/modules.pp
+sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/modules.pp
 
 echo "##############################################################"
 echo "## Update system                                            ##"
 echo "##############################################################"
-sudo puppet apply $NOOP ./manifests/vm-corrections.pp
+sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/vm-corrections.pp
 
 echo "##############################################################"
 echo "## Installing JDK                                           ##"
 echo "##############################################################"
-sudo puppet apply $NOOP ./manifests/install-java.pp
+sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/install-java.pp
 
 echo "##############################################################"
 echo "## Adding 'dev' user                                        ##"
 echo "##############################################################"
-sudo puppet apply $NOOP ./manifests/add-dev-user.pp
+sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/add-dev-user.pp
 
 echo "##############################################################"
 echo "## Installing Dev. Env.                                     ##"
 echo "##############################################################"
-sudo puppet apply $NOOP ./manifests/create-download-folder.pp
-sudo puppet apply $NOOP ./manifests/create-tools-folder.pp
-sudo puppet apply $NOOP ./manifests/install-dev-env.pp
+sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/create-download-folder.pp
+sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/create-tools-folder.pp
+sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/install-dev-env.pp
 
 echo "##############################################################"
 echo "## Installing GEDIT                                         ##"
 echo "##############################################################"
-sudo puppet apply $NOOP ./manifests/gedit.pp
+sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/gedit.pp
 
 echo "##############################################################"
 echo "## Installing git                                           ##"
 echo "##############################################################"
-sudo puppet apply $NOOP ./manifests/git.pp
+sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/git.pp
 
 echo "##############################################################"
 echo "## Cloning GitHub repositories                              ##"
 echo "##############################################################"
-sudo puppet apply $NOOP ./manifests/create-source-code-folder.pp
-sudo puppet apply $NOOP ./manifests/clone-repositories.pp
-sudo puppet apply $NOOP ./manifests/repositories-checkout-development-branch.pp
+sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/create-source-code-folder.pp
+sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/clone-repositories.pp
+sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/repositories-checkout-development-branch.pp
 
 echo "##############################################################"
 echo "## Installing apache2                                       ##"
 echo "##############################################################"
-sudo puppet apply $NOOP ./manifests/apache2.pp
+sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/apache2.pp
 
 echo "##############################################################"
 echo "## Installing postgresql                                    ##"
 echo "##############################################################"
-sudo puppet apply $NOOP ./manifests/postgresql.pp
+sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/postgresql.pp
 
 echo "##############################################################"
 echo "## Installing tomcat                                        ##"
 echo "##############################################################"
-sudo puppet apply $NOOP ./manifests/tomcat8.5.pp
-sudo puppet apply $NOOP ./manifests/tomcat9.0.pp
+sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/tomcat8.5.pp
+sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/tomcat9.0.pp
 
 echo "##############################################################"
 echo "## Installing activemq                                      ##"
 echo "##############################################################"
-sudo puppet apply $NOOP ./manifests/activemq.pp
-sudo puppet apply $NOOP ./manifests/activemq-development.pp
+sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/activemq.pp
+sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/activemq-development.pp
 
 echo "##############################################################"
 echo "## Installing eclipse                                       ##"
 echo "##############################################################"
-sudo puppet apply $NOOP ./manifests/eclipse.pp
-sudo puppet apply $NOOP ./manifests/configure-eclipse.pp
+sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/eclipse.pp
+# Disabled sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/configure-eclipse.pp
 
-echo "##############################################################"
-echo "## Installing python/pip and AWS CLI                        ##"
-echo "##############################################################"
-sudo puppet apply $NOOP ./manifests/python.pp
-sudo puppet apply $NOOP ./manifests/aws.pp
+# Disabled echo "##############################################################"
+# Disabled echo "## Installing python/pip and AWS CLI                        ##"
+# Disabled echo "##############################################################"
+# Disabled sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/python.pp
+# Disabled sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/aws.pp
 
 echo "##############################################################"
 echo "## Installing soapui                                        ##"
 echo "##############################################################"
-sudo puppet apply $NOOP ./manifests/soapui.pp
+sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/soapui.pp
 
 echo "##############################################################"
 echo "## Holding packages                                         ##"
 echo "##############################################################"
-sudo puppet apply $NOOP ./manifests/hold-protobuf-packages.pp
+sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/hold-protobuf-packages.pp
 
 echo "##############################################################"
 echo "## Creating config and loggin folders                       ##"
 echo "##############################################################"
-sudo puppet apply $NOOP ./manifests/create-logging-folder.pp
-sudo puppet apply $NOOP ./manifests/create-config-folder.pp
-sudo puppet apply $NOOP ./manifests/create-firmware-folder.pp
+sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/create-logging-folder.pp
+sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/create-config-folder.pp
+sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/create-firmware-folder.pp
 
 echo "##############################################################"
 echo "## Setting JAVA_HOME environment variable                   ##"
 echo "##############################################################"
-sudo puppet apply $NOOP ./manifests/set-java-home-env-var.pp
+sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/set-java-home-env-var.pp
 
 echo "##############################################################"
 echo "## Create symlinks                                          ##"
 echo "##############################################################"
-sudo puppet apply $NOOP ./manifests/create-symlinks.pp
-sudo puppet apply $NOOP ./manifests/configure-osgp.pp
+sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/create-symlinks.pp
+sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/configure-osgp.pp
 
 echo "##############################################################"
 echo "## Init DB                                                  ##"
 echo "##############################################################"
-sudo puppet apply $NOOP ./manifests/init-db.pp
+sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/init-db.pp
 
 echo "##############################################################"
 echo "## Personalize desktop                                      ##"
 echo "##############################################################"
-sudo puppet apply $NOOP ./manifests/personalize-desktop.pp
+sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/personalize-desktop.pp
+
+# Disabled echo "##############################################################"
+# Disabled echo "## Installing intellij                                      ##"
+# Disabled echo "##############################################################"
+# Disabled sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/intellij.pp
+
+# Disabled echo "##############################################################"
+# Disabled echo "## Installing ansible                                       ##"
+# Disabled echo "##############################################################"
+# Disabled sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/ansible.pp
 
 echo "##############################################################"
-echo "## Installing intellij                                      ##"
+echo "## Installing lombok                                        ##"
 echo "##############################################################"
-# Disabled sudo puppet apply $NOOP ./manifests/intellij.pp
-
-echo "##############################################################"
-echo "## Installing ansible                                      ##"
-echo "##############################################################"
-sudo puppet apply $NOOP ./manifests/ansible.pp
-
-echo "##############################################################"
-echo "## Installing lombok	                                     ##"
-echo "##############################################################"
-sudo puppet apply $NOOP ./manifests/lombok.pp
+sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/lombok.pp
 
 echo "##############################################################"
 echo "## Cleanup                                                  ##"
 echo "##############################################################"
-sudo puppet apply $NOOP ./manifests/cleanup.pp
+sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/cleanup.pp
 
-sudo puppet apply $NOOP ./manifests/fix_owner.pp
+sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/fix_owner.pp
 
 echo "##############################################################"
 echo "## Restart VM in order to apply various settings            ##"
 echo "##############################################################"
-sudo puppet apply $NOOP ./manifests/restart-vm.pp
+sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/restart-vm.pp
 
 echo ""
 echo "DONE"
