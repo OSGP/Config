@@ -2,7 +2,7 @@
 
 node 'dev-box' {
 
-	$version='5.4.0'
+	$version='5.7.0'
 
 	# Soap-UI
 	exec { 'wget soap-ui':

@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<con:soapui-project id="18f77e1c-5feb-4d15-a6be-e5b14d815224" activeEnvironment="Default" name="public-lighting-schedule-management" resourceRoot="" soapui-version="5.7.0" xmlns:con="http://eviware.com/soapui/config"><con:settings/><con:interface xsi:type="con:WsdlInterface" id="c2fae6af-b901-46c1-bdcc-39b003881884" wsaVersion="NONE" name="PublicLightingScheduleManagementPortSoap11" type="wsdl" bindingName="{http://www.opensmartgridplatform.org/definitions/publiclighting/schedulemanagement-v1.0}PublicLightingScheduleManagementPortSoap11" soapVersion="1_1" anonymous="optional" definition="file:/home/dev/Sources/OSGP/open-smart-grid-platform/osgp/shared/osgp-ws-publiclighting/src/main/resources/PublicLightingScheduleManagement.wsdl" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><con:settings/><con:definitionCache type="TEXT" rootPart="file:/home/dev/Sources/OSGP/open-smart-grid-platform/osgp/shared/osgp-ws-publiclighting/src/main/resources/PublicLightingScheduleManagement.wsdl"><con:part><con:url>file:/home/dev/Sources/OSGP/open-smart-grid-platform/osgp/shared/osgp-ws-publiclighting/src/main/resources/PublicLightingScheduleManagement.wsdl</con:url><con:content><![CDATA[<!--Platform version:-->
+<wsdl:definitions targetNamespace="http://www.opensmartgridplatform.org/definitions/publiclighting/schedulemanagement-v1.0" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:sman="http://www.opensmartgridplatform.org/schemas/publiclighting/schedulemanagement/2014/10" xmlns:common="http://www.opensmartgridplatform.org/schemas/common/2014/10" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tns="http://www.opensmartgridplatform.org/definitions/publiclighting/schedulemanagement-v1.0">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://www.opensmartgridplatform.org/definitions/publiclighting/schedulemanagement/imports" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+      <xsd:import namespace="http://www.opensmartgridplatform.org/schemas/publiclighting/schedulemanagement/2014/10" schemaLocation="schemas/schedulemanagement-ws-publiclighting.xsd"/>
+    </xsd:schema>
+  </wsdl:types>
+  <!--An additional SOAP header 'MessagePriority' can be set. Values between 0 (low) and 9 (high), the default value is 4 (medium).-->
+  <wsdl:message name="SetScheduleHeader">
+    <wsdl:part element="common:OrganisationIdentification" name="OrganisationIdentification"/>
+    <wsdl:part element="common:UserName" name="UserName"/>
+    <wsdl:part element="common:ApplicationName" name="ApplicationName"/>
+  </wsdl:message>
+  <wsdl:message name="SetScheduleRequest">
+    <wsdl:part element="sman:SetScheduleRequest" name="SetScheduleRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="SetScheduleAsyncResponse">
+    <wsdl:part element="sman:SetScheduleAsyncResponse" name="SetScheduleAsyncResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="SetScheduleAsyncHeader">
+    <wsdl:part element="common:OrganisationIdentification" name="OrganisationIdentification"/>
+    <wsdl:part element="common:UserName" name="UserName"/>
+    <wsdl:part element="common:ApplicationName" name="ApplicationName"/>
+  </wsdl:message>
+  <wsdl:message name="SetScheduleAsyncRequest">
+    <wsdl:part element="sman:SetScheduleAsyncRequest" name="SetScheduleAsyncRequest"></wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="SetScheduleResponse">
+    <wsdl:part element="sman:SetScheduleResponse" name="SetScheduleResponse"></wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="PublicLightingScheduleManagementPort">
+    <wsdl:operation name="SetSchedule">
+      <wsdl:input message="tns:SetScheduleRequest" name="SetScheduleRequest"></wsdl:input>
+      <wsdl:output message="tns:SetScheduleAsyncResponse" name="SetScheduleAsyncResponse"></wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSetScheduleResponse">
+      <wsdl:input message="tns:SetScheduleAsyncRequest" name="SetScheduleAsyncRequest"></wsdl:input>
+      <wsdl:output message="tns:SetScheduleResponse" name="SetScheduleResponse"></wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="PublicLightingScheduleManagementPortSoap11" type="tns:PublicLightingScheduleManagementPort">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="SetSchedule">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="SetScheduleRequest">
+        <soap:header message="tns:SetScheduleHeader" part="OrganisationIdentification" use="literal"/>
+        <soap:header message="tns:SetScheduleHeader" part="UserName" use="literal"/>
+        <soap:header message="tns:SetScheduleHeader" part="ApplicationName" use="literal"/>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="SetScheduleAsyncResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetSetScheduleResponse">
+      <soap:operation soapAction=""/>
+      <wsdl:input name="SetScheduleAsyncRequest">
+        <soap:header message="tns:SetScheduleAsyncHeader" part="OrganisationIdentification" use="literal"/>
+        <soap:header message="tns:SetScheduleAsyncHeader" part="UserName" use="literal"/>
+        <soap:header message="tns:SetScheduleAsyncHeader" part="ApplicationName" use="literal"/>
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="SetScheduleResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="PublicLightingScheduleManagementPortService">
+    <wsdl:port binding="tns:PublicLightingScheduleManagementPortSoap11" name="PublicLightingScheduleManagementPortSoap11">
+      <soap:address location="https://localhost:443/osgp-adapter-ws-publiclighting/publiclighting/scheduleManagementService/"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>]]></con:content><con:type>http://schemas.xmlsoap.org/wsdl/</con:type></con:part><con:part><con:url>file:/home/dev/Sources/OSGP/open-smart-grid-platform/osgp/shared/osgp-ws-publiclighting/src/main/resources/schemas/schedulemanagement-ws-publiclighting.xsd</con:url><con:content><![CDATA[<!--Copyright 2015 Smart Society Services B.V.
+
+    Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.  You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0-->
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.opensmartgridplatform.org/schemas/publiclighting/schedulemanagement/2014/10" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:common="http://www.opensmartgridplatform.org/schemas/common/2014/10" xmlns:tns="http://www.opensmartgridplatform.org/schemas/publiclighting/schedulemanagement/2014/10">
+  <xsd:import namespace="http://www.opensmartgridplatform.org/schemas/common/2014/10" schemaLocation="common-ws-publiclighting.xsd"/>
+  <xsd:element name="SetScheduleRequest">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="DeviceIdentification" type="common:Identification"/>
+        <xsd:element name="AstronomicalSunriseOffset" type="xsd:short" minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="AstronomicalSunsetOffset" type="xsd:short" minOccurs="0" maxOccurs="1"/>
+        <xsd:element name="Schedules" type="tns:Schedule" maxOccurs="50"/>
+        <xsd:element name="scheduled_time" type="xsd:dateTime" minOccurs="0" maxOccurs="1"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="SetScheduleAsyncResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="AsyncResponse" type="common:AsyncResponse" minOccurs="1"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="SetScheduleAsyncRequest">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="AsyncRequest" type="common:AsyncRequest" minOccurs="1"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="SetScheduleResponse">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="Result" type="common:OsgpResultType" minOccurs="1"/>
+        <xsd:element name="Description" type="xsd:string"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:complexType name="Schedule">
+    <xsd:sequence>
+      <xsd:element name="WeekDay" type="tns:WeekDayType"/>
+      <xsd:element minOccurs="0" name="startDay" type="xsd:date"/>
+      <xsd:element minOccurs="0" name="endDay" type="xsd:date"/>
+      <xsd:element name="ActionTime" type="tns:ActionTimeType"/>
+      <xsd:element minOccurs="0" name="Time" type="xsd:string"/>
+      <xsd:element minOccurs="0" name="TriggerWindow" type="tns:WindowType"/>
+      <xsd:element maxOccurs="6" name="LightValue" type="tns:LightValue"/>
+      <xsd:element minOccurs="0" name="TriggerType" type="tns:TriggerType"/>
+      <xsd:element minOccurs="0" name="Index" type="xsd:int"/>
+      <xsd:element minOccurs="0" name="IsEnabled" type="xsd:boolean"/>
+      <xsd:element minOccurs="0" name="minimumLightsOn" type="xsd:int"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="WeekDayType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="MONDAY"/>
+      <xsd:enumeration value="TUESDAY"/>
+      <xsd:enumeration value="WEDNESDAY"/>
+      <xsd:enumeration value="THURSDAY"/>
+      <xsd:enumeration value="FRIDAY"/>
+      <xsd:enumeration value="SATURDAY"/>
+      <xsd:enumeration value="SUNDAY"/>
+      <xsd:enumeration value="WEEKDAY"/>
+      <xsd:enumeration value="WEEKEND"/>
+      <xsd:enumeration value="ABSOLUTEDAY"/>
+      <xsd:enumeration value="ALL"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="ActionTimeType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="ABSOLUTETIME"/>
+      <xsd:enumeration value="SUNRISE"/>
+      <xsd:enumeration value="SUNSET"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="WindowType">
+    <xsd:sequence>
+      <xsd:element name="minutesBefore" type="xsd:long"/>
+      <xsd:element name="minutesAfter" type="xsd:long"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="LightValue">
+    <xsd:sequence>
+      <xsd:element minOccurs="0" name="Index">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:int">
+            <xsd:minInclusive value="0"/>
+            <xsd:maxInclusive value="6"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+      <xsd:element name="On" type="xsd:boolean"/>
+      <xsd:element minOccurs="0" name="DimValue">
+        <xsd:simpleType>
+          <xsd:restriction base="xsd:int">
+            <xsd:minInclusive value="1"/>
+            <xsd:maxInclusive value="100"/>
+          </xsd:restriction>
+        </xsd:simpleType>
+      </xsd:element>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="TriggerType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="LIGHT_TRIGGER"/>
+      <xsd:enumeration value="ASTRONOMICAL"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part><con:part><con:url>file:/home/dev/Sources/OSGP/open-smart-grid-platform/osgp/shared/osgp-ws-publiclighting/src/main/resources/schemas/common-ws-publiclighting.xsd</con:url><con:content><![CDATA[<!--Copyright 2015 Smart Society Services B.V.
+
+    Licensed under the Apache License, Version 2.0 (the "License"); you may not use this file except in compliance with the License.  You may obtain a copy of the License at
+
+        http://www.apache.org/licenses/LICENSE-2.0-->
+<xsd:schema attributeFormDefault="unqualified" elementFormDefault="qualified" targetNamespace="http://www.opensmartgridplatform.org/schemas/common/2014/10" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://www.opensmartgridplatform.org/schemas/common/2014/10">
+  <xsd:element name="OrganisationIdentification" type="tns:Identification"/>
+  <xsd:element name="UserName" type="tns:Identification"/>
+  <xsd:element name="ApplicationName" type="tns:Identification"/>
+  <xsd:element name="MessagePriority" type="tns:MessagePriority"/>
+  <xsd:simpleType name="Identification">
+    <xsd:restriction base="xsd:normalizedString">
+      <xsd:minLength value="1"/>
+      <xsd:maxLength value="40"/>
+      <xsd:pattern value="[^ ]{0,40}"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:simpleType name="MessagePriority">
+    <xsd:restriction base="xsd:int">
+      <xsd:minInclusive value="0"/>
+      <xsd:maxInclusive value="9"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="Page">
+    <xsd:sequence>
+      <xsd:element name="TotalPages" type="xsd:int" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="PageSize" type="xsd:int" minOccurs="1" maxOccurs="1"/>
+      <xsd:element name="CurrentPage" type="xsd:int" minOccurs="1" maxOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="CorrelationUid">
+    <xsd:restriction base="xsd:normalizedString">
+      <xsd:minLength value="20"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:complexType name="AsyncRequest">
+    <xsd:sequence>
+      <xsd:element name="CorrelationUid" type="tns:CorrelationUid" minOccurs="1"/>
+      <xsd:element name="DeviceId" type="tns:Identification" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:complexType name="AsyncResponse">
+    <xsd:sequence>
+      <xsd:element name="CorrelationUid" type="tns:CorrelationUid" minOccurs="1"/>
+      <xsd:element name="DeviceId" type="tns:Identification" minOccurs="1"/>
+    </xsd:sequence>
+  </xsd:complexType>
+  <xsd:simpleType name="OsgpResultType">
+    <xsd:restriction base="xsd:string">
+      <xsd:enumeration value="OK"/>
+      <xsd:enumeration value="NOT FOUND"/>
+      <xsd:enumeration value="NOT OK"/>
+    </xsd:restriction>
+  </xsd:simpleType>
+  <xsd:element name="FunctionalFault">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="Code" type="xsd:int" minOccurs="1" maxOccurs="1"/>
+        <xsd:element name="Message" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+        <xsd:element name="Component" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+        <xsd:element name="InnerException" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+        <xsd:element name="InnerMessage" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+  <xsd:element name="TechnicalFault">
+    <xsd:complexType>
+      <xsd:sequence>
+        <xsd:element name="Message" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+        <xsd:element name="Component" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+        <xsd:element name="InnerException" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+        <xsd:element name="InnerMessage" type="xsd:string" minOccurs="1" maxOccurs="1"/>
+      </xsd:sequence>
+    </xsd:complexType>
+  </xsd:element>
+</xsd:schema>]]></con:content><con:type>http://www.w3.org/2001/XMLSchema</con:type></con:part></con:definitionCache><con:endpoints><con:endpoint>https://localhost:443/osgp-adapter-ws-publiclighting/publiclighting/scheduleManagementService/</con:endpoint></con:endpoints><con:operation id="37e63b35-2a19-4d0a-bb59-b418ee79c64b" isOneWay="false" action="" name="GetSetScheduleResponse" bindingOperationName="GetSetScheduleResponse" type="Request-Response" outputName="SetScheduleResponse" inputName="SetScheduleAsyncRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="06342190-62c8-48b7-88b8-ea5b7bdc6bac" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://localhost:443/osgp-adapter-ws-publiclighting/publiclighting/scheduleManagementService/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.opensmartgridplatform.org/schemas/common/2014/10" xmlns:ns1="http://www.opensmartgridplatform.org/schemas/publiclighting/schedulemanagement/2014/10">
+   <soapenv:Header>
+      <ns:ApplicationName>per auras</ns:ApplicationName>
+      <ns:UserName>verrantque per auras</ns:UserName>
+      <ns:OrganisationIdentification>quae divum incedo</ns:OrganisationIdentification>
+   </soapenv:Header>
+   <soapenv:Body>
+      <ns1:SetScheduleAsyncRequest>
+         <ns1:AsyncRequest>
+            <!--type: CorrelationUid-->
+            <ns:CorrelationUid>gero etgero etgero etgero et</ns:CorrelationUid>
+            <!--type: Identification-->
+            <ns:DeviceId>sonoras imperio</ns:DeviceId>
+         </ns1:AsyncRequest>
+      </ns1:SetScheduleAsyncRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.opensmartgridplatform.org/definitions/publiclighting/schedulemanagement-v1.0/PublicLightingScheduleManagementPort/SetScheduleAsyncRequest"/></con:call></con:operation><con:operation id="652ec766-8ab9-4022-830a-a7f5f945b3eb" isOneWay="false" action="" name="SetSchedule" bindingOperationName="SetSchedule" type="Request-Response" outputName="SetScheduleAsyncResponse" inputName="SetScheduleRequest" receivesAttachments="false" sendsAttachments="false" anonymous="optional"><con:settings/><con:call id="acda3930-8994-463e-8e7c-a17e78c23641" name="Request 1"><con:settings/><con:encoding>UTF-8</con:encoding><con:endpoint>https://localhost:443/osgp-adapter-ws-publiclighting/publiclighting/scheduleManagementService/</con:endpoint><con:request><![CDATA[<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:ns="http://www.opensmartgridplatform.org/schemas/common/2014/10" xmlns:ns1="http://www.opensmartgridplatform.org/schemas/publiclighting/schedulemanagement/2014/10">
+   <soapenv:Header>
+      <ns:ApplicationName>speluncis abdidit</ns:ApplicationName>
+      <ns:UserName>iovis rapidum iaculata</ns:UserName>
+      <ns:OrganisationIdentification>et carcere</ns:OrganisationIdentification>
+   </soapenv:Header>
+   <soapenv:Body>
+      <ns1:SetScheduleRequest>
+         <!--type: Identification-->
+         <ns1:DeviceIdentification>gero et</ns1:DeviceIdentification>
+         <!--Optional:-->
+         <!--type: short-->
+         <ns1:AstronomicalSunriseOffset>1</ns1:AstronomicalSunriseOffset>
+         <!--Optional:-->
+         <!--type: short-->
+         <ns1:AstronomicalSunsetOffset>1</ns1:AstronomicalSunsetOffset>
+         <!--1 to 50 repetitions:-->
+         <ns1:Schedules>
+            <!--type: WeekDayType - enumeration: [MONDAY,TUESDAY,WEDNESDAY,THURSDAY,FRIDAY,SATURDAY,SUNDAY,WEEKDAY,WEEKEND,ABSOLUTEDAY,ALL]-->
+            <ns1:WeekDay>WEEKEND</ns1:WeekDay>
+            <!--Optional:-->
+            <!--type: date-->
+            <ns1:startDay>2014-09-18</ns1:startDay>
+            <!--Optional:-->
+            <!--type: date-->
+            <ns1:endDay>2006-08-19+00:00</ns1:endDay>
+            <!--type: ActionTimeType - enumeration: [ABSOLUTETIME,SUNRISE,SUNSET]-->
+            <ns1:ActionTime>SUNRISE</ns1:ActionTime>
+            <!--Optional:-->
+            <!--type: string-->
+            <ns1:Time>circum claustra</ns1:Time>
+            <!--Optional:-->
+            <ns1:TriggerWindow>
+               <!--type: long-->
+               <ns1:minutesBefore>10</ns1:minutesBefore>
+               <!--type: long-->
+               <ns1:minutesAfter>10</ns1:minutesAfter>
+            </ns1:TriggerWindow>
+            <!--1 to 6 repetitions:-->
+            <ns1:LightValue>
+               <!--Optional:-->
+               <!--anonymous type-->
+               <ns1:Index>3</ns1:Index>
+               <!--type: boolean-->
+               <ns1:On>false</ns1:On>
+               <!--Optional:-->
+               <!--anonymous type-->
+               <ns1:DimValue>3</ns1:DimValue>
+            </ns1:LightValue>
+            <!--Optional:-->
+            <!--type: TriggerType - enumeration: [LIGHT_TRIGGER,ASTRONOMICAL]-->
+            <ns1:TriggerType>LIGHT_TRIGGER</ns1:TriggerType>
+            <!--Optional:-->
+            <!--type: int-->
+            <ns1:Index>3</ns1:Index>
+            <!--Optional:-->
+            <!--type: boolean-->
+            <ns1:IsEnabled>false</ns1:IsEnabled>
+            <!--Optional:-->
+            <!--type: int-->
+            <ns1:minimumLightsOn>3</ns1:minimumLightsOn>
+         </ns1:Schedules>
+         <!--Optional:-->
+         <!--type: dateTime-->
+         <ns1:scheduled_time>2012-09-13T13:00:34+00:00</ns1:scheduled_time>
+      </ns1:SetScheduleRequest>
+   </soapenv:Body>
+</soapenv:Envelope>]]></con:request><con:credentials><con:authType>No Authorization</con:authType></con:credentials><con:jmsConfig JMSDeliveryMode="PERSISTENT"/><con:jmsPropertyConfig/><con:wsaConfig mustUnderstand="NONE" version="200508" action="http://www.opensmartgridplatform.org/definitions/publiclighting/schedulemanagement-v1.0/PublicLightingScheduleManagementPort/SetScheduleRequest"/><con:wsrmConfig version="1.2"/></con:call></con:operation></con:interface><con:properties/><con:wssContainer/><con:oAuth2ProfileContainer/><con:oAuth1ProfileContainer/></con:soapui-project>
