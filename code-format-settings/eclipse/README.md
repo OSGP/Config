@@ -41,24 +41,6 @@ The configuration files and instructions are based on [eclipse-java-google-style
 
 ## Google Java Format Eclipse Plugin
 
-When looking for an Eclipse Plugin on the [Google Java Format GitHub pages](https://github.com/google/google-java-format) you can find a reference to an Eclipse Plugin that belongs with the google-java-format 1.6 release.
-In the google-java-format 1.7 release some improvements have been made to the formatting that are not backwards compatible with the earlier version.
-While the IntelliJ plugin has been updated to work with google-java-format 1.7 for the Eclipse Plugin no such release has been made available as downloadable jar.
-
-With the help of [one of the comments](https://github.com/google/google-java-format/issues/331#issuecomment-455685768) from [Google Java Format Issue 331](https://github.com/google/google-java-format/issues/331) it should almost be possible to build the jar for yourself quite easily.
-The original instructions mention that the maven build fails, and that you should follow instructions to build the plugin by exporting from an Eclipse SDK build.
-With the following recipe you should be able to create the plugin by executing the maven build (without build failure or necessary additional steps from Eclipse).
-
-1. Clone the google-java-format git repository and set up a branch for changes from tag `google-java-format-1.7` to create the plugin:
-   ```
-   git clone https://github.com/google/google-java-format.git
-   cd google-java-format
-   git checkout -b eclipse-google-java-format-1.7 google-java-format-1.7
-   ```
-2. Apply changes from [a patch file](./google-java-format-1.7-eclipse-plugin.patch) so that maven will be able to create the Eclipse Plugin
-   (copy the patch file into the root of the cloned repository or modify the path in the shell command):
-   `git apply google-java-format-1.7-eclipse-plugin.patch`
-3. Execute maven build from the root of the cloned google-java-format repository:
-   `mvn install`
-4. Copy the freshly built plugin (`eclipse_plugin/target/google-java-format-eclipse-plugin-1.7.0.jar`) to the `dropins` folder of your Eclipse installation.
+1. Download this jar file for Eclipse 2022-09-R running on Java 17: [google-java-format-eclipse-plugin-1.13.0.jar](https://github.com/google/google-java-format/releases/download/v1.15.0/google-java-format-eclipse-plugin-1.13.0.jar)
+2. Copy plugin jar file to the `dropins` folder of your Eclipse installation.
 
