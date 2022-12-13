@@ -62,7 +62,7 @@ node 'dev-box' {
 		require => File['create eclipse link']
 	}
 
-        exec { 'install Ansi Console plugin':
+	exec { 'install Ansi Console plugin':
 		command => '/home/dev/Tools/eclipse/eclipse -application org.eclipse.equinox.p2.director -nosplash -repository http://www.mihai-nita.net/eclipse -installIUs net.mihai-nita.ansicon.feature.group',
 		require => File['create eclipse link']
 	}
