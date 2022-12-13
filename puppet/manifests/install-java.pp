@@ -8,7 +8,8 @@ node 'dev-box' {
 	#}
 
 	exec { 'java17':
-		command => '/usr/bin/apt-get install -y openjdk-17-jdk openjdk-17-jre'
+		command => '/usr/bin/apt-get install -y openjdk-17-jdk openjdk-17-jre',
+		timeout => 1800
 	}
 
 	# Enable the SunPKCS11 security provider.
@@ -23,9 +24,9 @@ node 'dev-box' {
 	#	onlyif => '/usr/bin/test -f /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/security/nss.cfg',
 	#	require => Exec['Add NSS library to java.security'],
 	#}
-        file_line { 'NSS library dir':
-               path => '/etc/java-17-openjdk/security/nss.cfg',
-               line => 'nssLibraryDirectory = /usr/lib/x86_64-linux-gnu'
-        }
+	file_line { 'NSS library dir':
+		path => '/etc/java-17-openjdk/security/nss.cfg',
+		line => 'nssLibraryDirectory = /usr/lib/x86_64-linux-gnu'
+	}
 
 }

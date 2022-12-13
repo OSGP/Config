@@ -2,8 +2,8 @@
 
 node 'dev-box' {
 
-        $major="2020-03"
-        $version="R"
+	$major="2022-09"
+	$version="R"
 
 	# Eclipse EE for Webdevelopers.
 	exec { 'wget eclipse':
@@ -19,7 +19,7 @@ node 'dev-box' {
 		require => Exec['wget eclipse'],
 	}
 
-        exec { 'move inner eclipse dir':
+	exec { 'move inner eclipse dir':
 		command => "/bin/mv /home/dev/Tools/eclipse-${major}-${version}/eclipse /home/dev/Tools/eclipse-${major}-${version}/eclipse_old && /bin/mv /home/dev/Tools/eclipse-${major}-${version}/eclipse_old/* /home/dev/Tools/eclipse-${major}-${version}/ && /bin/rm -rf /home/dev/Tools/eclipse-${major}-${version}/eclipse_old",
 		onlyif => "/usr/bin/test -d /home/dev/Tools/eclipse-${major}-${version}/eclipse",
 		require => Exec['unpack eclipse']
