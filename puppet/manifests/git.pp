@@ -1,4 +1,4 @@
-node 'dev-box' {
+node default {
 
 	exec { 'Add git repository':
 		command => '/usr/bin/apt-add-repository ppa:git-core/ppa'

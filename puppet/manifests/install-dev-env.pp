@@ -1,6 +1,6 @@
 #node default { }
 
-node 'dev-box' {
+node default {
 
 	$mavenVersion="3.8.6"
 

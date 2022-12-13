@@ -1,6 +1,6 @@
 include apt
 
-node 'dev-box' {
+node default {
 
 	# Add repo for docker
 	apt::source { 'docker':

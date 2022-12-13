@@ -1,6 +1,6 @@
 #node default { }
 
-node 'dev-box' {
+node default {
 
 	$homedir = '/home/dev'
 	$version = '9.0.30'
@@ -8,7 +8,7 @@ node 'dev-box' {
 	# Tomcat9 is used as application server.
 	exec { 'wget tomcat 9.0':
 		command => "/usr/bin/wget -q -P ${homedir}/Downloads/osgp - http://archive.apache.org/dist/tomcat/tomcat-9/v$version/bin/apache-tomcat-$version.tar.gz",
-		before => Exec['wget postgresql jdbc','unpack tomcat','change permissions of tomcat conf files'],	
+		before => Exec['wget postgresql jdbc','unpack tomcat','change permissions of tomcat conf files'],
 		returns => [0, 4],
 	}
 

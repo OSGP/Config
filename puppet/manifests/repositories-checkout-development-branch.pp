@@ -1,6 +1,6 @@
 #node default { }
 
-node 'dev-box' {
+node default {
 
 	exec { 'Config repo':
 		command => '/bin/sh -c "cd /home/dev/Sources/OSGP/Config; /usr/bin/git checkout development"',

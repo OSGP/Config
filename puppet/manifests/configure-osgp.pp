@@ -1,6 +1,6 @@
 #node default { }
 
-node 'dev-box' {
+node default {
 
 	# Make sure to set the SunPKCS11 security provider for web-device-simulator.
 	exec { 'Create web-device-simulator.properties file':

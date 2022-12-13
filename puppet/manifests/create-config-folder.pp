@@ -1,6 +1,6 @@
 #node default { }
 
-node 'dev-box' {
+node default {
 
 	file { '/etc/osp':
     ensure => 'directory',

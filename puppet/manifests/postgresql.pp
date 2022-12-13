@@ -1,6 +1,6 @@
 #node default { }
 
-node 'dev-box' {
+node default {
 
 	# PostgreSQL.
 	package { 'postgresql':

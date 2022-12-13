@@ -1,10 +1,10 @@
 #node default { }
 
-node 'dev-box' {
+node default {
 
 	exec { 'creating firmware folder':
 		command => '/bin/mkdir -p /var/www/html/firmware',
-		before => Exec['chown firmware folder','chmod firmware folder'],	
+		before => Exec['chown firmware folder','chmod firmware folder'],
 	}
 
 	exec { 'chown firmware folder':

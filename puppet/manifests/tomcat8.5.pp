@@ -1,6 +1,6 @@
 #node default { }
 
-node 'dev-box' {
+node default {
 
 	$homedir = '/home/dev'
 	$version = '8.5.50'

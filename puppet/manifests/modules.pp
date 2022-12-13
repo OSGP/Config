@@ -1,5 +1,5 @@
 #class base::modules {
-node 'dev-box' {
+node default {
 
 #sudo puppet module install rcoleman/puppet_module
 #	module { 'puppetlabs-git':
@@ -29,7 +29,7 @@ node 'dev-box' {
 		unless  => "puppet module list | grep puppetlabs-apt",
 		path    => ['/bin', '/usr/bin']
 	}
-        
+
 	exec { 'Installing module python':
 		command => "puppet module install stankevich-python",
 		unless  => "puppet module list | grep stankevich-python",

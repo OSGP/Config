@@ -1,10 +1,10 @@
 #node default { }
 
-node 'dev-box' {
+node default {
 
 	exec { 'creating logs folder':
 		command => '/bin/mkdir -p /var/log/osp/logs',
-		before => Exec['chown logs folder','chmod logs folder'],	
+		before => Exec['chown logs folder','chmod logs folder'],
 	}
 
 	exec { 'chown logs folder':

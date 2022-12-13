@@ -1,6 +1,6 @@
 #node default { }
 
-node 'dev-box' {
+node default {
 
 	exec { 'hold libprotobuf7':
 		command => '/bin/echo libprotobuf7 hold | sudo /usr/bin/dpkg --set-selections',

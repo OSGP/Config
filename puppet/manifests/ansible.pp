@@ -1,4 +1,4 @@
-node 'dev-box' {
+node default {
 
 	exec { 'Update APT':
 		command => '/usr/bin/apt-get update'

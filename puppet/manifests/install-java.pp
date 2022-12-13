@@ -1,6 +1,6 @@
 #node default { }
 
-node 'dev-box' {
+node default {
 
 	# Will install the default JDK. On 20.04 this will install java-11-openjdk.
 	#package { 'default-jdk':

@@ -1,4 +1,4 @@
-node 'dev-box' {
+node default {
 
 	$version = "5.15.7"
 

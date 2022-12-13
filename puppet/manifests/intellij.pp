@@ -1,6 +1,6 @@
 #node default { }
 
-node 'dev-box' {
+node default {
 
         $homedir="/home/dev"
         $version="2017.2.4"
@@ -9,14 +9,14 @@ node 'dev-box' {
 	exec { 'Download IntellIJ':
 		command => "/usr/bin/wget -q -O ${homedir}/Downloads/ideaIC-${version}.tar.gz https://download.jetbrains.com/idea/ideaIC-${version}.tar.gz",
 		creates => "${homedir}/Downloads/ideaIC-${version}.tar.gz",
-		timeout => 1800,		
+		timeout => 1800,
 		returns => [0, 4],
 	}
 
 	exec { 'Extract IntellIJ':
 		command => "/bin/mkdir -p ${homedir}/Tools/ideaIC-${version} && /bin/tar xzf ${homedir}/Downloads/ideaIC-${version}.tar.gz -C ${homedir}/Tools/ideaIC-${version}",
 		onlyif => "/usr/bin/test ! -d ${homedir}/Tools/ideaIC-${version}",
-		require => Exec['Download IntellIJ'], 
+		require => Exec['Download IntellIJ'],
 	}
 
         exec { 'Move inner idea-IC dir':

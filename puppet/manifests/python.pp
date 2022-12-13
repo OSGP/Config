@@ -1,7 +1,7 @@
-node 'dev-box' {
+node default {
 
 	package { 'python':
 		ensure => installed
 	}
-	
+
 }

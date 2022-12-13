@@ -1,6 +1,6 @@
-node 'dev-box' {
+node default {
 
-	exec { 'Restart': 
+	exec { 'Restart':
 		command => '/sbin/shutdown -r +1'
 	}
 }

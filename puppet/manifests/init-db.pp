@@ -1,13 +1,13 @@
 #node default { }
 
-node 'dev-box' {
+node default {
 
 	# Creates the uses and databases.
 	exec { 'create users and databases':
 		command => '/bin/sh -c "sudo -u postgres /usr/bin/psql -p 5432 -f /home/dev/Sources/OSGP/Config/sql/create-users-and-databases.sql"',
 		before => Exec['backup pg_hba.conf','change pg_hba.conf','reload config'],
 	}
-	
+
 	# Creates a backup of the pg_hba.conf file.
 	exec { 'backup pg_hba.conf':
 		command => '/bin/cp -p /etc/postgresql/latest/main/pg_hba.conf /etc/postgresql/latest/main/pg_hba.backup',

@@ -1,6 +1,6 @@
 #node default { }
 
-node 'dev-box' {
+node default {
 
 	exec { 'creating osgp download folder':
 		command => '/bin/mkdir -p /home/dev/Downloads/osgp',
