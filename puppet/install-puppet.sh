@@ -4,16 +4,18 @@
 # The script will prompt for root password (for the first sudo command) and will prompt if you want to continue with installation of packages (for the apt-get install command).
 
 echo "downloading puppet.deb file to ~/Downloads folder";
-wget -q -P ~/Downloads - https://apt.puppetlabs.com/puppet-release-jammy.deb
+wget -q -P ~/Downloads - http://archive.ubuntu.com/ubuntu/pool/universe/p/puppet/puppet_5.5.22-4_all.deb
 
 echo "preparing puppet.deb file";
-sudo dpkg -i ~/Downloads/puppet-release-jammy.deb
+sudo dpkg -i ~/Downloads/puppet_5.5.22-4_all.deb
 
-echo "running apt-get update";
-sudo DEBIAN_FRONTEND=noninteractive apt-get -o DPkg::Options::=--force-confdef update
+sudo apt-get install hiera
 
-echo "installing puppet";
-sudo DEBIAN_FRONTEND=noninteractive apt-get -o DPkg::Options::=--force-confdef install -y puppet puppet-common
+#echo "running apt-get update";
+#sudo DEBIAN_FRONTEND=noninteractive apt-get -o DPkg::Options::=--force-confdef update
+
+#echo "installing puppet";
+#sudo DEBIAN_FRONTEND=noninteractive apt-get -o DPkg::Options::=--force-confdef install -y puppet puppet-common
 
 echo "running puppet --version";
 echo $(puppet --version)
