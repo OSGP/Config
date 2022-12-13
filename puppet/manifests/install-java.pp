@@ -15,7 +15,7 @@ node 'dev-box' {
 	exec { 'Add NSS library to java.security':
 		command => '/bin/sed -i "s/security.provider.12=SunPKCS11/security.provider.12=SunPKCS11 \/usr\/lib\/jvm\/java-17-openjdk-amd64\/conf\/security\/nss.cfg/g" /usr/lib/jvm/java-17-openjdk-amd64/conf/security/java.security',
 		onlyif => '/usr/bin/test $(/bin/grep -c security.provider.12 /usr/lib/jvm/java-17-openjdk-amd64/conf/security/java.security) -eq 1',
-		require => Package['java17']
+		require => Exec['java17']
 	}
 
 	#exec { 'Fix NSS library dir':
