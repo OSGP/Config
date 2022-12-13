@@ -3,7 +3,9 @@
 # Run this script as your user, not as root!
 # The script will prompt for root password (for the first sudo command) and will prompt if you want to continue with installation of packages (for the apt-get install command).
 
-sudo apt-get install facter ruby-augeas hiera ruby ruby-deep-merge ruby-shadow ruby-sorted-set
+sudo apt-get update
+sudo apt-get install facter ruby-augeas hiera ruby ruby-deep-merge ruby-shadow ruby-sorted-set -y
+sudo apt-get --fix-broken install -y
 
 echo "downloading puppet.deb file to ~/Downloads folder";
 wget -q -P ~/Downloads - http://archive.ubuntu.com/ubuntu/pool/universe/p/puppet/puppet_5.5.22-4_all.deb
