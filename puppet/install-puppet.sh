@@ -4,10 +4,10 @@
 # The script will prompt for root password (for the first sudo command) and will prompt if you want to continue with installation of packages (for the apt-get install command).
 
 echo "downloading puppet.deb file to ~/Downloads folder";
-wget -q -P ~/Downloads - https://apt.puppetlabs.com/puppet-release-xenial.deb
+wget -q -P ~/Downloads - https://apt.puppetlabs.com/puppet-release-jammy.deb
 
 echo "preparing puppet.deb file";
-sudo dpkg -i ~/Downloads/puppet-release-xenial.deb
+sudo dpkg -i ~/Downloads/puppet-release-jammy.deb
 
 echo "running apt-get update";
 sudo DEBIAN_FRONTEND=noninteractive apt-get -o DPkg::Options::=--force-confdef update
