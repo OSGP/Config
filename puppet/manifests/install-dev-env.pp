@@ -24,7 +24,7 @@ node 'dev-box' {
 	#	ensure => installed,
 	#}
 	exec { 'maven':
-		command => "/usr/bin/wget -q -P /home/dev/Tools https://dlcdn.apache.org/maven/maven-3/${mavenVersion}/binaries/apache-maven-${mavenVersion}-bin.tar.gz && /bin/tar xzf /home/dev/Tools/apache-maven-${mavenVersion}-bin.tar.gz && /bin/ln -s /home/dev/Tools/apache-maven-${mavenVersion}/bin/mvn /usr/bin/mvn",
+		command => "/usr/bin/wget -q -P /home/dev/Tools https://dlcdn.apache.org/maven/maven-3/${mavenVersion}/binaries/apache-maven-${mavenVersion}-bin.tar.gz && /bin/mkdir -p /home/dev/Tools/apache-maven-${mavenVersion} && /bin/tar xzf /home/dev/Tools/apache-maven-${mavenVersion}-bin.tar.gz -C /home/dev/Tools/apache-maven-${mavenVersion} && /bin/ln -s /home/dev/Tools/apache-maven-${mavenVersion}/bin/mvn /usr/bin/mvn",
 		returns => [0, 4],
 	}
 
