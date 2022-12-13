@@ -7,7 +7,7 @@ node 'dev-box' {
 
 	# Eclipse EE for Webdevelopers.
 	exec { 'wget eclipse':
-		command => "/usr/bin/wget -q -O /home/dev/Downloads/osgp/eclipse-${major}-${version}.tar.gz - \"http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/$major/$version/eclipse-jee-$major-$version-incubation-linux-gtk-x86_64.tar.gz&r=1\"",
+		command => "/usr/bin/wget -q -O /home/dev/Downloads/osgp/eclipse-${major}-${version}.tar.gz - \"http://www.eclipse.org/downloads/download.php?file=/technology/epp/downloads/release/$major/$version/eclipse-jee-$major-$version-linux-gtk-x86_64.tar.gz&r=1\"",
 		creates => "/home/dev/Downloads/osgp/eclipse-${major}-${version}.tar.gz",
 		timeout => 1800,
 		returns => [0, 4],
