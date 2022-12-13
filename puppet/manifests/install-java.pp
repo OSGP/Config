@@ -3,15 +3,19 @@
 node 'dev-box' {
 
 	# Will install the default JDK. On 20.04 this will install java-11-openjdk.
-	package { 'default-jdk':
-		ensure => installed,
+	#package { 'default-jdk':
+	#	ensure => installed,
+	#}
+
+	exec { 'java17':
+		command => '/usr/bin/apt-get install -y openjdk-17-jdk openjdk-17-jre'
 	}
 
 	# Enable the SunPKCS11 security provider.
 	exec { 'Add NSS library to java.security':
-		command => '/bin/sed -i "s/security.provider.12=SunPKCS11/security.provider.12=SunPKCS11 \/usr\/lib\/jvm\/java-11-openjdk-amd64\/conf\/security\/nss.cfg/g" /usr/lib/jvm/java-11-openjdk-amd64/conf/security/java.security',
-		onlyif => '/usr/bin/test $(/bin/grep -c security.provider.12 /usr/lib/jvm/java-11-openjdk-amd64/conf/security/java.security) -eq 1',
-		require => Package['default-jdk']
+		command => '/bin/sed -i "s/security.provider.12=SunPKCS11/security.provider.12=SunPKCS11 \/usr\/lib\/jvm\/java-17-openjdk-amd64\/conf\/security\/nss.cfg/g" /usr/lib/jvm/java-17-openjdk-amd64/conf/security/java.security',
+		onlyif => '/usr/bin/test $(/bin/grep -c security.provider.12 /usr/lib/jvm/java-17-openjdk-amd64/conf/security/java.security) -eq 1',
+		require => Package['java17']
 	}
 
 	#exec { 'Fix NSS library dir':
@@ -20,7 +24,7 @@ node 'dev-box' {
 	#	require => Exec['Add NSS library to java.security'],
 	#}
         file_line { 'NSS library dir':
-               path => '/etc/java-11-openjdk/security/nss.cfg',
+               path => '/etc/java-17-openjdk/security/nss.cfg',
                line => 'nssLibraryDirectory = /usr/lib/x86_64-linux-gnu'
         }
 
