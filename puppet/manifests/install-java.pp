@@ -13,12 +13,12 @@ node 'dev-box' {
 	#}
 
 	exec { 'sdkman':
-		command => 'curl -s "https://get.sdkman.io" | bash',
+		command => 'export SDKMAN_DIR="/usr/local/sdkman" && /usr/bin/curl -s "https://get.sdkman.io" | bash && source "/usr/local/sdkman/bin/sdkman-init.sh',
 		timeout => 1800
 	}
 
 	exec { 'java17':
-		command => 'sdk install java 17.0.5-tem < /dev/null',
+		command => '/usr/local/sdk version && /usr/local/sdk install java 17.0.5-tem < /dev/null',
 		timeout => 1800,
 		require => Exec['sdkman']
 	}
