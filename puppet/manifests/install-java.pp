@@ -18,36 +18,42 @@ node 'dev-box' {
 	#	path => "/etc/environment"
 	#}
 
-	exec { 'install sdkman':
-		command => '/bin/bash -c "/usr/bin/curl -s \"https://get.sdkman.io\" | bash"',
-		returns => [0],
-		provider => 'shell',
-		#require => File_line['export sdkman folder']
-	}
-
-	exec { 'move sdkman':
-		command => '/bin/bash -c "/usr/bin/mv /.sdkman /home/dev/.sdkman"',
-		returns => [0],
-		provider => 'shell',
-		require => Exec['install sdkman']
-	}
-
-	exec { 'source sdkman init script':
-		command => '/bin/bash -c "/usr/bin/sudo /usr/bin/su dev && source /home/dev/.sdkman/bin/sdkman-init.sh"',
-		returns => [0],
-		user => 'dev',
-		provider => 'shell',
-		require => Exec['move sdkman']
-	}
-
 	exec { 'java17':
-		command => '/bin/bash -c "/usr/bin/sudo /usr/bin/su dev && sdk version && sdk install java 17.0.5-tem < /dev/null"',
+		command => '/home/vagrant/repos/OSGP/Config/puppet/manifests/sdkman.sh',
 		returns => [0],
-		timeout => 1800,
-		user => 'dev',
-		provider => 'shell',
-		require => Exec['source sdkman init script']
+		provider => 'shell'
 	}
+
+	#exec { 'install sdkman':
+	#	command => '/bin/bash -c "/usr/bin/curl -s \"https://get.sdkman.io\" | bash"',
+	#	returns => [0],
+	#	provider => 'shell',
+	#	#require => File_line['export sdkman folder']
+	#}
+
+	#exec { 'move sdkman':
+	#	command => '/bin/bash -c "/usr/bin/mv /.sdkman /home/dev/.sdkman"',
+	#	returns => [0],
+	#	provider => 'shell',
+	#	require => Exec['install sdkman']
+	#}
+
+	#exec { 'source sdkman init script':
+	#	command => '/bin/bash -c "/usr/bin/sudo /usr/bin/su dev && source /home/dev/.sdkman/bin/sdkman-init.sh && sdk version && sdk install java 17.0.5-tem < /dev/null"',
+	#	returns => [0],
+	#	user => 'dev',
+	#	provider => 'shell',
+	#	require => Exec['move sdkman']
+	#}
+
+	#exec { 'java17':
+	#	command => '/bin/bash -c "/usr/bin/sudo /usr/bin/su dev && sdk version && sdk install java 17.0.5-tem < /dev/null"',
+	#	returns => [0],
+	#	timeout => 1800,
+	#	user => 'dev',
+	#	provider => 'shell',
+	#	require => Exec['source sdkman init script']
+	#}
 
 	# Enable the SunPKCS11 security provider.
 	exec { 'Add NSS library to java.security':
@@ -61,9 +67,11 @@ node 'dev-box' {
 	#	onlyif => '/usr/bin/test -f /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/security/nss.cfg',
 	#	require => Exec['Add NSS library to java.security'],
 	#}
+
 	file_line { 'NSS library dir':
 		path => '/etc/java-17-openjdk/security/nss.cfg',
-		line => 'nssLibraryDirectory = /usr/lib/x86_64-linux-gnu'
+		line => 'nssLibraryDirectory = /usr/lib/x86_64-linux-gnu',
+		require => Exec['Add NSS library to java.security']
 	}
 
 }
