@@ -26,6 +26,7 @@ node 'dev-box' {
 	exec { 'source sdkman init script':
 		command => '/bin/bash -c "source /home/dev/.sdkman/bin/sdkman-init.sh"',
 		returns => [0],
+		provider => 'shell',
 		require => Exec['install sdkman']
 	}
 
@@ -33,6 +34,7 @@ node 'dev-box' {
 		command => 'bin/bash -c "sdk version && sdk install java 17.0.5-tem < /dev/null"',
 		returns => [0],
 		timeout => 1800,
+		provider => 'shell',
 		require => Exec['source sdkman init script']
 	}
 
