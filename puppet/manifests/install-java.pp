@@ -12,9 +12,10 @@ node 'dev-box' {
 	#	timeout => 1800
 	#}
 
-	exec { 'export sdkman folder':
-		command => '/bin/bash -c "export SDKMAN_DIR="/usr/local/sdkman"',
-		returns => [0]
+	file_line { 'export sdkman folder':
+		ensure => present,
+		line => "SDKMAN_DIR=/usr/local/sdkman",
+		path => "/etc/environment"
 	}
 
 	exec { 'install sdkman':
