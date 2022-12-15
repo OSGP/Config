@@ -21,22 +21,30 @@ node 'dev-box' {
 	exec { 'install sdkman':
 		command => '/bin/bash -c "/usr/bin/curl -s \"https://get.sdkman.io\" | bash"',
 		returns => [0],
-		user => 'dev',
 		provider => 'shell',
 		#require => File_line['export sdkman folder']
 	}
 
-	exec { 'source sdkman init script':
-		command => '/bin/bash -c "source /home/dev/.sdkman/bin/sdkman-init.sh"',
+	exec { 'move sdkman':
+		command => '/bin/bash -c "/usr/bin/mv /.sdkman /home/dev/.sdkman"',
 		returns => [0],
 		provider => 'shell',
 		require => Exec['install sdkman']
 	}
 
+	exec { 'source sdkman init script':
+		command => '/bin/bash -c "/usr/bin/sudo /usr/bin/su dev && source /home/dev/.sdkman/bin/sdkman-init.sh"',
+		returns => [0],
+		user => 'dev',
+		provider => 'shell',
+		require => Exec['move sdkman']
+	}
+
 	exec { 'java17':
-		command => 'bin/bash -c "sdk version && sdk install java 17.0.5-tem < /dev/null"',
+		command => '/bin/bash -c "/usr/bin/sudo /usr/bin/su dev && sdk version && sdk install java 17.0.5-tem < /dev/null"',
 		returns => [0],
 		timeout => 1800,
+		user => 'dev',
 		provider => 'shell',
 		require => Exec['source sdkman init script']
 	}
