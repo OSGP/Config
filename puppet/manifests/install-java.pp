@@ -12,15 +12,26 @@ node 'dev-box' {
 	#	timeout => 1800
 	#}
 
-	exec { 'sdkman':
-		command => 'export SDKMAN_DIR="/usr/local/sdkman" && /usr/bin/curl -s "https://get.sdkman.io" | bash && source "/usr/local/sdkman/bin/sdkman-init.sh',
-		timeout => 1800
+	exec { 'export sdkman folder':
+		command => '/bin/bash -c "export SDKMAN_DIR="/usr/local/sdkman"',
+		returns => [0]
+	}
+
+	exec { 'install sdkman':
+		command => '/usr/bin/curl -s "https://get.sdkman.io" | bash',
+		require => Exec['export sdkman folder']
+	}
+
+	exec { 'source sdkman init script':
+		command => '/bin/bash -c "source /usr/local/sdkman/bin/sdkman-init.sh"',
+		returns => [0],
+		require => Exec['install sdkman']
 	}
 
 	exec { 'java17':
 		command => '/usr/local/sdk version && /usr/local/sdk install java 17.0.5-tem < /dev/null',
 		timeout => 1800,
-		require => Exec['sdkman']
+		require => Exec['source sdkman init script']
 	}
 
 	# Enable the SunPKCS11 security provider.
