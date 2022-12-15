@@ -19,7 +19,7 @@ node 'dev-box' {
 	}
 
 	exec { 'install sdkman':
-		command => '/usr/bin/curl -s "https://get.sdkman.io" | bash',
+		command => '/bin/bash -c "/usr/bin/curl -s \"https://get.sdkman.io\" | bash"',
 		require => File_line['export sdkman folder']
 	}
 
@@ -30,7 +30,8 @@ node 'dev-box' {
 	}
 
 	exec { 'java17':
-		command => 'sdk version && sdk install java 17.0.5-tem < /dev/null',
+		command => 'bin/bash -c "sdk version && sdk install java 17.0.5-tem < /dev/null"',
+		returns => [0],
 		timeout => 1800,
 		require => Exec['source sdkman init script']
 	}
