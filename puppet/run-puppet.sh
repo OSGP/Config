@@ -114,10 +114,10 @@ sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/create-logging-folder.pp
 sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/create-config-folder.pp
 sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/create-firmware-folder.pp
 
-echo "##############################################################"
-echo "## Setting JAVA_HOME environment variable                   ##"
-echo "##############################################################"
-sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/set-java-home-env-var.pp
+#echo "##############################################################"
+#echo "## Setting JAVA_HOME environment variable                   ##"
+#echo "##############################################################"
+#sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/set-java-home-env-var.pp
 
 echo "##############################################################"
 echo "## Create symlinks                                          ##"
