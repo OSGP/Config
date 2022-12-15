@@ -30,14 +30,14 @@ echo "##############################################################"
 sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/vm-corrections.pp
 
 echo "##############################################################"
-echo "## Installing JDK                                           ##"
-echo "##############################################################"
-sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/install-java.pp
-
-echo "##############################################################"
 echo "## Adding 'dev' user                                        ##"
 echo "##############################################################"
 sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/add-dev-user.pp
+
+echo "##############################################################"
+echo "## Installing JDK                                           ##"
+echo "##############################################################"
+sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/install-java.pp
 
 echo "##############################################################"
 echo "## Installing Dev. Env.                                     ##"

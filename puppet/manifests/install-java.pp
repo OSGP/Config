@@ -12,15 +12,18 @@ node 'dev-box' {
 	#	timeout => 1800
 	#}
 
-	file_line { 'export sdkman folder':
-		ensure => present,
-		line => "SDKMAN_DIR=/home/dev/.sdkman",
-		path => "/etc/environment"
-	}
+	#file_line { 'export sdkman folder':
+	#	ensure => present,
+	#	line => "SDKMAN_DIR=/home/dev/.sdkman",
+	#	path => "/etc/environment"
+	#}
 
 	exec { 'install sdkman':
 		command => '/bin/bash -c "/usr/bin/curl -s \"https://get.sdkman.io\" | bash"',
-		require => File_line['export sdkman folder']
+		returns => [0],
+		user => 'dev',
+		provider => 'shell',
+		#require => File_line['export sdkman folder']
 	}
 
 	exec { 'source sdkman init script':
