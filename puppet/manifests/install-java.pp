@@ -7,9 +7,20 @@ node 'dev-box' {
 	#	ensure => installed,
 	#}
 
-	exec { 'java17':
-		command => '/usr/bin/apt-get install -y openjdk-17-jdk openjdk-17-jre',
+	#exec { 'java17':
+	#	command => '/usr/bin/apt-get install -y openjdk-17-jdk openjdk-17-jre',
+	#	timeout => 1800
+	#}
+
+	exec { 'sdkman':
+		command => 'curl -s "https://get.sdkman.io" | bash',
 		timeout => 1800
+	}
+
+	exec { 'java17':
+		command => 'sdk install java 17.0.5-tem < /dev/null',
+		timeout => 1800,
+		require => Exec['sdkman']
 	}
 
 	# Enable the SunPKCS11 security provider.
