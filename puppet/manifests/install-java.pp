@@ -20,7 +20,7 @@ node 'dev-box' {
 
 	exec { 'install sdkman':
 		command => '/usr/bin/curl -s "https://get.sdkman.io" | bash',
-		require => Exec['export sdkman folder']
+		require => File_line['export sdkman folder']
 	}
 
 	exec { 'source sdkman init script':
