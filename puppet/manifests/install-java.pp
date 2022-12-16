@@ -62,16 +62,10 @@ node 'dev-box' {
 		require => Exec['java17']
 	}
 
-	#exec { 'Fix NSS library dir':
-	#	command => '/bin/sed -i "s/@NSS_LIBDIR@/\/usr\/lib64/g" /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/security/nss.cfg',
-	#	onlyif => '/usr/bin/test -f /usr/lib/jvm/java-8-openjdk-amd64/jre/lib/security/nss.cfg',
-	#	require => Exec['Add NSS library to java.security'],
-	#}
-
-	file_line { 'NSS library dir':
-		path => '/home/dev//.sdkman/candidates/java/current/lib/security/nss.cfg',
-		line => 'nssLibraryDirectory = /usr/lib/x86_64-linux-gnu',
-		require => Exec['Add NSS library to java.security']
+	exec { 'Fix NSS library dir':
+		command => '/bin/sed -i "nssLibraryDirectory = /usr/lib/x86_64-linux-gnu" /home/dev//.sdkman/candidates/java/current/lib/security/nss.cfg',
+		onlyif => '/usr/bin/test -f /home/dev//.sdkman/candidates/java/current/lib/security/nss.cfg',
+		require => Exec['Add NSS library to java.security'],
 	}
 
 }
