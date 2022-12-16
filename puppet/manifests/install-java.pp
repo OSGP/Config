@@ -57,8 +57,8 @@ node 'dev-box' {
 
 	# Enable the SunPKCS11 security provider.
 	exec { 'Add NSS library to java.security':
-		command => '/bin/sed -i "s/security.provider.12=SunPKCS11/security.provider.12=SunPKCS11 \/usr\/lib\/jvm\/java-17-openjdk-amd64\/conf\/security\/nss.cfg/g" /usr/lib/jvm/java-17-openjdk-amd64/conf/security/java.security',
-		onlyif => '/usr/bin/test $(/bin/grep -c security.provider.12 /usr/lib/jvm/java-17-openjdk-amd64/conf/security/java.security) -eq 1',
+		command => '/bin/sed -i "s/security.provider.12=SunPKCS11/security.provider.12=SunPKCS11 \/home\/dev\/\/.sdkman\/candidates\/java\/current\/lib\/security\/nss.cfg/g" /home/dev//.sdkman/candidates/java/current/conf/security/java.security',
+		onlyif => '/usr/bin/test $(/bin/grep -c security.provider.12 /home/dev//.sdkman/candidates/java/current/conf/security/java.security) -eq 1',
 		require => Exec['java17']
 	}
 
@@ -69,8 +69,9 @@ node 'dev-box' {
 	#}
 
 	file_line { 'NSS library dir':
-		path => '/etc/java-17-openjdk/security/nss.cfg',
+		path => '/home/dev//.sdkman/candidates/java/current/lib/security/nss.cfg',
 		line => 'nssLibraryDirectory = /usr/lib/x86_64-linux-gnu',
+		onlyif => '/usr/bin/test -f /home/dev//.sdkman/candidates/java/current/lib/security/nss.cfg',
 		require => Exec['Add NSS library to java.security']
 	}
 
