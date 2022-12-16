@@ -3,6 +3,6 @@
 node 'dev-box' {
 
 	file { '/etc/osp':
-    ensure => 'directory',
-  }
+		ensure => 'directory',
+	}
 }

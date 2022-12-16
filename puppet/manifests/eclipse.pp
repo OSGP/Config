@@ -37,30 +37,10 @@ node 'dev-box' {
 		require => File['create eclipse link']
 	}
 
-#	exec { 'install checkstyle plugin':
-#		command => '/home/dev/Tools/eclipse/eclipse -application org.eclipse.equinox.p2.director -nosplash -repository http://eclipse-cs.sourceforge.net/update -installIUs net.sf.eclipsecs.feature.group',
-#		require => File['create eclipse link']
-#	}
-
-#	exec { 'install findbugs plugin':
-#		command => '/home/dev/Tools/eclipse/eclipse -application org.eclipse.equinox.p2.director -nosplash -repository http://findbugs.cs.umd.edu/eclipse -installIUs edu.umd.cs.findbugs.plugin.eclipse.feature.group',
-#		require => File['create eclipse link']
-#	}
-
-#	exec { 'install sonarlint plugin':
-#		command => '/home/dev/Tools/eclipse/eclipse -application org.eclipse.equinox.p2.director -nosplash -repository http://www.sonarlint.org/eclipse -installIUs org.sonarlint.eclipse.feature.feature.group',
-#		require => File['create eclipse link']
-#	}
-
 	exec { 'install M2E Connector for jaxws-maven-plugin plugin':
 		command => '/home/dev/Tools/eclipse/eclipse -application org.eclipse.equinox.p2.director -nosplash -repository https://coderplus.github.io/m2e-connector-for-jaxws-maven-plugin/ -installIUs com.coderplus.m2e.jaxwscore',
 		require => File['create eclipse link']
 	}
-
-#	exec { 'install m2e connector for build-helper-maven-plugin plugin':
-#		command => '/home/dev/Tools/eclipse/eclipse -application org.eclipse.equinox.p2.director -nosplash -repository https://repository.sonatype.org/content/repositories/forge-sites/m2e-extras/0.15.0/N/0.15.0.201206251206/ -installIUs org.sonatype.m2e.buildhelper',
-#		require => File['create eclipse link']
-#	}
 
 	exec { 'install Ansi Console plugin':
 		command => '/home/dev/Tools/eclipse/eclipse -application org.eclipse.equinox.p2.director -nosplash -repository http://www.mihai-nita.net/eclipse -installIUs net.mihai-nita.ansicon.feature.group',
