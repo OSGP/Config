@@ -71,7 +71,6 @@ node 'dev-box' {
 	file_line { 'NSS library dir':
 		path => '/home/dev//.sdkman/candidates/java/current/lib/security/nss.cfg',
 		line => 'nssLibraryDirectory = /usr/lib/x86_64-linux-gnu',
-		onlyif => '/usr/bin/test -f /home/dev//.sdkman/candidates/java/current/lib/security/nss.cfg',
 		require => Exec['Add NSS library to java.security']
 	}
 

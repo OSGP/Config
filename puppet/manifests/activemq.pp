@@ -30,7 +30,7 @@ node 'dev-box' {
 	}
 
 	file_line { 'Configure activemq env:
-		path => '/home/dev/Tools/apache-activemq-${version}/bin/env',
+		path => "/home/dev/Tools/apache-activemq-${version}/bin/env",
 		line => 'JAVA_HOME=/home/dev/.sdkman/candidates/java/current',
 		onlyif => '/usr/bin/test -f /home/dev/Tools/apache-activemq-${version}/bin/env',
 		require => Exec['create activemq link']
