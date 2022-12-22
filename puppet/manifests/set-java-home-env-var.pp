@@ -3,7 +3,7 @@
 node 'dev-box' {
 
 	exec { 'set JAVA_HOME environment variable':
-		command => '/bin/sh -c "echo \"export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64\" >> /home/dev/.bashrc"',
+		command => '/bin/sh -c "echo \"export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64\" >> /home/dev/.bashrc"',
 		returns => [0],
 		before => Exec['source .bashrc'],
 	}

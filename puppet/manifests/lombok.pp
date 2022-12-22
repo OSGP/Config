@@ -1,5 +1,5 @@
 node 'dev-box' {
-	
+
 	exec { 'wget lombok':
 		command => "/usr/bin/wget -q -O /home/dev/Downloads/lombok.jar https://projectlombok.org/downloads/lombok.jar",
 		creates => "/home/dev/Downloads/lombok.jar",
@@ -18,5 +18,5 @@ node 'dev-box' {
 		unless => '/bin/grep -qxF /home/dev/Tools/eclipse/eclipse.ini -e "-javaagent:/home/dev/Tools/eclipse/lombok.jar"',
 		require => Exec['cp lombok'],
 	}
-	
+
 }

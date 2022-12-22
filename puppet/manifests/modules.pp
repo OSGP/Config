@@ -1,11 +1,6 @@
 #class base::modules {
 node 'dev-box' {
 
-#sudo puppet module install rcoleman/puppet_module
-#	module { 'puppetlabs-git':
-#		ensure => present
-#	}
-
 	exec { 'Installing module puppetlabs-stdlib':
 		command => "puppet module install puppetlabs-stdlib --version 5.2.0 --ignore-dependencies --force",
 		unless  => "puppet module list | grep \"puppetlabs-stdlib.*5\"",
@@ -29,11 +24,12 @@ node 'dev-box' {
 		unless  => "puppet module list | grep puppetlabs-apt",
 		path    => ['/bin', '/usr/bin']
 	}
-        
+
 	exec { 'Installing module python':
 		command => "puppet module install stankevich-python",
 		unless  => "puppet module list | grep stankevich-python",
 		path    => ['/bin', '/usr/bin']
 	}
+
 }
 

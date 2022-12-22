@@ -2,11 +2,13 @@
 
 node 'dev-box' {
 
+	$mavenVersion="3.8.6"
+
 	# Everybody needs vim.
 	package { 'vim':
 		ensure => installed,
 	}
-	
+
 	# The same goes for htop.
 	package { 'htop':
 		ensure => installed,
@@ -18,8 +20,9 @@ node 'dev-box' {
 	}
 
 	# Maven is used as dependency management and build tool.
-	package { 'maven':
-		ensure => installed,
+	exec { 'maven':
+		command => "/usr/bin/wget -q -P /home/dev/Tools https://dlcdn.apache.org/maven/maven-3/${mavenVersion}/binaries/apache-maven-${mavenVersion}-bin.tar.gz && /bin/tar xzf /home/dev/Tools/apache-maven-${mavenVersion}-bin.tar.gz -C /home/dev/Tools && /bin/ln -s /home/dev/Tools/apache-maven-${mavenVersion}/bin/mvn /usr/bin/mvn",
+		returns => [0, 4],
 	}
 
 	# Google Protocol Buffers is used to compile OSLP.

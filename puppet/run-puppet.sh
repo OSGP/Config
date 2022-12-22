@@ -30,14 +30,14 @@ echo "##############################################################"
 sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/vm-corrections.pp
 
 echo "##############################################################"
-echo "## Installing JDK                                           ##"
-echo "##############################################################"
-sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/install-java.pp
-
-echo "##############################################################"
 echo "## Adding 'dev' user                                        ##"
 echo "##############################################################"
 sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/add-dev-user.pp
+
+echo "##############################################################"
+echo "## Installing JDK                                           ##"
+echo "##############################################################"
+sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/install-java.pp
 
 echo "##############################################################"
 echo "## Installing Dev. Env.                                     ##"
@@ -114,10 +114,10 @@ sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/create-logging-folder.pp
 sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/create-config-folder.pp
 sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/create-firmware-folder.pp
 
-echo "##############################################################"
-echo "## Setting JAVA_HOME environment variable                   ##"
-echo "##############################################################"
-sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/set-java-home-env-var.pp
+#echo "##############################################################"
+#echo "## Setting JAVA_HOME environment variable                   ##"
+#echo "##############################################################"
+#sudo $RUBY_WARNING_LEVEL puppet apply $NOOP ./manifests/set-java-home-env-var.pp
 
 echo "##############################################################"
 echo "## Create symlinks                                          ##"
