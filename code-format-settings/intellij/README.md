@@ -10,20 +10,31 @@ The files in this directory are used to configure Intellij.
 2. Enable the google-java-format plugin
    * under `Preferences...` -> `Other Settings`
      - `google-java-format Settings` -> Enable the option "Enable the google-java-format"
-3. Import the Codestyle format file:
+3. In order to work the following lines should be added to `Custom VM options` (see [Github issue](https://github.com/google/google-java-format/issues/787)):
+    * under `Help` -> `Edit Custom VM Options...`
+   ```
+    --add-opens=java.base/java.lang=ALL-UNNAMED
+    --add-opens=java.base/java.util=ALL-UNNAMED
+    --add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED
+    --add-exports=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED
+    --add-exports=jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED
+    --add-exports=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED
+    --add-exports=jdk.compiler/com.sun.tools.javac.util=ALL-UNNAMED
+   ```
+4. Import the Codestyle format file:
    * under `Preferences...` -> `Editor` -> `Code-Style`
      - `Scheme` -> `Import Scheme` -> IntelliJ IDEA code style XML
      - Add the code-style file: [code-format/IntelliJ-GXFGoogleStyle-CodeStyle.xml](code-format/IntelliJ-GXFGoogleStyle-CodeStyle.xml)
-4. Import the inspection format file:
+5. Import the inspection format file:
    * under `Preferences...` -> `Editor` -> `Inspections`
      - `Profile` -> `Import Profile`
      - Add the inspection file: [code-format/IntelliJ-GXFGoogleStyle-Inspection.xml](code-format/IntelliJ-GXFGoogleStyle-Inspection.xml)
 
 ## Save actions
-5. Install the "Save Actions" plugin
+6. Install the "Save Actions" plugin
     * under `Preferences...` -> `Plugins`
         - Import the "Save Actions" plugin
-6. Configure `Save Actions`, enable the following options
+7. Configure `Save Actions`, enable the following options
      * under `Preferences...` -> `Other Settings`
       - General: Activate save actions on save
       - General: Activate save actions on shortcut
@@ -42,9 +53,9 @@ The files in this directory are used to configure Intellij.
       - File Path Inclusions:`.*\.java`
 
 ## Copyright
-7. Add the copyright header:
+8. Add the copyright header:
    * under `Preferences...` -> `Editor` -> `Copyright`  -> `Copyright Profiles`
      - Add the copyright file:  [code-templates/copyright_header.txt](code-templates/copyright_header.txt)
-8. Set the default copyright header
+9. Set the default copyright header
    * under `Preferences...` -> `Editor` -> `Copyright`
       - Select the default copyright
