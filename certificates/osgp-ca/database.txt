@@ -16,3 +16,4 @@ V	250401081527Z		0F	unknown	/CN=unknown-organization
 V	250401081535Z		10	unknown	/CN=ZownStream
 V	250301085209Z		11	unknown	/CN=localhost
 V	230309141049Z		12	unknown	/CN=*.dev.osgp.cloud
+V	260309180337Z		13	unknown	/CN=wildcard.dev.osgp.cloud
