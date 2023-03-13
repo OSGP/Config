@@ -4,7 +4,7 @@ The files in this directory are used to configure eclipse.
 
 The configuration files and instructions are based on [eclipse-java-google-style.xml](https://raw.githubusercontent.com/google/styleguide/gh-pages/eclipse-java-google-style.xml) combined with conventions in the GXF code base. Some modifications were made taking into account that rules can be applied by IDE configuration in Eclipse and IntelliJ to get consistent results.
 
-1. Install the google-java-format Eclipse plugin for Google Java Format version 1.15.0 by downloading the [plugin jar](https://github.com/google/google-java-format/releases/download/v1.15.0/google-java-format-eclipse-plugin-1.13.0.jar) and copying it into the dropins folder with your Eclipe installation.
+1. Install the google-java-format Eclipse plugin for Google Java Format by downloading the `google-java-format-eclipse-plugin-1.13.0.jar` from [plugin jar](https://github.com/google/google-java-format/releases) and copying it into the dropins folder with your Eclipe installation.
 2. In order to work the following lines should be added to `eclipse.ini` (see [Stackoverflow](https://stackoverflow.com/questions/69228635/eclipse-plugin-add-exports-java-16)):
    ```
    --add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED
