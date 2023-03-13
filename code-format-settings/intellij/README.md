@@ -3,7 +3,7 @@
 The files in this directory are used to configure Intellij.
 
 ## Code style
-1. Install the google-java-format IntelliJ plugin for Google Java Format version 1.15.0 (at the moment 1.15.0.0) (you can download it from https://plugins.jetbrains.com/plugin/8527-google-java-format/versions
+1. Install the google-java-format IntelliJ plugin for Google Java Format (you can download it from https://plugins.jetbrains.com/plugin/8527-google-java-format/versions
 
    * under `Preferences...` -> `Plugins`
      - Import the "google-java-format" plugin
@@ -13,9 +13,8 @@ The files in this directory are used to configure Intellij.
 3. In order to work the following lines should be added to `Custom VM options` (see [Github issue](https://github.com/google/google-java-format/issues/787)):
     * under `Help` -> `Edit Custom VM Options...`
    ```
-    --add-opens=java.base/java.lang=ALL-UNNAMED
-    --add-opens=java.base/java.util=ALL-UNNAMED
     --add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED
+    --add-exports=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED
     --add-exports=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED
     --add-exports=jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED
     --add-exports=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED
