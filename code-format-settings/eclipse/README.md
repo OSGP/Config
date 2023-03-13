@@ -8,6 +8,7 @@ The configuration files and instructions are based on [eclipse-java-google-style
 2. In order to work the following lines should be added to `eclipse.ini` (see [Stackoverflow](https://stackoverflow.com/questions/69228635/eclipse-plugin-add-exports-java-16)):
    ```
    --add-exports=jdk.compiler/com.sun.tools.javac.api=ALL-UNNAMED
+   --add-exports=jdk.compiler/com.sun.tools.javac.code=ALL-UNNAMED
    --add-exports=jdk.compiler/com.sun.tools.javac.file=ALL-UNNAMED
    --add-exports=jdk.compiler/com.sun.tools.javac.parser=ALL-UNNAMED
    --add-exports=jdk.compiler/com.sun.tools.javac.tree=ALL-UNNAMED
