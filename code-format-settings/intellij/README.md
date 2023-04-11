@@ -30,9 +30,10 @@ The files in this directory are used to configure Intellij.
      - Add the inspection file: [code-format/IntelliJ-GXFGoogleStyle-Inspection.xml](code-format/IntelliJ-GXFGoogleStyle-Inspection.xml)
 
 ## Save actions
-6. Install the "Save Actions" plugin
+6. Install the "Save Actions" plugin (IntelliJ 2023.1 requires version 2.6.0: https://github.com/fishermans/intellij-plugin-save-actions/releases/tag/v2.6.0)
     * under `Preferences...` -> `Plugins`
-        - Import the "Save Actions" plugin
+        - Download the "Save Actions" plugin (IntelliJ 2023.1 requires version 2.6.0: https://github.com/fishermans/intellij-plugin-save-actions/releases/tag/v2.6.0)
+        - Install Plugin from disk.....
 7. Configure `Save Actions`, enable the following options
      * under `Preferences...` -> `Other Settings`
       - General: Activate save actions on save
