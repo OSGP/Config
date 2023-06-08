@@ -1,3 +1,7 @@
+-- SPDX-FileCopyrightText: Contributors to the GXF project
+--
+-- SPDX-License-Identifier: Apache-2.0
+
 update pg_database set datallowconn = true where datname = 'template0';
 update pg_database set datistemplate = false where datname = 'template1';
 drop database template1;

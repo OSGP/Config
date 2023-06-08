@@ -1,3 +1,7 @@
+REM SPDX-FileCopyrightText: Contributors to the GXF project
+REM
+REM SPDX-License-Identifier: Apache-2.0
+
 @echo off
 
 REM This script can create a private key and request to obtain a SSL Certificate from a SSL Certificate providers like Xolphin

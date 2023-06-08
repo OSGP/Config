@@ -1,4 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+
+<!--
+SPDX-FileCopyrightText: Contributors to the GXF project
+
+SPDX-License-Identifier: Apache-2.0
+-->
+
 <profiles version="11">
 <profile kind="CodeFormatterProfile" name="JavaScript - Adapted" version="11">
 <setting id="org.eclipse.wst.jsdt.core.formatter.indent_body_declarations_compare_to_annotation_declaration_header" value="true"/>

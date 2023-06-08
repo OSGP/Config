@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# SPDX-FileCopyrightText: Contributors to the GXF project
+#
+# SPDX-License-Identifier: Apache-2.0
+
 base=$HOME
 
 # If no HOME directory was set, use a BASE directory that is /home/dev

@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# SPDX-FileCopyrightText: Contributors to the GXF project
+#
+# SPDX-License-Identifier: Apache-2.0
+
 echo "Switch to dev user..."
 sudo -i -u dev bash << EOF
 

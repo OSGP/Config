@@ -1,4 +1,9 @@
 #!/bin/bash
+
+# SPDX-FileCopyrightText: Contributors to the GXF project
+#
+# SPDX-License-Identifier: Apache-2.0
+
 #
 # Run this script as your user, not as root!
 # The script will prompt for root password (for the first sudo command) and will prompt if you want to continue with installation of packages (for the apt-get install command).

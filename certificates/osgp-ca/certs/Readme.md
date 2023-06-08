@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: Contributors to the GXF project
+
+SPDX-License-Identifier: Apache-2.0
+-->
+
 # Certificates
 
 These certificates are self signed certificates, only meant for development/test purposes.

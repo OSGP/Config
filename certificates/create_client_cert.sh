@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# SPDX-FileCopyrightText: Contributors to the GXF project
+#
+# SPDX-License-Identifier: Apache-2.0
+
 # Description
 # Call create_cert.sh with specific client certificate configuration section "v3_client".
 

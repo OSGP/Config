@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: Contributors to the GXF project
+
+SPDX-License-Identifier: Apache-2.0
+-->
+
 # Config
 To set up a development environment take a look at the [Installation Manual](http://documentation.gfx.lfenergy.org/Userguide/Installation/Installationguide.html)
 
