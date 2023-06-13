@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: Contributors to the GXF project
+
+SPDX-License-Identifier: Apache-2.0
+-->
+
 # Rotating and removing Tomcat log files
 
 This folder contains the necessary information to rotate catalina.out and to remove old Tomcat log files, like the localhost_access_log files.

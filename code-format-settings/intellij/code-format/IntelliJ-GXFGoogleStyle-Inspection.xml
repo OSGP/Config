@@ -1,3 +1,9 @@
+<!--
+SPDX-FileCopyrightText: Contributors to the GXF project
+
+SPDX-License-Identifier: Apache-2.0
+-->
+
 <profile version="1.0">
   <option name="myName" value="IntelliJ-GXFGoogleStyle-Inspection" />
   <inspection_tool class="AccessStaticViaInstance" enabled="false" level="WARNING" enabled_by_default="false" />

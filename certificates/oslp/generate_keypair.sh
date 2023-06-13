@@ -1,4 +1,9 @@
 #!/bin/sh
+
+# SPDX-FileCopyrightText: Contributors to the GXF project
+#
+# SPDX-License-Identifier: Apache-2.0
+
 # Generates a public and private ECDSA key, which can be used as
 # communication keys for a platform using OSLP.
 # The .der encoded files are generated from the initial .pem format,

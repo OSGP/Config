@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# SPDX-FileCopyrightText: Contributors to the GXF project
+#
+# SPDX-License-Identifier: Apache-2.0
+
 echo "### Create Desktop folder if it doesnt excist"
 if [ ! -d "/home/dev/Desktop" ]; then
   mkdir /home/dev/Desktop

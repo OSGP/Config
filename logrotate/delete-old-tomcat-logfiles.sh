@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: Contributors to the GXF project
+#
+# SPDX-License-Identifier: Apache-2.0
+
 # This script deletes old Tomcat logfiles like the standard "localhost_access_log" files.
 # It does not touch catalina.out. Catalina.out should be rotated and removed by logrotate.
 # Main uses: ran standalone ad-hoc, daily from a cron job or daily from logrotate.

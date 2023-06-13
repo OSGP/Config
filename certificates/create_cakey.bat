@@ -1,3 +1,7 @@
+REM SPDX-FileCopyrightText: Contributors to the GXF project
+REM
+REM SPDX-License-Identifier: Apache-2.0
+
 @echo off
 
 set OPENSSL=OpenSSL-Win32_1.0.1h_Light\bin\openssl

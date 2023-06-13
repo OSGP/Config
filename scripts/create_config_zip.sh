@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# SPDX-FileCopyrightText: Contributors to the GXF project
+#
+# SPDX-License-Identifier: Apache-2.0
+
 # Create a zip file for deployment of the configuration files.
 # Note: This is a temporary file, which will be removed when the deployment process of the application is updated.
 
