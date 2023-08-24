@@ -50,7 +50,7 @@ The files in this directory are used to configure Intellij.
       - Add blocks to if/while/for statements
       - Add a serialVersionUID field for Serializable classes
       - Remove unnecessarry semicolumn
-      - File Path Inclusions:`.*\.java`
+      - File Path Inclusions:`.*\.java` and `.*\.ts`
 
 ## Copyright
 8. Add the copyright header:
