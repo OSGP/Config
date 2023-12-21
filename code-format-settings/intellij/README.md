@@ -28,7 +28,7 @@ The files in this directory are used to configure Intellij.
    * under `Preferences...` -> `Editor` -> `Inspections`
      - `Profile` -> `Import Profile`
      - Add the inspection file: [code-format/IntelliJ-GXFGoogleStyle-Inspection.xml](code-format/IntelliJ-GXFGoogleStyle-Inspection.xml)
-     - (when the import is not available, you can copy the file manually to .idea/inspectionProfiles)
+     - (when the 'Import Profile' is not available, you can copy the file manually to .idea/inspectionProfiles)
 
 ## Save actions
 6. Install the "Save Actions" plugin (IntelliJ 2023.1 requires version 2.6.0: https://github.com/fishermans/intellij-plugin-save-actions/releases/tag/v2.6.0)
