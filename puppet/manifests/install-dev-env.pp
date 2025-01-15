@@ -2,7 +2,7 @@
 
 node 'dev-box' {
 
-	$mavenVersion="3.8.6"
+	$mavenVersion="3.8.8"
 
 	# Everybody needs vim.
 	package { 'vim':
