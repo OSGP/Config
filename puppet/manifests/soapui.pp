@@ -27,7 +27,7 @@ node 'dev-box' {
 	}
 
 	exec { 'wget icon':
-		command => "/usr/bin/wget -q -O /home/dev/Tools/SoapUI/logo.png https://symbols.getvecta.com/stencil_25/77_soapui.5113237b76.png",
+		command => "/usr/bin/wget -q -O /home/dev/Tools/SoapUI/logo.png https://symbols.getvecta.com/stencil_25/79_soapui.5113237b76.png",
 		onlyif => '/usr/bin/test ! -f /home/dev/Tools/SoapUI/logo.png',
 		require => File['create soapui link']
 	}
